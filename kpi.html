@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор экономики ИТ-услуг · Александр Чевтаев</title>
+<meta name="description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, аллокация затрат, окупаемость и ROI. Логика модели Казахмыс.">
+<meta name="theme-color" content="#0f1e34">
+<link rel="canonical" href="https://alechev777.github.io/portfolio/kpi.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Калькулятор экономики ИТ-услуг · Александр Чевтаев">
+<meta property="og:description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, аллокация затрат, окупаемость и ROI. Логика модели Казахмыс.">
+<meta property="og:image" content="https://alechev777.github.io/portfolio/img/og-cover.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://alechev777.github.io/portfolio/kpi.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2" as="font" type="font/woff2" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/print.css" media="print">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%20100'%3E%3Crect%20width%3D'100'%20height%3D'100'%20rx%3D'24'%20fill%3D'%231d6fe0'%2F%3E%3Ctext%20x%3D'50'%20y%3D'66'%20font-size%3D'52'%20font-weight%3D'900'%20fill%3D'white'%20text-anchor%3D'middle'%20font-family%3D'sans-serif'%3E%D0%A7%D0%90%3C%2Ftext%3E%3C%2Fsvg%3E">
+<script>
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(XXXXXXXX, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+</head>
+<body data-page="kpi" data-metrika="XXXXXXXX">
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html" data-nav aria-label="На главную"><div class="mk">ЧА</div><div class="nm">Чевтаев Александр<small>ЦИФРОВАЯ ТРАНСФОРМАЦИЯ</small></div></a>
+  <nav class="nav" id="menu" aria-label="Основная навигация">
+    <a href="index.html" data-nav>Главная</a>
+        <a href="cases.html" data-nav>Кейсы</a>
+        <a href="artifacts.html" data-nav>Артефакты</a>
+        <a href="archive.html" data-nav>Библиотека</a>
+        <a href="timeline.html" data-nav>Путь</a>
+        <a href="stack.html" data-nav>Навыки</a>
+        <a href="portfolio.html" data-nav>Портфель</a>
+        <a href="kpi.html" data-nav aria-current="page">Калькулятор</a>
+    <a href="contact.html" class="cta" data-nav>Контакты</a>
+  </nav>
+  <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="menu" aria-label="Меню навигации">
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path class="b1" d="M4 7h18"/><path class="b2" d="M4 13h18"/><path class="b3" d="M4 19h18"/></svg>
+  </button>
+</div></header>
+<main id="main">
+<div class="page on">
+<div class="wrap">
+  <nav aria-label="breadcrumb" class="crumbs"><a href="index.html"  data-nav>Главная</a><span>→</span><b>Расчёт KPI</b></nav>
+  <div class="d-hero">
+    <div class="k">Финансовая модель KPI · Казахмыс · Accenture</div>
+    <h1>Калькулятор экономики ИТ-услуг</h1>
+    <div class="lg">Введите параметры: считаем стоимость услуги, аллокацию затрат, окупаемость и ROI — вживую, как в KPI-модели, которую я построил для горнодобывающего холдинга.</div>
+    <div class="d-kpis">
+      <div class="dk"><b id="k-total">0</b><span>затрат на услугу, ₽/мес</span></div>
+      <div class="dk"><b id="k-ex">0</b><span>экономия в год, ₽</span></div>
+      <div class="dk"><b id="k-roi">0%</b><span>ROI за 1-й год</span></div>
+      <div class="dk"><b id="k-pb">—</b><span>окупаемость</span></div>
+    </div>
+  </div>
+<div class="d-body"><div class="d-main">
+    <div class="d-card">
+      <h3><span class="em">📐</span>Методика расчёта KPI — исходный слайд</h3>
+      <div class="slide-embed">
+        <img src="img/artifacts/kpi-slide.webp" width="1280" height="720" alt="Исходный слайд расчёта KPI" loading="lazy" decoding="async"Расчёт KPI — исходный слайд (стр. 1)" loading="lazy">
+        <p class="slide-caption">Исходный слайд · Расчёт KPI · стр. 1</p>
+      </div>
+    </div>
+    <div class="d-card"><h3><span class="em">🧮</span>Исходные данные (пример: сервис поддержки)</h3>
+      <div class="kpi-calc">
+        <div class="inp"><label>Загрузка услуги, %</label><input id="k-load" type="number" value="25" min="1" max="100" inputmode="numeric"  data-kpi><div class="hint">доля времени команды на услугу</div></div>
+        <div class="inp"><label>Затраты на команду, ₽/мес</label><input id="k-fot" type="number" value="1000000" min="0" step="100000" inputmode="numeric"  data-kpi><div class="hint">суммарные затраты на обслуживающее подразделение</div></div>
+        <div class="inp"><label>Инфраструктура + лицензии, ₽/мес</label><input id="k-inf" type="number" value="300000" min="0" step="50000" inputmode="numeric"  data-kpi><div class="hint">аренда, ПО, поддержка вендора</div></div>
+        <div class="inp"><label>Снижение потребления от тарификации, %</label><input id="k-save" type="number" value="20" min="0" max="60" inputmode="numeric"  data-kpi><div class="hint">эффект тарифной модели: −15–25%</div></div>
+      </div>
+    </div>
+    <div class="d-card"><h3><span class="em">📐</span>Методика (из KPI-модели Казахмыс)</h3><p>Стоимость услуги = (затраты на команду × загрузка) + инфраструктура + лицензии. Аллокация — на бизнес-процессы по фактическому потреблению. Тарифная модель (3 уровня) снижает спрос на 15–25%, ROI = экономия / затраты × 100%. При ROI ≥ 100% окупаемость менее года.</p></div>
+  </div><div class="d-side">
+    <div class="box"><h4>Результат</h4>
+      <div class="out">
+        <div class="oval"><b id="k-cost">600 000 ₽/мес</b><span>Стоимость услуги</span></div>
+        <div class="oval green"><b id="k-year">1 440 000 ₽/год</b><span>Экономия после тарификации</span></div>
+        <div class="oval roi"><b id="k-roi2">20%</b><span>ROI за первый год</span></div>
+        <div class="oval"><b id="k-pb2">5 мес.</b><span>Окупаемость</span></div>
+      </div>
+    </div>
+    <div class="box"><h4>Теги</h4><div class="d-tags"><span class="d-tag">KPI</span><span class="d-tag">Аллокация</span><span class="d-tag">CAPEX/OPEX</span><span class="d-tag">ROI</span></div></div>
+    <div class="kpi-note">Это та же логика, что в KPI-модели Казахмыс — считает экономику каждой ИТ-услуги</div>
+  </div></div>
+</div>
+</div>
+</main>
+<footer>
+  <div class="wrap foot-inner">
+    <div><strong>Чевтаев Александр</strong><span>Директор по цифровой трансформации</span></div>
+    <div class="foot-links">
+      <a href="contact.html" data-nav>Контакты</a> ·
+      <a href="cases.html" data-nav>Кейсы</a> ·
+      <a href="kpi.html" data-nav>KPI-калькулятор</a>
+    </div>
+    <span>© 2026 · портфель 17+ кейсов и проектов</span>
+  </div>
+  <span class="foot-print">Сделано в MultiTool · 2026</span>
+</footer>
+<div id="lbOverlay"><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Увеличенное изображение"></div><button id="lbClose" aria-label="Закрыть увеличенное изображение">✕</button><div id="lbCap"></div>
+<button id="toTop" aria-label="Наверх" hidden>↑</button>
+<div id="progressBar" aria-hidden="true"></div>
+<script src="js/router.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/portfolio.js"></script>
+<script src="js/calc.js"></script>
+</body>
+</html>
