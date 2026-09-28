@@ -121,7 +121,6 @@ const FOOTER = `<footer>
     </div>
     <span>© 2026 · портфель 17+ кейсов и проектов</span>
   </div>
-  <span class="foot-print">Сделано в MultiTool · 2026</span>
 </footer>
 <div id="lbOverlay"><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Увеличенное изображение"></div><button id="lbClose" aria-label="Закрыть увеличенное изображение">✕</button><div id="lbCap"></div>
 <button id="toTop" aria-label="Наверх" hidden>↑</button>
@@ -306,9 +305,9 @@ function processPage(id){
   // remove the outer page div wrapper (we control shell)
   chunk = chunk.replace(/^<div class="page( on)?" id="p-[^"]+">/, '').replace(/<\/div>\s*$/, '');
   const h1m = chunk.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
-  const h1 = h1m ? h1m[1].replace(/<[^>]*>/g,'').trim() : '';
+  const h1 = h1m ? contentRename(h1m[1].replace(/<[^>]*>/g,'').trim()) : '';
   const kind = pageKind(id);
-  let body = chunk;
+  let body = contentRename(chunk);
   body = fixLinks(body, id);
   body = transformInputs(body);
   body = toBreadcrumb(body, id, h1, kind);
@@ -319,6 +318,7 @@ function processPage(id){
   body = injectSvgPreview(body, id, h1);
   body = injectMetaNote(body, id);
   if(id==='home') body = homeEdits(body);
+  body = injectLogos(body, id);
 
   const pageText = body.replace(/<script[\s\S]*?<\/script>/g,'');
   const head = headHTML(id, h1, pageText);
@@ -346,27 +346,103 @@ ${FOOTER}
 </html>`;
   return out;
 }
+function contentRename(body){
+  body = body.replace(/Точка Займа/g,'ПСБ-ФИНАНС').replace(/CarMoney/g,'ПСБ-ФИНАНС');
+  return body;
+}
+
+// компания кейса -> слага логотипа
+const LOGO_BY_WORK = {w1:'accenture',w2:'accenture',w3:'accenture',w4:'accenture',w5:'accenture',w6:'accenture',
+  w7:'gostech',w8:'rvision',w9:'alrosa',w10:'psb',w11:'sunlight',w12:'merlion',
+  w13:'delta',w14:'incenter',w15:'vsrf',w16:'sber',w17:'srg'};
+function logoNameByCompany(txt){
+  const s=txt.toLowerCase();
+  if(s.includes('сбер')) return 'sber';
+  if(s.includes('каз')||s.includes('аэроклуб')||s.includes('арлайт')||s.includes('arlight')||s.includes('ббр')||s.includes('м-групп')||s.includes('м-групп')||s.includes('просервис')||s.includes('proserver')||s.includes('accenture')||s.includes('axenix')||s.includes('аксе')||s.includes('ассентур')) return 'accenture';
+  if(s.includes('psb')||s.includes('псб')) return 'psb';
+  if(s.includes('сол')||s.includes('sun')) return 'sunlight';
+  if(s.includes('мерлион')||s.includes('merlion')) return 'merlion';
+  if(s.includes('алроса')||s.includes('alrosa')) return 'alrosa';
+  if(s.includes('r-vision')||s.includes('rvision')) return 'rvision';
+  if(s.includes('госте')||s.includes('мин')||s.includes('ецп')||s.includes('гос')||s.includes('цифров')) return 'gostech';
+  if(s.includes('дельта')||s.includes('delta')) return 'delta';
+  if(s.includes('инженер')||s.includes('инженер')) return 'incenter';
+  if(s.includes('воор')||s.includes('арми')||s.includes('вооруж')) return 'vsrf';
+  if(s.includes('сrg')||s.includes('сcoo')||s.includes('service office')||s.includes('srg')) return 'srg';
+  if(s.includes('р-vis')) return 'rvision';
+  return null;
+}
+function injectLogos(body, id){
+  // 1) home trust chips -> logo
+  body = body.replace(/<span class="trust-chip(\s+[a-z0-9-]+)?"[^>]*>([^<]*)<\/span>/g, (all,cls,name)=>{
+    const t = (name||'').toString()+' '+(cls||'');
+    const slug = logoNameByCompany(t);
+    if(!slug) return all;
+    const company = name.trim();
+    return `<span class="trust-chip" data-co="${slug}"><img class="co-logo" src="img/logos/${slug}.svg" alt="${company}" width="20" height="20" loading="lazy" decoding="async"></span>`;
+  });
+  // 2) case hero -> company logo block
+  const slug = LOGO_BY_WORK[id];
+  if(slug){
+    body = body.replace(/<div class="d-hero([^"]*)">/, (m,cls)=> `<div class="d-hero${cls}"><div class="co-logo-lg" aria-hidden="true"><img src="img/logos/${slug}.svg" alt="" width="72" height="72" loading="eager" decoding="async"></div>`);
+  }
+  // 3) cases list: career rows and case2 cards get a logo
+  const coMap = [
+    {re:/<span class="co-dot"><\/span><b>([^<]*)<\/b>/, wrap:true},
+  ];
+  // career rows
+  body = body.replace(/(<div class="career-co"[^>]*>)(<span class="co-dot"><\/span>)(<b>[^<]*<\/b>)/g, (m,a,d,b)=>{
+    const name=(b.match(/<b>([^<]*)<\/b>/)||[])[1]||'';
+    const slug2=logoNameByCompany(name);
+    const logo = slug2 ? `<span class="co-logo-sm"><img src="img/logos/${slug2}.svg" alt="" width="22" height="22" loading="lazy" decoding="async"></span>` : '';
+    return a+logo+d+b;
+  });
+  // case2 cards: swap emoji .ic for logo
+  body = body.replace(/<span class="co">\s*<span class="ic">[^<]*<\/span>\s*([^<]+)<\/span>/g, (m,name)=>{
+    const slug2=logoNameByCompany(name);
+    const logo = slug2 ? `<img class="co-ic-logo" src="img/logos/${slug2}.svg" alt="" width="18" height="18" loading="lazy" decoding="async">` : `<span class="ic">◈</span>`;
+    return `<span class="co">${logo}<span>${name.trim()}</span></span>`;
+  });
+  return body;
+}
 function injectSvgPreview(html, id, h1){
   // Only for artifact detail pages without a real image preview
   if(!/^a\d+$/.test(id)) return html;
   if(id==='a8') return html; // atlas is the preview itself
   if(/<img|<svg|slide-embed|d-shot|zoomable/.test(html)) return html;
   if(/class="art-pre"/.test(html)) return html;
-  const title = (h1||'Документ').slice(0, 46);
+  const title = (h1||'Документ').slice(0, 48);
+  const kindTxt = 'Документ / схема / модель';
   const svg = `<div class="art-pre" aria-hidden="true">
-<svg viewBox="0 0 480 300" role="img" preserveAspectRatio="xMidYMid meet">
-  <rect x="0" y="0" width="480" height="300" rx="18" fill="#f2f6fb"/>
-  <rect x="0" y="0" width="480" height="66" rx="18" fill="#e3edf8"/>
-  <circle cx="30" cy="33" r="9" fill="#c9d9ea"/>
-  <circle cx="60" cy="33" r="9" fill="#c9d9ea"/>
-  <circle cx="90" cy="33" r="9" fill="#c9d9ea"/>
-  <text x="30" y="116" font-size="19" font-weight="800" fill="#123052" font-family="Inter,system-ui,sans-serif">Документ / модель</text>
-  <text x="30" y="148" font-size="15" fill="#5f6e82" font-family="Inter,system-ui,sans-serif" style="max-width:400px">${title.replace(/&/g,'&amp;')}</text>
-  <rect x="30" y="176" width="420" height="8" rx="4" fill="#c9d9ea"/>
-  <rect x="30" y="200" width="380" height="8" rx="4" fill="#dbe5f0"/>
-  <rect x="30" y="224" width="404" height="8" rx="4" fill="#dbe5f0"/>
-  <rect x="30" y="248" width="300" height="8" rx="4" fill="#dbe5f0"/>
-  <path d="M30 278 h360" stroke="#1d6fe0" stroke-width="3" stroke-linecap="round"/>
+<svg viewBox="0 0 480 320" role="img" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="lgh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d6fe0"/><stop offset="1" stop-color="#0e9bbf"/></linearGradient>
+    <linearGradient id="lgb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4fb"/><stop offset="1" stop-color="#f8fbfe"/></linearGradient>
+  </defs>
+  <rect x="0" y="0" width="480" height="320" rx="18" fill="url(#lgb)"/>
+  <path d="M0 66 L480 66 L480 320 L0 320 Z" fill="#ffffff" opacity="0"/>
+  <rect x="0" y="0" width="480" height="66" rx="18" fill="url(#lgh)"/>
+  <rect x="0" y="48" width="480" height="18" fill="url(#lgh)"/>
+  <g fill="#ffffff" opacity=".9">
+    <circle cx="26" cy="33" r="7"/>
+    <circle cx="50" cy="33" r="7"/>
+    <circle cx="74" cy="33" r="7"/>
+  </g>
+  <text x="454" y="44" font-size="13" font-weight="800" fill="#ffffff" text-anchor="end" font-family="Inter,system-ui,sans-serif">АРТЕФАКТ</text>
+  <text x="22" y="108" font-size="18" font-weight="800" fill="#123052" font-family="Inter,system-ui,sans-serif">${(h1||'Документ').slice(0,44).replace(/&/g,'&amp;')}</text>
+  <text x="22" y="132" font-size="11.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">${kindTxt} · из практики цифровой трансформации</text>
+  <rect x="22" y="152" width="436" height="44" rx="10" fill="#ffffff" stroke="#e2eaf3"/>
+  <text x="36" y="171" font-size="11" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Структура</text>
+  <rect x="36" y="179" width="120" height="7" rx="3.5" fill="#c9d9ea"/>
+  <rect x="36" y="192" width="180" height="7" rx="3.5" fill="#dbe5f0"/>
+  <text x="300" y="180" font-size="11" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">читаемый · структурированный</text>
+  <rect x="22" y="204" width="436" height="44" rx="10" fill="#ffffff" stroke="#e2eaf3"/>
+  <text x="36" y="223" font-size="11" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Факты и цифры</text>
+  <rect x="36" y="231" width="96" height="7" rx="3.5" fill="#0e9bbf"/>
+  <text x="150" y="235" font-size="11" font-weight="700" fill="#0e7490" font-family="Inter,system-ui,sans-serif">проверяемо · из утверждённых моделей</text>
+  <rect x="22" y="256" width="436" height="40" rx="10" fill="#eef4fb"/>
+  <circle cx="42" cy="276" r="6" fill="#1d6fe0"/>
+  <text x="56" y="281" font-size="12" font-weight="800" fill="#123052" font-family="Inter,system-ui,sans-serif">Готово к проекту: берите как шаблон для своей задачи</text>
 </svg></div>`;
   // place right after the breadcrumb nav (or top of wrap)
   const crumb = html.match(/<nav aria-label="breadcrumb"[\s\S]*?<\/nav>|<\/div>\s*<div class="d-hero">/);
@@ -413,7 +489,7 @@ for (const id of pageIds){
     // append second content (e.g. roadmap into timeline) inside the same <main>
     const prev = fs.readFileSync(path.join(OUT,f),'utf8');
     let chunk = PAGES[id].replace(/^<div class="page( on)?" id="p-[^"]+">/, '').replace(/<\/div>\s*$/, '');
-    chunk = fixLinks(chunk,id); chunk = toBreadcrumb(chunk,id,'','page'); chunk = base64ToFiles(chunk,id);
+    chunk = contentRename(chunk); chunk = fixLinks(chunk,id); chunk = toBreadcrumb(chunk,id,'','page'); chunk = base64ToFiles(chunk,id); chunk = injectLogos(chunk,id);
     const merged = prev.replace('</main>', '<div class="page on">'+chunk+'</div>\n</main>');
     fs.writeFileSync(path.join(OUT,f), merged);
     produced[f].push(id);

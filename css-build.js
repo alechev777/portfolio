@@ -248,11 +248,32 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 .port-note a{color:var(--blue);font-weight:800}
 .art-pre{margin:0 0 18px;padding:0;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
 .art-pre svg{display:block;width:100%;height:auto}
+/* brand & label overflow fixes */
+.brand{min-width:0}
+.brand .nm{min-width:0;line-height:1.25}
+.brand .nm small{white-space:nowrap}
+.about-item span{white-space:nowrap;letter-spacing:.04em}
+.kpi3 .l{white-space:nowrap}
+.foot-print{display:block;margin-top:10px;color:var(--muted)}
+/* company logos */
+.trust-chip{display:inline-flex;align-items:center;gap:6px}
+.trust-chip .co-logo,.trust-chip img.co-logo{width:20px;height:20px;border-radius:6px;object-fit:contain;display:block}
+.d-hero{position:relative}
+.co-logo-lg{position:absolute;top:16px;right:18px;z-index:3;opacity:.95}
+.co-logo-lg img{width:72px;height:72px;border-radius:16px;box-shadow:0 12px 30px rgba(21,42,66,.18);display:block}
+.co-logo-sm{flex:none;display:inline-flex}
+.co-logo-sm img{width:22px;height:22px;border-radius:6px}
+.co-ic-logo{width:18px;height:18px;border-radius:5px;vertical-align:middle;display:inline-block;margin-right:6px}
+.case2 .co img.co-ic-logo,.co img.co-ic-logo{width:18px;height:18px;border-radius:5px}
+@media(max-width:640px){
+  .co-logo-lg{width:48px;height:48px;top:12px;right:12px}
+  .co-logo-lg img{width:48px;height:48px}
+}
 @media(max-width:480px){
   footer .foot-inner{flex-direction:column;text-align:center}
 }
 @media print{
-  .nav a[aria-current="page"],#toTop,#progressBar,.art-pre,.port-note{display:none !important}
+  .nav a[aria-current="page"],#toTop,#progressBar,.art-pre,.port-note,.co-logo-lg{display:none !important}
 }
 `;
 fs.appendFileSync(process.argv[3]+'/components.css', ADDITIONS);
