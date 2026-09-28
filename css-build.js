@@ -255,9 +255,13 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 .about-item span{white-space:nowrap;letter-spacing:.04em}
 .kpi3 .l{white-space:nowrap}
 .foot-print{display:block;margin-top:10px;color:var(--muted)}
-/* company logos */
-.trust-chip{display:inline-flex;align-items:center;gap:6px}
-.trust-chip .co-logo,.trust-chip img.co-logo{width:20px;height:20px;border-radius:6px;object-fit:contain;display:block}
+/* company logos & trust bar */
+.trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.trust-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.7);box-shadow:0 6px 18px rgba(14,40,80,.16);white-space:nowrap;flex:none}
+.trust-chip .tc-logo{width:28px;height:28px;border-radius:10px;overflow:hidden;flex:none;display:grid;place-items:center}
+.trust-chip .tc-logo img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.trust-chip .tc-name{font-size:12px;font-weight:800;color:#123052;letter-spacing:.2px}
+.co-logo{width:20px;height:20px;border-radius:6px;object-fit:contain;display:block}
 .d-hero{position:relative}
 .co-logo-lg{position:absolute;top:16px;right:18px;z-index:3;opacity:.95}
 .co-logo-lg img{width:72px;height:72px;border-radius:16px;box-shadow:0 12px 30px rgba(21,42,66,.18);display:block}

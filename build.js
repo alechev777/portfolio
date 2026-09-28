@@ -275,6 +275,12 @@ function specialPage(html, id){
       return `<img src="${f}" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`;
     });
   }
+  if(id==='cases'){
+    // remove the career "ОПЫТ" timeline (радуга) — дублируется «Результаты по компаниям» ниже
+    const a = html.indexOf('<section class="sec career-sec');
+    const b = html.indexOf('<section class="sec" id="cases-anchor">');
+    if(a>=0 && b>a){ html = html.slice(0,a) + html.slice(b); }
+  }
   if(id==='stack'){
     const newSkills = `<div class="stack-cols reveal">
       <div class="grp"><h4>Стратегия и архитектура</h4><div><span class="chip">TOGAF</span><span class="chip">ArchiMate</span><span class="chip">BPMN</span><span class="chip">ITIL 4</span><span class="chip">Целевые модели</span><span class="chip">SLA / OLA / UC</span><span class="chip">PMBOK</span><span class="chip">Agile / Scrum</span><span class="chip">OKR / KPI</span></div></div>
@@ -296,6 +302,10 @@ function homeEdits(html){
   html = html.replace(/(<div class="l">эффект по одному проекту · Казахмыс<\/div>)/, '<div class="l">эффект по одному проекту · Казахмыс</div>');
   html = html.replace(/(<a class="kpi3" href="cases.html"[^>]*><div class="v">250–400&nbsp;млн&nbsp;₽<small>\/год<\/small><\/div><div class="l">эффект по одному проекту · Казахмыс<\/div><div class="d">)[^<]*(<\/div>)/, '$1целевой сценарий · KPI-модель Казахмыс$2');
   html = html.replace(/<b>400\+ млн ₽\/год<\/b>/, '<b>250–400 млн ₽/год</b>');
+  // --- selling hero copy: AI-цифровизация + ИИ-контур ---
+  html = html.replace(/<div class="hero-tagline">[^<]*<\/div>/, '<div class="hero-tagline">Цифровая трансформация бизнеса на базе ИИ</div>');
+  html = html.replace(/<h1>Превращаю ИТ-затраты в управляемый актив компании<\/h1>/, '<h1>Создаю идеальный ИТ-контур на базе ИИ — каждый рубль затрат работает на прибыль</h1>');
+  html = html.replace(/<p class="lead">([\s\S]*?)<\/p>/, '<p class="lead">Проектирую и внедряю целевой ИТ-контур с ИИ-ядром: от экономики услуг и аллокации до автономной поддержки. Каждые 4–5 месяцев — измеримый эффект в P&amp;L бизнеса. <b>250–400 млн ₽/год</b> по проекту, <b>ROI 250–300%</b>, <b>−42% OPEX</b>. 15 лет, 11 компаний, 8 отраслей — стратегия, архитектура, внедрение под ключ.</p>');
   return html;
 }
 
@@ -373,13 +383,14 @@ function logoNameByCompany(txt){
   return null;
 }
 function injectLogos(body, id){
-  // 1) home trust chips -> logo
+  // 1) home trust chips -> logo pill (brand tile + wordmark)
+  const DISPLAY={accenture:'Accenture',merlion:'MERLION',alrosa:'АЛРОСА',sunlight:'SUNLIGHT',gostech:'ГосТех',psb:'ПСБ-ФИНАНС',sber:'Сбер',srg:'SRG',rvision:'R-Vision'};
   body = body.replace(/<span class="trust-chip(\s+[a-z0-9-]+)?"[^>]*>([^<]*)<\/span>/g, (all,cls,name)=>{
     const t = (name||'').toString()+' '+(cls||'');
     const slug = logoNameByCompany(t);
     if(!slug) return all;
-    const company = name.trim();
-    return `<span class="trust-chip" data-co="${slug}"><img class="co-logo" src="img/logos/${slug}.svg" alt="${company}" width="20" height="20" loading="lazy" decoding="async"></span>`;
+    const display = DISPLAY[slug] || name.trim();
+    return `<span class="trust-chip" data-co="${slug}"><span class="tc-logo"><img src="img/logos/${slug}.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span><span class="tc-name">${display}</span></span>`;
   });
   // 2) case hero -> company logo block
   const slug = LOGO_BY_WORK[id];
@@ -452,12 +463,17 @@ function injectSvgPreview(html, id, h1){
 }
 function addAnalytics(html, id){
   if(id==='contact'){
-    html = html.replace(/(<a class="btn p" href="https:\/\/t\.me\/Alechev"[^>]*>)/, '$1 data-track="contact-tg"');
-    html = html.replace(/(<a class="btn gh" href="mailto:chev\.alex@mail\.ru"[^>]*>)/, '$1 data-track="contact-email"');
-    html = html.replace(/(<a class="btn gh" href="tel:\+79150234324"[^>]*>)/, '$1 data-track="contact-phone"');
-    html = html.replace(/(<a class="cl" href="https:\/\/t\.me\/Alechev"[^>]*>)/, '$1 data-track="contact-tg"');
-    html = html.replace(/(<a class="cl" href="mailto:chev\.alex@mail\.ru"[^>]*>)/, '$1 data-track="contact-email"');
-    html = html.replace(/(<a class="cl" href="tel:\+79150234324"[^>]*>)/, '$1 data-track="contact-phone"');
+    // insert data-track INSIDE the opening tag (before closing '>')
+    function tag(sel, hrefRe, track){
+      const re=new RegExp('(<a class="'+sel+'" href="'+hrefRe+'"[^>]*)(>)');
+      return function(m,a,b){ return a+' data-track="'+track+'"'+b; };
+    }
+    html = html.replace(new RegExp('(<a class="btn p" href="https:\\/\\/t\\.me\\/Alechev"[^>]*)(>)'), '$1 data-track="contact-tg"$2');
+    html = html.replace(new RegExp('(<a class="btn gh" href="mailto:chev\\.alex@mail\\.ru"[^>]*)(>)'), '$1 data-track="contact-email"$2');
+    html = html.replace(new RegExp('(<a class="btn gh" href="tel:\\+79150234324"[^>]*)(>)'), '$1 data-track="contact-phone"$2');
+    html = html.replace(new RegExp('(<a class="cl" href="https:\\/\\/t\\.me\\/Alechev"[^>]*)(>)'), '$1 data-track="contact-tg"$2');
+    html = html.replace(new RegExp('(<a class="cl" href="mailto:chev\\.alex@mail\\.ru"[^>]*)(>)'), '$1 data-track="contact-email"$2');
+    html = html.replace(new RegExp('(<a class="cl" href="tel:\\+79150234324"[^>]*)(>)'), '$1 data-track="contact-phone"$2');
   }
   return html;
 }
