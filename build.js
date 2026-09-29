@@ -157,7 +157,7 @@ const METRIKA_SCRIPT = `<script>
    ym(${METRIKA}, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
 </script>`;
 const METRIKA_NOSCRIPT = `<noscript><div><img src="https://mc.yandex.ru/watch/${METRIKA}" style="position:absolute; left:-9999px;" alt=""></div></noscript>`;
-const OG_COVER = `${DOMAIN}/img/og-cover.jpg`;
+const OG_COVER = `${DOMAIN}/img/og-cover.webp`;
 
 function breadcrumbJsonLd(id, h1){
   const f=fileOf[id];
@@ -304,6 +304,17 @@ function specialPage(html, id){
     const a = html.indexOf('<section class="sec career-sec');
     const b = html.indexOf('<section class="sec" id="cases-anchor">');
     if(a>=0 && b>a){ html = html.slice(0,a) + html.slice(b); }
+    // фильтр по типу эффекта перед сеткой кейсов
+    const effFilter = `<div class="eff-filter" role="group" aria-label="Фильтр по типу эффекта">
+      <span class="eff-label">Тип эффекта:</span>
+      <button type="button" class="eff-chip active" data-eff="all" aria-pressed="true">Все</button>
+      <button type="button" class="eff-chip" data-eff="money" aria-pressed="false">Экономия ₽</button>
+      <button type="button" class="eff-chip" data-eff="roi" aria-pressed="false">ROI</button>
+      <button type="button" class="eff-chip" data-eff="ops" aria-pressed="false">OPEX / бэк-офис</button>
+      <button type="button" class="eff-chip" data-eff="nps" aria-pressed="false">NPS / клиенты</button>
+    </div>`;
+    const grid=html.indexOf('<div class="cases reveal">');
+    if(grid>0 && !html.includes('eff-filter')) html=html.slice(0,grid)+effFilter+'\n    '+html.slice(grid);
   }
   if(id==='w7'){
     const fig = `<figure class="gostekh-fig"><img src="img/gostekh-reglament.svg" width="920" height="500" alt="Схема регламента информационного взаимодействия ГосТех и МинЦифры" loading="lazy" decoding="async"><figcaption>Выжимка из 3 регламентов: СРО «ГосТех» ↔ ФГИС СЦ · 11 ролей · 3 процедуры · SLA 5 мин · зонд-контроль &lt;60 сек</figcaption></figure>`;
@@ -325,6 +336,11 @@ function specialPage(html, id){
     // заменить арт-превью, если есть
     if(/art-pre/.test(html)){ html = html.replace(/<div class="art-pre">[\s\S]*?<\/div>/, fig); }
     else { const pos = html.indexOf('<div class="d-body">'); if(pos>=0) html = html.slice(0,pos)+fig+'\n'+html.slice(pos); }
+  }
+  if(id==='kpi'){
+    const btn = `<p class="kpi-export"><button type="button" class="btn gh" id="kpiExport" data-action="kpi-export">Скачать расчёт в PDF (печать) 🖨</button></p>`;
+    const pos = html.indexOf('<div class="d-body">');
+    if(pos>=0 && !/kpi-export/.test(html)) html = html.slice(0,pos) + btn + '\n' + html.slice(pos);
   }
   if(id==='a8'){
     html = html.replace(/<iframe id="atlasFrameInline" class="atlas-inline"[^>]*><\/iframe>/, `<iframe src="atlas.html" class="atlas-inline" title="ИИ-атлас бэк-офиса" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`);

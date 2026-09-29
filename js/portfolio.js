@@ -50,3 +50,33 @@
     });
   };
 })();
+
+/* ---- фильтр по типу эффекта (cases) ---- */
+'use strict';
+(function(){
+  var eff='all';
+  var chips=document.querySelectorAll('.eff-chip');
+  if(!chips.length) return;
+  function effMatch(kw, cardText){
+    if(kw==='all') return true;
+    if(kw==='money') return /млн ₽|₽/год|млн ₽|дешевле|экономия|эффект/.test(cardText);
+    if(kw==='roi') return /ROI/.test(cardText);
+    if(kw==='ops') return /OPEX|бэк-офис|SLA|поддержк/.test(cardText);
+    if(kw==='nps') return /NPS|CSAT|feedback|уп.илённост|обращений/.test(cardText);
+    return true;
+  }
+  function apply(){
+    document.querySelectorAll('.case2').forEach(function(card){
+      var vis = effMatch(eff, card.textContent);
+      card.style.display = vis ? '' : 'none';
+    });
+  }
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      chips.forEach(function(c2){ c2.classList.remove('active'); c2.setAttribute('aria-pressed','false'); });
+      ch.classList.add('active'); ch.setAttribute('aria-pressed','true');
+      eff=ch.getAttribute('data-eff');
+      apply();
+    });
+  });
+})();

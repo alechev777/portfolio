@@ -386,4 +386,16 @@ iframe.atlas-inline{height:min(90vh,820px);width:100%}
   .hero-name{font-size:26px!important}
   .hero .lead{font-size:15px!important}
 }
+/* вертикальный таймлайн */
+/* вертикальный таймлайн (страница «Путь») */
+.tlmini{display:block;position:relative;margin:24px 0 8px;padding-left:8px}
+.tlmini::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--teal),var(--gold))}
+.tlmini .tlm{position:relative;display:block;margin:0 0 14px 34px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);transition:.18s}
+.tlmini .tlm:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:rgba(29,111,224,.35)}
+.tlmini .tlm::before{content:"";position:absolute;left:-32px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 3px rgba(29,111,224,.2)}
+.tlmini .tlm .yr{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:800;color:var(--blue);margin-bottom:6px}
+.tlmini .tlm b{color:var(--navy);font-family:var(--head)}
+.tlmini .tlm .po{display:block;color:var(--muted);font-size:11px;margin:2px 0 6px}
+.tlmini .tlm p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+@media(max-width:640px){.tlmini .tlm{margin-left:28px}.tlmini .tlm::before{left:-28px}}
 footer .foot-inner div span{display:block!important;margin-top:4px!important}

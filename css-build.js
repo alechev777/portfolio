@@ -233,6 +233,18 @@ fs.appendFileSync(process.argv[3]+'/pages.css', `
   .hero-name{font-size:26px!important}
   .hero .lead{font-size:15px!important}
 }
+/* вертикальный таймлайн */
+/* вертикальный таймлайн (страница «Путь») */
+.tlmini{display:block;position:relative;margin:24px 0 8px;padding-left:8px}
+.tlmini::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--teal),var(--gold))}
+.tlmini .tlm{position:relative;display:block;margin:0 0 14px 34px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);transition:.18s}
+.tlmini .tlm:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:rgba(29,111,224,.35)}
+.tlmini .tlm::before{content:"";position:absolute;left:-32px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 3px rgba(29,111,224,.2)}
+.tlmini .tlm .yr{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:800;color:var(--blue);margin-bottom:6px}
+.tlmini .tlm b{color:var(--navy);font-family:var(--head)}
+.tlmini .tlm .po{display:block;color:var(--muted);font-size:11px;margin:2px 0 6px}
+.tlmini .tlm p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+@media(max-width:640px){.tlmini .tlm{margin-left:28px}.tlmini .tlm::before{left:-28px}}
 footer .foot-inner div span{display:block!important;margin-top:4px!important}
 `);
 
@@ -253,6 +265,9 @@ const ADDITIONS = `
   --head:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"Cascadia Mono","SF Mono",Consolas,Menlo,monospace;
+  /* дизайн-система: явные токены */
+  --primary:#1d6fe0;--accent:#f5a623;--surface:#1a2a44;--bg-deep:#0f1e34;--text-on:#e8eef7;
+  --blue:var(--primary);
 }
 body{font-family:var(--sans)}
 .nav a[aria-current="page"]{color:var(--navy);background:#eef3f9;font-weight:800}
@@ -268,7 +283,15 @@ footer .foot-inner div span{display:block;margin-top:3px;color:var(--muted);font
 footer .foot-inner span{color:var(--muted)}
 footer .foot-links a{color:var(--blue);font-weight:800}
 footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
-/* переключатель темы */
+/* фильтр по типу эффекта в кейсах */
+.eff-filter{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:4px 0 14px}
+.eff-label{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.eff-chip{border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12.5px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;transition:.15s}
+.eff-chip:hover{border-color:var(--blue);color:var(--blue)}
+.eff-chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
+/* kpi: кнопка экспорта расчёта */
+.kpi-export{margin:0 0 16px}
+@media print{.kpi-export{display:none}}
 .theme-toggle{width:40px;height:40px;margin-left:4px;border:0;border-radius:10px;background:#eef3f9;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
 .theme-toggle:hover{background:#dfe8f3}
 /* принудительно тёмная тема, когда включён переключатель */

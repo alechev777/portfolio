@@ -61,3 +61,8 @@ document.addEventListener('submit', function(e){
     .then(function(r){ if(!r.ok) throw new Error('bad'); status.textContent='Отправлено! Свяжусь в течение 48 часов.'; status.hidden=false; status.style.color='#1f7a52'; f.reset(); })
     .catch(function(){ window.location.href='mailto:chev.alex@mail.ru?subject='+encodeURIComponent('Запрос из портфолио: '+name)+'&body='+encodeURIComponent('Имя: '+name+'\nEmail: '+email+'\n\nЗадача:\n'+msg); });
 });
+/* ===== Экспорт расчёта KPI (печать → PDF) ===== */
+document.addEventListener("click", function(e){
+  var t=e.target && e.target.closest ? e.target.closest("[data-action="kpi-export"]") : null;
+  if(t){ if(typeof window.print==="function") window.print(); }
+});
