@@ -72,37 +72,44 @@ b,strong{text-wrap:balance}
   *{transition:none!important;animation:none!important}
 }
 @media (prefers-color-scheme: dark){
-  :root{--bg:#0f1826;--card:#16233a;--ink:#e8eef7;--muted:#9db0c6;--dim:#7d90a8;
-  --line:#24334d;--navy:#dbe7f5;
-  --shadow:0 10px 32px rgba(0,0,0,.35);
-  --shadow-sm:0 2px 10px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.3);
-  --shadow-md:0 8px 30px rgba(0,0,0,.4),0 20px 50px rgba(0,0,0,.35);}
+  /* Системная тёмная тема — только когда нет явного data-theme=light.
+     Полный набор переменных идентичен html[data-theme="dark"]. */
+  :root:not([data-theme="light"]){
+    --bg:#0a1628;--card:#142236;--ink:#e8edf5;--muted:#a0aec0;--dim:#939fae;
+    --line:rgba(255,255,255,.22);--line-strong:rgba(255,255,255,.38);
+    --navy:#e4edf8;--blue:#4f9bff;
+    --sky:#6fc8e8;--teal:#3bb5d8;--gold:#e0a541;--violet:#a68ff8;
+    --red:#e46a6a;--orange:#e8913f;--teal-soft:#12384a;--blue-soft:#18304f;
+    --amber-soft:#3d2f12;--green-soft:#14382a;--red-soft:#43201f;--purple-soft:#312a4a;
+    color-scheme:dark;
+    --shadow:0 10px 32px rgba(0,0,0,.4);--shadow-sm:0 2px 10px rgba(0,0,0,.4);
+    --shadow-md:0 8px 30px rgba(0,0,0,.45),0 20px 50px rgba(0,0,0,.4);
+    --navy2:#1d4a78;
+  }
   body{background:var(--bg);color:var(--ink)}
-  .top{background:rgba(15,24,38,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-  .brand .nm,.hero-name,.hero h1,.sec-h h2,.how-card h3,.doc-card h4,.case .hook,.pf-v,.live-body h3{color:#e8eef7}
-  .hero h1{color:#e8eef7}
+  .top{background:rgba(10,22,40,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .brand .nm,.hero-name,.hero h1,.sec-h h2,.how-card h3,.doc-card h4,.case .hook,.pf-v,.live-body h3{color:#e8edf5}
+  .hero h1{color:#e8edf5}
+  h1,h2,h3,h4{color:#e8edf5}
   .case,.art2,.art-feat,.d-card,.box,.ex,.pf-item,.how-card,.doc-card,.problem-card,.career-row{background:var(--card);border-color:var(--line)}
   .hero{background:linear-gradient(160deg,#0a1220,#101f38 55%,#0a1e30)}
-  .hero-tagline{background:rgba(29,111,224,.18);color:#8fb8f2}
-  .hero .lead{color:#9db0c6}
-  .trust-chip{background:#16233a;border-color:#24334d;color:#cfe0ef}
-  .btn.gh{background:#16233a;border-color:#2a3a55;color:#e8eef7}
-  .kpi3{box-shadow:0 20px 46px rgba(0,0,0,.45)}
+  .hero-tagline{background:rgba(29,111,224,.22);color:#79b3ff}
+  .hero .lead{color:#a0aec0}
+  .btn.gh{background:#142236;border-color:rgba(255,255,255,.22);color:#e8edf5}
   .doc-viz{background:linear-gradient(160deg,#14223a,#0f1c30);border-color:#22324c}
-  .doc-viz svg text, .doc-viz text{fill:#9db0c6}
+  .doc-viz svg text, .doc-viz text{fill:#a0aec0}
   .problem-sec{background:linear-gradient(135deg,#101c30,#0c1524)}
-  .problem-card{background:#16233a}
+  .problem-card{background:#142236}
   .career-row:hover{background:#1a2942}
-  .nav a,.nav-dd-menu a{color:#b9c8da}
-  .nav-dd-menu{background:#16233a;border-color:#2a3a55}
-  .top{border-color:#24334d}
-  .fpill{background:rgba(22,35,58,.92);border-color:rgba(255,255,255,.2);color:#e8eef7}
-  .fpill-b{background:linear-gradient(135deg,#1d4a78,#173a5e)}
-  .d-hero.light{background:#16233a}
-  .live-viz{background:rgba(0,0,0,.18);border-color:rgba(255,255,255,.1)}
-  .live-nums{border-color:rgba(255,255,255,.12)}
-  .d-hero.light .dk{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#e8eef7}
-  .d-hero.light .dk b{color:#ffffff}
+  .nav a,.nav-dd-menu a{color:#c6d2e4}
+  .nav a:hover{color:#e8edf5;background:#1a2b42}
+  .nav-dd-menu{background:#142236;border-color:rgba(255,255,255,.22)}
+  .fpill{background:rgba(20,34,54,.92);border-color:rgba(255,255,255,.24)}
+  .d-hero.light{background:#142236}
+  .live-viz{background:rgba(0,0,0,.2);border-color:rgba(255,255,255,.14)}
+  .live-nums{border-color:rgba(255,255,255,.16)}
+  .d-hero.light .dk{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:#e8edf5}
+  .d-hero.light .dk b{color:#e8edf5}
 }
 /* ============ ЯВНАЯ ТЕМА ЧЕРЕЗ АТРИБУТ (переключатель) ============
    media-блок выше отвечает только за ДЕФОЛТ первой загрузки.
