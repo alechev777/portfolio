@@ -188,4 +188,10 @@
   })();
 
   document.addEventListener('DOMContentLoaded', initKpiPreview);
+
+/* ---- печать резюме (PDF) ---- */
+document.addEventListener("click", function(e){
+  var b=e.target&&e.target.closest?e.target.closest('[data-action="resume-print"]'):null;
+  if(b){ if(typeof window.print==="function") window.print(); }
+});
 })();

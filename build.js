@@ -403,6 +403,22 @@ if(id==='a9'){
 </div>`;
     html = html.replace(/<div class="slide-embed">[\s\S]*?<\/div>/, svg);
   }
+  if(id==='stack'){
+    // стек → 5 компетенций с примерами и результатом (данные из готовых кейсов)
+    function matchClose2(html,open){ var d=0,i=open; for(;i<html.length;i++){ if(html[i]==='<'){ var m=/^<div[\s>]/.exec(html.slice(i,i+30)); var c=/^<\/div/.exec(html.slice(i,i+10)); if(c){d--; if(d===0) return i+6; i+=5;} else if(m){d++; i+=4;} } } return -1; }
+    var s=html.indexOf('<div class="stack-cols reveal">');
+    if(s>=0){ var e=matchClose2(html,s); if(e>s){
+      var G=[
+        ['Управленческие компетенции',['P&L-ответственность','Аллокация затрат','KPI / OKR','Команды до 100+ чел.','Бюджетирование ИТ','Вендор-менеджмент','Дорожная карта'],'От диагностики до P&L-эффекта','ПСБ-ФИНАНС — −42% OPEX, команда 29 чел. с нуля'],
+        ['Экономика ИТ',['ROI','TCO','Unit Economics','CAPEX / OPEX','Cost Saving','ФСА','Тарификация'],'Каждую инициативу считаю в деньгах','Казахмыс — сценарии 120/250/400 млн ₽/год, ROI 250–300%'],
+        ['Архитектура и процессы',['TOGAF','ArchiMate','BPMN','ITIL 4','SLA / OLA / UC','PMBOK','Целевые модели'],'Проектирую целевую архитектуру под стратегию','ГосТех — 4 регламента уровня Минцифры, SLA 5 мин'],
+        ['ИИ и данные',['LLM','RAG','NLP','AI-виджеты','Power BI','SQL','Дашборды'],'Внедряю ИИ ради P&amp;L, а не хайпа','Аэроклуб — 76,9% вопросов решает ИИ, −40% стоимости'],
+        ['Технологический стек',['Jira / Structure','Confluence','ServiceNow','1С:ITIL','ELMA365','Optimacros','Zabbix'],'Инструменты под масштаб и экономику','MERLION — KPI ~700 ИТ-сотрудников, SLA «Ситилинк»']
+      ];
+      var blocks=G.map(function(g){ return '\n      <div class="grp"><h4>'+g[0]+'</h4><div>'+g[1].map(function(c){return '<span class="chip">'+c+'</span>';}).join('')+'</div><p class="grp-ex">'+g[2]+'. <b>'+g[3]+'.</b></p></div>'; }).join('');
+      html=html.slice(0,s)+'<div class="stack-cols reveal">'+blocks+'\n    </div>'+html.slice(e);
+    }}
+  }
   return html;
 }
 function homeEdits(html){
@@ -733,6 +749,12 @@ function addAnalytics(html, id){
     </div>`;
     const pos=html.indexOf('<div class="contact reveal">');
     if(pos>=0){ html=html.slice(0,pos)+form+'\n'+html.slice(pos); }
+    // кнопка «Скачать резюме PDF» (печатная версия)
+    if(!/resume-dl/.test(html)){
+      const dl=`<p class="resume-dl"><button type="button" class="btn p" data-action="resume-print">Скачать резюме (PDF) ⬇️</button></p>`;
+      const anchor='<div class="contact reveal">';
+      html=html.replace(anchor, dl+'\n    '+anchor);
+    }
   }
     // insert data-track INSIDE the opening tag (before closing '>')
     function tag(sel, hrefRe, track){
