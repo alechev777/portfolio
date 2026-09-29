@@ -461,6 +461,7 @@ ${FOOTER}
 }
 function contentRename(body){
   body = body.replace(/Точка Займа/g,'ПСБ-ФИНАНС').replace(/CarMoney/g,'ПСБ-ФИНАНС');
+  body = body.replace(/МГУПС \(МИИТ\) · Информационные системы и технологии · 2015/g,'ВолгГТУ · Информатика и вычислительная техника · Инженер-программист · 2011');
   // unify KPI metric 400
   body = body.replace(/до 400 млн ₽\/год/g,'250–400 млн ₽/год');
   body = body.replace(/до 400 млн ₽/g,'250–400 млн ₽');
