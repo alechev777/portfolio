@@ -312,6 +312,18 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 @media print{.resume-dl,.kpi-export{display:none}}
 /* kpi: кнопка экспорта расчёта */
 .kpi-export{margin:0 0 16px}
+.kpi-note-inline{color:var(--muted);font-size:12.5px;line-height:1.5}
+.kpi-out-extra{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.kpi-out-extra .oval{padding:14px;border-radius:14px;background:linear-gradient(135deg,var(--navy),#1d4a78);color:#fff;box-shadow:0 6px 18px rgba(13,34,57,.18)}
+.kpi-out-extra .oval b{display:block;font-size:17px;font-weight:900;font-family:var(--head);letter-spacing:-.01em;color:#fff}
+.kpi-out-extra .oval span{font-size:10px;font-weight:700;color:#a9cde4;text-transform:uppercase;letter-spacing:.04em}
+.kpi-out-extra .oval.roi{background:linear-gradient(135deg,#1f7a52,#2a9d6f)}
+.kpi-out-extra .oval.green{background:linear-gradient(135deg,#0e7490,#19a3be)}
+.kpi-chart{margin-top:22px;border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card)}
+.kpi-chart svg{display:block;width:100%;height:auto}
+.kpi-assume{margin-top:16px;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;background:#fbfcfe;color:var(--muted);font-size:12px;line-height:1.6}
+.kpi-assume b{color:var(--navy)}
+@media(max-width:640px){.kpi-out-extra{grid-template-columns:1fr 1fr}}
 @media print{.kpi-export{display:none}}
 .theme-toggle{width:40px;height:40px;margin-left:4px;border:0;border-radius:10px;background:#eef3f9;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
 .theme-toggle:hover{background:#dfe8f3}

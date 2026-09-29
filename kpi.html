@@ -85,6 +85,28 @@
         <div class="inp"><label>Инфраструктура + лицензии, ₽/мес</label><input id="k-inf" type="number" value="350000" min="0" step="50000" inputmode="numeric"  data-kpi><div class="hint">аренда, ПО, поддержка вендора</div></div>
         <div class="inp"><label>Снижение потребления от тарификации, %</label><input id="k-save" type="number" value="20" min="0" max="60" inputmode="numeric"  data-kpi><div class="hint">эффект тарифной модели: −15–25%</div></div>
       </div>
+<div class="d-card"><h3><span class="em">🧮</span>Экономика ФОТ и простоев (доп. сценарий)</h3>
+<p class="kpi-note-inline">Поля ниже — вспомогательные, для оценки эффекта автоматизации и снижения простоев. Допущения отмечены как «оценка на основе опыта».</p>
+<div class="kpi-calc">
+  <div class="inp"><label>Численность команды, специалистов</label><input id="k-staff" type="number" value="50" min="1" data-kpi><div class="hint">сколько человек на обслуживании</div></div>
+  <div class="inp"><label>Средняя зарплата (ФОТ), ₽/мес × чел.</label><input id="k-salary" type="number" value="120000" min="0" step="10000" data-kpi><div class="hint">оценка на основе опыта</div></div>
+  <div class="inp"><label>Инцидентов в месяц</label><input id="k-inc" type="number" value="500" min="0" data-kpi><div class="hint">число заявок/инцидентов</div></div>
+  <div class="inp"><label>Снижение времени на инцидент (автоматизация), %</label><input id="k-incsave" type="number" value="30" min="0" max="80" data-kpi><div class="hint">оценка эффекта ИИ/автоматизации (опыт)</div></div>
+  <div class="inp"><label>Простой в квартал, часов</label><input id="k-downtime" type="number" value="20" min="0" data-kpi><div class="hint">часов недоступности сервисов за квартал</div></div>
+  <div class="inp"><label>Стоимость часа простоя, ₽</label><input id="k-dowhour" type="number" value="150000" min="0" step="10000" data-kpi><div class="hint">оценка на основе опыта</div></div>
+</div>
+<div class="kpi-out-extra">
+  <div class="oval"><b id="k-fotyear">0 ₽/год</b><span>ФОТ команды</span></div>
+  <div class="oval green"><b id="k-fotsave">0 ₽/год</b><span>Экономия ФОТ (автоматизация)</span></div>
+  <div class="oval roi"><b id="k-dowcost">0 ₽/год</b><span>Стоимость простоев</span></div>
+  <div class="oval"><b id="k-dowsave">0 ₽/год</b><span>Выгода от сокращения простоев</span></div>
+</div>
+<div class="kpi-chart" aria-label="Диаграмма распределения эффекта">
+  <svg id="kpiChartSvg" viewBox="0 0 420 180" role="img" aria-hidden="true"></svg>
+</div>
+<p class="kpi-assume"><b>Допущения:</b> средняя зарплата и стоимость часа простоя — «оценка на основе опыта»; эффект автоматизации и сокращения простоев принимается пропорционально заданному проценту и может уточняться по данным проекта. Базовый расчёт (стоимость услуги / ROI / окупаемость) — по методике KPI-модели Казахмыс.</p>
+</div>
+
     </div>
     <div class="d-card"><h3><span class="em">📐</span>Методика (из KPI-модели Казахмыс)</h3><p>Стоимость услуги = (затраты на команду × загрузка) + инфраструктура + лицензии. Аллокация — на бизнес-процессы по фактическому потреблению. Тарифная модель (3 уровня) снижает спрос на 15–25%, ROI = экономия / затраты × 100%. При ROI ≥ 100% окупаемость менее года.</p></div>
   </div><div class="d-side">

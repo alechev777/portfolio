@@ -341,6 +341,34 @@ function specialPage(html, id){
     const btn = `<p class="kpi-export"><button type="button" class="btn gh" id="kpiExport" data-action="kpi-export">Скачать расчёт в PDF (печать) 🖨</button></p>`;
     const pos = html.indexOf('<div class="d-body">');
     if(pos>=0 && !/kpi-export/.test(html)) html = html.slice(0,pos) + btn + '\n' + html.slice(pos);
+    // доп. поля: экономика ФОТ и OPEX по простоям + график + допущения (оценка на основе опыта)
+    const extra = `<div class="d-card"><h3><span class="em">🧮</span>Экономика ФОТ и простоев (доп. сценарий)</h3>
+<p class="kpi-note-inline">Поля ниже — вспомогательные, для оценки эффекта автоматизации и снижения простоев. Допущения отмечены как «оценка на основе опыта».</p>
+<div class="kpi-calc">
+  <div class="inp"><label>Численность команды, специалистов</label><input id="k-staff" type="number" value="50" min="1" data-kpi><div class="hint">сколько человек на обслуживании</div></div>
+  <div class="inp"><label>Средняя зарплата (ФОТ), ₽/мес × чел.</label><input id="k-salary" type="number" value="120000" min="0" step="10000" data-kpi><div class="hint">оценка на основе опыта</div></div>
+  <div class="inp"><label>Инцидентов в месяц</label><input id="k-inc" type="number" value="500" min="0" data-kpi><div class="hint">число заявок/инцидентов</div></div>
+  <div class="inp"><label>Снижение времени на инцидент (автоматизация), %</label><input id="k-incsave" type="number" value="30" min="0" max="80" data-kpi><div class="hint">оценка эффекта ИИ/автоматизации (опыт)</div></div>
+  <div class="inp"><label>Простой в квартал, часов</label><input id="k-downtime" type="number" value="20" min="0" data-kpi><div class="hint">часов недоступности сервисов за квартал</div></div>
+  <div class="inp"><label>Стоимость часа простоя, ₽</label><input id="k-dowhour" type="number" value="150000" min="0" step="10000" data-kpi><div class="hint">оценка на основе опыта</div></div>
+</div>
+<div class="kpi-out-extra">
+  <div class="oval"><b id="k-fotyear">0 ₽/год</b><span>ФОТ команды</span></div>
+  <div class="oval green"><b id="k-fotsave">0 ₽/год</b><span>Экономия ФОТ (автоматизация)</span></div>
+  <div class="oval roi"><b id="k-dowcost">0 ₽/год</b><span>Стоимость простоев</span></div>
+  <div class="oval"><b id="k-dowsave">0 ₽/год</b><span>Выгода от сокращения простоев</span></div>
+</div>
+<div class="kpi-chart" aria-label="Диаграмма распределения эффекта">
+  <svg id="kpiChartSvg" viewBox="0 0 420 180" role="img" aria-hidden="true"></svg>
+</div>
+<p class="kpi-assume"><b>Допущения:</b> средняя зарплата и стоимость часа простоя — «оценка на основе опыта»; эффект автоматизации и сокращения простоев принимается пропорционально заданному проценту и может уточняться по данным проекта. Базовый расчёт (стоимость услуги / ROI / окупаемость) — по методике KPI-модели Казахмыс.</p>
+</div>`;
+    const calcPos = html.indexOf('<div class="kpi-calc">');
+    if(calcPos<0) return html;
+    // найти закрывающий </div> блока kpi-calc (сбалансированно)
+    function mclose(h,open){ var d=0,i=open; for(;i<h.length;i++){ if(h[i]==='<'){ var m=/^<div[\s>]/.exec(h.slice(i,i+30)); var c=/^<\/div/.exec(h.slice(i,i+10)); if(c){d--; if(d===0) return i+6; i+=5;} else if(m){d++; i+=4;} } } return -1; }
+    const bclose = mclose(html, calcPos);
+    if(bclose>0){ html = html.slice(0,bclose)+'\n'+extra+'\n'+html.slice(bclose); }
   }
   if(id==='a8'){
     html = html.replace(/<iframe id="atlasFrameInline" class="atlas-inline"[^>]*><\/iframe>/, `<iframe src="atlas.html" class="atlas-inline" title="ИИ-атлас бэк-офиса" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`);
