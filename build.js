@@ -313,13 +313,13 @@ function specialPage(html, id){
     if(pos>=0){ html = html.slice(0,pos) + fig + '\n' + html.slice(pos); }
   }
   if(id==='a4'){
-    const fig = `<figure class="gostekh-fig"><a class="lb-trigger fig-zoom" data-lb="img/incident-ib.svg" data-lb-t="Схема обработки отклонений · Инцидент ИБ"><img src="img/incident-ib.svg" width="1280" height="820" alt="Схема обработки отклонений на примере инцидента ИБ" loading="lazy" decoding="async"></a><figcaption>Нажмите на схему, чтобы увеличить и рассмотреть каждый шаг · 12 шагов · решения и связанные процессы ITSM</figcaption></figure>`;
+    const fig = `<figure class="gostekh-fig"><a class="lb-trigger fig-zoom" data-lb="img/incident-ib-orig.png" data-lb-t="Схема обработки отклонений · Инцидент ИБ"><img src="img/incident-ib-orig.png" width="2200" height="1700" alt="Схема обработки отклонений на примере инцидента ИБ" loading="lazy" decoding="async"></a><figcaption>Нажмите на схему, чтобы увеличить и рассмотреть каждый шаг · 12 шагов · решения и связанные процессы ITSM</figcaption></figure>`;
     if(/art-pre/.test(html)){ html = html.replace(/<div class="art-pre">[\s\S]*?<\/div>/, fig); }
     else { const pos = html.indexOf('<div class="d-body">'); if(pos>=0) html = html.slice(0,pos)+fig+'\n'+html.slice(pos); }
   }
   if(id==='w7'){
     // схема инцидента ИБ (пример прорисовки процесса) — добавляем после регистрационной инфографики
-    const more = `<figure class="gostekh-fig"><a class="lb-trigger fig-zoom" data-lb="img/incident-ib.svg" data-lb-t="Схема обработки отклонений · Инцидент ИБ"><img src="img/incident-ib.svg" width="1280" height="820" alt="Схема обработки отклонений на примере инцидента ИБ" loading="lazy" decoding="async"></a><figcaption>Пример прорисовки процесса — реагирование на инцидент ИБ (нажмите для увеличения)</figcaption></figure>`;
+    const more = `<figure class="gostekh-fig"><a class="lb-trigger fig-zoom" data-lb="img/incident-ib-orig.png" data-lb-t="Схема обработки отклонений · Инцидент ИБ"><img src="img/incident-ib-orig.png" width="2200" height="1700" alt="Схема обработки отклонений на примере инцидента ИБ" loading="lazy" decoding="async"></a><figcaption>Пример прорисовки процесса — реагирование на инцидент ИБ (нажмите для увеличения)</figcaption></figure>`;
     html = html.replace(/(<figure class="gostekh-fig">[\s\S]*?<\/figure>)/, '$1\n  '+more);
   }
   if(id==='a2'||id==='a10'){
