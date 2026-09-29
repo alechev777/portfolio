@@ -810,6 +810,36 @@ html[data-theme="dark"] .case-hero .ch-metrics .cm{background:#1d2f4a;border-col
 .trust-chip .tc-logo{width:28px;height:28px;border-radius:10px;overflow:hidden;flex:none;display:grid;place-items:center}
 .trust-chip .tc-logo img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
 .trust-chip .tc-name{font-size:12px;font-weight:800;color:#123052;letter-spacing:.2px}
+/* ==== современный блок компаний (grid) ==== */
+.trust{display:block;margin-top:22px}
+.trust-label{display:block;font-size:10.5px;color:var(--dim);letter-spacing:1.4px;text-transform:uppercase;font-weight:800;margin-bottom:12px}
+.co-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:24px 16px;max-width:560px}
+.co{display:flex;flex-direction:column;align-items:center;gap:7px;opacity:0;transform:translateY(10px);animation:coIn .4s ease-out forwards}
+.co .co-ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,rgba(29,111,224,.14),rgba(121,179,255,.05));border:1px solid rgba(29,111,224,.22);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease,filter .2s ease;filter:brightness(.95)}
+.co .co-ic svg{width:30px;height:30px;display:block}
+.co .co-name{position:relative;font-size:11.5px;font-weight:800;color:var(--muted);letter-spacing:.2px;text-align:center;cursor:default}
+.co:hover .co-ic{transform:translateY(-3px) rotate(-2deg);box-shadow:0 12px 26px rgba(29,111,224,.32);filter:brightness(1.1);opacity:1}
+.co .co-ic{opacity:.72}
+.co:hover{opacity:1}
+/* тултип */
+.co .co-name::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 9px);transform:translateX(-50%) translateY(4px);background:#0f1e34;color:#e8edf5;font-size:11.5px;font-weight:700;font-family:var(--sans);padding:6px 12px;border-radius:9px;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .16s ease,transform .16s ease;z-index:30;letter-spacing:normal;text-transform:none}
+.co .co-name::before{content:"";position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);border:5px solid transparent;border-top-color:#0f1e34;opacity:0;pointer-events:none;transition:opacity .16s ease;z-index:30}
+.co:hover .co-name::after,.co:focus-within .co-name::after{opacity:1;transform:translateX(-50%) translateY(0)}
+.co:hover .co-name::before,.co:focus-within .co-name::before{opacity:1}
+@keyframes coIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.co:nth-child(2){animation-delay:.08s}.co:nth-child(3){animation-delay:.16s}.co:nth-child(4){animation-delay:.24s}.co:nth-child(5){animation-delay:.32s}.co:nth-child(6){animation-delay:.4s}.co:nth-child(7){animation-delay:.48s}
+.co-foot{display:flex;align-items:center;gap:16px;margin-top:16px;font-size:12.5px}
+.co-count{font-weight:900;color:var(--blue,#1d6fe0);letter-spacing:.3px}
+.co-link{font-weight:800;color:var(--blue,#1d6fe0);text-decoration:none;transition:opacity .15s}
+.co-link:hover{opacity:.75;text-decoration:underline}
+html[data-theme="dark"] .co .co-ic{background:linear-gradient(140deg,rgba(79,155,255,.2),rgba(79,155,255,.04));border-color:rgba(79,155,255,.3)}
+html[data-theme="dark"] .co .co-name{color:#a0aec0}
+@media(max-width:720px){
+ .co-grid{grid-template-columns:repeat(3,1fr);gap:16px;max-width:none}
+ .co .co-ic{width:40px;height:40px;border-radius:11px}
+ .co .co-ic svg{width:25px;height:25px}
+ .co .co-name{font-size:10.5px}
+}
 .co-logo{width:20px;height:20px;border-radius:6px;object-fit:contain;display:block}
 /* ===== типографика: аккуратный TOP-вид ===== */
 .hero h1{font-size:clamp(28px,3.3vw,44px);line-height:1.12;letter-spacing:-.03em;margin-bottom:14px;text-wrap:balance}
