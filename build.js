@@ -308,6 +308,17 @@ function specialPage(html, id){
     const b = html.indexOf('<section class="sec" id="cases-anchor">');
     if(a>=0 && b>a){ html = html.slice(0,a) + html.slice(b); }
   }
+  if(id==='w7'){
+    const fig = `<figure class="gostekh-fig"><img src="img/gostekh-reglament.svg" width="920" height="500" alt="Схема регламента информационного взаимодействия ГосТех и МинЦифры" loading="lazy" decoding="async"><figcaption>Выжимка из 3 регламентов: СРО «ГосТех» ↔ ФГИС СЦ · 11 ролей · 3 процедуры · SLA 5 мин · зонд-контроль &lt;60 сек</figcaption></figure>`;
+    const pos = html.indexOf('<div class="d-body">');
+    if(pos>=0){ html = html.slice(0,pos) + fig + '\n' + html.slice(pos); }
+  }
+  if(id==='a2'||id==='a10'){
+    const fig = `<figure class="gostekh-fig"><img src="img/gostekh-reglament.svg" width="920" height="500" alt="Схема регламента информационного взаимодействия ГосТех и МинЦифры" loading="lazy" decoding="async"><figcaption>Выжимка из регламента: СРО «ГосТех» ↔ ФГИС СЦ · 11 ролей · 3 процедуры · 6 правил инцидентов · SLA 5 мин</figcaption></figure>`;
+    // заменить арт-превью, если есть
+    if(/art-pre/.test(html)){ html = html.replace(/<div class="art-pre">[\s\S]*?<\/div>/, fig); }
+    else { const pos = html.indexOf('<div class="d-body">'); if(pos>=0) html = html.slice(0,pos)+fig+'\n'+html.slice(pos); }
+  }
   if(id==='a8'){
     html = html.replace(/<iframe id="atlasFrameInline" class="atlas-inline"[^>]*><\/iframe>/, `<iframe src="atlas.html" class="atlas-inline" title="ИИ-атлас бэк-офиса" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`);
     html = html.replace(/<button type="button" class="btn gh"[^>]*>Полный экран<\/button>/, `<a class="btn gh" href="atlas.html" target="_blank" rel="noopener noreferrer" data-track="atlas">Полный экран</a>`);
