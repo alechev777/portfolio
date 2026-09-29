@@ -838,3 +838,35 @@ try{
 </body></html>`, 'utf8');
 }catch(e){}
 console.log('DONE pages. produced files:', Object.keys(produced));
+
+// ---- пост-обработка: артефакты ВНУТРИ кейсов (встраиваем превью, не ссылки) ----
+(function(){
+  function artTitle(n){ const p=path.join(OUT,'artifact-'+n+'.html'); if(!fs.existsSync(p)) return ''; const h=fs.readFileSync(p,'utf8'); return (h.match(/<h1[^>]*>([^<]*)<\/h1>/)||[])[1]||''; }
+  function artVisual(n){ const p=path.join(OUT,'artifact-'+n+'.html'); if(!fs.existsSync(p)) return null; const h=fs.readFileSync(p,'utf8');
+    if(/gostekh-reglament\.svg/.test(h)) return '<img src="img/gostekh-reglament.svg" alt="Схема" width="920" height="500" loading="lazy" decoding="async">';
+    if(/incident-ib-orig\.png/.test(h)) return '<img src="img/incident-ib-orig.png" alt="Схема инцидента ИБ" width="2200" height="618" loading="lazy" decoding="async">';
+    const m=h.match(/(<div class="art-pre">[\s\S]*?<\/div>)/); if(m) return m[1];
+    const s=h.match(/(<svg[\s\S]*?<\/svg>)/); if(s) return s[1];
+    return null;
+  }
+  for(let i=1;i<=17;i++){
+    const cf='case-w'+i+'.html', cp=path.join(OUT,cf);
+    if(!fs.existsSync(cp)) continue;
+    let body=fs.readFileSync(cp,'utf8');
+    const arts=[...new Set([...body.matchAll(/artifact-a(\d+)\.html/g)].map(m=>m[1]))];
+    if(!arts.length) continue;
+    const cards=arts.map(n=>{
+      const title=artTitle(n); const vis=artVisual(n);
+      const v = vis || '<span class="art-tile-ic">📄</span>';
+      return `<a class="case-art" href="artifact-a${n}.html" data-nav>
+        <div class="case-art-viz">${v}</div>
+        <div class="case-art-meta"><b>Артефакт</b><span>${title||'Документ'}</span><em>Открыть артефакт →</em></div>
+      </a>`;
+    }).join('');
+    const sec=`<section class="case-artifacts"><div class="sec-h"><span class="sec-n">АРТЕФАКТЫ КЕЙСА</span><h2>Доказательная база</h2></div>
+    <div class="case-art-grid">${cards}</div></section>`;
+    if(!/case-artifacts/.test(body)){ body=body.replace(/<\/main>/, ()=> '\n  '+sec+'\n</main>'); }
+    fs.writeFileSync(cp, body, 'utf8');
+  }
+  console.log('embedded artifacts into cases');
+})();
