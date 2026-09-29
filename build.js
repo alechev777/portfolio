@@ -540,8 +540,10 @@ function injectArchiveDocs(html){
   ];
   const gridEnd = html.indexOf('<div class="docs-grid">');
   if(gridEnd<0) return html;
-  const close = html.indexOf('</div>', gridEnd);
-  if(close<0) return html;
+  // закрывающий </div> самой сетки — тот, что непосредственно перед </section>
+  const secEnd = html.lastIndexOf('</section>');
+  const close = secEnd>gridEnd ? html.lastIndexOf('</div>', secEnd) : -1;
+  if(close<0 || close<gridEnd) return html;
   const cardsHtml = cards.map(c=>`
       <a class="doc-card" href="${c.href}"  data-nav>
         <div class="doc-head"><span class="doc-tag">${c.tag}</span><span class="doc-arrow">→</span></div>
