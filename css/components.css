@@ -1027,3 +1027,63 @@ html[data-theme="light"] .hero-stats .hs span{color:var(--dim,#5f6f87)}
   .hero-stats{grid-template-columns:repeat(2,1fr);gap:14px 20px;margin-top:20px}
   .hero-stats .hs b{font-size:22px}
 }
+
+/* ============ Ревизия 2026: контраст → WCAG AA ============ */
+/* #1 co-name в hero всегда светлый (hero фон тёмный в обеих темах).
+   Ранее html[data-theme=light] .co .co-name был #33455f → невидим на тёмном hero. */
+.co .co-name{color:#cfe0ec}
+html[data-theme="light"] .co .co-name{color:#cfe0ec}
+.co-grid .co-name{color:#cfe0ec}
+/* #2 Плейсхолдеры полей — контраст ≥4.5 */
+input::placeholder,textarea::placeholder{color:#7d8ba0}
+/* #3 Ссылки: подчёркивание при недостаточном отличии от текста + контраст */
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+.foot-links a,.pf-more a,.co-link,.t2-link{color:var(--blue)}
+/* #4 focus-обводка видна (уже есть для :focus-visible, добавим для форм) */
+input:focus,textarea:focus,select:focus{outline:2px solid var(--blue,#1d6fe0);outline-offset:1px}
+/* #5 Границы интерактивных элементов 3:1 — осветляем в светлой теме */
+input,textarea,select{border:1px solid #c2ccd8}
+
+/* ============ Ревизия 2026: выравнивание, отступы, типографика ============ */
+/* Ровная высота карточек в ряду: контент прижат к верху, кнопка к низу */
+.why-card,.kpi-res-card{display:flex;flex-direction:column;align-items:flex-start}
+.why-card p,.kpi-res-card .kr-l{margin-top:auto}
+.how-card .tap,.t2-card .t2-cta,.case .open,.problem-card h3{margin-top:auto}
+/* Единый вертикальный ритм между секциями через margin-bottom (не margin-top для блоков друг от друга) */
+section.sec,.pf-section,.how-section,.why-me,.career-sec,.problem-sec,.kpi-teaser,.atlas-teaser{margin-bottom:2.5rem}
+.sec-h{margin-bottom:1rem}
+/* Отступ заголовок→текст внутри карточек */
+.how-card h3,.why-card b,.problem-card h3,.kpi-res-card .kr-l{margin-bottom:.5rem}
+/* Типографика: читабельный межстрочный и ширина текста */
+body{line-height:1.65}
+.lead,.sec-h h2,.hero h1,.t2-flow,.case p,.d-card p{line-height:1.6}
+.hero .lead,.sec-s{max-width:65ch}
+/* Убрать выравнивание justify → left */
+p{text-align:left}
+/* Сетки карточек: равная высота */
+.why-grid,.problem-grid,.pf-grid,.how-grid,.live-grid{align-items:stretch}
+/* Адаптив: не ломать на 360px */
+@media(max-width:420px){
+  .hero-stats{grid-template-columns:1fr 1fr;gap:10px}
+  .t2-card{grid-template-columns:64px 1fr;gap:10px;padding:10px 12px}
+  .t2-card .t2-viz{height:64px;width:64px;border-radius:9px}
+  .t2-card .t2-name{font-size:15px}
+  .kpi-results{grid-template-columns:1fr 1fr}
+  .btn{min-height:44px}
+}
+
+/* ============ Ревизия 2026: KPI калькулятор ============ */
+/* Контрастный трек слайдера (3:1 к фону) */
+@media (max-width:760px){
+  .kpi-field input[type=range]{min-height:44px}
+  .kpi-field input[type=range]{background:#cfd8e4}
+  html[data-theme="dark"] .kpi-field input[type=range]{background:#24334d}
+}
+/* Поля ввода: контрастная граница 3:1 */
+.kpi-field .raw{border-color:#b8c4d2}
+html[data-theme="dark"] .kpi-field .raw{border-color:rgba(255,255,255,.3)}
+/* Результат расчёта: крупно и с воздухом от инпутов */
+.kpi-results{margin-top:20px}
+.kpi-res-card .kr-v{font-size:clamp(24px,2.8vw,32px)}
+.kpi-res-card{padding:18px 14px}
