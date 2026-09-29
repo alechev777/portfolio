@@ -6,7 +6,7 @@
   var pinch=null;
 
   function apply(){ img.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')'; }
-  function clampScale(s){ return Math.max(fitScale, Math.min(8, s)); }
+  function clampScale(s){ return Math.max(fitScale, Math.min(20, s)); }
   function fit(){
     var w=ov.clientWidth-48, h=ov.clientHeight-88;
     if(w<=0||h<=0||!img.naturalWidth){ scale=fitScale=1; tx=0; ty=0; apply(); return; }
@@ -66,6 +66,9 @@
       var f=e.deltaY<0?1.2:1/1.2;
       zoomAt(f, e.clientX, e.clientY);
     }, {passive:false});
+
+    // double-click: zoom in steps
+    stage.addEventListener('dblclick', function(e){ zoomAt(2, e.clientX, e.clientY); });
 
     // drag pan
     stage.addEventListener('mousedown', function(e){ if(e.button!==0) return; dragging=true; sx=e.clientX; sy=e.clientY; stx=tx; sty=ty; stage.classList.add('lb-grabbing'); });
