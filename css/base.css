@@ -104,3 +104,57 @@ b,strong{text-wrap:balance}
   .d-hero.light .dk{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#e8eef7}
   .d-hero.light .dk b{color:#ffffff}
 }
+/* ============ ЯВНАЯ ТЕМА ЧЕРЕЗ АТРИБУТ (переключатель) ============
+   media-блок выше отвечает только за ДЕФОЛТ первой загрузки.
+   Блоки ниже имеют специфичность 0,1,1 (html[data-theme]) и всегда
+   переопределяют медиа-запрос, поэтому переключатель работает на любой ОС. */
+
+html[data-theme="light"]{
+  --bg:#f2f5f8; --paper:#ffffff; --card:#ffffff;
+  --ink:#15243a; --muted:#5f6e82; --dim:#5f6f87; --line:#dde4ec;
+  --navy:#123052; --blue:#1d6fe0;
+  --shadow:0 12px 30px rgba(21,42,66,.08);
+  --shadow-sm:0 2px 10px rgba(15,30,52,.06),0 8px 24px rgba(15,30,52,.05);
+  --shadow-md:0 8px 30px rgba(15,30,52,.1),0 20px 50px rgba(15,30,52,.08);
+  color-scheme:light;
+}
+html[data-theme="light"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="light"] .theme-toggle{background:#eef3f9;color:#15243a}
+html[data-theme="light"] .top{background:rgba(255,255,255,.9)}
+html[data-theme="light"] .top{border-color:#e4eaf2}
+html[data-theme="light"] .brand .nm,html[data-theme="light"] .hero-name,html[data-theme="light"] .hero h1,html[data-theme="light"] .sec-h h2,html[data-theme="light"] .doc-card h4{color:#123052}
+html[data-theme="light"] .case,html[data-theme="light"] .art2,html[data-theme="light"] .d-card,html[data-theme="light"] .box,html[data-theme="light"] .ex,html[data-theme="light"] .how-card,html[data-theme="light"] .doc-card,html[data-theme="light"] .pf-item,html[data-theme="light"] .problem-card,html[data-theme="light"] .career-row{background:var(--card);border-color:var(--line)}
+html[data-theme="light"] .hero{background:linear-gradient(160deg,#eef4fb,#dfe9f4 55%,#e6eef7)}
+html[data-theme="light"] .hero-tagline{background:rgba(29,111,224,.12);color:#1d4a78}
+html[data-theme="light"] .hero .lead{color:#5f6e82}
+html[data-theme="light"] .trust-chip{background:#fff;border-color:#e0e7f0;color:#123052}
+html[data-theme="light"] .btn.gh{background:#fff;border-color:#d5deea;color:#123052}
+html[data-theme="light"] .doc-viz{background:#f4f8fc;border-color:#e3eaf2}
+html[data-theme="light"] .doc-viz svg text,html[data-theme="light"] .doc-viz text{fill:#5f6e82}
+html[data-theme="light"] .problem-sec{background:linear-gradient(135deg,#f1f6fb,#e9f0f8)}
+html[data-theme="light"] .career-row:hover{background:#ecf2f9}
+html[data-theme="light"] .nav a,html[data-theme="light"] .nav-dd-menu a{color:#5f6e82}
+html[data-theme="light"] .nav a:hover{color:#1d6fe0;background:#eef3f9}
+html[data-theme="light"] .nav-dd-menu{background:#fff;border-color:#e0e7f0}
+html[data-theme="light"] .d-hero.light{background:#fff}
+html[data-theme="light"] .live-viz{background:#f4f8fc;border-color:#e3eaf2}
+html[data-theme="light"] .live-nums{border-color:#e5ecf3}
+html[data-theme="light"] .d-hero.light .dk{background:#f4f8fc;border-color:#e5ecf3;color:#15243a}
+html[data-theme="light"] .d-hero.light .dk b{color:#1d6fe0}
+
+/* --- Тёмная тема: повышенный контраст (WCAG AA) --- */
+html[data-theme="dark"]{
+  --bg:#0a1628; --card:#142236; --ink:#e8edf5; --muted:#a0aec0; --dim:#939fae;
+  --line:rgba(255,255,255,.22); --line-strong:rgba(255,255,255,.38);
+  --navy:#e4edf8; --blue:#4f9bff;
+  --sky:#6fc8e8; --teal:#3bb5d8; --gold:#e0a541; --violet:#a68ff8;
+  --red:#e46a6a; --orange:#e8913f; --teal-soft:#12384a; --blue-soft:#18304f;
+  --amber-soft:#3d2f12; --green-soft:#14382a; --red-soft:#43201f; --purple-soft:#312a4a;
+  color-scheme:dark;
+  --shadow:0 10px 32px rgba(0,0,0,.4); --shadow-sm:0 2px 10px rgba(0,0,0,.4);
+  --shadow-md:0 8px 30px rgba(0,0,0,.45),0 20px 50px rgba(0,0,0,.4);
+}
+html[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="dark"] .top{background:rgba(10,22,40,.9)}
+html[data-theme="dark"] .top{border-color:var(--line)}
+html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="dark"] h4,html[data-theme="dark"] .brand .nm{color:var(--navy,#e4edf8)}

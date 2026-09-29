@@ -1,5 +1,6 @@
 /* print.css — hide app chrome, print the content */
 @media print{
+  html{color-scheme:light}
   .top,.burger,.no-js-c,.skip-link,#toTop,#progressBar,.callout,.cta,.nav,.btn.gh,.career-row,.foot-print{
     display:none !important;
   }
