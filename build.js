@@ -114,7 +114,6 @@ function navHTML(activeId){
     {label:'Главная', href:'index.html', id:'home'},
     {label:'Кейсы', href:'cases.html', id:'cases'},
     {label:'Артефакты', href:'artifacts.html', id:'artifacts'},
-    {label:'Библиотека', href:'archive.html', id:'archive'},
     {label:'Путь', href:'timeline.html', id:'timeline'},
     {label:'Навыки', href:'stack.html', id:'stack'},
     {label:'Портфель', href:'portfolio.html', id:'portfolio'},
@@ -429,6 +428,7 @@ function processPage(id){
   if(id==='home') body = homeEdits(body);
   body = ensureH1(body, id);
   body = injectLogos(body, id);
+  if(id==='artifacts') body = injectArchiveDocs(body);
   if(kind==='case' && !/case-cta-float/.test(body)){
     body += '\n<a class="case-cta-float" href="contact.html" data-nav data-track="cta-contact">Обсудить похожую задачу →</a>';
   }
@@ -509,6 +509,40 @@ function logoNameByCompany(txt){
   if(s.includes('сrg')||s.includes('сcoo')||s.includes('service office')||s.includes('srg')) return 'srg';
   if(s.includes('р-vis')) return 'rvision';
   return null;
+}
+function injectArchiveDocs(html){
+  // Документы из бывшей «Библиотеки», которых нет в Tier 2 Артефактов → единая сетка без дублей
+  const cards=[
+    {href:'artifact-a2.html',tag:'DOCX · Министерство',title:'Регламент взаимодействия СРО ЕЦП и ФГИС СЦ',sub:'Регламент уровня Министерства',mets:[['11','ролей'],['3','процедуры'],['6','правил']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="30" y="40" width="76" height="44" rx="8" fill="#0e2850"/><text x="68" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">11 ролей</text><rect x="122" y="40" width="76" height="44" rx="8" fill="#1d6fe0"/><text x="160" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">3 процедуры</text><rect x="214" y="40" width="76" height="44" rx="8" fill="#0f8f7f"/><text x="252" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">SLA 5 мин</text><rect x="40" y="100" width="240" height="8" rx="4" fill="#e3e9f0"/><rect x="40" y="100" width="180" height="8" rx="4" fill="#1d6fe0"/><text x="160" y="124" text-anchor="middle" font-size="10" font-weight="800" fill="#0e2850">ЕЦП «ГосТех» ↔ ФГИС СЦ · МинЦифры</text></svg>`},
+    {href:'artifact-a3.html',tag:'XLSX · Интеграция',title:'Интеграция данных между ГосТех и ФГИС СЦ',sub:'Атрибуты, статусы, справочники для REST-обмена',mets:[['60+','полей'],['12','справочников'],['6','приоритетов']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="30" y="40" width="116" height="42" rx="8" fill="#eef5ff"/><text x="88" y="66" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6fe0">clientName</text><rect x="170" y="40" width="120" height="42" rx="8" fill="#eef5ff"/><text x="230" y="66" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6fe0">ФИО</text><rect x="30" y="96" width="116" height="36" rx="8" fill="#eef5ff"/><text x="88" y="119" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6fe0">priority →</text><rect x="170" y="96" width="120" height="36" rx="8" fill="#eef5ff"/><text x="230" y="119" text-anchor="middle" font-size="11" font-weight="800" fill="#1d6fe0">Приоритет</text><text x="160" y="142" text-anchor="middle" font-size="10" font-weight="800" fill="#0e2850">карта полей и статусов двух СУЗ</text></svg>`},
+    {href:'artifact-a4.html',tag:'PDF · ITSM · Процесс',title:'Схема обработки инцидента ИБ',sub:'BPMN-модель реагирования на инциденты ИБ',mets:[['12','шагов'],['3','решения'],['BPMN','']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="24" y="45" width="70" height="40" rx="8" fill="#1d6fe0"/><text x="59" y="70" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">1.1 Регист.</text><line x1="94" y1="65" x2="118" y2="65" stroke="#53637a" stroke-width="2"/><rect x="120" y="45" width="70" height="40" rx="8" fill="#c7912a"/><text x="155" y="70" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">умышл.? </text><line x1="190" y1="65" x2="214" y2="65" stroke="#53637a" stroke-width="2"/><rect x="216" y="45" width="78" height="40" rx="8" fill="#0f8f7f"/><text x="255" y="70" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Устранение</text><rect x="120" y="100" width="84" height="32" rx="8" fill="#0e2850"/><text x="162" y="121" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Закрытие</text></svg>`},
+    {href:'artifact-a5.html',tag:'DOCX · AI',title:'AI-ассистент Service Desk',sub:'Логика работы и экономика ИИ-виджета',mets:[['76,9%','охват'],['−40%','стоимость'],['−62%','труд']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="24" y="45" width="80" height="44" rx="8" fill="#0e7490"/><text x="64" y="69" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">AI-виджет</text><line x1="104" y1="67" x2="128" y2="67" stroke="#53637a" stroke-width="2"/><rect x="130" y="45" width="80" height="44" rx="8" fill="#1d6fe0"/><text x="170" y="69" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">1-я линия</text><line x1="210" y1="67" x2="234" y2="67" stroke="#53637a" stroke-width="2"/><rect x="236" y="45" width="60" height="44" rx="8" fill="#1f7a52"/><text x="266" y="69" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">JIRA</text><text x="160" y="120" text-anchor="middle" font-size="11" font-weight="800" fill="#0e7490">Охват ИИ 76,9%</text></svg>`},
+    {href:'artifact-a6.html',tag:'PDF · Инструкция',title:'Памятка сотрудникам склада',sub:'Самообслуживание в ночную смену и выходные',mets:[['3','блока'],['24/7',''],['PDF','']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="24" y="45" width="84" height="48" rx="8" fill="#0e2850"/><text x="66" y="73" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Что решить</text><rect x="120" y="45" width="84" height="48" rx="8" fill="#c7912a"/><text x="162" y="73" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Диагностика</text><rect x="216" y="45" width="80" height="48" rx="8" fill="#1d6fe0"/><text x="256" y="73" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Кому звонить</text><text x="160" y="122" text-anchor="middle" font-size="10" fill="#53637a">без вызова ИТ-специалиста</text></svg>`},
+    {href:'artifact-a7.html',tag:'DOCX · Тендер',title:'ТЗ на приобретение ITSM-системы',sub:'30+ модулей ITIL 4, отказоустойчивость RC4, ИБ',mets:[['30+','модулей'],['RC4','класс'],['17','блоков ИБ']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="30" y="42" width="120" height="30" rx="8" fill="#eef5ff"/><text x="90" y="62" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1d6fe0">✓ Инциденты</text><rect x="170" y="42" width="120" height="30" rx="8" fill="#eef5ff"/><text x="230" y="62" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1d6fe0">✓ CMDB</text><rect x="30" y="80" width="120" height="30" rx="8" fill="#fdf1dc"/><text x="90" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b3741f">17 блоков ИБ</text><rect x="170" y="80" width="120" height="30" rx="8" fill="#fdf1dc"/><text x="230" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b3741f">RC4 · HA</text><text x="160" y="132" text-anchor="middle" font-size="10" font-weight="800" fill="#0e2850">Кумтор Голд · 2022</text></svg>`},
+    {href:'artifact-a11.html',tag:'PPTX · KPI',title:'Операционные и целевые KPI ИТ-блока MERLION',sub:'Система KPI для ~700 сотрудников',mets:[['~700','чел.'],['6','групп'],['SLA','']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><text x="30" y="34" font-size="12" font-weight="800" fill="#0e2850">KPI ИТ · ~700 чел.</text><rect x="30" y="44" width="90" height="22" rx="6" fill="#eef5ff"/><text x="75" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#1d6fe0">Time2Market</text><rect x="128" y="44" width="90" height="22" rx="6" fill="#eef5ff"/><text x="173" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#1d6fe0">Непрерывн.</text><rect x="226" y="44" width="64" height="22" rx="6" fill="#eef5ff"/><text x="258" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#1d6fe0">SLA</text><rect x="30" y="74" width="160" height="22" rx="6" fill="#fdf1dc"/><text x="110" y="90" text-anchor="middle" font-size="10" font-weight="700" fill="#b3741f">Аллокация ФСА</text><rect x="198" y="74" width="92" height="22" rx="6" fill="#fdf1dc"/><text x="244" y="90" text-anchor="middle" font-size="10" font-weight="700" fill="#b3741f">6 групп</text></svg>`},
+    {href:'artifact-a14.html',tag:'PPTX · Статус',title:'Статус «Управление ИТ-услугами»',sub:'Срез состояния и целевая модель ITIL 4',mets:[['AS-IS',''],['TO-BE',''],['ITIL 4','']],
+     svg:`<svg viewBox="0 0 320 150"><rect width="320" height="150" fill="#f2f5f8"/><rect x="30" y="50" width="110" height="50" rx="10" fill="#fbeaea"/><text x="85" y="74" text-anchor="middle" font-size="13" font-weight="800" fill="#c03a3a">AS IS</text><text x="85" y="90" text-anchor="middle" font-size="9" fill="#8c5a5a">хаос</text><line x1="150" y1="75" x2="184" y2="75" stroke="#53637a" stroke-width="3"/><rect x="190" y="50" width="100" height="50" rx="10" fill="#e6f4ec"/><text x="240" y="74" text-anchor="middle" font-size="13" font-weight="800" fill="#1f7a52">TO BE</text><text x="240" y="90" text-anchor="middle" font-size="9" fill="#3f7d63">ITIL 4</text></svg>`}
+  ];
+  const gridEnd = html.indexOf('<div class="docs-grid">');
+  if(gridEnd<0) return html;
+  const close = html.indexOf('</div>', gridEnd);
+  if(close<0) return html;
+  const cardsHtml = cards.map(c=>`
+      <a class="doc-card" href="${c.href}"  data-nav>
+        <div class="doc-head"><span class="doc-tag">${c.tag}</span><span class="doc-arrow">→</span></div>
+        <div class="doc-viz">${c.svg}</div>
+        <h4>${c.title}</h4>
+        <p class="doc-sub">${c.sub}</p>
+        <div class="doc-mets">${c.mets.map(m=>`<div><b>${m[0]}</b><span>${m[1]}</span></div>`).join('')}</div>
+      </a>`).join('');
+  return html.slice(0, close) + cardsHtml + html.slice(close);
 }
 function injectLogos(body, id){
   // 1) home trust chips -> logo pill (brand tile + wordmark)
@@ -687,4 +721,17 @@ for(const id of pageIds){
     if(nh!==h) fs.writeFileSync(p, nh, 'utf8');
   }
 }
+// Библиотека объединена с Артефактами → archive.html делает редирект на artifacts.html
+try{
+  fs.writeFileSync(path.join(OUT,'archive.html'), `<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=artifacts.html">
+<link rel="canonical" href="${DOMAIN}/artifacts.html">
+<title>Библиотека · Александр Чевтаев</title></head>
+<body style="font-family:system-ui;padding:60px;text-align:center">
+<h2>Библиотека объединена с разделом «Артефакты»</h2>
+<p><a href="artifacts.html">Перейти к артефактам →</a></p>
+<script>location.replace('artifacts.html');</script>
+</body></html>`, 'utf8');
+}catch(e){}
 console.log('DONE pages. produced files:', Object.keys(produced));
