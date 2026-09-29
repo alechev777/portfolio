@@ -736,27 +736,10 @@ function injectSvgPreview(html, id, h1){
 }
 function addAnalytics(html, id){
   if(id==='contact'){
-    // форма обратной связи (без перезагрузки): Formspree-плейсхолдер + mailto-fallback
-    const form=`<div class="contact-form-wrap">
-      <h2>Обсудить задачу</h2>
-      <p class="cf-sub">Пришлю гипотезу с расчётом ROI в течение 48 часов.</p>
-      <form id="cf" class="contact-form" data-cf-endpoint="https://formspree.io/f/XXXXXXX" novalidate>
-        <div class="cf-row"><label for="cf-name">Имя</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
-        <div class="cf-row"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
-        <div class="cf-row"><label for="cf-msg">Задача</label><textarea id="cf-msg" name="message" rows="5" required></textarea></div>
-        <button type="submit" class="btn p" data-track="contact-form">Отправить →</button>
-        <p class="cf-note">Форма отправляется без перезагрузки. Если что-то не работает — напишите в <a href="https://t.me/Alechev" target="_blank" rel="noopener noreferrer">Telegram</a> или на <a href="mailto:chev.alex@mail.ru">почту</a>.</p>
-      </form>
-      <p class="cf-status" id="cf-status" hidden></p>
-    </div>`;
+    // WhatsApp-контакт (кнопка) + убрать лишнее (форма/резюме) — только контакты
+    const wa=`<p class="contact-wa"><a class="btn p" href="https://wa.me/79150234324" target="_blank" rel="noopener noreferrer" data-track="contact-wa">Написать в WhatsApp <span class="ar">→</span></a></p>`;
     const pos=html.indexOf('<div class="contact reveal">');
-    if(pos>=0){ html=html.slice(0,pos)+form+'\n'+html.slice(pos); }
-    // кнопка «Скачать резюме PDF» (печатная версия)
-    if(!/resume-dl/.test(html)){
-      const dl=`<p class="resume-dl"><button type="button" class="btn p" data-action="resume-print">Скачать резюме (PDF) ⬇️</button></p>`;
-      const anchor='<div class="contact reveal">';
-      html=html.replace(anchor, dl+'\n    '+anchor);
-    }
+    if(pos>=0){ html=html.slice(0,pos)+wa+'\n    '+html.slice(pos); }
   }
     // insert data-track INSIDE the opening tag (before closing '>')
     function tag(sel, hrefRe, track){

@@ -327,7 +327,9 @@ html[data-theme="dark"] .top{background:rgba(15,24,38,.9)}
 html[data-theme="dark"] .card,html[data-theme="dark"] .d-card,html[data-theme="dark"] .box,html[data-theme="dark"] .case2,html[data-theme="dark"] .doc-card,html[data-theme="dark"] .pf-item,html[data-theme="dark"] .how-card,html[data-theme="dark"] .why-card,html[data-theme="dark"] .career-row,html[data-theme="dark"] .problem-card{background:var(--card);border-color:var(--line)}
 html[data-theme="dark"] .theme-toggle{background:#1d2f4a;color:#e8eef7}
 
-.contact-form-wrap{max-width:560px;margin:0 0 26px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm)}
+.contact-wrap-h2{ } /* reserved */
+.contact-wa{margin:0 0 6px}
+.contact-wa .btn{width:100%;justify-content:center;margin:0 0 12px}
 .contact-form-wrap h2{margin:0 0 4px;font-size:20px;font-weight:900;color:var(--navy);font-family:var(--head)}
 .cf-sub{margin:0 0 16px;color:var(--muted);font-size:13px}
 .contact-form .cf-row{margin-bottom:14px}
