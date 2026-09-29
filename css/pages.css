@@ -176,8 +176,8 @@ iframe.atlas-inline{height:min(90vh,820px);width:100%}
 .pf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
 .fpill{position:absolute;z-index:5;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.5);box-shadow:0 8px 26px rgba(14,40,80,.16);font-size:13px;font-weight:900;color:var(--navy);font-family:var(--head);letter-spacing:-.02em;white-space:nowrap}
 .fpill span{font-size:9.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-left:5px}
-.fpill-a{top:12%;right:-4%}
-.fpill-b{background:linear-gradient(135deg,rgba(13,34,60,.96),rgba(13,34,60,.9));color:#fff;border-color:rgba(255,255,255,.15)}
+.fpill-a{top:4%;right:-4%}
+.fpill-b{top:18%;left:2%;background:linear-gradient(135deg,rgba(13,34,60,.96),rgba(13,34,60,.9));color:#fff;border-color:rgba(255,255,255,.15)}
 .fpill-c{bottom:18%;right:-2%}
 .fpill-d{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,255,255,.82))}
 .fpill-a,.fpill-c{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,.88))}
@@ -272,8 +272,8 @@ iframe.atlas-inline{height:min(90vh,820px);width:100%}
   .pf-grid,.how-grid{grid-template-columns:1fr}
   .pf-v{font-size:24px;white-space:normal}
   .fpill{font-size:11px;padding:7px 12px}
-  .fpill-a{top:6%;right:2%}
-  .fpill-b{top:34%;left:2%}
+  .fpill-a{top:2%;right:2%}
+  .fpill-b{top:30%;left:2%}
   .fpill-c{bottom:12%;right:2%}
   .fpill-d{bottom:34%;left:2%}
   .how-grid{gap:12px}
