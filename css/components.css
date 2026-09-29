@@ -991,3 +991,35 @@ body,.top,.case,.card,.d-card,#lbOverlay{transition:background-color .2s ease,co
 @media (prefers-reduced-motion: reduce){
   .hero .lead b,.btn.p{transition:none}
 }
+
+/* ============ Премиальный hero (index) ============ */
+/* Градиентный акцент в заголовке */
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .hero h1 .gr-text{background:linear-gradient(120deg,#79b3ff 0%,#8fd3e0 45%,#6ee7b7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  html[data-theme="light"] .hero h1 .gr-text{background:linear-gradient(120deg,#1d6fe0 0%,#0e9bbf 45%,#0f8f7f 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
+/* Статы в hero — премиальные карточки-счётчики */
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:12px 26px;justify-content:start;margin-top:24px}
+.hero-stats .hs{display:flex;flex-direction:column;gap:2px}
+.hero-stats .hs b{font-family:var(--head);font-size:clamp(22px,2.4vw,30px);font-weight:900;letter-spacing:-.02em;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+html[data-theme="light"] .hero-stats .hs b{color:var(--navy,#123052)}
+.hero-stats .hs span{font-size:11px;color:#a0aec0;text-transform:uppercase;letter-spacing:.8px;font-weight:700}
+html[data-theme="light"] .hero-stats .hs span{color:var(--dim,#5f6f87)}
+/* анимированное появление элементов hero (появление слева, staggered) */
+.hero .gr-text{display:inline-block;opacity:0;transform:translateY(10px);animation:heroRise .5s ease-out forwards}
+.hero-name{animation:heroRise .5s ease-out both}
+.hero-tagline{animation:heroRise .5s ease-out .06s both}
+.hero h1{animation:heroRise .5s ease-out .12s both}
+.hero .lead{animation:heroRise .5s ease-out .18s both}
+.hero-stats{opacity:0;animation:heroRise .5s ease-out .24s both}
+.hero .rb{animation:heroRise .5s ease-out .3s both}
+.hero .trust{animation:heroRise .5s ease-out .38s both}
+@keyframes heroRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion: reduce){
+  .hero .gr-text,.hero-name,.hero-tagline,.hero h1,.hero .lead,.hero-stats,.hero .rb,.hero .trust{animation:none;opacity:1;transform:none}
+}
+/* мобильные статы: компактнее */
+@media (max-width:640px){
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:14px 20px;margin-top:20px}
+  .hero-stats .hs b{font-size:22px}
+}

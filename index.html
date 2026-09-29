@@ -61,8 +61,14 @@
 <div class="hero-name">Чевтаев Александр</div>
         <div class="hero-tagline">Цифровая трансформация бизнеса на базе ИИ</div>
         <div class="k">Директор по цифровой трансформации</div>
-        <h1>Внедряю ИИ во все сферы бизнеса — каждый рубль приносит прибыль</h1>
+        <h1>Внедряю <span class="gr-text">ИИ</span> во все сферы бизнеса — каждый рубль приносит прибыль</h1>
         <p class="lead">Внедряю искусственный интеллект сквозь весь бизнес: продажи, маркетинг, операции, производство, поддержку и финансы — не только ИТ. Проектирую целевые решения с ИИ-ядром и считаю эффект каждого рубля. Каждые 4–5 месяцев — измеримый результат в P&amp;L. <b>250–400 млн ₽/год</b> на проекте, <b>ROI 250–300%</b>, <b>−42% OPEX</b>. 15 лет, 11 компаний, 8 отраслей.</p>
+        <div class="hero-stats" aria-label="Ключевые показатели">
+          <div class="hs"><b class="hs-num" data-count="400" data-suffix="+">400+</b><span>млн ₽ эффект/год</span></div>
+          <div class="hs"><b class="hs-num">250–300%</b><span>ROI за 1-й год</span></div>
+          <div class="hs"><b class="hs-num">4–5 мес.</b><span>окупаемость</span></div>
+          <div class="hs"><b class="hs-num" data-count="15" data-suffix=" лет">15</b><span>лет в ИТ</span></div>
+        </div>
         <div class="rb">
           <a class="btn p" href="cases.html"  data-nav>Показать кейсы с цифрами <span class="ar">→</span></a>
           <a class="btn gh" href="artifact-a8.html"  data-nav>ИИ-атлас бэк-офиса</a>
@@ -230,5 +236,35 @@
 <script src="js/lightbox.js"></script>
 <script src="js/portfolio.js"></script>
 <script src="js/calc.js"></script>
+<script>
+/* ===== Премиальный hero: анимация счётчиков статов ===== */
+(function(){
+'use strict';
+var reduce=false;
+try{ reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+var nums=document.querySelectorAll('.hs-num[data-count]');
+function animate(el){
+  var target=parseInt(el.getAttribute('data-count')||'0',10);
+  var suffix=el.getAttribute('data-suffix')||'';
+  if(reduce){ return; }
+  var start=null, dur=1100;
+  function step(ts){
+    if(!start)start=ts;
+    var p=Math.min(1,(ts-start)/dur);
+    var eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*eased).toLocaleString('ru-RU')+suffix;
+    if(p<1) requestAnimationFrame(step); else el.textContent=target.toLocaleString('ru-RU')+suffix;
+  }
+  requestAnimationFrame(step);
+}
+var shown=false;
+function onScroll(){
+  if(shown)return;
+  nums.forEach(function(n){ var r=n.getBoundingClientRect(); if(r.top<window.innerHeight*0.9){ shown=true; nums.forEach(animate); } });
+}
+window.addEventListener('scroll',onScroll);
+onScroll();
+})();
+</script>
 </body>
 </html>
