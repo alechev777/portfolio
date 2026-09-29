@@ -32,13 +32,11 @@
     function setup(){ 
       var nw=img.naturalWidth, nh=img.naturalHeight;
       if(mode==='natural' && nw){
-        // показать схему в натуральном масштабе (текст крупный), с панорамированием
-        fitScale=Math.max(0.4, Math.min(1, (ov.clientWidth-40)/nw));
-        // увеличим чуть больше, чтобы текст был читаем
-        scale=Math.max(fitScale, (ov.clientWidth-40)/nw * 1.15);
-        if(img.naturalWidth*scale > ov.clientWidth) scale=(ov.clientWidth-40)/nw; // не выходить за экран по шир
-        tx=(ov.clientWidth-img.naturalWidth*scale)/2;
-        ty=(ov.clientHeight-img.naturalHeight*scale)/2;
+        // нативный масштаб 1:1 — максимальная чёткость, без сжатия; зум до 20× по колесу/кнопкам
+        fitScale=Math.min((ov.clientWidth-48)/nw, (ov.clientHeight-88)/nh, 1);
+        scale=1;
+        tx=(ov.clientWidth-nw*scale)/2;
+        ty=(ov.clientHeight-nh*scale)/2;
         apply();
       } else { fit(); }
     }
