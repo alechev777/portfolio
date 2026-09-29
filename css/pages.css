@@ -408,3 +408,30 @@ html[data-theme="dark"] .matrix .cell{color:#c6d2e4}
 html[data-theme="dark"] .atlas-inline,html[data-theme="dark"] .atlas-frame{background:#142236}
 html[data-theme="dark"] .atlas-modal{background:rgba(6,12,22,.94)}
 html[data-theme="dark"] .case .co,html[data-theme="dark"] .case2 .co{color:var(--ink,#e8edf5)}
+
+/* ===== Премиальный hero: адаптив и устранение пустоты ===== */
+/* Не ужимать hero до одной колонки на таблетках/ноутбуках — сохраняем 2 колонки до 820px */
+@media (max-width:1024px) and (min-width:821px){
+  .hero-grid{grid-template-columns:7fr 5fr;gap:28px}
+  .hero-grid{min-height:auto}
+  .hero-photo .ph{height:min(380px,52vh)}
+  .hero{padding:clamp(28px,4vh,44px) clamp(22px,3.5vw,40px)}
+}
+/* На узких экранах hero компактный: нет огромной высоты на весь экран, нет пустоты */
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:26px;min-height:auto}
+  .hero-photo .ph{height:min(400px,70vw)}
+  .hero-photo{max-width:480px;margin:0 auto}
+  .hero{padding:26px 22px}
+  .hero .lead{max-width:none}
+}
+/* На средних экранах компании — компактно в 3 ряда, без вертикальной горы */
+@media (max-width:1024px) and (min-width:821px){
+  .co-grid{grid-template-columns:repeat(3,1fr);gap:14px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .about-strip{justify-content:flex-start}
+}
+/* Снижаем навязчивую высоту десктопного hero: контентный, а не «на весь экран» */
+@media (min-width:1025px){
+  .hero-grid{min-height:auto}
+}

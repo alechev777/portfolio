@@ -129,11 +129,12 @@ html[data-theme="light"] body{background:var(--bg);color:var(--ink)}
 html[data-theme="light"] .theme-toggle{background:#eef3f9;color:#15243a}
 html[data-theme="light"] .top{background:rgba(255,255,255,.9)}
 html[data-theme="light"] .top{border-color:#e4eaf2}
-html[data-theme="light"] .brand .nm,html[data-theme="light"] .hero-name,html[data-theme="light"] .hero h1,html[data-theme="light"] .sec-h h2,html[data-theme="light"] .doc-card h4{color:#123052}
+html[data-theme="light"] .brand .nm,html[data-theme="light"] .sec-h h2,html[data-theme="light"] .doc-card h4{color:#123052}
+html[data-theme="light"] .hero-name,html[data-theme="light"] .hero h1{color:#ffffff}
 html[data-theme="light"] .case,html[data-theme="light"] .art2,html[data-theme="light"] .d-card,html[data-theme="light"] .box,html[data-theme="light"] .ex,html[data-theme="light"] .how-card,html[data-theme="light"] .doc-card,html[data-theme="light"] .pf-item,html[data-theme="light"] .problem-card,html[data-theme="light"] .career-row{background:var(--card);border-color:var(--line)}
-html[data-theme="light"] .hero{background:linear-gradient(160deg,#eef4fb,#dfe9f4 55%,#e6eef7)}
-html[data-theme="light"] .hero-tagline{background:rgba(29,111,224,.12);color:#1d4a78}
-html[data-theme="light"] .hero .lead{color:#5f6e82}
+html[data-theme="light"] .hero{background:linear-gradient(128deg,#081a31,#123052 54%,#0e4a63)}
+html[data-theme="light"] .hero-tagline{background:rgba(29,111,224,.22);color:#79b3ff}
+html[data-theme="light"] .hero .lead{color:#cfe0ec}
 html[data-theme="light"] .trust-chip{background:#fff;border-color:#e0e7f0;color:#123052}
 html[data-theme="light"] .btn.gh{background:#fff;border-color:#d5deea;color:#123052}
 html[data-theme="light"] .doc-viz{background:#f4f8fc;border-color:#e3eaf2}
