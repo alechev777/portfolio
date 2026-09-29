@@ -18,10 +18,6 @@
 <meta name="twitter:title" content="Контакты · Александр Чевтаев">
 <meta name="twitter:description" content="Контакты Александра Чевтаева: Telegram @Alechev, chev.alex@mail.ru, +7 915 023-43-24. Обсудим задачу с расчётом ROI.">
 <meta name="twitter:image" content="https://alechev777.github.io/portfolio/img/og-cover.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2" as="font" type="font/woff2" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/pages.css">
@@ -62,9 +58,21 @@
 <div class="wrap">
   <nav aria-label="breadcrumb" class="crumbs"><a href="index.html"  data-nav>Главная</a><span>→</span><b>Контакты</b></nav>
   <section class="sec" id="contact-anchor">
-    <div class="contact reveal">
+    <div class="contact-form-wrap">
+      <h1>Обсудить задачу</h1>
+      <p class="cf-sub">Пришлю гипотезу с расчётом ROI в течение 48 часов.</p>
+      <form id="cf" class="contact-form" data-cf-endpoint="https://formspree.io/f/XXXXXXX" novalidate>
+        <div class="cf-row"><label for="cf-name">Имя</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="cf-row"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="cf-row"><label for="cf-msg">Задача</label><textarea id="cf-msg" name="message" rows="5" required></textarea></div>
+        <button type="submit" class="btn p" data-track="contact-form">Отправить →</button>
+        <p class="cf-note">Форма отправляется без перезагрузки. Если что-то не работает — напишите в <a href="https://t.me/Alechev" target="_blank" rel="noopener noreferrer">Telegram</a> или на <a href="mailto:chev.alex@mail.ru">почту</a>.</p>
+      </form>
+      <p class="cf-status" id="cf-status" hidden></p>
+    </div>
+<div class="contact reveal">
       <div>
-        <h1>Беру на себя цифровую трансформацию <span class="g">с KPI в деньгах</span></h1>
+        <h2>Беру на себя цифровую трансформацию <span class="g">с KPI в деньгах</span></h2>
         <p>Стратегия, архитектура, экономика, команда — от диагностики до эффекта в отчётности. Первую гипотезу с расчётом ROI пришлю в течение 48 часов после разговора.</p>
         <div class="cta-actions">
           <a class="btn p" href="https://t.me/Alechev" target="_blank" rel="noopener noreferrer" data-track="contact-tg">Написать в Telegram <span class="ar">→</span></a>

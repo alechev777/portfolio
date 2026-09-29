@@ -95,7 +95,7 @@ function jsonLd(id, h1){
       "jobTitle":"Директор по цифровой трансформации",
       "email":"mailto:chev.alex@mail.ru","telephone":"+79150234324",
       "description":"Директор по цифровой трансформации. 15 лет в ИТ, 11 компаний, 8 отраслей. Эффект 250–400 млн ₽/год, окупаемость от 4 месяцев.",
-      "url": DOMAIN+"/index.html","image": DOMAIN+"/img/photo.jpg",
+      "url": DOMAIN+"/","image": DOMAIN+"/img/photo.jpg",
       "worksFor":{"@type":"Organization","name":"независимый консультант"}
     };
   }
@@ -174,7 +174,8 @@ function headHTML(id, h1, pageText){
   const title = titleOf(id, h1);
   const desc = descOf(id, h1, pageText);
   const file = fileOf[id];
-  const canonical = `${DOMAIN}/${file}`;
+  // главная — canonical/og:url без «index.html»
+  const canonical = id==='home' ? `${DOMAIN}/` : `${DOMAIN}/${file}`;
   const ld = jsonLd(id, h1);
   const ldTag = `\n<script type="application/ld+json">${JSON.stringify(jsonLd(id, h1))}</script>` +
                 `\n<script type="application/ld+json">${JSON.stringify(breadcrumbJsonLd(id,h1))}</script>`;
@@ -200,10 +201,6 @@ function headHTML(id, h1, pageText){
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${desc}">
 <meta name="twitter:image" content="${OG_COVER}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="${FONT_PRELOAD}" as="font" type="font/woff2" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/pages.css">
@@ -404,6 +401,48 @@ function homeEdits(html){
   html = html.replace(/<div class="hero-tagline">[^<]*<\/div>/, '<div class="hero-tagline">Цифровая трансформация бизнеса на базе ИИ</div>');
   html = html.replace(/<h1>Превращаю ИТ-затраты в управляемый актив компании<\/h1>/, '<h1>Идеальный ИТ-контур на базе ИИ — каждый рубль приносит прибыль</h1>');
   html = html.replace(/<p class="lead">([\s\S]*?)<\/p>/, '<p class="lead">Проектирую и внедряю целевой ИТ-контур с ИИ-ядром: от экономики услуг и аллокации до автономной поддержки. Каждые 4–5 месяцев — измеримый эффект в P&amp;L бизнеса. <b>250–400 млн ₽/год</b> по проекту, <b>ROI 250–300%</b>, <b>−42% OPEX</b>. 15 лет, 11 компаний, 8 отраслей — стратегия, архитектура, внедрение под ключ.</p>');
+  // --- declutter: pf-section -> 6 ключевых метрик + блок «Почему я» + CTA ---
+  (function(){
+    // replace the whole pf-section with balanced div matching
+    function matchClose(html, open){
+      var depth=0, i=open;
+      for(; i<html.length; i++){
+        if(html[i]==='<'){
+          var m=/^<div[\s>]/.exec(html.slice(i,i+30));
+          var c=/^<\/div/.exec(html.slice(i,i+10));
+          if(c){ depth--; if(depth===0) return i+6; i=i+5; }
+          else if(m){ depth++; i=i+4; }
+        }
+      }
+      return -1;
+    }
+    var s=html.indexOf('<div class="pf-section reveal">');
+    if(s>=0){ var e=matchClose(html,s); if(e>s){
+      var pfSec=`<div class="pf-section reveal">
+      <div class="sec-h"><span class="sec-n">РЕЗУЛЬТАТЫ</span><h2>Измеримый эффект в цифрах</h2></div>
+      <div class="sec-s">6 ключевых метрик. Остальные цифры и источники — в кейсах.</div>
+      <div class="pf-grid">
+        <div class="pf-item"><div class="pf-v">250–400 млн ₽<small>/год</small></div><div class="pf-l">эффект по одному проекту (целевой)</div><div class="pf-s">Казахмыс · KPI-модель</div></div>
+        <div class="pf-item"><div class="pf-v">250–300%</div><div class="pf-l">ROI за 1-й год</div><div class="pf-s">Казахмыс · ББР-банк</div></div>
+        <div class="pf-item"><div class="pf-v">−42%</div><div class="pf-l">OPEX ИТ-функции</div><div class="pf-s">ПСБ-ФИНАНС · KPI-модель</div></div>
+        <div class="pf-item"><div class="pf-v">76,9%</div><div class="pf-l">вопросов решает ИИ</div><div class="pf-s">Аэроклуб · ТЗ_ИИ</div></div>
+        <div class="pf-item"><div class="pf-v">7,46 → 8,76</div><div class="pf-l">NPS</div><div class="pf-s">АЛРОСА · кейс w9</div></div>
+        <div class="pf-item"><div class="pf-v">100+</div><div class="pf-l">человек в подчинении</div><div class="pf-s">АЛРОСА · холдинг</div></div>
+      </div>
+      <p class="pf-more"><a href="cases.html" data-nav>Все цифры и источники — в кейсах →</a></p>
+    </div>
+    <section class="sec why-me reveal">
+      <div class="sec-h"><span class="sec-n">ПОЧЕМУ Я</span><h2>Чем я отличаюсь от «просто директора по ИТ»</h2></div>
+      <div class="why-grid">
+        <div class="why-card"><b>Считаю экономику каждого решения</b><p>Не «внедрим LLM», а: «вот стоимость, вот эффект в P&amp;L, вот окупаемость». Каждая инициатива — с цифрой.</p></div>
+        <div class="why-card"><b>Внедряю ИИ ради прибыли, а не хайпа</b><p>76,9% охвата и −40% стоимости на Аэроклубе, ИИ-атлас на R-Vision — ИИ как управляемый актив.</p></div>
+        <div class="why-card"><b>Управляю командами до 100 человек</b><p>От поддержки на 29 специалистов до ИТ-функции на ~700 человек: роли, KPI, дисциплина.</p></div>
+        <div class="why-card"><b>Работал в 8 отраслях</b><p>От добычи (АЛРОСА, Казахмыс) до банков и госплатформ — переношу лучшие практики между отраслями.</p></div>
+      </div>
+    </section>`;
+      html=html.slice(0,s)+pfSec+html.slice(e);
+    }}
+  })();
   return html;
 }
 
@@ -662,6 +701,22 @@ function injectSvgPreview(html, id, h1){
 }
 function addAnalytics(html, id){
   if(id==='contact'){
+    // форма обратной связи (без перезагрузки): Formspree-плейсхолдер + mailto-fallback
+    const form=`<div class="contact-form-wrap">
+      <h2>Обсудить задачу</h2>
+      <p class="cf-sub">Пришлю гипотезу с расчётом ROI в течение 48 часов.</p>
+      <form id="cf" class="contact-form" data-cf-endpoint="https://formspree.io/f/XXXXXXX" novalidate>
+        <div class="cf-row"><label for="cf-name">Имя</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="cf-row"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="cf-row"><label for="cf-msg">Задача</label><textarea id="cf-msg" name="message" rows="5" required></textarea></div>
+        <button type="submit" class="btn p" data-track="contact-form">Отправить →</button>
+        <p class="cf-note">Форма отправляется без перезагрузки. Если что-то не работает — напишите в <a href="https://t.me/Alechev" target="_blank" rel="noopener noreferrer">Telegram</a> или на <a href="mailto:chev.alex@mail.ru">почту</a>.</p>
+      </form>
+      <p class="cf-status" id="cf-status" hidden></p>
+    </div>`;
+    const pos=html.indexOf('<div class="contact reveal">');
+    if(pos>=0){ html=html.slice(0,pos)+form+'\n'+html.slice(pos); }
+  }
     // insert data-track INSIDE the opening tag (before closing '>')
     function tag(sel, hrefRe, track){
       const re=new RegExp('(<a class="'+sel+'" href="'+hrefRe+'"[^>]*)(>)');
@@ -673,7 +728,6 @@ function addAnalytics(html, id){
     html = html.replace(new RegExp('(<a class="cl" href="https:\\/\\/t\\.me\\/Alechev"[^>]*)(>)'), '$1 data-track="contact-tg"$2');
     html = html.replace(new RegExp('(<a class="cl" href="mailto:chev\\.alex@mail\\.ru"[^>]*)(>)'), '$1 data-track="contact-email"$2');
     html = html.replace(new RegExp('(<a class="cl" href="tel:\\+79150234324"[^>]*)(>)'), '$1 data-track="contact-phone"$2');
-  }
   return html;
 }
 function injectMetaNote(html,id){

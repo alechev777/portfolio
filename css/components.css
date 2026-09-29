@@ -421,6 +421,13 @@
 }
 
 /* ===== Additions (build) ===== */
+/* системный шрифтовый стек вместо внешнего Google Fonts: мгновенно, без запросов, кириллица встроена */
+:root{
+  --head:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","SF Mono",Consolas,Menlo,monospace;
+}
+body{font-family:var(--sans)}
 .nav a[aria-current="page"]{color:var(--navy);background:#eef3f9;font-weight:800}
 #toTop{position:fixed;right:22px;bottom:24px;z-index:900;width:46px;height:46px;border:0;border-radius:50%;background:linear-gradient(135deg,#1d6fe0,#0e9bbf);color:#fff;font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 10px 26px rgba(29,111,224,.4);transition:opacity .2s,transform .2s}
 #toTop[hidden]{display:none}
@@ -434,6 +441,29 @@ footer .foot-inner div span{display:block;margin-top:3px;color:var(--muted);font
 footer .foot-inner span{color:var(--muted)}
 footer .foot-links a{color:var(--blue);font-weight:800}
 footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
+
+.contact-form-wrap{max-width:560px;margin:0 0 26px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm)}
+.contact-form-wrap h2{margin:0 0 4px;font-size:20px;font-weight:900;color:var(--navy);font-family:var(--head)}
+.cf-sub{margin:0 0 16px;color:var(--muted);font-size:13px}
+.contact-form .cf-row{margin-bottom:14px}
+.contact-form label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px}
+.contact-form input,.contact-form textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font:14px var(--sans);color:var(--ink);background:#fff}
+.contact-form input{height:44px}
+.contact-form textarea{resize:vertical}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,111,224,.15)}
+.cf-note{font-size:11.5px;color:var(--dim);margin-top:10px}
+.cf-note a{color:var(--blue);font-weight:700}
+.cf-status{font-size:13px;font-weight:700;margin-top:10px}
+
+/* главная: declutter метрик + «Почему я» */
+.pf-more{margin-top:16px;font-weight:800}
+.pf-more a{color:var(--blue)}
+.why-me{padding:28px 0 8px}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+.why-card{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm)}
+.why-card b{display:block;font-size:15px;font-weight:900;color:var(--navy);font-family:var(--head);margin-bottom:6px;letter-spacing:-.01em}
+.why-card p{margin:0;font-size:13px;line-height:1.55;color:var(--muted)}
+@media(max-width:640px){.why-grid{grid-template-columns:1fr}}
 /* zoomable lightbox */
 #lbOverlay{position:fixed;inset:0;z-index:960;background:rgba(8,15,30,.94);display:none;align-items:center;justify-content:center;cursor:zoom-in}
 #lbOverlay.on{display:flex}

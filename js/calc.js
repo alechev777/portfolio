@@ -37,3 +37,27 @@
     calc();
   }
 })();
+
+/* ===== Обратная связь: форма без перезагрузки (Formspree + mailto-fallback) ===== */
+document.addEventListener('submit', function(e){
+  var f=e.target; if(!f || f.id!=='cf') return;
+  e.preventDefault();
+  var status=document.getElementById('cf-status'); if(!status) return;
+  var name=document.getElementById('cf-name').value.trim();
+  var email=document.getElementById('cf-email').value.trim();
+  var msg=document.getElementById('cf-msg').value.trim();
+  if(!name||!email||!msg){ status.textContent='Заполните все поля.'; status.hidden=false; status.style.color='#c03a3a'; return; }
+  var endpoint=f.getAttribute('data-cf-endpoint')||'';
+  status.hidden=true;
+  if(/XXXXXXX/.test(endpoint)){
+    var subject=encodeURIComponent('Запрос из портфолио: '+name);
+    var body=encodeURIComponent('Имя: '+name+'\nEmail: '+email+'\n\nЗадача:\n'+msg);
+    window.location.href='mailto:chev.alex@mail.ru?subject='+subject+'&body='+body;
+    status.textContent='Почтовый клиент открыт. Если нет — напишите в Telegram или на почту.';
+    status.hidden=false; status.style.color='#1f7a52';
+    return;
+  }
+  fetch(endpoint,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,message:msg})})
+    .then(function(r){ if(!r.ok) throw new Error('bad'); status.textContent='Отправлено! Свяжусь в течение 48 часов.'; status.hidden=false; status.style.color='#1f7a52'; f.reset(); })
+    .catch(function(){ window.location.href='mailto:chev.alex@mail.ru?subject='+encodeURIComponent('Запрос из портфолио: '+name)+'&body='+encodeURIComponent('Имя: '+name+'\nEmail: '+email+'\n\nЗадача:\n'+msg); });
+});
