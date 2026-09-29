@@ -535,6 +535,8 @@ function contentRename(body){
   body = body.replace(/Точка Займа/g,'ПСБ-ФИНАНС').replace(/CarMoney/g,'ПСБ-ФИНАНС');
   body = body.replace(/МГУПС \(МИИТ\) · Информационные системы и технологии · 2015/g,'ВолгГТУ · Информатика и вычислительная техника · Инженер-программист · 2011');
   body = body.replace(/ и переезду в Красногорск/g,'');
+  // KPI: инфраструктура по умолчанию 350 000 ₽ (пример сходится: 600 000 ₽/мес, 1 440 000 ₽/год, 5 мес. окуп.)
+  body = body.replace(/(id="k-inf"[^>]*value=")300000(")/, '$1350000$2');
   // unify KPI metric 400
   body = body.replace(/до 400 млн ₽\/год/g,'250–400 млн ₽/год');
   body = body.replace(/до 400 млн ₽/g,'250–400 млн ₽');
@@ -841,8 +843,8 @@ console.log('DONE pages. produced files:', Object.keys(produced));
 
 // ---- пост-обработка: артефакты ВНУТРИ кейсов (встраиваем превью, не ссылки) ----
 (function(){
-  function artTitle(n){ const p=path.join(OUT,'artifact-'+n+'.html'); if(!fs.existsSync(p)) return ''; const h=fs.readFileSync(p,'utf8'); return (h.match(/<h1[^>]*>([^<]*)<\/h1>/)||[])[1]||''; }
-  function artVisual(n){ const p=path.join(OUT,'artifact-'+n+'.html'); if(!fs.existsSync(p)) return null; const h=fs.readFileSync(p,'utf8');
+  function artTitle(n){ const p=path.join(OUT,'artifact-a'+n+'.html'); if(!fs.existsSync(p)) return ''; const h=fs.readFileSync(p,'utf8'); return (h.match(/<h1[^>]*>([^<]*)<\/h1>/)||[])[1]||''; }
+  function artVisual(n){ const p=path.join(OUT,'artifact-a'+n+'.html'); if(!fs.existsSync(p)) return null; const h=fs.readFileSync(p,'utf8');
     if(/gostekh-reglament\.svg/.test(h)) return '<img src="img/gostekh-reglament.svg" alt="Схема" width="920" height="500" loading="lazy" decoding="async">';
     if(/incident-ib-orig\.png/.test(h)) return '<img src="img/incident-ib-orig.png" alt="Схема инцидента ИБ" width="2200" height="618" loading="lazy" decoding="async">';
     const m=h.match(/(<div class="art-pre">[\s\S]*?<\/div>)/); if(m) return m[1];
@@ -858,10 +860,13 @@ console.log('DONE pages. produced files:', Object.keys(produced));
     const cards=arts.map(n=>{
       const title=artTitle(n); const vis=artVisual(n);
       const v = vis || '<span class="art-tile-ic">📄</span>';
-      return `<a class="case-art" href="artifact-a${n}.html" data-nav>
-        <div class="case-art-viz">${v}</div>
-        <div class="case-art-meta"><b>Артефакт</b><span>${title||'Документ'}</span><em>Открыть артефакт →</em></div>
-      </a>`;
+      var nlink=null;
+      if(n==='8') nlink='artifact-a8.html';
+      else if(n==='9') nlink='kpi.html';
+      const cta = nlink
+        ? '<em><a href="'+nlink+'" data-nav>Открыть '+(n==='8'?'ИИ-атлас':'KPI-калькулятор')+' →</a></em>'
+        : '<em class="inline-only">встроен в кейс</em>';
+      return '<div class="case-art'+(nlink?'':' case-art-static')+'"><div class="case-art-viz">'+v+'</div><div class="case-art-meta"><b>Артефакт</b><span>'+title+'</span>'+cta+'</div></div>';
     }).join('');
     const sec=`<section class="case-artifacts"><div class="sec-h"><span class="sec-n">АРТЕФАКТЫ КЕЙСА</span><h2>Доказательная база</h2></div>
     <div class="case-art-grid">${cards}</div></section>`;

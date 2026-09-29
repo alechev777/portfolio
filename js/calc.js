@@ -18,7 +18,8 @@
     var yearCost=cost*12;
     var yearSave=yearCost*save/100;
     var roi=yearCost>0&&yearSave>0 ? (yearSave/yearCost)*100 : 0;
-    var pb=yearSave>0 ? (yearCost/yearSave)*12 : null;
+    // окупаемость в месяцах: стоимость услуги / экономия в месяц
+    var pb=yearSave>0 ? (cost/(yearSave/12)) : null;
     function r(v){ return Math.round(v).toLocaleString('ru-RU'); }
     var set=function(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; };
     set('k-cost', r(cost)+' ₽/мес'); set('k-total', r(cost));
@@ -63,6 +64,6 @@ document.addEventListener('submit', function(e){
 });
 /* ===== Экспорт расчёта KPI (печать → PDF) ===== */
 document.addEventListener("click", function(e){
-  var t=e.target && e.target.closest ? e.target.closest("[data-action="kpi-export"]") : null;
+  var t=e.target && e.target.closest ? e.target.closest('[data-action="kpi-export"]') : null;
   if(t){ if(typeof window.print==="function") window.print(); }
 });
