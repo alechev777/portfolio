@@ -433,5 +433,10 @@ html[data-theme="dark"] .case .co,html[data-theme="dark"] .case2 .co{color:var(-
 }
 /* Снижаем навязчивую высоту десктопного hero: контентный, а не «на весь экран» */
 @media (min-width:1025px){
-  .hero-grid{min-height:auto}
+  .hero-grid{min-height:auto;grid-template-columns:1.15fr .85fr}
+  .hero-photo .ph{height:min(460px,62vh)}
+}
+/* Компактное фото и сетка на широких: меньше пустоты */
+@media (min-width:821px){
+  .hero-grid{gap:clamp(20px,3.4vw,44px)}
 }
