@@ -37,14 +37,14 @@ function titleOf(id, h1){
     kpi:'Калькулятор экономики ИТ-услуг · Александр Чевтаев'
   };
   if(map[id]) return map[id];
-  if(id[0]==='w') return `Кейс: ${h1||'работа'} · Чевтаев Александр`;
+  if(id[0]==='w'){ const name=(h1||'вакансия').split(/:/)[0].trim(); return `Кейс: ${name} · Чевтаев Александр`; }
   if(id[0]==='a') return `Артефакт: ${h1||'документ'} · Чевтаев Александр`;
   return (h1?h1+' · ':'')+'Александр Чевтаев';
 }
-function descOf(id, pageText){
+function descOf(id, h1, pageText){
   const map={
     home:'Чевтаев Александр — директор по цифровой трансформации. 15 лет в ИТ, 11 компаний, 8 отраслей. Эффект 250–400 млн ₽/год по одному проекту, окупаемость от 4 месяцев.',
-    cases:'Кейсы и работы Александра Чевтаева: 15 лет по годам и компаниям, результаты в цифрах — эффект до 250–400 млн ₽/год, окупаемость от 4 месяцев.',
+    cases:'Кейсы и работы Александра Чевтаева: результаты в цифрах — эффект 250–400 млн ₽/год по проекту, окупаемость от 4 месяцев.',
     artifacts:'Каталог артефактов Александра Чевтаева: KPI-модели, регламенты, ТЗ на ИИ, аналитика обращений. Живые продукты и рабочие документы.',
     archive:'Библиотека документов и схем: регламенты, модели, памятки из проектов цифровой трансформации.',
     portfolio:'Портфель проектов Александра Чевтаева: 17 кейсов и проектов с измеримым эффектом и источниками цифр.',
@@ -55,8 +55,30 @@ function descOf(id, pageText){
     a8:'ИИ-атлас бэк-офиса: 21 ассистент, 76 use-кейсов, 16 домов. Интерактивная карта автоматизации ИИ.'
   };
   if(map[id]) return map[id];
-  if(id[0]==='w') return 'Кейс из практики Александра Чевтаева (директор по цифровой трансформации): задача, что сделано и измеримый результат с цифрами и источниками.';
-  if(id[0]==='a') return 'Рабочий артефакт Александра Чевтаева: документ, регламент или модель из реальных проектов цифровой трансформации.';
+  const CASEDESC={
+    w1:'Кейс «Казахмыс»: целевая ИТ-архитектура и KPI-модель услуг. Сценарии эффекта 120/250/400 млн ₽ в год, окупаемость до 6 месяцев.',
+    w2:'Кейс «Аэроклуб»: AI-виджет автоклассификации в Jira. 76,9% обращений решаются без оператора, −40% стоимости, окупаемость 4 месяца.',
+    w3:'Кейс «Arlight»: поддержка клиентов с AI-NLP в 3 раза дешевле аутсорса, CSAT +20%.',
+    w4:'Кейс «ББР-банк»: ITSM и ITAM под 716-П/787-П ЦБ, ROI 300% в первый год, экономия 10+ млн ₽/год.',
+    w5:'Кейс «М-Групп»: ИТ-департамент с нуля, аналитика 9 800+ обращений в год, −18 млн ₽/год ФОТ.',
+    w6:'Кейс «ПроСервис»: портфель 16 цифровых инициатив, 4 пилота, 10+ вендоров.',
+    w7:'Кейс «ГосТех ↔ МинЦифры»: 4 регламента уровня Минцифры, SLA 5 минут, 11 ролей процесса.',
+    w8:'Кейс «R-Vision»: перезапуск бэк-офиса за 2 месяца, ИИ-атлас (21 ассистент, 76 use-кейсов).',
+    w9:'Кейс «АЛРОСА»: управление техподдержкой холдинга, 100+ специалистов, NPS 7,46→8,76, SLA 90%+.',
+    w10:'Кейс «ПСБ-ФИНАНС»: директор департамента эксплуатации ИС. −47% обращений, −42% OPEX, +71% скорость решения.',
+    w11:'Кейс «SUNLIGHT»: поддержка 260 торговых точек, 42 специалиста, SLA/OLA/UC.',
+    w12:'Кейс «MERLION»: KPI-модель ИТ-блока (~700 человек), аллокация по методу ФСА, SLA «Ситилинк».',
+    w13:'Кейс «Дельта»: отдел разработки и сопровождения ИС, команда 25 человек, ITSM.',
+    w14:'Кейс «Инженер-Центр»: программист 1С, перенос 32 баз 1С 7.7→8.2 без потерь.',
+    w15:'Этап «Вооружённые силы РФ»: командир отделения, управление до 15 человек.',
+    w16:'Кейс «Сбер R&D»: модель управления инновациями и портфелем НИОКР, 12+ R&D-инициатив.',
+    w17:'Кейс «SRG»: Service Office Operations с нуля — SLA, роли, автоматизация.'
+  };
+  if(CASEDESC[id]) return CASEDESC[id];
+  if(id[0]==='a'){
+    const name=(h1||'документ').replace(/\s+/g,' ').slice(0,60);
+    return `Артефакт: ${name} — рабочий документ/модель Александра Чевтаева из реальных проектов цифровой трансформации.`;
+  }
   const t=(pageText||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
   return t ? t.slice(0,160) : titleOf(id,'').replace(/ ·.*/,'');
 }
@@ -122,7 +144,7 @@ const FOOTER = `<footer>
     <span>© 2026 · портфель 17+ кейсов и проектов</span>
   </div>
 </footer>
-<div id="lbOverlay"><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Увеличенное изображение"></div><button id="lbClose" aria-label="Закрыть увеличенное изображение">✕</button><div id="lbCap"></div>
+<div id="lbOverlay"><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1200" height="800" alt="Увеличенное изображение"></div><button id="lbClose" aria-label="Закрыть увеличенное изображение">✕</button><div id="lbCap"></div>
 <button id="toTop" aria-label="Наверх" hidden>↑</button>
 <div id="progressBar" aria-hidden="true"></div>`;
 
@@ -137,13 +159,27 @@ const METRIKA_SCRIPT = `<script>
 const METRIKA_NOSCRIPT = `<noscript><div><img src="https://mc.yandex.ru/watch/${METRIKA}" style="position:absolute; left:-9999px;" alt=""></div></noscript>`;
 const OG_COVER = `${DOMAIN}/img/og-cover.jpg`;
 
+function breadcrumbJsonLd(id, h1){
+  const f=fileOf[id];
+  const url=DOMAIN+'/'+f;
+  const first=['index.html','Главная'];
+  let items;
+  if(id[0]==='w') items=[first,['cases.html','Кейсы'],[null, (h1||'').split(/:/)[0].trim()||'Кейс']];
+  else if(id[0]==='a') items=[first,['artifacts.html','Артефакты'],[null,h1||'Артефакт']];
+  else items=[first,[url,(h1||titleOf(id,h1)).slice(0,40)]];
+  const list=items.map((it,i)=>({"@type":"ListItem","position":i+1,"name":it[1],...(it[0]?{"item":DOMAIN+'/'+it[0]}:{'@id':url+"#"+slug(it[1])})}));
+  function slug(s){return s.replace(/\W+/g,'-').slice(0,40);}
+  return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":list};
+}
 function headHTML(id, h1, pageText){
   const title = titleOf(id, h1);
-  const desc = descOf(id, pageText);
+  const desc = descOf(id, h1, pageText);
   const file = fileOf[id];
   const canonical = `${DOMAIN}/${file}`;
   const ld = jsonLd(id, h1);
-  const ldTag = ld ? `\n<script type="application/ld+json">${JSON.stringify(ld)}</script>` : '';
+  const ldTag = `\n<script type="application/ld+json">${JSON.stringify(jsonLd(id, h1))}</script>` +
+                `\n<script type="application/ld+json">${JSON.stringify(breadcrumbJsonLd(id,h1))}</script>`;
+  const itemList = id==='artifacts' ? `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"Артефакты · Александр Чевтаев","url":DOMAIN+"/artifacts.html","numberOfItems":17})}</script>` : '';
   const isIndex = id==='home';
   return `<!DOCTYPE html>
 <html lang="ru">
@@ -159,7 +195,12 @@ function headHTML(id, h1, pageText){
 <meta property="og:description" content="${desc}">
 <meta property="og:image" content="${OG_COVER}">
 <meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Чевтаев Александр · Портфолио">
 <meta property="og:url" content="${canonical}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${desc}">
+<meta name="twitter:image" content="${OG_COVER}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="${FONT_PRELOAD}" as="font" type="font/woff2" crossorigin>
@@ -169,7 +210,7 @@ function headHTML(id, h1, pageText){
 <link rel="stylesheet" href="css/pages.css">
 <link rel="stylesheet" href="css/print.css" media="print">
 <link rel="icon" href="${FAVICON}">
-${METRIKA_SCRIPT}${ldTag}
+${METRIKA_SCRIPT}${itemList}${ldTag}
 </head>`;
 }
 
@@ -328,7 +369,11 @@ function processPage(id){
   body = injectSvgPreview(body, id, h1);
   body = injectMetaNote(body, id);
   if(id==='home') body = homeEdits(body);
+  body = ensureH1(body, id);
   body = injectLogos(body, id);
+  if(kind==='case' && !/case-cta-float/.test(body)){
+    body += '\n<a class="case-cta-float" href="contact.html" data-nav data-track="cta-contact">Обсудить похожую задачу →</a>';
+  }
 
   const pageText = body.replace(/<script[\s\S]*?<\/script>/g,'');
   const head = headHTML(id, h1, pageText);
@@ -358,6 +403,29 @@ ${FOOTER}
 }
 function contentRename(body){
   body = body.replace(/Точка Займа/g,'ПСБ-ФИНАНС').replace(/CarMoney/g,'ПСБ-ФИНАНС');
+  // unify KPI metric 400
+  body = body.replace(/до 400 млн ₽\/год/g,'250–400 млн ₽/год');
+  body = body.replace(/до 400 млн ₽/g,'250–400 млн ₽');
+  body = body.replace(/400\+ млн ₽\/год/g,'250–400 млн ₽/год');
+  // unify response SLA -> the most specific & favourable
+  body = body.replace(/в течение рабочего дня/gi,'в течение 2 часов в рабочее время');
+  body = body.replace(/Отвечаю в течение 2 часов в рабочее время/g,'Отвечаю в течение 2 часов в рабочее время');
+  body = body.replace(/пришлю гипотезу с расчётом ROI в течение 48 часов/g,'пришлю гипотезу с расчётом ROI в течение рабочего дня');
+  return body;
+}
+function ensureH1(body, id){
+  const LIST_H1=['cases','artifacts','timeline','contact'];
+  if(!LIST_H1.includes(id)) return body;
+  if(!/<h1[\s>]/.test(body) && /<h2[\s>]/.test(body)){
+    body = body.replace(/<h2>([\s\S]*?)<\/h2>/, '<h1>$1</h1>');
+  }
+  // after promotion/dedup: demote any h2 whose text exactly equals the page h1 (avoid duplicate headings)
+  const h1m = body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+  if(h1m){
+    const t = h1m[1];
+    const re = new RegExp('<h2[^>]*>'+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'</h2>','g');
+    body = body.replace(re, '<h3 class="dup-h">'+t+'</h3>');
+  }
   return body;
 }
 
@@ -517,4 +585,19 @@ for (const id of pageIds){
 
 // Merge roadmap into timeline explicitly if separate
 require('fs').writeFileSync(path.join(OUT,'build-manifest.json'), JSON.stringify({produced, pageIds},null,2));
+// post-pass: demote any h2 whose text exactly equals the page h1 (e.g. merged timeline sections)
+for(const id of pageIds){
+  const file=fileOf[id];
+  const p=path.join(OUT,file);
+  if(!fs.existsSync(p)) continue;
+  let h=fs.readFileSync(p,'utf8');
+  const h1m=h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+  if(h1m){
+    const t=h1m[1];
+    const esc=t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const re=new RegExp('<h2[^>]*>'+esc+'</h2>','g');
+    const nh=h.replace(re, '<h3 class="dup-h">'+t+'</h3>');
+    if(nh!==h) fs.writeFileSync(p, nh, 'utf8');
+  }
+}
 console.log('DONE pages. produced files:', Object.keys(produced));

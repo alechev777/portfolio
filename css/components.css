@@ -437,6 +437,7 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 .art-pre{margin:0 0 18px;padding:0;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
 .art-pre svg{display:block;width:100%;height:auto}
 /* brand & label overflow fixes */
+.sec-h h1{font-family:var(--head);font-size:clamp(24px,2.6vw,30px);font-weight:900;letter-spacing:-.025em;margin:0;line-height:1.1}
 .brand{min-width:0}
 .brand .nm{min-width:0;line-height:1.25}
 .brand .nm small{white-space:nowrap}
@@ -457,6 +458,9 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 .co-logo-sm img{width:22px;height:22px;border-radius:6px}
 .co-ic-logo{width:18px;height:18px;border-radius:5px;vertical-align:middle;display:inline-block;margin-right:6px}
 .case2 .co img.co-ic-logo,.co img.co-ic-logo{width:18px;height:18px;border-radius:5px}
+.case-cta-float{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:940;background:linear-gradient(135deg,#1d6fe0,#0e9bbf);color:#fff;font-weight:800;font-size:13.5px;padding:12px 20px;border-radius:999px;box-shadow:0 12px 30px rgba(29,111,224,.45);white-space:nowrap}
+.case-cta-float:hover{transform:translateX(-50%) translateY(-2px);color:#fff}
+@media(max-width:640px){.case-cta-float{left:16px;right:16px;transform:none;text-align:center}.case-cta-float:hover{transform:translateY(-2px)}}
 @media(max-width:640px){
   .co-logo-lg{width:48px;height:48px;top:12px;right:12px}
   .co-logo-lg img{width:48px;height:48px}
