@@ -220,6 +220,21 @@ fs.writeFileSync(process.argv[3]+'/components.css', `/* components.css — butto
 
 const pages = ruleBuckets.pages.join('\n')+'\n'+sortMedia(mediaBuckets.pages).join('\n')+'\n';
 fs.writeFileSync(process.argv[3]+'/pages.css', `/* pages.css — page-specific styles + responsive breakpoints */\n`+pages);
+// типографика (в pages.css — подключается последним, перекрывает base/components)
+fs.appendFileSync(process.argv[3]+'/pages.css', `
+/* ===== типографика: аккуратный TOP-вид (overrides) ===== */
+.hero h1{font-size:clamp(28px,3.3vw,44px)!important;line-height:1.12;letter-spacing:-.03em;margin-bottom:14px}
+.hero-name{font-size:clamp(26px,3vw,40px)!important;line-height:1.1}
+.hero .lead{font-size:15.5px!important;line-height:1.55;max-width:700px}
+.hero{padding:clamp(24px,4vh,44px) 0 clamp(24px,3.6vh,40px)!important}
+.kpi3 .v{line-height:1.05}
+@media(max-width:640px){
+  .hero h1{font-size:30px!important}
+  .hero-name{font-size:26px!important}
+  .hero .lead{font-size:15px!important}
+}
+footer .foot-inner div span{display:block!important;margin-top:4px!important}
+`);
 
 const printRules = mediaBuckets.print.join('\n');
 fs.writeFileSync(process.argv[3]+'/print.css', PRINT_EXTRA + (printRules? '\n/* original print overrides */\n'+printRules : ''));

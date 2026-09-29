@@ -135,7 +135,7 @@ function navHTML(activeId){
 }
 const FOOTER = `<footer>
   <div class="wrap foot-inner">
-    <div><strong>Чевтаев Александр</strong><span>Директор по цифровой трансформации</span></div>
+    <div><strong>Чевтаев Александр</strong><span style="display:block;margin-top:4px">Директор по цифровой трансформации</span></div>
     <div class="foot-links">
       <a href="contact.html" data-nav>Контакты</a> ·
       <a href="cases.html" data-nav>Кейсы</a> ·
@@ -302,6 +302,12 @@ function injectCallout(html, kind){
   return html;
 }
 function specialPage(html, id){
+  if(id==='cases'){
+    // удалить карер-блок «ОПЫТ» (радуга) — дублируется ниже «Результаты по компаниям»
+    const a = html.indexOf('<section class="sec career-sec');
+    const b = html.indexOf('<section class="sec" id="cases-anchor">');
+    if(a>=0 && b>a){ html = html.slice(0,a) + html.slice(b); }
+  }
   if(id==='a8'){
     html = html.replace(/<iframe id="atlasFrameInline" class="atlas-inline"[^>]*><\/iframe>/, `<iframe src="atlas.html" class="atlas-inline" title="ИИ-атлас бэк-офиса" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`);
     html = html.replace(/<button type="button" class="btn gh"[^>]*>Полный экран<\/button>/, `<a class="btn gh" href="atlas.html" target="_blank" rel="noopener noreferrer" data-track="atlas">Полный экран</a>`);
