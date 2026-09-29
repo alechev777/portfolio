@@ -440,3 +440,13 @@ html[data-theme="dark"] .case .co,html[data-theme="dark"] .case2 .co{color:var(-
 @media (min-width:821px){
   .hero-grid{gap:clamp(20px,3.4vw,44px)}
 }
+
+/* ===== hero финальная полировка: фото выше, компактно ===== */
+.hero-grid{align-items:start}
+.hero-photo{align-self:start;padding-top:6px}
+.hero-photo .ph{height:min(420px,54vh)}
+.hero-photo .ph img{object-position:top}
+@media (min-width:1025px){
+  .hero-photo .ph{height:min(440px,60vh)}
+  .hero-photo{align-self:start}
+}

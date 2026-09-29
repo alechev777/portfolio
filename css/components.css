@@ -1087,3 +1087,48 @@ html[data-theme="dark"] .kpi-field .raw{border-color:rgba(255,255,255,.3)}
 .kpi-results{margin-top:20px}
 .kpi-res-card .kr-v{font-size:clamp(24px,2.8vw,32px)}
 .kpi-res-card{padding:18px 14px}
+
+/* ===== hero финальная полировка: статы = градиент «ИИ», компании 6 в ряд ===== */
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .hero-stats .hs b{
+    background:linear-gradient(120deg,#79b3ff 0%,#8fd3e0 45%,#6ee7b7 100%)!important;
+    -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  }
+}
+.hero-stats .hs span{color:#a0aec0;font-size:10.5px}
+.hero-stats{gap:10px 20px;margin-top:22px}
+/* компании: всегда одна строка по горизонтали на десктопе */
+.co-grid{grid-template-columns:repeat(6,1fr);gap:8px}
+.co .co-ic{width:40px;height:40px}
+.co .co-ic svg{width:26px;height:26px}
+.co .co-name{font-size:10.5px;white-space:nowrap}
+/* убрать мобильную перестройку на 3 колонки во «средних» (не ломать) */
+@media (max-width:821px){
+  .co-grid{grid-template-columns:repeat(3,1fr)}
+  .co .co-ic{width:38px;height:38px}
+}
+
+/* ===== hero финальная полировка: статы = градиент «ИИ», компании 6 в ряд ===== */
+.hero-stats .hs b{
+  color:#e8edf5;
+}
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .hero-stats .hs b{
+    background:linear-gradient(120deg,#79b3ff 0%,#8fd3e0 45%,#6ee7b7 100%)!important;
+    -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  }
+  .hero .lead b{
+    background:linear-gradient(120deg,#79b3ff 0%,#8fd3e0 45%,#6ee7b7 100%)!important;
+    -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  }
+}
+.hero-stats .hs span{color:#a0aec0;font-size:10.5px}
+.hero-stats{gap:10px 20px;margin-top:22px}
+.co-grid{grid-template-columns:repeat(6,1fr);gap:8px}
+.co .co-ic{width:40px;height:40px}
+.co .co-ic svg{width:26px;height:26px}
+.co .co-name{font-size:10.5px;white-space:nowrap}
+@media (max-width:821px){
+  .co-grid{grid-template-columns:repeat(3,1fr)}
+  .co .co-ic{width:38px;height:38px}
+}
