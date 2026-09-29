@@ -487,18 +487,10 @@ html[data-theme="dark"] .stack-toc{background:rgba(15,30,52,.72)}
 .kpi-calc .inp .hint{font-size:11px;color:var(--dim);margin-top:4px}
 .kpi-note{font-size:11.5px;color:var(--dim);margin-top:12px}
 .trust-label{font-size:10.5px;color:var(--dim);letter-spacing:1.4px;text-transform:uppercase;font-weight:800;margin-right:6px;align-self:center}
-.trust-chip{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:12px;font-weight:800;letter-spacing:.4px}
-.trust-chip.accenture{color:#A100FF}
-.trust-chip.merlion{color:#0BB2E7;letter-spacing:2px}
-.trust-chip.alrosa{color:#003A70}
-.trust-chip.sunlight{color:#111}
-.trust-chip.gostech{color:#0E4A8A}
-.trust-chip.carmoney{color:#1F3A93}
 .slide-embed{margin:18px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
 .slide-embed img{display:block;width:100%;height:auto}
 .slide-caption{padding:10px 16px;font-size:11.5px;color:var(--dim);border-top:1px solid var(--line);background:#fafcfe}
-.trust-logo{height:26px;width:auto;max-width:110px;object-fit:contain;filter:grayscale(100%) opacity(.6);transition:.2s;border-radius:5px}
-.trust-logo:hover{filter:grayscale(0) opacity(1)}
+/* роль: удалены устаревшие trust-chip/trust-logo (не использовались) */
 .linkrow.static{cursor:default}
 .linkrow.static:hover{border-color:var(--line);color:var(--ink)}
 .case2{position:relative;display:block;border:1px solid var(--line);border-radius:18px;background:var(--card);padding:18px 20px 14px 24px;cursor:pointer;transition:.2s;overflow:hidden;box-shadow:var(--shadow)}
@@ -806,11 +798,7 @@ html[data-theme="dark"] .case-hero .ch-metrics .cm{background:#1d2f4a;border-col
 .foot-print{display:block;margin-top:10px;color:var(--muted)}
 /* company logos & trust bar */
 .trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.trust-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.7);box-shadow:0 6px 18px rgba(14,40,80,.16);white-space:nowrap;flex:none}
-.trust-chip .tc-logo{width:28px;height:28px;border-radius:10px;overflow:hidden;flex:none;display:grid;place-items:center}
-.trust-chip .tc-logo img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
-.trust-chip .tc-name{font-size:12px;font-weight:800;color:#123052;letter-spacing:.2px}
-/* ==== современный блок компаний (grid) ==== */
+/* ==== современный блок компаний (grid) ====
 .trust{display:block;margin-top:22px}
 .trust-label{display:block;font-size:10.5px;color:var(--dim);letter-spacing:1.4px;text-transform:uppercase;font-weight:800;margin-bottom:12px}
 .co-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:24px 16px;max-width:560px}
@@ -925,7 +913,7 @@ html[data-theme="dark"] .nav-dd-menu a:hover{background:#1f3552;color:#e8edf5}
 html[data-theme="dark"] .zoomable{background:#142236}
 html[data-theme="dark"] .zoomable-bar{background:#182b44}
 html[data-theme="dark"] .zoomable-bar button{background:#0f1e34;border-color:var(--line-strong,rgba(255,255,255,.22));color:#e8edf5}
-html[data-theme="dark"] .exec-summary,html[data-theme="dark"] .trust-chip{background:var(--card,#142236);border-color:var(--line,rgba(255,255,255,.14))}
+html[data-theme="dark"] .exec-summary{background:var(--card,#142236);border-color:var(--line,rgba(255,255,255,.14))}
 html[data-theme="dark"] .case .tag,html[data-theme="dark"] .case2 .tag{background:#1a3049;color:#c3d2e4}
 html[data-theme="dark"] .case .co .ic,html[data-theme="dark"] .case2 .co .ic,html[data-theme="dark"] .cl .em,html[data-theme="dark"] .ex .ic{background:#1a3049}
 html[data-theme="dark"] footer .foot-links a{color:#6fb7ff}
@@ -965,4 +953,41 @@ html[data-theme="dark"] :focus-visible{outline:2px solid #6fb7ff;outline-offset:
 /* Шаг 7: разделитель между группой параметров и результатами на мобильных */
 @media (max-width: 760px){
   .kpi-results{border-top:1px solid var(--line);padding-top:24px;margin-top:24px}
+}
+
+/* ===== Аудит 2026: фиксы читаемости тёмной темы (commit ebf8b71-followup) ===== */
+/* index.html: блок «Проблема» — текст был #46556b (невидим в тёмной) */
+html[data-theme="dark"] .problem-card p{color:#a0aec0}
+/* страницы-детали кейсов/артефактов: .d-card p / .d-list li были #3a4a63 (невидимы в тёмной) */
+html[data-theme="dark"] .d-card p,html[data-theme="dark"] .d-list li,html[data-theme="dark"] .mini-metric span{color:#a0aec0}
+html[data-theme="dark"] .d-card h3,html[data-theme="dark"] .d-hero.light .lg,html[data-theme="dark"] .contact p{color:#c6d2e4}
+/* системная тёмная тема (без атрибута) — те же фиксы */
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .problem-card p{
+    color:#a0aec0;
+  }
+  :root:not([data-theme="light"]) .d-card p,:root:not([data-theme="light"]) .d-list li{
+    color:#a0aec0;
+  }
+}
+
+/* ============ Аудит 2026: премиальная полировка (адаптивно к темам) ============ */
+/* Акцентный текст в hero — выразительные цифры (перебьёт pages .hero .lead b{color:#fff})
+   Fallback: если background-clip:text не поддержан — остаётся обычный светлый текст. */
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .hero .lead b{background:linear-gradient(120deg,#79b3ff,#4ade80)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+  html[data-theme="light"] .hero .lead b{background:linear-gradient(120deg,#1d6fe0,#0e9bbf)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+}
+/* Мягкое свечение под акцентными CTA */
+.btn.p{box-shadow:0 8px 22px rgba(29,111,224,.28),0 0 0 0 rgba(29,111,224,0);transition:box-shadow .25s,transform .2s}
+.btn.p:hover{box-shadow:0 12px 34px rgba(29,111,224,.4),0 0 22px rgba(74,158,255,.35);transform:translateY(-1px)}
+/* Карточки: выразительные hover + focus-кольцо */
+.t2-card:focus-visible,.case:focus-visible,.pf-item:focus-visible,.sbento .grp:focus-visible,.kpi-res-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* Тонкие разделители между карточками сеток */
+.live-grid,.pf-grid,.problem-grid,.why-grid{column-gap:18px;row-gap:18px}
+/* Единый радиус крупных карточек (премиальный) */
+.live-card,.t2-card,.doc-card,.case,.problem-card,.pf-item{border-radius:18px}
+/* Плавность при смене темы */
+body,.top,.case,.card,.d-card,#lbOverlay{transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+@media (prefers-reduced-motion: reduce){
+  .hero .lead b,.btn.p{transition:none}
 }
