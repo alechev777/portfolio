@@ -268,6 +268,19 @@ footer .foot-inner div span{display:block;margin-top:3px;color:var(--muted);font
 footer .foot-inner span{color:var(--muted)}
 footer .foot-links a{color:var(--blue);font-weight:800}
 footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
+/* переключатель темы */
+.theme-toggle{width:40px;height:40px;margin-left:4px;border:0;border-radius:10px;background:#eef3f9;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
+.theme-toggle:hover{background:#dfe8f3}
+/* принудительно тёмная тема, когда включён переключатель */
+html[data-theme="dark"]{
+  --bg:#0f1826;--card:#16233a;--ink:#e8eef7;--muted:#9db0c6;--dim:#7d90a8;
+  --line:#24334d;--navy:#dbe7f5;
+  --shadow:0 10px 32px rgba(0,0,0,.35);--shadow-sm:0 2px 10px rgba(0,0,0,.35);--shadow-md:0 8px 30px rgba(0,0,0,.4);
+}
+html[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="dark"] .top{background:rgba(15,24,38,.9)}
+html[data-theme="dark"] .card,html[data-theme="dark"] .d-card,html[data-theme="dark"] .box,html[data-theme="dark"] .case2,html[data-theme="dark"] .doc-card,html[data-theme="dark"] .pf-item,html[data-theme="dark"] .how-card,html[data-theme="dark"] .why-card,html[data-theme="dark"] .career-row,html[data-theme="dark"] .problem-card{background:var(--card);border-color:var(--line)}
+html[data-theme="dark"] .theme-toggle{background:#1d2f4a;color:#e8eef7}
 
 .contact-form-wrap{max-width:560px;margin:0 0 26px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm)}
 .contact-form-wrap h2{margin:0 0 4px;font-size:20px;font-weight:900;color:var(--navy);font-family:var(--head)}

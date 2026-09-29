@@ -4,6 +4,26 @@
   var METRIKA = document.body.getAttribute('data-metrika') || 'XXXXXXXX';
   var PAGE = document.body.getAttribute('data-page') || '';
 
+  /* ---- переключатель темы (тёмная/светлая) ---- */
+  (function(){
+    var btn=document.getElementById('themeToggle');
+    if(!btn) return;
+    var saved=null;
+    try{ saved=localStorage.getItem('mt-theme'); }catch(e){}
+    var html=document.documentElement;
+    if(saved){ html.setAttribute('data-theme', saved); updateIcon(); }
+    btn.addEventListener('click', function(){
+      var cur=html.getAttribute('data-theme')==='dark';
+      html.setAttribute('data-theme', cur?'light':'dark');
+      updateIcon();
+      try{ localStorage.setItem('mt-theme', cur?'light':'dark'); }catch(e){}
+    });
+    function updateIcon(){
+      var ic=btn.querySelector('.th-ic');
+      if(ic) ic.textContent = html.getAttribute('data-theme')==='dark' ? '☀️' : '🌙';
+    }
+  })();
+
   function track(goal){
     // Yandex.Metrika reachGoal; no-op with placeholder id
     try{
