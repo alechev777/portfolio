@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-label="Схема обработки отклонений на примере инцидента информационной безопасности">
+<defs>
+  <linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0c2950"/><stop offset="1" stop-color="#d12714"/></linearGradient>
+  <marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1d6fe0"/></marker>
+</defs>
+<rect width="1280" height="820" rx="20" fill="#f7f9fc" stroke="#e2eaf3"/>
+<rect x="0" y="0" width="1280" height="56" rx="20" fill="url(#hd)"/>
+<rect x="0" y="40" width="1280" height="16" fill="url(#hd)"/>
+<text x="28" y="27" font-size="16" font-weight="800" fill="#fff" font-family="Inter,system-ui,sans-serif">Схема обработки отклонений · пример «Инцидент ИБ»</text>
+<text x="1252" y="27" text-anchor="end" font-size="11" font-weight="700" fill="#8fd3e0" font-family="Inter,system-ui,sans-serif">ITSM · Процесс реагирования</text>
+
+<!-- MAIN FLOW row 1 -->
+<rect x="24" y="104" width="160" height="64" rx="10" fill="#ffffff" stroke="#1d6fe0" stroke-width="1.6"/>
+	<text x="34" y="128" font-size="12" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">1.1 Регистрация</text>
+	<text x="34" y="150" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Регистрация инцидента ИБ</text>
+<line x1="184" y1="136" x2="216" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<path d="M 220 116 l 34 20 l -34 20 l -34 -20 z" fill="#fff7e6" stroke="#b3741f" stroke-width="1.5"/>
+	<text x="220" y="124" font-size="9.5" text-anchor="middle" fill="#7a4f0f" font-family="Inter,system-ui,sans-serif">умышленный?</text>
+<line x1="224" y1="136" x2="258" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="260" y="104" width="170" height="64" rx="10" fill="#ffffff" stroke="#0e9bbf" stroke-width="1.6"/>
+	<text x="270" y="128" font-size="12" font-weight="800" fill="#0e9bbf" font-family="Inter,system-ui,sans-serif">1.2 Подтверждение</text>
+	<text x="270" y="150" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Подтверждение инцидента</text>
+<line x1="430" y1="136" x2="462" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="464" y="104" width="160" height="64" rx="10" fill="#ffffff" stroke="#0e9bbf" stroke-width="1.6"/>
+	<text x="474" y="128" font-size="12" font-weight="800" fill="#0e9bbf" font-family="Inter,system-ui,sans-serif">1.3 Фиксация</text>
+	<text x="474" y="150" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Фиксация данных, признаков</text>
+<line x1="624" y1="136" x2="656" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="658" y="104" width="170" height="64" rx="10" fill="#ffffff" stroke="#0e7490" stroke-width="1.6"/>
+	<text x="668" y="128" font-size="12" font-weight="800" fill="#0e7490" font-family="Inter,system-ui,sans-serif">1.4 Оповещение</text>
+	<text x="668" y="150" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Оповестить СТП / 1ЛТП</text>
+<line x1="828" y1="136" x2="860" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="862" y="104" width="176" height="64" rx="10" fill="#ffffff" stroke="#1f7a52" stroke-width="1.6"/>
+	<text x="872" y="128" font-size="12" font-weight="800" fill="#1f7a52" font-family="Inter,system-ui,sans-serif">1.5 Устранение</text>
+	<text x="872" y="150" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Устранение / противодействие</text>
+<line x1="1038" y1="136" x2="1070" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<path d="M 1072 116 l 34 20 l -34 20 l -34 -20 z" fill="#fff7e6" stroke="#b3741f" stroke-width="1.5"/>
+	<text x="1072" y="124" font-size="9.5" text-anchor="middle" fill="#7a4f0f" font-family="Inter,system-ui,sans-serif">устранён?</text>
+
+<!-- row 2: verification -->
+<line x1="1124" y1="136" x2="1148" y2="136" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="1152" y="104" width="110" height="64" rx="10" fill="#ffffff" stroke="#0e7490" stroke-width="1.6"/>
+	<text x="1162" y="128" font-size="12" font-weight="800" fill="#0e7490" font-family="Inter,system-ui,sans-serif">1.6 Контроль</text>
+	<text x="1162" y="150" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Контроль решения</text>
+
+<rect x="24" y="200" width="180" height="64" rx="10" fill="#ffffff" stroke="#0e7490" stroke-width="1.6"/>
+	<text x="34" y="224" font-size="12" font-weight="800" fill="#0e7490" font-family="Inter,system-ui,sans-serif">1.8 Проверка развития</text>
+	<text x="34" y="246" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Проверка развития инцидента</text>
+<line x1="40" y1="264" x2="40" y2="232" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+
+<text x="150" y="250" font-size="0"> </text>
+<line x1="204" y1="136" x2="224" y2="200" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="30" y="300" width="190" height="64" rx="10" fill="#ffffff" stroke="#1f7a52" stroke-width="1.6"/>
+	<text x="40" y="324" font-size="12" font-weight="800" fill="#1f7a52" font-family="Inter,system-ui,sans-serif">1.9 Восстановление</text>
+	<text x="40" y="346" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Восстановление и резервы</text>
+<line x1="220" y1="332" x2="252" y2="332" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="254" y="300" width="180" height="64" rx="10" fill="#ffffff" stroke="#b3741f" stroke-width="1.6"/>
+	<text x="264" y="324" font-size="12" font-weight="800" fill="#b3741f" font-family="Inter,system-ui,sans-serif">1.10 Выявление</text>
+	<text x="264" y="346" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Выявление возможностей улучшения</text>
+<line x1="434" y1="332" x2="466" y2="332" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="468" y="300" width="170" height="64" rx="10" fill="#ffffff" stroke="#6d4fa0" stroke-width="1.6"/>
+	<text x="478" y="324" font-size="12" font-weight="800" fill="#6d4fa0" font-family="Inter,system-ui,sans-serif">1.11 Улучшение</text>
+	<text x="478" y="346" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Улучшение процесса</text>
+<line x1="638" y1="332" x2="670" y2="332" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="672" y="300" width="180" height="64" rx="10" fill="#ffffff" stroke="#b23c3c" stroke-width="1.6"/>
+	<text x="682" y="324" font-size="12" font-weight="800" fill="#b23c3c" font-family="Inter,system-ui,sans-serif">1.12 Закрытие</text>
+	<text x="682" y="346" font-size="13" font-weight="700" fill="#123052" font-family="Inter,system-ui,sans-serif">Инцидент закрыт</text>
+
+<!-- decision note -->
+<rect x="900" y="300" width="180" height="40" rx="8" fill="#fff7e6" stroke="#ecd9b4"/>
+<text x="910" y="325" font-size="11" fill="#7a4f0f" font-family="Inter,system-ui,sans-serif">не подтверждён → закрыт</text>
+<text x="910" y="340" font-size="11" fill="#7a4f0f" font-family="Inter,system-ui,sans-serif">с резолюцией «не подтверждён»</text>
+
+<!-- integrated sub-processes -->
+<rect x="24" y="420" width="1232" height="150" rx="14" fill="#ffffff" stroke="#e2eaf3"/>
+<text x="40" y="446" font-size="13" font-weight="800" fill="#0c2950" font-family="Inter,system-ui,sans-serif">Связанные процессы ITSM (интеграция)</text>
+<rect x="40" y="458" width="220" height="96" rx="10" fill="#f4f7fb" stroke="#dce8f4"/>
+ <text x="52" y="482" font-size="12" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">Управление инцидентами и ЗНО</text>
+ <text x="52" y="500" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Устранение неполадок и запросы на обслуживание</text><rect x="276" y="458" width="220" height="96" rx="10" fill="#f4f7fb" stroke="#dce8f4"/>
+ <text x="288" y="482" font-size="12" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">Обработка событий ИБ</text>
+ <text x="288" y="500" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Мониторинг и детекция угроз (SIEM)</text><rect x="512" y="458" width="220" height="96" rx="10" fill="#f4f7fb" stroke="#dce8f4"/>
+ <text x="524" y="482" font-size="12" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">Управление уязвимостями</text>
+ <text x="524" y="500" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Выявление и закрытие уязвимостей</text><rect x="748" y="458" width="220" height="96" rx="10" fill="#f4f7fb" stroke="#dce8f4"/>
+ <text x="760" y="482" font-size="12" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">Управление изменениями</text>
+ <text x="760" y="500" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Экстренные и стандартные изменения</text><rect x="984" y="458" width="220" height="96" rx="10" fill="#f4f7fb" stroke="#dce8f4"/>
+ <text x="996" y="482" font-size="12" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">Управление оповещениями</text>
+ <text x="996" y="500" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Информирование пользователей и СТП</text>
+
+<!-- footer key -->
+<g font-family="Inter,system-ui,sans-serif">
+ <rect x="24" y="590" width="220" height="54" rx="10" fill="#eef4fb"/>
+ <text x="134" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#1d6fe0">12 шагов</text>
+ <text x="134" y="633" text-anchor="middle" font-size="10" fill="#5f6e82">полного жизненного цикла</text>
+ <rect x="258" y="590" width="220" height="54" rx="10" fill="#eefcf7"/>
+ <text x="368" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#0e8f6f">3 решения</text>
+ <text x="368" y="633" text-anchor="middle" font-size="10" fill="#5f6e82">умышлен/?/устранён?</text>
+ <rect x="492" y="590" width="220" height="54" rx="10" fill="#fdf6ea"/>
+ <text x="602" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#b3741f">5 процессов</text>
+ <text x="602" y="633" text-anchor="middle" font-size="10" fill="#5f6e82">интегрировано в ITSM</text>
+ <rect x="726" y="590" width="220" height="54" rx="10" fill="#f7eefc"/>
+ <text x="836" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#6d4fa0">< 60 сек</text>
+ <text x="836" y="633" text-anchor="middle" font-size="10" fill="#5f6e82">порог реакции СИВ</text>
+</g>
+</svg>

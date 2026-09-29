@@ -1,4 +1,4 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' role='img' aria-label='MERLION'>
-<rect x='2' y='2' width='76' height='76' rx='18' fill='#0fa6d0'/>
-<text x='50%' y='53%' font-family='Inter,system-ui,sans-serif' font-size='52' font-weight='800' fill='#ffffff' text-anchor='middle' dominant-baseline='middle'>M</text>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img' aria-label='Дистрибуция'>
+<rect width='24' height='24' rx='6' fill='#0fa6d0'/>
+<g fill='none' stroke='#ffffff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d="MM4 7l8-4 8 4-8 4z"/><path d="M4 7v12l8 4 8-4V7"/><path d="M12 11v12"/><path d="M6 9l6 3 6-3"/></g>
 </svg>
