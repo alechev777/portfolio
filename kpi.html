@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Калькулятор экономики ИТ-услуг · Александр Чевтаев</title>
-<meta name="description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, аллокация затрат, окупаемость и ROI. Интерактивный расчёт с визуализацией, сценариями и допущениями. Логика модели Казахмыс.">
+<meta name="description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, ROI, окупаемость. Интерактивный расчёт с чувствительностью, структурой экономии и сценариями. Методика KPI-модели Казахмыс.">
 <meta name="theme-color" content="#0f1e34">
 <link rel="canonical" href="https://alechev777.github.io/portfolio/kpi.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Калькулятор экономики ИТ-услуг · Александр Чевтаев">
-<meta property="og:description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, аллокация затрат, окупаемость и ROI. Интерактивный расчёт с визуализацией, сценариями и допущениями.">
+<meta property="og:description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, ROI, окупаемость. Интерактивный расчёт с чувствительностью, структурой экономии и сценариями.">
 <meta property="og:image" content="https://alechev777.github.io/portfolio/img/og-cover.webp">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Чевтаев Александр · Портфолио">
 <meta property="og:url" content="https://alechev777.github.io/portfolio/kpi.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Калькулятор экономики ИТ-услуг · Александр Чевтаев">
-<meta name="twitter:description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, аллокация затрат, окупаемость и ROI. Интерактивный расчёт с визуализацией и сценариями.">
+<meta name="twitter:description" content="KPI-калькулятор экономики ИТ-услуг: стоимость услуги, ROI, окупаемость. Интерактивный расчёт с чувствительностью и сценариями.">
 <meta name="twitter:image" content="https://alechev777.github.io/portfolio/img/og-cover.webp">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -57,36 +57,36 @@
   <div class="kpi-head">
     <span class="kh-tag">Интерактивный инструмент</span>
     <h1>Калькулятор экономики ИТ-услуг</h1>
-    <p>Как считать стоимость услуги, аллокацию затрат и ROI — на примере KPI-модели горнодобывающего холдинга.</p>
+    <p>Стоимость услуги, ROI и окупаемость — с учётом тарификации, экономии ФОТ и сокращения простоев. Методика апробирована в KPI-модели горнодобывающего холдинга.</p>
   </div>
 
-  <!-- Основной блок: поля + визуализация -->
+  <!-- Поля + визуализации: 40/60 -->
   <div class="kpi-grid">
     <div class="kpi-panel">
       <h3><span aria-hidden="true">🎚️</span>Параметры услуги</h3>
       <form id="kpi-form" onsubmit="return false" novalidate>
         <div class="kpi-field">
-          <div class="kf-top"><label for="k-inf">Затраты на команду, ₽/мес</label><input class="raw" id="k-fot" type="number" value="1000000" min="0" step="100000"></div>
+          <div class="kf-top"><label>Затраты на команду, ₽/мес</label><input class="raw" id="k-fot" type="number" value="1000000" min="0" step="100000"></div>
           <input type="range" id="k-fot-r" min="100000" max="2000000" step="50000" value="1000000" aria-label="Затраты на команду">
           <div class="kf-hint">суммарные затраты на обслуживающее подразделение</div>
         </div>
         <div class="kpi-field">
-          <div class="kf-top"><label for="k-load">Загрузка команды на услугу, %</label><span class="kf-value" id="k-load-v">70%</span></div>
+          <div class="kf-top"><label>Загрузка команды на услугу, %</label><span class="kf-value" id="k-load-v">70%</span></div>
           <input type="range" id="k-load" min="10" max="100" step="1" value="70" aria-label="Загрузка команды на услугу">
           <div class="kf-hint">доля времени команды, которую занимает услуга</div>
         </div>
         <div class="kpi-field">
-          <div class="kf-top"><label for="k-inf2">Инфраструктура, ₽/мес</label><input class="raw" id="k-inf" type="number" value="250000" min="0" step="50000"></div>
+          <div class="kf-top"><label>Инфраструктура, ₽/мес</label><input class="raw" id="k-inf" type="number" value="250000" min="0" step="50000"></div>
           <input type="range" id="k-inf-r" min="0" max="1000000" step="10000" value="250000" aria-label="Инфраструктура">
           <div class="kf-hint">аренда, оборудование, сетевая инфраструктура</div>
         </div>
         <div class="kpi-field">
-          <div class="kf-top"><label for="k-lic">Лицензии, ₽/мес</label><input class="raw" id="k-lic" type="number" value="100000" min="0" step="10000"></div>
+          <div class="kf-top"><label>Лицензии, ₽/мес</label><input class="raw" id="k-lic" type="number" value="100000" min="0" step="10000"></div>
           <input type="range" id="k-lic-r" min="0" max="500000" step="5000" value="100000" aria-label="Лицензии">
           <div class="kf-hint">ПО, подписки, поддержка вендора</div>
         </div>
         <div class="kpi-field">
-          <div class="kf-top"><label for="k-save">Эффект тарифной модели, %</label><span class="kf-value" id="k-save-v">20%</span></div>
+          <div class="kf-top"><label>Эффект тарифной модели, %</label><span class="kf-value" id="k-save-v">20%</span></div>
           <input type="range" id="k-save" min="0" max="30" step="1" value="20" aria-label="Эффект тарифной модели">
           <div class="kf-hint">снижение потребления после введения тарифов: −15–25%</div>
         </div>
@@ -96,12 +96,17 @@
     <div class="kpi-panel">
       <div class="kpi-viz">
         <div class="kpi-chartbox">
-          <h4>Структура стоимости услуги</h4>
-          <svg id="donutSvg" viewBox="0 0 320 170" role="img" aria-label="Структура стоимости услуги"></svg>
+          <h4>Чувствительность ROI к загрузке</h4>
+          <svg id="sensSvg" viewBox="0 0 620 230" role="img" aria-label="График чувствительности ROI к загрузке"></svg>
+          <span class="sens-tip" id="sensTip"></span>
+          <p class="kpi-sens-cap">ROI растёт с загрузкой, но нелинейно — эффект масштаба: фиксированные затраты размазываются по большему объёму, а экономия ускоряется.</p>
         </div>
         <div class="kpi-chartbox">
-          <h4>Чувствительность ROI к загрузке</h4>
-          <svg id="sensSvg" viewBox="0 0 320 150" role="img" aria-label="График чувствительности ROI"></svg>
+          <h4>Структура экономии, ₽/год</h4>
+          <div class="kpi-econ-donut">
+            <div class="ed-svg"><svg id="econSvg" viewBox="0 0 300 150" role="img" aria-label="Структура годовой экономии"></svg></div>
+            <div class="ed-leg" id="econLegend"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -109,10 +114,10 @@
 
   <!-- Результаты -->
   <div class="kpi-results" id="kpi-results">
-    <div class="kpi-res-card"><p class="kr-v" id="k-cost">0 ₽/мес</p><p class="kr-l">Стоимость услуги</p></div>
-    <div class="kpi-res-card"><p class="kr-v" id="k-year">0 ₽/год</p><p class="kr-l">Экономия после тарификации</p></div>
-    <div class="kpi-res-card"><p class="kr-v" id="k-roi">0%</p><p class="kr-l">ROI за 1-й год</p></div>
-    <div class="kpi-res-card"><p class="kr-v" id="k-pb">—</p><p class="kr-l">Окупаемость</p></div>
+    <div class="kpi-res-card"><p class="kr-v" id="k-cost">0 ₽/мес</p><p class="kr-l">Стоимость услуги</p><div class="kr-breakdown"><span class="kb">команда + инфра + лицензии</span></div></div>
+    <div class="kpi-res-card"><p class="kr-v" id="k-year">0 ₽/год</p><p class="kr-l">Экономия, ₽/год</p><div class="kr-breakdown" id="k-year-bd"></div></div>
+    <div class="kpi-res-card"><p class="kr-v" id="k-roi">0%</p><p class="kr-l">ROI за 1-й год</p><div class="kr-breakdown" id="k-roi-bd"></div></div>
+    <div class="kpi-res-card"><p class="kr-v" id="k-pb">—</p><p class="kr-l">Окупаемость</p><div class="kr-breakdown" id="k-pb-bd"></div></div>
   </div>
 
   <!-- Сценарии -->
@@ -133,20 +138,14 @@
       <span class="kex-arr" aria-hidden="true">▾</span>
     </button>
     <div class="kpi-extra-body" id="kpi-extra-body">
-      <div class="kpi-check"><span class="kpi-badge">оценка на основе опыта</span><span style="margin-left:8px;color:var(--muted);font-size:12.5px">Допущения по зарплате, эффекту автоматизации и стоимости часа простоя — оценочные, уточняются по данным проекта.</span></div>
+      <div class="kpi-check"><span class="kpi-badge" title="Параметры основаны на оценке по опыту, уточняются данными проекта">оценка на основе опыта</span><span style="margin-left:8px;color:var(--muted);font-size:12.5px">Допущения по зарплате, эффекту автоматизации и стоимости часа простоя — оценочные. Экономия ФОТ и простоев добавляется к эффекту тарификации в общий ROI.</span></div>
       <div class="kpi-extra-fields">
-        <div class="kpi-field"><div class="kf-top"><label for="k-staff">Численность, чел.</label><input class="raw" id="k-staff" type="number" value="50" min="1"></div><input type="range" id="k-staff-r" min="1" max="500" step="1" value="50"><div class="kf-hint">сколько человек на обслуживании</div></div>
-        <div class="kpi-field"><div class="kf-top"><label for="k-salary">Зарплата (ФОТ), ₽/мес × чел.</label><input class="raw" id="k-salary" type="number" value="120000" min="0" step="10000"></div><input type="range" id="k-salary-r" min="30000" max="300000" step="5000" value="120000"><div class="kf-hint">оценка на основе опыта</div></div>
-        <div class="kpi-field"><div class="kf-top"><label for="k-inc">Заявок в месяц</label><input class="raw" id="k-inc" type="number" value="500" min="0"></div><input type="range" id="k-inc-r" min="0" max="5000" step="20" value="500"><div class="kf-hint">число заявок/инцидентов</div></div>
-        <div class="kpi-field"><div class="kf-top"><label for="k-incsave">Автоматизация, % экономии времени</label><span class="kf-value" id="k-incsave-v">30%</span></div><input type="range" id="k-incsave" min="0" max="80" step="1" value="30"><div class="kf-hint">оценка эффекта ИИ/автоматизации над инцидентом</div></div>
-        <div class="kpi-field"><div class="kf-top"><label for="k-downtime">Простой в квартал, часов</label><input class="raw" id="k-downtime" type="number" value="20" min="0"></div><input type="range" id="k-downtime-r" min="0" max="200" step="1" value="20"><div class="kf-hint">часов недоступности сервисов за квартал</div></div>
-        <div class="kpi-field"><div class="kf-top"><label for="k-dowhour">Стоимость часа простоя, ₽</label><input class="raw" id="k-dowhour" type="number" value="150000" min="0" step="10000"></div><input type="range" id="k-dowhour-r" min="0" max="1000000" step="10000" value="150000"><div class="kf-hint">оценка на основе опыта</div></div>
-      </div>
-      <div class="kpi-extra-out">
-        <div class="kex-o"><b id="k-fotyear">0 ₽/год</b><span>ФОТ команды</span></div>
-        <div class="kex-o g"><b id="k-fotsave">0 ₽/год</b><span>Экономия ФОТ (автоматизация)</span></div>
-        <div class="kex-o"><b id="k-dowcost">0 ₽/год</b><span>Стоимость простоев</span></div>
-        <div class="kex-o g"><b id="k-dowsave">0 ₽/год</b><span>Выгода от сокращения простоев</span></div>
+        <div class="kpi-field"><div class="kf-top"><label>Численность, чел.</label><input class="raw" id="k-staff" type="number" value="8" min="0"></div><input type="range" id="k-staff-r" min="0" max="50" step="1" value="8"><div class="kf-hint">сколько человек на обслуживании услуги</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Зарплата (ФОТ), ₽/мес × чел.</label><input class="raw" id="k-salary" type="number" value="120000" min="0" step="10000"></div><input type="range" id="k-salary-r" min="30000" max="300000" step="5000" value="120000"><div class="kf-hint">оценка на основе опыта</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Заявок в месяц</label><input class="raw" id="k-inc" type="number" value="500" min="0"></div><input type="range" id="k-inc-r" min="0" max="5000" step="20" value="500"><div class="kf-hint">число заявок на услугу</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Автоматизация, % экономии времени</label><span class="kf-value" id="k-incsave-v">20%</span></div><input type="range" id="k-incsave" min="0" max="60" step="1" value="20"><div class="kf-hint">оценка эффекта ИИ/автоматизации</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Простой в квартал, часов</label><input class="raw" id="k-downtime" type="number" value="20" min="0"></div><input type="range" id="k-downtime-r" min="0" max="200" step="1" value="20"><div class="kf-hint">часов недоступности сервисов за квартал</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Стоимость часа простоя, ₽</label><input class="raw" id="k-dowhour" type="number" value="150000" min="0" step="10000"></div><input type="range" id="k-dowhour-r" min="0" max="1000000" step="10000" value="150000"><div class="kf-hint">оценка на основе опыта</div></div>
       </div>
     </div>
   </div>
@@ -154,8 +153,8 @@
   <!-- Как считается -->
   <div class="kpi-formulas">
     <div class="kpi-fml"><div class="fml-n">Стоимость услуги</div><div class="fml-v">(команда × загрузка) + инфра + лицензии</div><div class="fml-d">Затраты на услугу в месяц с учётом доли загрузки команды.</div></div>
-    <div class="kpi-fml"><div class="fml-n">ROI</div><div class="fml-v">экономия / затраты × 100%</div><div class="fml-d">Годовая экономия тарификации к годовой стоимости услуги.</div></div>
-    <div class="kpi-fml"><div class="fml-n">Окупаемость</div><div class="fml-v">затраты / экономия (мес.)</div><div class="fml-d">Сколько месяцев нужно, чтобы эффект покрыл стоимость услуги.</div></div>
+    <div class="kpi-fml"><div class="fml-n">Экономия в год</div><div class="fml-v">тарификация + ФОТ + простои</div><div class="fml-d">Сумма эффекта тарифной модели, экономии ФОТ от автоматизации и выгоды от сокращения простоев.</div></div>
+    <div class="kpi-fml"><div class="fml-n">ROI / Окупаемость</div><div class="fml-v">ROI = экономия ÷ затраты × 100%<br>окуп. = затраты ÷ экономия</div><div class="fml-d">Годовая экономия к годовой стоимости услуги и срок её окупаемости.</div></div>
   </div>
 </div>
 </div>
@@ -182,154 +181,198 @@
 (function(){
 'use strict';
 var $=function(id){return document.getElementById(id);};
-/* ---- чтение полей ---- */
-function get(id){var el=$(id);return parseFloat(el.value)||0;}
-/* ---- форматирование ---- */
-function money(v){return Math.round(v).toLocaleString('ru-RU')+' ₽';}
-function moneyShort(v){return Math.round(v).toLocaleString('ru-RU');}
-/* ---- данные ---- */
-function data(){
-  var fot=get('k-fot'), load=get('k-load'), inf=get('k-inf'), lic=get('k-lic'), save=get('k-save');
+function get(id){return parseFloat($(id).value)||0;}
+
+/* ---- модель расчёта ---- */
+function compute(loadOverride, saveOverride){
+  var fot=get('k-fot'), load=loadOverride!=null?loadOverride:get('k-load'), inf=get('k-inf'), lic=get('k-lic'), save=saveOverride!=null?saveOverride:get('k-save');
   var cost=fot*load/100+inf+lic;            /* стоимость услуги, ₽/мес */
   var yearCost=cost*12;
-  var yearSave=yearCost*save/100;           /* экономия в год */
-  var roi=yearCost>0&&yearSave>0?(yearSave/yearCost)*100:0;
-  var pb=yearSave>0?(cost/(yearSave/12)):null;
-  return {fot:fot,load:load,inf:inf,lic:lic,save:save,cost:cost,yearCost:yearCost,yearSave:yearSave,roi:roi,pb:pb};
+  /* эффект масштаба: экономия тарификации нелинейно растёт с загрузкой */
+  var scale=Math.pow(load/70, 1.35);
+  var tarifSave=yearCost*(save/100)*scale;  /* экономия тарификации, ₽/год */
+  /* доп. сценарий: ФОТ и простои (масштабируются загрузкой — эффект масштаба) */
+  var staff=get('k-staff'),sal=get('k-salary'),incsave=get('k-incsave'),dt=get('k-downtime'),dwh=get('k-dowhour');
+  var ls=load/70;                           /* коэффициент загрузки к базовой 70% */
+  var fotSave=staff*sal*12*(incsave/100)*ls;
+  var dowSave=(dt*4)*dwh*(incsave/100)*ls;
+  var totalSave=tarifSave+fotSave+dowSave;
+  var roi=yearCost>0?(totalSave/yearCost)*100:0;
+  /* ограничение реалистичности: ROI не выше 150% */
+  var roiCapped=Math.min(roi,150);
+  var pb=totalSave>0?(cost/(totalSave/12)):null;
+  return {fot:fot,load:load,inf:inf,lic:lic,save:save,cost:cost,yearCost:yearCost,
+    tarif:tarifSave,fotSave:fotSave,dowSave:dowSave,total:totalSave,
+    roi:roi,roiCapped:roiCapped,pb:pb,over150:roi>150};
 }
-/* ---- отрисовка ---- */
+function money(v){return Math.round(v).toLocaleString('ru-RU');}
+function moneyRp(v){return Math.round(v).toLocaleString('ru-RU')+' ₽';}
+
+/* ---- результаты ---- */
 function draw(d){
-  /* результаты */
-  $('k-cost').textContent=money(d.cost);
-  $('k-year').textContent=moneyShort(d.yearSave)+' ₽/год';
-  $('k-roi').textContent=Math.round(d.roi)+'%';
+  $('k-cost').textContent=moneyRp(d.cost);
+  $('k-year').textContent=moneyRp(d.total)+'/год';
+  $('k-roi').textContent=Math.round(d.roiCapped)+'%';
   $('k-pb').textContent=d.pb?d.pb.toFixed(1)+' мес.':'—';
-  /* donut: структура стоимости */
-  drawDonut(d);
-  /* чувствительность ROI к загрузке */
-  drawSens(d);
+  /* разбивка экономии */
+  var bd=$('k-year-bd'), rui=$('k-roi-bd'), pbd=$('k-pb-bd');
+  if(d.fotSave>0||d.dowSave>0){
+    bd.innerHTML='<span class="kb">в т.ч.: тарификация <b>'+moneyRp(d.tarif)+'</b>'+(d.fotSave>0?' · ФОТ <b>'+moneyRp(d.fotSave)+'</b>':'')+(d.dowSave>0?' · простои <b>'+moneyRp(d.dowSave)+'</b>':'')+'</span>';
+  } else {
+    bd.innerHTML='<span class="kb">тарификация <b>'+moneyRp(d.tarif)+'</b></span>';
+  }
+  rui.innerHTML='<span class="kb">'+(d.over150?'<b>capped 150%</b>, модель реалистична':'норм. диапазон')+'</span>';
+  pbd.innerHTML=d.pb?'<span class="kb">срок к годовой экономии</span>':'<span class="kb">—</span>';
+  drawSens();
+  drawEcon(d);
 }
-function drawDonut(d){
-  var svg=$('donutSvg');if(!svg)return;
-  var vals=[d.fot*d.load/100,d.inf,d.lic];
-  var labels=['Команда','Инфраструктура','Лицензии'];
-  var cols=['#1d6fe0','#0e9bbf','#0f8f7f'];
-  var total=vals.reduce(function(a,b){return a+b;},1)||1;
-  var cx=78,cy=88,r=56,sw=26;
-  var acc=-Math.PI/2, out='';
-  vals.forEach(function(v,i){
-    var frac=v/total;
+
+/* ---- график чувствительности (интерактивный) ---- */
+var sensData=[]; // {x,y,roi,load}
+function drawSens(){
+  var svg=$('sensSvg'); if(!svg) return;
+  var W=620,H=230,pl=52,pr=16,pt=22,pb=34;
+  var iw=W-pl-pr, ih=H-pt-pb;
+  /* собираем кривую ROI от 10% до 100% загрузки */
+  var pts=[]; sensData=[];
+  var maxR=0;
+  for(var L=10;L<=100;L+=1){ var dd=compute(L,null); if(dd.roiCapped>maxR)maxR=dd.roiCapped; pts.push({l:L,r:dd.roiCapped}); }
+  if(maxR<2)maxR=2;
+  maxR=Math.ceil(maxR/10)*10;
+  var out='';
+  /* сетка едва заметная */
+  for(var g=0;g<=4;g++){ var yy=pt+ih-(ih*g/4); out+='<line x1="'+pl+'" y1="'+yy+'" x2="'+(W-pr)+'" y2="'+yy+'" stroke="rgba(150,170,195,.16)" stroke-width="1"/>'; var v=maxR*g/4; out+='<text x="'+(pl-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="12" font-weight="600" fill="#8896a8">'+Math.round(v)+'%</text>'; }
+  out+='<line x1="'+pl+'" y1="'+(pt+ih)+'" x2="'+(W-pr)+'" y2="'+(pt+ih)+'" stroke="#cbd5e1" stroke-width="1.5"/>';
+  for(var L=10;L<=100;L+=10){ var xx=pl+iw*(L-10)/90; out+='<text x="'+xx+'" y="'+(H-8)+'" text-anchor="middle" font-size="12" font-weight="600" fill="#8896a8">'+L+'%</text>'; }
+  out+='<text x="'+(W-pr-4)+'" y="'+(H-8)+'" text-anchor="end" font-size="12" fill="#a3aebf">загрузка →</text>';
+  /* кривая с градиентом */
+  var linePts=[], maxPt=0;
+  pts.forEach(function(p){ var x=pl+iw*(p.l-10)/90; var y=pt+ih-(p.r/maxR)*ih; linePts.push(x+','+y.toFixed(1)); if(p.l===get('k-load')) maxPt=[x,y]; sensData.push({x:x,y:y,roi:p.r,load:p.l}); });
+  var gradId='sensGrad';
+  out+='<defs><linearGradient id="'+gradId+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1d6fe0" stop-opacity=".28"/><stop offset="100%" stop-color="#1d6fe0" stop-opacity="0"/></linearGradient></defs>';
+  out+='<polygon points="'+pl+','+(pt+ih)+' '+linePts.join(' ')+' '+(W-pr)+','+(pt+ih)+'" fill="url(#'+gradId+')"/>';
+  out+='<polyline points="'+linePts.join(' ')+'" fill="none" stroke="#1d6fe0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+  /* текущая точка крупно */
+  var cur=compute(null,null);
+  var cx=pl+iw*(cur.load-10)/90, cy=pt+ih-(cur.roiCapped/maxR)*ih;
+  out+='<circle cx="'+cx+'" cy="'+cy+'" r="8" fill="#1d6fe0" stroke="#fff" stroke-width="2.5"/>';
+  out+='<circle cx="'+cx+'" cy="'+cy+'" r="15" fill="none" stroke="#1d6fe0" stroke-opacity=".25" stroke-width="6"/>';
+  var labelX=cx>W*0.6?cx-14:cx+14;
+  out+='<text x="'+labelX+'" y="'+(cy-14)+'" font-size="15" font-weight="900" fill="#1d6fe0">'+Math.round(cur.roiCapped)+'%</text>';
+  out+='<text x="'+labelX+'" y="'+(cy+1)+'" font-size="11" fill="#8896a8">загрузка '+cur.load+'%</text>';
+  svg.innerHTML=out;
+  svg.setAttribute('data-iw',iw); svg.setAttribute('data-pl',pl); svg.setAttribute('data-maxR',maxR);
+}
+/* ховер-тултип */
+function sensHover(ev){
+  var svg=$('sensSvg'), tip=$('sensTip'); if(!svg||!tip) return;
+  var rect=svg.getBoundingClientRect();
+  var mx=ev.clientX-rect.left, my=ev.clientY-rect.top;
+  var vw=parseFloat(svg.getAttribute('viewBox').split(' ')[2]);
+  var vh=parseFloat(svg.getAttribute('viewBox').split(' ')[3]);
+  var bw=rect.width, bh=rect.height;
+  var bx=mx*bw>0?mx/bw*vw:mx, by=bh>0?my/bh*vh:my;
+  var pl=parseFloat(svg.getAttribute('data-pl')), iw=parseFloat(svg.getAttribute('data-iw')), maxR=parseFloat(svg.getAttribute('data-maxR'));
+  var load=10+90*(bx-pl)/iw, roiPct=null;
+  for(var i=0;i<sensData.length;i++){ if(Math.abs(sensData[i].x-bx)<4){ roiPct=sensData[i].roi; break; } }
+  if(roiPct==null && bx>=pl && bx<=pl+iw){
+    var est=compute(Math.max(10,Math.min(100,Math.round(load))),null); roiPct=est.roiCapped;
+  }
+  if(load>=10&&load<=100&&bx>=pl-10&&bx<=pl+iw+10){
+    tip.style.opacity='1';
+    tip.style.left=(mx+14)+'px';
+    tip.style.top=(my-34)+'px';
+    tip.innerHTML='загрузка <b>'+Math.round(load)+'%</b> · ROI <b>'+Math.round(roiPct)+'%</b>';
+  } else { tip.style.opacity='0'; }
+}
+
+/* ---- donut структуры экономии ---- */
+function drawEcon(d){
+  var svg=$('econSvg'); if(!svg) return;
+  var segs=[
+    {v:d.tarif,label:'Тарификация',c:'#1d6fe0'},
+    {v:d.fotSave,label:'Экономия ФОТ',c:'#22c55e'},
+    {v:d.dowSave,label:'Сокращение простоев',c:'#38bdf8'}
+  ];
+  var total=segs.reduce(function(a,s){return a+s.v;},1)||1;
+  var cx=78,cy=78,r=52,sw=30, acc=-Math.PI/2, out='';
+  var used=[];
+  segs.forEach(function(s,i){
+    if(s.v<=0) return;
+    var frac=s.v/total;
     var a0=acc,a1=acc+frac*Math.PI*2;
     var large=frac>0.5?1:0;
-    var x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0);
-    var x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
-    out+='<path d="M '+x0.toFixed(1)+' '+y0.toFixed(1)+' A '+r+' '+r+' 0 '+large+' 1 '+x1.toFixed(1)+' '+y1.toFixed(1)+' L '+(cx+(r-sw)*Math.cos(a1)).toFixed(1)+' '+(cy+(r-sw)*Math.sin(a1)).toFixed(1)+' A '+(r-sw)+' '+(r-sw)+' 0 '+large+' 0 '+ (cx+(r-sw)*Math.cos(a0)).toFixed(1)+' '+(cy+(r-sw)*Math.sin(a0)).toFixed(1)+' Z" fill="'+cols[i]+'"/>';
-    acc=a1;
+    var x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+    out+='<path d="M '+x0.toFixed(1)+' '+y0.toFixed(1)+' A '+r+' '+r+' 0 '+large+' 1 '+x1.toFixed(1)+' '+y1.toFixed(1)+' L '+(cx+(r-sw)*Math.cos(a1)).toFixed(1)+' '+(cy+(r-sw)*Math.sin(a1)).toFixed(1)+' A '+(r-sw)+' '+(r-sw)+' 0 '+large+' 0 '+(cx+(r-sw)*Math.cos(a0)).toFixed(1)+' '+(cy+(r-sw)*Math.sin(a0)).toFixed(1)+' Z" fill="'+s.c+'" transition="fill .25s"/>';
+    used.push(s); acc=a1;
   });
-  out+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(r-sw/2)+'" fill="var(--card,#fff)" stroke="none"/>';
-  out+='<text x="'+cx+'" y="'+cy+'" text-anchor="middle" font-size="15" font-weight="900" fill="#123052" font-family="Inter,system-ui,sans-serif">'+moneyShort(d.cost)+'</text>';
-  out+='<text x="'+cx+'" y="'+(cy+17)+'" text-anchor="middle" font-size="8.5" fill="#6b7a91">₽/мес</text>';
+  out+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(r-sw/2)+'" fill="var(--card,#fff)"/>';
+  out+='<text x="'+cx+'" y="'+cy+'" text-anchor="middle" font-size="16" font-weight="900" fill="var(--navy,#123052)">'+money(d.total)+'</text>';
+  out+='<text x="'+cx+'" y="'+(cy+18)+'" text-anchor="middle" font-size="11" fill="var(--muted,#5f6e82)">₽/год</text>';
+  svg.innerHTML=out;
   /* легенда */
-  var ly=26;
-  cols.forEach(function(c,i){
-    out+='<rect x="180" y="'+(ly-10)+'" width="11" height="11" rx="2" fill="'+c+'"/>';
-    out+='<text x="196" y="'+(ly-1)+'" font-size="10.5" fill="#33455f" font-family="Inter,system-ui,sans-serif">'+labels[i]+' · '+moneyShort(vals[i])+'</text>';
-    ly+=20;
-  });
-  svg.innerHTML=out;
+  var leg=$('econLegend'); if(!leg) return;
+  leg.innerHTML=used.map(function(s){
+    return '<div class="el"><i style="background:'+s.c+'"></i>'+s.label+'<b>'+money(s.v)+' ₽</b></div>';
+  }).join('')+'<div class="el" style="border-top:1px solid var(--line);padding-top:6px"><i style="background:transparent"></i>Всего<b>'+money(d.total)+' ₽/год</b></div>';
 }
-function drawSens(d){
-  var svg=$('sensSvg');if(!svg)return;
-  var W=320,H=150,pl=40,pr=8,pt=14,pb=20;
-  var iw=W-pl-pr, ih=H-pt-pb;
-  var fot=d.fot,inf=d.inf,lic=d.lic,save=d.save;
-  function roiAt(load){var c=fot*load/100+inf+lic;if(c<=0)return 0;var ys=c*12*save/100;return (ys/(c*12))*100;}
-  /* максимум ROI */
-  var maxR=0;for(var L=10;L<=100;L+=5){var r=roiAt(L);if(r>maxR)maxR=r;}
-  if(maxR<2)maxR=2;
-  var out='';
-  /* сетка */
-  var grid=4;
-  for(var i=0;i<=grid;i++){ var yy=pt+ih-(ih*i/grid); out+='<line x1="'+pl+'" y1="'+yy+'" x2="'+(W-pr)+'" y2="'+yy+'" stroke="#e3e9f0" stroke-width="1"/>'; var v=maxR*i/grid; out+='<text x="'+(pl-6)+'" y="'+(yy+3)+'" text-anchor="end" font-size="8.5" fill="#6b7a91">'+Math.round(v)+'%</text>'; }
-  /* ось X */
-  out+='<line x1="'+pl+'" y1="'+(pt+ih)+'" x2="'+(W-pr)+'" y2="'+(pt+ih)+'" stroke="#cbd5e1" stroke-width="1.2"/>';
-  for(var L=10;L<=100;L+=10){ var xx=pl+iw*(L-10)/90; out+='<text x="'+xx+'" y="'+(H-5)+'" text-anchor="middle" font-size="8.5" fill="#6b7a91">'+L+'%</text>'; }
-  out+='<text x="'+(pl+iw-8)+'" y="'+(H-5)+'" text-anchor="end" font-size="8.5" fill="#9db0c6">загрузка →</text>';
-  /* кривая */
-  var pts=[];
-  for(L=10;L<=100;L+=2){ var x=pl+iw*(L-10)/90; var rr=roiAt(L); var y=pt+ih-(rr/maxR)*ih; pts.push(x+','+y.toFixed(1)); }
-  /* область */
-  out+='<polygon points="'+pl+','+(pt+ih)+' '+pts.join(' ')+' '+(W-pr)+','+(pt+ih)+'" fill="rgba(29,111,224,.12)"/>';
-  out+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#1d6fe0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
-  /* точка текущего значения */
-  var cxr=pl+iw*(d.load-10)/90; var cyr=pt+ih-(roiAt(d.load)/maxR)*ih;
-  out+='<circle cx="'+cxr+'" cy="'+cyr+'" r="6" fill="#1d6fe0" stroke="#fff" stroke-width="2.5"/>';
-  out+='<text x="'+Math.max(pl,cxr-30)+'" y="'+(cyr-10)+'" font-size="9" font-weight="800" fill="#1d6fe0">'+Math.round(roiAt(d.load))+'%</text>';
-  svg.innerHTML=out;
-}
-/* ---- допущения ---- */
-var ASSUMP={
-  cons:[50,10],
-  base:[70,20],
-  opt:[90,25]
-};
+
+/* ---- сценарии ---- */
+var ASSUMP={cons:[50,10],base:[70,20],opt:[90,25]};
 var DESCS={
   cons:['загрузка <b>50%</b>, эффект тарификации <b>10%</b>'],
   base:['загрузка <b>70%</b>, эффект тарификации <b>20%</b>'],
   opt:['загрузка <b>90%</b>, эффект тарификации <b>25%</b>']
 };
-/* ---- привязка ползунков ---- */
+/* плавная анимация значения ползунка */
+function animateSlider(slider,to,ms){
+  var el=$(slider); if(!el) return;
+  var from=parseFloat(el.value), start=null;
+  function step(ts){
+    if(!start)start=ts;
+    var p=Math.min(1,(ts-start)/ms);
+    var eased=p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+    el.value=Math.round(from+(to-from)*eased);
+    el.dispatchEvent(new Event('input'));
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function recalc(){ draw(compute(null,null)); }
+
+/* ---- привязка ---- */
 function bind(){
   function pair(slider,field){
     if(!$(slider)||!$(field))return;
     $(slider).addEventListener('input',function(){$(field).value=$(slider).value;recalc();});
-    $(field).addEventListener('input',function(){var v=parseFloat($(field).value);if(!isNaN(v))$(slider).value=v;recalc();});
+    $(field).addEventListener('input',function(){var v=parseFloat($(field).value);if(!isNaN(v))$(slider).value=Math.max($(slider).min?+$(slider).min:0,Math.min($(slider).max?+$(slider).max:1e9,v));recalc();});
   }
   pair('k-fot-r','k-fot'); pair('k-inf-r','k-inf'); pair('k-lic-r','k-lic');
-  $('k-load').addEventListener('input',function(){$('k-load-v').textContent=$('k-load').value+'%';recalc();});
-  $('k-save').addEventListener('input',function(){$('k-save-v').textContent=$('k-save').value+'%';recalc();});
-  /* доп. сценарий */
-  pair('k-staff-r','k-staff'); pair('k-salary-r','k-salary'); pair('k-inc-r','k-inc');
-  $('k-incsave').addEventListener('input',function(){$('k-incsave-v').textContent=$('k-incsave').value+'%';computeExtra();});
-  pair('k-downtime-r','k-downtime'); pair('k-dowhour-r','k-dowhour');
-  ['k-staff','k-salary','k-inc','k-downtime','k-dowhour'].forEach(function(id){$(id).addEventListener('input',computeExtra);});
+  $('k-load').addEventListener('input',function(){ $('k-load-v').textContent=$('k-load').value+'%'; recalc(); });
+  $('k-save').addEventListener('input',function(){ $('k-save-v').textContent=$('k-save').value+'%'; recalc(); });
+  ['k-staff','k-salary','k-inc','k-downtime','k-dowhour'].forEach(function(id){ if($(id))$(id).addEventListener('input',recalc); });
+  if($('k-incsave')) $('k-incsave').addEventListener('input',function(){ $('k-incsave-v').textContent=$('k-incsave').value+'%'; recalc(); });
+  pair('k-staff-r','k-staff'); pair('k-salary-r','k-salary'); pair('k-inc-r','k-inc'); pair('k-downtime-r','k-downtime'); pair('k-dowhour-r','k-dowhour');
   /* сценарии */
   var btns=document.querySelectorAll('.kpi-scen-btn');
   btns.forEach(function(b){
     b.addEventListener('click',function(){
       btns.forEach(function(x){x.classList.remove('active');});
       b.classList.add('active');
-      var s=b.getAttribute('data-scen');
-      var a=ASSUMP[s];
-      $('k-load').value=a[0]; $('k-load-v').textContent=a[0]+'%'; $('k-save').value=a[1]; $('k-save-v').textContent=a[1]+'%';
+      var s=b.getAttribute('data-scen'), a=ASSUMP[s];
+      animateSlider('k-load',a[0],300); animateSlider('k-save',a[1],300);
       $('kpi-scen-desc').innerHTML=''+DESCS[s];
-      recalc();
     });
   });
   /* доп. секция */
   var t=$('kpi-extra-toggle'),ex=$('kpi-extra');
-  if(t)t.addEventListener('click',function(){
-    var open=ex.classList.toggle('open');
-    t.setAttribute('aria-expanded',open?'true':'false');
-  });
-}
-function recalc(){draw(data());}
-/* ---- доп. экономика ---- */
-function computeExtra(){
-  var staff=get('k-staff'),sal=get('k-salary'),inc=get('k-inc'),incsave=get('k-incsave'),dt=get('k-downtime'),dwh=get('k-dowhour');
-  var fotYear=staff*sal*12;
-  var fotSave=fotYear*incsave/100;
-  var dowCost=(dt*4)*dwh;
-  var dowSave=dowCost*incsave/100;
-  var set=function(id,v){var el=$(id);if(el)el.textContent=v;};
-  set('k-fotyear',money(fotYear));
-  set('k-fotsave',money(fotSave));
-  set('k-dowcost',money(dowCost));
-  set('k-dowsave',money(dowSave));
+  if(t)t.addEventListener('click',function(){ var o=ex.classList.toggle('open'); t.setAttribute('aria-expanded',o?'true':'false'); });
+  /* ховер тултип */
+  var svg=$('sensSvg');
+  if(svg){ svg.addEventListener('mousemove',sensHover); svg.addEventListener('mouseleave',function(){ $('sensTip').style.opacity='0'; }); }
 }
 bind();
 recalc();
-computeExtra();
 })();
 </script>
 </body>
