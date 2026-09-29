@@ -1,4 +1,5 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img' aria-label='Кибербезопасность'>
-<rect width='24' height='24' rx='6' fill='#d12714'/>
-<g fill='none' stroke='#ffffff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d="MM12 3l7 3v5c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M10 12l2 2 4-4"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="rvision">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d12714"/><stop offset="1" stop-color="#9a1a0c"/></linearGradient></defs>
+<rect width="24" height="24" rx="6" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM12 3 L19 6 V11 C19 15.5 16 18.5 12 21 C8 18.5 5 15.5 5 11 V6 Z"/><path d="M9.5 11 L11.5 13 L15 9"/></g>
 </svg>

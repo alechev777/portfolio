@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="kazakhmys">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b3741f"/><stop offset="1" stop-color="#7a4a0f"/></linearGradient></defs>
+<rect width="24" height="24" rx="6" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM5 21 L9 20 L9 14 L5 14 Z"/><path d="M9 21 L16 22 L16 12 L9 12 Z"/><path d="M16 22 L20 21 L20 15 L16 15 Z"/><path d="M14 18 H16"/><path d="M12 18 H13"/><path d="M10 8 L14 8 L16 12 L8 12 Z"/></g>
+</svg>

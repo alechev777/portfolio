@@ -490,13 +490,21 @@ function ensureH1(body, id){
 }
 
 // компания кейса -> слага логотипа
-const LOGO_BY_WORK = {w1:'accenture',w2:'accenture',w3:'accenture',w4:'accenture',w5:'accenture',w6:'accenture',
+const LOGO_BY_WORK = {w1:'kazakhmys',w2:'aeroclub',w3:'arlight',w4:'bbr',w5:'mgrup',w6:'proservis',
   w7:'gostech',w8:'rvision',w9:'alrosa',w10:'psb',w11:'sunlight',w12:'merlion',
   w13:'delta',w14:'incenter',w15:'vsrf',w16:'sber',w17:'srg'};
 function logoNameByCompany(txt){
   const s=txt.toLowerCase();
   if(s.includes('сбер')) return 'sber';
-  if(s.includes('каз')||s.includes('аэроклуб')||s.includes('арлайт')||s.includes('arlight')||s.includes('ббр')||s.includes('м-групп')||s.includes('м-групп')||s.includes('просервис')||s.includes('proserver')||s.includes('accenture')||s.includes('axenix')||s.includes('аксе')||s.includes('ассентур')) return 'accenture';
+  // клиенты Accenture → отраслевые иконки
+  if(s.includes('ббр')) return 'bbr';
+  if(s.includes('казах')) return 'kazakhmys';
+  if(s.includes('аэроклуб')||s.includes('aero')) return 'aeroclub';
+  if(s.includes('арлайт')||s.includes('arlight')) return 'arlight';
+  if(s.includes('м-групп')||s.includes('м групп')||s.includes('м-групп')||s.includes('м-групп')) return 'mgrup';
+  if(s.includes('просервис')||s.includes('pro-сервис')||s.includes('proservis')) return 'proservis';
+  // компании
+  if(s.includes('accenture')||s.includes('axenix')||s.includes('аксе')) return 'accenture';
   if(s.includes('psb')||s.includes('псб')) return 'psb';
   if(s.includes('сол')||s.includes('sun')) return 'sunlight';
   if(s.includes('мерлион')||s.includes('merlion')) return 'merlion';
@@ -504,9 +512,9 @@ function logoNameByCompany(txt){
   if(s.includes('r-vision')||s.includes('rvision')) return 'rvision';
   if(s.includes('госте')||s.includes('мин')||s.includes('ецп')||s.includes('гос')||s.includes('цифров')) return 'gostech';
   if(s.includes('дельта')||s.includes('delta')) return 'delta';
-  if(s.includes('инженер')||s.includes('инженер')) return 'incenter';
+  if(s.includes('инженер')) return 'incenter';
   if(s.includes('воор')||s.includes('арми')||s.includes('вооруж')) return 'vsrf';
-  if(s.includes('сrg')||s.includes('сcoo')||s.includes('service office')||s.includes('srg')) return 'srg';
+  if(s.includes('srg')||s.includes('service office')) return 'srg';
   if(s.includes('р-vis')) return 'rvision';
   return null;
 }

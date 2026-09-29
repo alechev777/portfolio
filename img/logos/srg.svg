@@ -1,4 +1,5 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img' aria-label='Операционное управление'>
-<rect width='24' height='24' rx='6' fill='#2e5aa0'/>
-<g fill='none' stroke='#ffffff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d="MM12 9a3 3 0 100 6 3 3 0 000-6z"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="M4.9 4.9l2.1 2.1"/><path d="M17 17l2.1 2.1"/><path d="M19.1 4.9L17 7"/><path d="M7 17l-2.1 2.1"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="srg">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2e5aa0"/><stop offset="1" stop-color="#1a3a6e"/></linearGradient></defs>
+<rect width="24" height="24" rx="6" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM12 9 A3 3 0 1 0 12.01 9 Z"/><path d="M12 12 V15"/><path d="M12 6.5 V5"/><path d="M12 20 V19"/><path d="M6.5 12 H5"/><path d="M19 12 H18"/><path d="M12 15 L16 19"/></g>
 </svg>

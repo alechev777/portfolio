@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="proservis">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e9bbf"/><stop offset="1" stop-color="#0a6b85"/></linearGradient></defs>
+<rect width="24" height="24" rx="6" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM6 4 H18 V20 H6 Z"/><path d="M10 4 V20"/><path d="M14 4 V20"/><path d="M6 12 H18"/><path d="M6 16 H18"/><path d="M3 20 H21"/></g>
+</svg>

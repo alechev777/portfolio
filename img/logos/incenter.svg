@@ -1,4 +1,5 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img' aria-label='Интеграция / инжиниринг'>
-<rect width='24' height='24' rx='6' fill='#205da8'/>
-<g fill='none' stroke='#ffffff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d="MM9 4h6l1 4-3 3 3 3-1 4H9l-1-4 3-3-3-3z"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="incenter">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#205da8"/><stop offset="1" stop-color="#133f73"/></linearGradient></defs>
+<rect width="24" height="24" rx="6" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM9 4 H15 L18 8 L13.5 12 L18 16 L15 20 H9 L6 16 L10.5 12 L6 8 Z"/></g>
 </svg>
