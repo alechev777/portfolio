@@ -45,9 +45,7 @@ var map = {
 };
 var m = /^w(\d+)$/.exec(h); if(m){ map[h]='case-w'+m[1]+'.html'; }
 m = /^a(\d+)$/.exec(h); if(m){ map[h]='artifact-a'+m[1]+'.html'; }
-var simple = {home:'index.html',cases:'cases.html',artifacts:'artifacts.html',
-archive:'archive.html',portfolio:'portfolio.html',timeline:'timeline.html',
-roadmap:'timeline.html',stack:'stack.html',contact:'contact.html',kpi:'kpi.html'};
+var simple = {home:'index.html',cases:'cases.html',portfolio:'portfolio.html',timeline:'timeline.html',roadmap:'timeline.html',stack:'stack.html',contact:'contact.html',kpi:'kpi.html'};
 if(!map[h] && simple[h]) map[h]=simple[h];
 if(map[h]){ try{ location.replace(map[h]); }catch(err){} return; }
 })();

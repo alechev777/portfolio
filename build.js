@@ -12,10 +12,10 @@ const FONT_PRELOAD = 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nV
 
 // id -> file
 const fileOf = {
-  home:'index.html', cases:'cases.html', artifacts:'artifacts.html',
+  home:'index.html', cases:'cases.html',
   portfolio:'portfolio.html', timeline:'timeline.html', roadmap:'timeline.html',
   stack:'stack.html', contact:'contact.html',
-  archive:'archive.html', kpi:'kpi.html'
+  kpi:'kpi.html'
 };
 for (let i=1;i<=17;i++) fileOf['w'+i] = `case-w${i}.html`;
 for (let i=1;i<=15;i++) fileOf['a'+i] = `artifact-a${i}.html`;
@@ -83,9 +83,9 @@ function descOf(id, h1, pageText){
   return t ? t.slice(0,160) : titleOf(id,'').replace(/ ·.*/,'');
 }
 function breadcrumbOf(id, h1, kind){
-  const main={home:'Главная',cases:'Кейсы',artifacts:'Артефакты',archive:'Библиотека',portfolio:'Портфель',timeline:'Путь',stack:'Навыки',contact:'Контакты',kpi:'KPI-калькулятор'};
+  const main={home:'Главная',cases:'Кейсы',portfolio:'Портфель',timeline:'Путь',stack:'Навыки',contact:'Контакты',kpi:'KPI-калькулятор'};
   if(id==='home') return ['index.html','Главная', h1!=='Превращаю ИТ-затраты в управляемый актив компании'? 'Главная':''] ;
-  const root = kind==='case' ? ['cases.html','Кейсы'] : kind==='artifact' ? ['artifacts.html','Артефакты'] : ['index.html','Главная'];
+  const root = kind==='case' ? ['cases.html','Кейсы'] : kind==='artifact' ? ['cases.html','Кейсы'] : ['index.html','Главная'];
   return root;
 }
 function jsonLd(id, h1){
@@ -113,7 +113,6 @@ function navHTML(activeId){
   const menu = [
     {label:'Главная', href:'index.html', id:'home'},
     {label:'Кейсы', href:'cases.html', id:'cases'},
-    {label:'Артефакты', href:'artifacts.html', id:'artifacts'},
     {label:'Путь', href:'timeline.html', id:'timeline'},
     {label:'Навыки', href:'stack.html', id:'stack'},
     {label:'Портфель', href:'portfolio.html', id:'portfolio'},
@@ -165,7 +164,7 @@ function breadcrumbJsonLd(id, h1){
   const first=['index.html','Главная'];
   let items;
   if(id[0]==='w') items=[first,['cases.html','Кейсы'],[null, (h1||'').split(/:/)[0].trim()||'Кейс']];
-  else if(id[0]==='a') items=[first,['artifacts.html','Артефакты'],[null,h1||'Артефакт']];
+  else if(id[0]==='a') items=[first,['cases.html','Кейсы'],[null,h1||'Артефакт']];
   else items=[first,[url,(h1||titleOf(id,h1)).slice(0,40)]];
   const list=items.map((it,i)=>({"@type":"ListItem","position":i+1,"name":it[1],...(it[0]?{"item":DOMAIN+'/'+it[0]}:{'@id':url+"#"+slug(it[1])})}));
   function slug(s){return s.replace(/\W+/g,'-').slice(0,40);}
@@ -180,7 +179,7 @@ function headHTML(id, h1, pageText){
   const ld = jsonLd(id, h1);
   const ldTag = `\n<script type="application/ld+json">${JSON.stringify(jsonLd(id, h1))}</script>` +
                 `\n<script type="application/ld+json">${JSON.stringify(breadcrumbJsonLd(id,h1))}</script>`;
-  const itemList = id==='artifacts' ? `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"Артефакты · Александр Чевтаев","url":DOMAIN+"/artifacts.html","numberOfItems":17})}</script>` : '';
+  const itemList = '';
   const isIndex = id==='home';
   return `<!DOCTYPE html>
 <html lang="ru">
@@ -845,19 +844,6 @@ for(const id of pageIds){
     if(nh!==h) fs.writeFileSync(p, nh, 'utf8');
   }
 }
-// Библиотека объединена с Артефактами → archive.html делает редирект на artifacts.html
-try{
-  fs.writeFileSync(path.join(OUT,'archive.html'), `<!DOCTYPE html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="0; url=artifacts.html">
-<link rel="canonical" href="${DOMAIN}/artifacts.html">
-<title>Библиотека · Александр Чевтаев</title></head>
-<body style="font-family:system-ui;padding:60px;text-align:center">
-<h2>Библиотека объединена с разделом «Артефакты»</h2>
-<p><a href="artifacts.html">Перейти к артефактам →</a></p>
-<script>location.replace('artifacts.html');</script>
-</body></html>`, 'utf8');
-}catch(e){}
 console.log('DONE pages. produced files:', Object.keys(produced));
 
 // ---- пост-обработка: артефакты ВНУТРИ кейсов (встраиваем превью, не ссылки) ----
