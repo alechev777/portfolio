@@ -325,31 +325,36 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 .kpi-assume b{color:var(--navy)}
 @media(max-width:640px){.kpi-out-extra{grid-template-columns:1fr 1fr}}
 /* объединённая таблица кейсов/артефактов */
-.mt-wrap{margin-top:14px;overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
-.mt-table{width:100%;border-collapse:collapse;min-width:900px;font-size:13px}
-.mt-table th{background:#f4f7fb;color:var(--navy);text-align:left;padding:12px 14px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line)}
-.mt-table td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
-.mt-table tr:hover td{background:#f8fafc}
-.mt-co a{color:var(--navy);text-decoration:none}
-.mt-co b{display:block;font-size:14px;font-family:var(--head)}
-.mt-co span{font-size:11px;color:var(--muted)}
-.mt-was{color:var(--muted)}
-.mt-do{color:var(--ink)}
-.mt-became{color:#1f7a52;font-weight:600}
-.mt-eff .mt-e{display:block;font-size:12px;font-weight:800;color:var(--blue)}
-.mt-act .btn{padding:9px 14px;font-size:12.5px;white-space:nowrap}
-.mt-viz-in img{width:40px;height:40px;border-radius:8px;display:block}
+.table-scroll{margin-top:14px;overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.cases-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;min-width:940px}
+.cases-table th{background:#f4f7fb;color:var(--muted);text-align:left;padding:12px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--line)}
+.cases-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle;line-height:1.5}
+.cases-table tbody tr:nth-child(even){background:#fbfcfe}
+.cases-table tbody tr{transition:box-shadow .15s}
+.cases-table tbody tr:hover{box-shadow:0 4px 14px rgba(0,0,0,.08);background:#f5f9ff}
+.cases-table .viz-cell{width:210px}
+.cases-table .viz-frame{background:var(--surface-2,#eef3f9);border-radius:10px;padding:8px;display:flex;align-items:center;justify-content:center;min-height:90px;height:120px;overflow:hidden}
+.cases-table .viz-frame svg{display:block;width:100%;height:auto;max-width:210px;max-height:110px}
+.co-cell a{color:var(--navy);text-decoration:none}
+.co-cell b{display:block;font-size:14px;font-family:var(--head)}
+.co-cell span{font-size:11px;color:var(--muted)}
+.mt-e{display:block;font-size:12px;font-weight:800;color:var(--blue)}
+.cases-table .btn{padding:9px 14px;font-size:12.5px;white-space:nowrap}
 .mt-actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-@media(max-width:760px){
-  .mt-wrap{overflow:visible;border:0;background:transparent}
-  .mt-table{display:block;min-width:0}
-  .mt-table thead{display:none}
-  .mt-table tbody{display:flex;flex-direction:column;gap:12px}
-  .mt-table tbody tr{display:flex;flex-direction:column;gap:8px;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
-  .mt-table td{border:0;padding:10px 14px}
-  .mt-co b{font-size:15px}
-  .mt-eff .mt-e{display:inline;margin-right:10px}
-  .mt-act .btn{width:100%;justify-content:center}
+@media(max-width:768px){
+  .table-scroll{border:0;background:transparent;overflow:visible}
+  .cases-table{display:block;min-width:0}
+  .cases-table thead{display:none}
+  .cases-table tbody{display:block}
+  .cases-table tbody tr{display:block;margin-bottom:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:12px;box-shadow:var(--shadow-sm)}
+  .cases-table tbody tr:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .cases-table td{border:0;display:block;padding:6px 0}
+  .cases-table td::before{content:attr(data-label);display:block;font-weight:800;font-size:11px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .cases-table .viz-cell{width:100%}
+  .cases-table .viz-frame{height:auto;min-height:auto}
+  .cases-table .viz-frame svg{max-width:100%;max-height:none}
+  .cases-table .mt-e{display:inline;margin-right:10px}
+  .cases-table .btn{width:100%;justify-content:center}
 }
 @media print{.kpi-export{display:none}}
 .theme-toggle{width:40px;height:40px;margin-left:4px;border:0;border-radius:10px;background:#eef3f9;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:17px}

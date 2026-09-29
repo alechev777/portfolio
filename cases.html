@@ -77,16 +77,16 @@
           <div class="live-viz">
             <svg viewBox="0 0 400 200" role="img" aria-label="Схема ИИ-атласа: уровни L0-L3">
               <defs>
-                <radialGradient id="atlasNG1" cx="50%" cy="50%" r="50%">
+                <radialGradient id="t2-atlasNG1" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stop-color="#5cf0a4"/><stop offset="100%" stop-color="#2fbf8f"/>
                 </radialGradient>
-                <radialGradient id="atlasNG2" cx="50%" cy="50%" r="50%">
+                <radialGradient id="t2-atlasNG2" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stop-color="#4fe0e6"/><stop offset="100%" stop-color="#19c3c9"/>
                 </radialGradient>
-                <radialGradient id="atlasNG3" cx="50%" cy="50%" r="50%">
+                <radialGradient id="t2-atlasNG3" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stop-color="#ffd97a"/><stop offset="100%" stop-color="#f5c451"/>
                 </radialGradient>
-                <radialGradient id="atlasNG4" cx="50%" cy="50%" r="50%">
+                <radialGradient id="t2-atlasNG4" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stop-color="#a68ff8"/><stop offset="100%" stop-color="#8b6cf0"/>
                 </radialGradient>
               </defs>
@@ -101,17 +101,17 @@
                 <line x1="250" y1="75" x2="340" y2="100"/>
                 <line x1="250" y1="125" x2="340" y2="100"/>
               </g>
-              <circle cx="70" cy="100" r="22" fill="url(#atlasNG1)"/>
+              <circle cx="70" cy="100" r="22" fill="url(#t2-atlasNG1)"/>
               <text x="70" y="105" text-anchor="middle" font-size="11" font-weight="900" fill="#0e2850" font-family="Inter,sans-serif">L0</text>
-              <circle cx="160" cy="50" r="16" fill="url(#atlasNG2)"/>
+              <circle cx="160" cy="50" r="16" fill="url(#t2-atlasNG2)"/>
               <text x="160" y="55" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
-              <circle cx="160" cy="100" r="16" fill="url(#atlasNG2)"/>
+              <circle cx="160" cy="100" r="16" fill="url(#t2-atlasNG2)"/>
               <text x="160" y="105" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
-              <circle cx="160" cy="150" r="16" fill="url(#atlasNG2)"/>
+              <circle cx="160" cy="150" r="16" fill="url(#t2-atlasNG2)"/>
               <text x="160" y="155" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
-              <circle cx="250" cy="75" r="13" fill="url(#atlasNG3)"/>
-              <circle cx="250" cy="125" r="13" fill="url(#atlasNG3)"/>
-              <circle cx="340" cy="100" r="11" fill="url(#atlasNG4)"/>
+              <circle cx="250" cy="75" r="13" fill="url(#t2-atlasNG3)"/>
+              <circle cx="250" cy="125" r="13" fill="url(#t2-atlasNG3)"/>
+              <circle cx="340" cy="100" r="11" fill="url(#t2-atlasNG4)"/>
               <text x="70" y="140" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7fb3ca" font-family="Inter,sans-serif">Ассистенты · 7</text>
               <text x="250" y="165" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7fb3ca" font-family="Inter,sans-serif">Use-кейсы · 76</text>
             </svg>
@@ -173,84 +173,302 @@
       </a>
     </div>
     <div class="tier-label">Tier 2 · Кейсы и артефакты</div>
-    <div class="mt-wrap">
-      <table class="mt-table">
-        <thead><tr><th>Виз.</th><th>Компания</th><th>Было</th><th>Сделано</th><th>Стало</th><th>Эффект</th><th>Действие</th></tr></thead>
-        <tbody><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/kazakhmys.svg" alt="Казахмыс" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w1.html" data-nav><b>Казахмыс</b><span>горнодобыча</span></a></td>
-  <td class="mt-was">ИТ холдинга без измеримой модели услуг и тарификации</td>
-  <td class="mt-do">ITIL + KPI, SCM/SLA/OLA/UC, трёхуровневая тарифная модель, CAPEX/OPEX</td>
-  <td class="mt-became">−15–25% потребления, 250–400 млн ₽/год экономии</td>
-  <td class="mt-eff"><span class="mt-e">250–400 млн ₽/год</span><span class="mt-e">−15–25% потребление</span><span class="mt-e"><6 мес. окуп.</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+    <div class="table-scroll">
+  <table class="cases-table">
+    <thead><tr><th>Визуализация</th><th>Компания</th><th>Было</th><th>Сделано</th><th>Стало</th><th>Эффект</th><th>Действие</th></tr></thead>
+    <tbody><tr>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" role="img" aria-label="KPI-модель: donut и waterfall" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(80,75)">
+              <circle r="42" fill="none" stroke="#eef2f7" stroke-width="14"/>
+              <circle r="42" fill="none" stroke="#1d6fe0" stroke-width="14" stroke-dasharray="110 264" stroke-dashoffset="0" transform="rotate(-90)"/>
+              <circle r="42" fill="none" stroke="#0e9bbf" stroke-width="14" stroke-dasharray="70 264" stroke-dashoffset="-110" transform="rotate(-90)"/>
+              <circle r="42" fill="none" stroke="#0f8f7f" stroke-width="14" stroke-dasharray="60 264" stroke-dashoffset="-180" transform="rotate(-90)"/>
+              <text y="4" text-anchor="middle" font-size="16" font-weight="900" fill="#0e2850" font-family="Inter,sans-serif">400+</text>
+              <text y="20" text-anchor="middle" font-size="8.5" font-weight="700" fill="#6b7a91">млн ₽/год</text>
+            </g>
+            <g transform="translate(170,25)">
+              <rect x="0" y="60" width="18" height="55" rx="3" fill="#1d6fe0"/>
+              <rect x="24" y="42" width="18" height="73" rx="3" fill="#0e9bbf"/>
+              <rect x="48" y="30" width="18" height="85" rx="3" fill="#0f8f7f"/>
+              <rect x="72" y="18" width="18" height="97" rx="3" fill="#f5c451"/>
+              <rect x="96" y="46" width="18" height="69" rx="3" fill="#6d5bd0"/>
+              <text x="57" y="14" text-anchor="middle" font-size="9" font-weight="800" fill="#0e2850">CapEx↓</text>
+              <text x="9" y="132" text-anchor="middle" font-size="7.5" fill="#6b7a91">ITIL</text>
+              <text x="33" y="132" text-anchor="middle" font-size="7.5" fill="#6b7a91">SLA</text>
+              <text x="57" y="132" text-anchor="middle" font-size="7.5" fill="#6b7a91">KPI</text>
+              <text x="81" y="132" text-anchor="middle" font-size="7.5" fill="#6b7a91">Тариф</text>
+              <text x="105" y="132" text-anchor="middle" font-size="7.5" fill="#6b7a91">SCM</text>
+            </g>
+          </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w1.html" data-nav><b>Казахмыс</b><span>горнодобыча</span></a></td>
+  <td data-label="Было">ИТ холдинга без измеримой модели услуг и тарификации</td>
+  <td data-label="Сделано">ITIL + KPI, SCM/SLA/OLA/UC, трёхуровневая тарифная модель, CAPEX/OPEX</td>
+  <td data-label="Стало">−15–25% потребления, 250–400 млн ₽/год экономии</td>
+  <td data-label="Эффект"><span class="mt-e">250–400 млн ₽/год</span><span class="mt-e">−15–25% потребление</span><span class="mt-e"><6 мес. окуп.</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/aeroclub.svg" alt="Аэроклуб" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w2.html" data-nav><b>Аэроклуб</b><span>b2b-travel</span></a></td>
-  <td class="mt-was">Ручная обработка заявок, ожидание оператора, высокая стоимость</td>
-  <td class="mt-do">AI-виджет с автоклассификацией в JIRA, 5 сценариев, эскалация на 1–2 линию</td>
-  <td class="mt-became">76,9% обращений решает ИИ, −40% стоимости, 4 мес.</td>
-  <td class="mt-eff"><span class="mt-e">76,9% охват ИИ</span><span class="mt-e">−40% стоимость</span><span class="mt-e">4 мес. окуп.</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" role="img" aria-label="Схема ИИ-подачи обращений" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="aiFlow" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#0f8f7f"/><stop offset="100%" stop-color="#0e9bbf"/>
+              </linearGradient>
+              <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#0f8f7f"/>
+              </marker>
+            </defs>
+            <rect x="10" y="58" width="52" height="32" rx="8" fill="#eefaf7" stroke="#0f8f7f" stroke-width="1.5"/>
+            <text x="36" y="78" text-anchor="middle" font-size="9" font-weight="800" fill="#0f8f7f">Обращ.</text>
+            <path d="M66 74 L96 74" stroke="#0f8f7f" stroke-width="2" marker-end="url(#arrB)"/>
+            <rect x="100" y="48" width="86" height="52" rx="10" fill="url(#aiFlow)"/>
+            <text x="143" y="72" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff">NLP</text>
+            <text x="143" y="86" text-anchor="middle" font-size="8" font-weight="700" fill="#c8f0ea">классификация</text>
+            <path d="M190 74 L220 74" stroke="#0f8f7f" stroke-width="2" marker-end="url(#arrB)"/>
+            <rect x="224" y="58" width="52" height="32" rx="8" fill="#0f8f7f"/>
+            <text x="250" y="78" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">JIRA</text>
+            <rect x="284" y="58" width="28" height="32" rx="8" fill="#c8f0ea"/>
+            <text x="298" y="78" text-anchor="middle" font-size="8" font-weight="800" fill="#0f8f7f">L1</text>
+            <text x="20" y="30" font-size="10" font-weight="800" fill="#0f8f7f">Охват ИИ 76,9%</text>
+            <rect x="20" y="36" width="280" height="6" rx="3" fill="#eef2f7"/>
+            <rect x="20" y="36" width="215" height="6" rx="3" fill="#0f8f7f"/>
+            <g font-size="8.5" font-weight="800" fill="#0f8f7f" text-anchor="middle">
+              <text x="46" y="122">① Привет</text>
+              <text x="108" y="122">② Классиф.</text>
+              <text x="170" y="122">③ Роутинг</text>
+              <text x="232" y="122">④ Эскалац.</text>
+              <text x="290" y="122">⑤ Резюме</text>
+            </g>
+            <line x1="14" y1="105" x2="306" y2="105" stroke="#e3e9f0" stroke-width="1"/>
+          </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w2.html" data-nav><b>Аэроклуб</b><span>b2b-travel</span></a></td>
+  <td data-label="Было">Ручная обработка заявок, ожидание оператора, высокая стоимость</td>
+  <td data-label="Сделано">AI-виджет с автоклассификацией в JIRA, 5 сценариев, эскалация на 1–2 линию</td>
+  <td data-label="Стало">76,9% обращений решает ИИ, −40% стоимости, 4 мес.</td>
+  <td data-label="Эффект"><span class="mt-e">76,9% охват ИИ</span><span class="mt-e">−40% стоимость</span><span class="mt-e">4 мес. окуп.</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/rvision.svg" alt="R-Vision" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w8.html" data-nav><b>R-Vision</b><span>ИТ-интегратор</span></a></td>
-  <td class="mt-was">Бэк-офис без карты, процессы разрознены, текучка</td>
-  <td class="mt-do">Аудит 9+ департаментов, единая карта процессов и ИИ-атлас (21 ассистент), Jira/Structure</td>
-  <td class="mt-became">Диагностика и перезапуск за 2 мес. вместо 6–12</td>
-  <td class="mt-eff"><span class="mt-e">2 мес. результат</span><span class="mt-e">21 ассистент</span><span class="mt-e">76 use-кейсов</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 400 200" role="img" aria-label="Схема ИИ-атласа: уровни L0-L3" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <radialGradient id="rv-atlasNG1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#5cf0a4"/><stop offset="100%" stop-color="#2fbf8f"/>
+                </radialGradient>
+                <radialGradient id="rv-atlasNG2" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#4fe0e6"/><stop offset="100%" stop-color="#19c3c9"/>
+                </radialGradient>
+                <radialGradient id="rv-atlasNG3" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffd97a"/><stop offset="100%" stop-color="#f5c451"/>
+                </radialGradient>
+                <radialGradient id="rv-atlasNG4" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#a68ff8"/><stop offset="100%" stop-color="#8b6cf0"/>
+                </radialGradient>
+              </defs>
+              <g stroke="rgba(127,179,202,.28)" stroke-width="1.2" fill="none">
+                <line x1="70" y1="100" x2="160" y2="50"/>
+                <line x1="70" y1="100" x2="160" y2="100"/>
+                <line x1="70" y1="100" x2="160" y2="150"/>
+                <line x1="160" y1="50" x2="250" y2="75"/>
+                <line x1="160" y1="100" x2="250" y2="75"/>
+                <line x1="160" y1="100" x2="250" y2="125"/>
+                <line x1="160" y1="150" x2="250" y2="125"/>
+                <line x1="250" y1="75" x2="340" y2="100"/>
+                <line x1="250" y1="125" x2="340" y2="100"/>
+              </g>
+              <circle cx="70" cy="100" r="22" fill="url(#rv-atlasNG1)"/>
+              <text x="70" y="105" text-anchor="middle" font-size="11" font-weight="900" fill="#0e2850" font-family="Inter,sans-serif">L0</text>
+              <circle cx="160" cy="50" r="16" fill="url(#rv-atlasNG2)"/>
+              <text x="160" y="55" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
+              <circle cx="160" cy="100" r="16" fill="url(#rv-atlasNG2)"/>
+              <text x="160" y="105" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
+              <circle cx="160" cy="150" r="16" fill="url(#rv-atlasNG2)"/>
+              <text x="160" y="155" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
+              <circle cx="250" cy="75" r="13" fill="url(#rv-atlasNG3)"/>
+              <circle cx="250" cy="125" r="13" fill="url(#rv-atlasNG3)"/>
+              <circle cx="340" cy="100" r="11" fill="url(#rv-atlasNG4)"/>
+              <text x="70" y="140" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7fb3ca" font-family="Inter,sans-serif">Ассистенты · 7</text>
+              <text x="250" y="165" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7fb3ca" font-family="Inter,sans-serif">Use-кейсы · 76</text>
+            </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w8.html" data-nav><b>R-Vision</b><span>ИТ-интегратор</span></a></td>
+  <td data-label="Было">Бэк-офис без карты, процессы разрознены, текучка</td>
+  <td data-label="Сделано">Аудит 9+ департаментов, единая карта процессов и ИИ-атлас (21 ассистент), Jira/Structure</td>
+  <td data-label="Стало">Диагностика и перезапуск за 2 мес. вместо 6–12</td>
+  <td data-label="Эффект"><span class="mt-e">2 мес. результат</span><span class="mt-e">21 ассистент</span><span class="mt-e">76 use-кейсов</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/bbr.svg" alt="ББР-банк" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w4.html" data-nav><b>ББР-банк</b><span>финансы</span></a></td>
-  <td class="mt-was">Риск несоответствия требованиям ЦБ, высокий OPEX</td>
-  <td class="mt-do">ITSM + ITAM + Wiki под 716-П / 787-П ЦБ, автоматизация</td>
-  <td class="mt-became">Экономия 10+ млн ₽/год, ROI 300%, 4 мес.</td>
-  <td class="mt-eff"><span class="mt-e">10+ млн ₽/год</span><span class="mt-e">300% ROI</span><span class="mt-e">4 мес. окуп.</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" role="img" aria-label="Реестр ИТ-услуг: heatmap" preserveAspectRatio="xMidYMid meet">
+            <text x="10" y="18" font-size="8" fill="#6b7a91" font-weight="700">Категории ИТ-услуг</text>
+            <g transform="translate(10,26)">
+              <rect x="0" y="0" width="42" height="14" rx="3" fill="#0e2850" opacity=".9"/>
+              <rect x="46" y="0" width="42" height="14" rx="3" fill="#1d6fe0" opacity=".9"/>
+              <rect x="92" y="0" width="42" height="14" rx="3" fill="#0e9bbf" opacity=".9"/>
+              <rect x="138" y="0" width="42" height="14" rx="3" fill="#0f8f7f" opacity=".9"/>
+              <rect x="184" y="0" width="42" height="14" rx="3" fill="#f5c451" opacity=".9"/>
+              <rect x="230" y="0" width="42" height="14" rx="3" fill="#6d5bd0" opacity=".9"/>
+              <rect x="276" y="0" width="24" height="14" rx="3" fill="#c2456f" opacity=".9"/>
+              <g transform="translate(0,20)">
+                <rect x="0" y="0" width="42" height="12" rx="2" fill="#dbe9fb"/>
+                <rect x="46" y="0" width="42" height="12" rx="2" fill="#b7d3f8"/>
+                <rect x="92" y="0" width="42" height="12" rx="2" fill="#8fb8f2"/>
+                <rect x="138" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="184" y="0" width="42" height="12" rx="2" fill="#dbe9fb"/>
+                <rect x="230" y="0" width="42" height="12" rx="2" fill="#b7d3f8"/>
+                <rect x="276" y="0" width="24" height="12" rx="2" fill="#8fb8f2"/>
+              </g>
+              <g transform="translate(0,38)">
+                <rect x="0" y="0" width="42" height="12" rx="2" fill="#b7d3f8"/>
+                <rect x="46" y="0" width="42" height="12" rx="2" fill="#dbe9fb"/>
+                <rect x="92" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="138" y="0" width="42" height="12" rx="2" fill="#8fb8f2"/>
+                <rect x="184" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="230" y="0" width="42" height="12" rx="2" fill="#dbe9fb"/>
+                <rect x="276" y="0" width="24" height="12" rx="2" fill="#b7d3f8"/>
+              </g>
+              <g transform="translate(0,56)">
+                <rect x="0" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="46" y="0" width="42" height="12" rx="2" fill="#b7d3f8"/>
+                <rect x="92" y="0" width="42" height="12" rx="2" fill="#dbe9fb"/>
+                <rect x="138" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="184" y="0" width="42" height="12" rx="2" fill="#8fb8f2"/>
+                <rect x="230" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="276" y="0" width="24" height="12" rx="2" fill="#b7d3f8"/>
+              </g>
+              <g transform="translate(0,74)">
+                <rect x="0" y="0" width="42" height="12" rx="2" fill="#8fb8f2"/>
+                <rect x="46" y="0" width="42" height="12" rx="2" fill="#5b97ec"/>
+                <rect x="92" y="0" width="42" height="12" rx="2" fill="#b7d3f8"/>
+                <rect x="138" y="0" width="42" height="12" rx="2" fill="#dbe9fb"/>
+                <rect x="184" y="0" width="42" height="12" rx="2" fill="#8fb8f2"/>
+                <rect x="230" y="0" width="42" height="12" rx="2" fill="#b7d3f8"/>
+                <rect x="276" y="0" width="24" height="12" rx="2" fill="#5b97ec"/>
+              </g>
+            </g>
+            <text x="10" y="136" font-size="8" font-weight="700" fill="#6b7a91">Услуг: 47 · SLA: 26 · OLA: 18</text>
+          </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w4.html" data-nav><b>ББР-банк</b><span>финансы</span></a></td>
+  <td data-label="Было">Риск несоответствия требованиям ЦБ, высокий OPEX</td>
+  <td data-label="Сделано">ITSM + ITAM + Wiki под 716-П / 787-П ЦБ, автоматизация</td>
+  <td data-label="Стало">Экономия 10+ млн ₽/год, ROI 300%, 4 мес.</td>
+  <td data-label="Эффект"><span class="mt-e">10+ млн ₽/год</span><span class="mt-e">300% ROI</span><span class="mt-e">4 мес. окуп.</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/mgrup.svg" alt="М-Групп" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w5.html" data-nav><b>М-Групп</b><span>FMCG</span></a></td>
-  <td class="mt-was">ИТ-функции нет как сервиса, просрочки 12%, брак 7,7%</td>
-  <td class="mt-do">ИТ-департамент с нуля, аналитика 9 800+ обращений/год, ролевая модель</td>
-  <td class="mt-became">−18 млн ₽/год ФОТ, 4 мес.</td>
-  <td class="mt-eff"><span class="mt-e">−18 млн ₽ ФОТ/год</span><span class="mt-e">9 800+ обращений/год</span><span class="mt-e">4 мес. окуп.</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" role="img" aria-label="Диаграмма распределения обращений" preserveAspectRatio="xMidYMid meet">
+            <g stroke="#e3e9f0" stroke-width="1">
+              <line x1="20" y1="30" x2="310" y2="30"/>
+              <line x1="20" y1="70" x2="310" y2="70"/>
+              <line x1="20" y1="110" x2="310" y2="110"/>
+            </g>
+            <line x1="20" y1="120" x2="310" y2="120" stroke="#cbd5e1" stroke-width="1.2"/>
+            <rect x="35" y="50" width="26" height="70" rx="4" fill="#1d6fe0"/>
+            <rect x="75" y="75" width="26" height="45" rx="4" fill="#4d8fe8"/>
+            <rect x="115" y="35" width="26" height="85" rx="4" fill="#1d6fe0"/>
+            <rect x="155" y="85" width="26" height="35" rx="4" fill="#7fb0ee"/>
+            <rect x="195" y="60" width="26" height="60" rx="4" fill="#4d8fe8"/>
+            <rect x="235" y="95" width="26" height="25" rx="4" fill="#a8c8f4"/>
+            <rect x="275" y="45" width="26" height="75" rx="4" fill="#1d6fe0"/>
+            <text x="48" y="46" text-anchor="middle" font-size="9" font-weight="800" fill="#0e2850">9 800+</text>
+            <text x="48" y="136" text-anchor="middle" font-size="8" font-weight="700" fill="#6b7a91">Всего</text>
+            <text x="128" y="31" text-anchor="middle" font-size="9" font-weight="800" fill="#0e2850">4 850</text>
+            <text x="128" y="136" text-anchor="middle" font-size="8" font-weight="700" fill="#6b7a91">Решено</text>
+            <text x="208" y="56" text-anchor="middle" font-size="9" font-weight="800" fill="#0e2850">1 180</text>
+            <text x="208" y="136" text-anchor="middle" font-size="8" font-weight="700" fill="#6b7a91">Просроч.</text>
+            <text x="288" y="41" text-anchor="middle" font-size="9" font-weight="800" fill="#0e2850">760</text>
+            <text x="288" y="136" text-anchor="middle" font-size="8" font-weight="700" fill="#6b7a91">Брак</text>
+          </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w5.html" data-nav><b>М-Групп</b><span>FMCG</span></a></td>
+  <td data-label="Было">ИТ-функции нет как сервиса, просрочки 12%, брак 7,7%</td>
+  <td data-label="Сделано">ИТ-департамент с нуля, аналитика 9 800+ обращений/год, ролевая модель</td>
+  <td data-label="Стало">−18 млн ₽/год ФОТ, 4 мес.</td>
+  <td data-label="Эффект"><span class="mt-e">−18 млн ₽ ФОТ/год</span><span class="mt-e">9 800+ обращений/год</span><span class="mt-e">4 мес. окуп.</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/arlight.svg" alt="Arlight" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w3.html" data-nav><b>Arlight</b><span>производство</span></a></td>
-  <td class="mt-was">Дорогой аутсорс поддержки, качество не измеряется</td>
-  <td class="mt-do">Свой отдел поддержки + AI-помощник на NLP</td>
-  <td class="mt-became">Поддержка в 3 раза дешевле, CSAT +20%</td>
-  <td class="mt-eff"><span class="mt-e">×3 дешевле</span><span class="mt-e">+20% CSAT</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" role="img" aria-label="Схема ИИ-подачи обращений" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="al-aiFlow" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#0f8f7f"/><stop offset="100%" stop-color="#0e9bbf"/>
+              </linearGradient>
+              <marker id="al-arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#0f8f7f"/>
+              </marker>
+            </defs>
+            <rect x="10" y="58" width="52" height="32" rx="8" fill="#eefaf7" stroke="#0f8f7f" stroke-width="1.5"/>
+            <text x="36" y="78" text-anchor="middle" font-size="9" font-weight="800" fill="#0f8f7f">Обращ.</text>
+            <path d="M66 74 L96 74" stroke="#0f8f7f" stroke-width="2" marker-end="url(#al-arrB)"/>
+            <rect x="100" y="48" width="86" height="52" rx="10" fill="url(#al-aiFlow)"/>
+            <text x="143" y="72" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fff">NLP</text>
+            <text x="143" y="86" text-anchor="middle" font-size="8" font-weight="700" fill="#c8f0ea">классификация</text>
+            <path d="M190 74 L220 74" stroke="#0f8f7f" stroke-width="2" marker-end="url(#al-arrB)"/>
+            <rect x="224" y="58" width="52" height="32" rx="8" fill="#0f8f7f"/>
+            <text x="250" y="78" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">JIRA</text>
+            <rect x="284" y="58" width="28" height="32" rx="8" fill="#c8f0ea"/>
+            <text x="298" y="78" text-anchor="middle" font-size="8" font-weight="800" fill="#0f8f7f">L1</text>
+            <text x="20" y="30" font-size="10" font-weight="800" fill="#0f8f7f">Охват ИИ 76,9%</text>
+            <rect x="20" y="36" width="280" height="6" rx="3" fill="#eef2f7"/>
+            <rect x="20" y="36" width="215" height="6" rx="3" fill="#0f8f7f"/>
+            <g font-size="8.5" font-weight="800" fill="#0f8f7f" text-anchor="middle">
+              <text x="46" y="122">① Привет</text>
+              <text x="108" y="122">② Классиф.</text>
+              <text x="170" y="122">③ Роутинг</text>
+              <text x="232" y="122">④ Эскалац.</text>
+              <text x="290" y="122">⑤ Резюме</text>
+            </g>
+            <line x1="14" y1="105" x2="306" y2="105" stroke="#e3e9f0" stroke-width="1"/>
+          </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w3.html" data-nav><b>Arlight</b><span>производство</span></a></td>
+  <td data-label="Было">Дорогой аутсорс поддержки, качество не измеряется</td>
+  <td data-label="Сделано">Свой отдел поддержки + AI-помощник на NLP</td>
+  <td data-label="Стало">Поддержка в 3 раза дешевле, CSAT +20%</td>
+  <td data-label="Эффект"><span class="mt-e">×3 дешевле</span><span class="mt-e">+20% CSAT</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/proservis.svg" alt="ПроСервис" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w6.html" data-nav><b>ПроСервис</b><span>HoReCa</span></a></td>
-  <td class="mt-was">Нет цифровой стратегии, разрозненные инструменты</td>
-  <td class="mt-do">Портфель 16 инициатив, 10+ вендоров</td>
-  <td class="mt-became">4 пилота в прод, бюджет 1,7+ млн ₽</td>
-  <td class="mt-eff"><span class="mt-e">16 инициатив</span><span class="mt-e">4 пилота</span><span class="mt-e">10+ вендоров</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet"><rect width="320" height="150" fill="#f2f5f8"/><rect x="24" y="45" width="84" height="48" rx="8" fill="#0e2850"/><text x="66" y="73" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Что решить</text><rect x="120" y="45" width="84" height="48" rx="8" fill="#c7912a"/><text x="162" y="73" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Диагностика</text><rect x="216" y="45" width="80" height="48" rx="8" fill="#1d6fe0"/><text x="256" y="73" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">Кому звонить</text><text x="160" y="122" text-anchor="middle" font-size="10" fill="#53637a">без вызова ИТ-специалиста</text></svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w6.html" data-nav><b>ПроСервис</b><span>HoReCa</span></a></td>
+  <td data-label="Было">Нет цифровой стратегии, разрозненные инструменты</td>
+  <td data-label="Сделано">Портфель 16 инициатив, 10+ вендоров</td>
+  <td data-label="Стало">4 пилота в прод, бюджет 1,7+ млн ₽</td>
+  <td data-label="Эффект"><span class="mt-e">16 инициатив</span><span class="mt-e">4 пилота</span><span class="mt-e">10+ вендоров</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/merlion.svg" alt="MERLION" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w12.html" data-nav><b>MERLION</b><span>ИТ-холдинг</span></a></td>
-  <td class="mt-was">KPI не охватывали всю ИТ-функцию, SLA не измерялся</td>
-  <td class="mt-do">KPI для ~700 сотрудников, Time2Market, SLA «Ситилинк»</td>
-  <td class="mt-became">Покрытие KPI ~700 чел., T2M −40%, SLA 90%</td>
-  <td class="mt-eff"><span class="mt-e">~700 чел.</span><span class="mt-e">−40% T2M</span><span class="mt-e">90% SLA</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet"><rect width="320" height="150" fill="#f2f5f8"/><rect x="30" y="42" width="120" height="30" rx="8" fill="#eef5ff"/><text x="90" y="62" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1d6fe0">✓ Инциденты</text><rect x="170" y="42" width="120" height="30" rx="8" fill="#eef5ff"/><text x="230" y="62" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1d6fe0">✓ CMDB</text><rect x="30" y="80" width="120" height="30" rx="8" fill="#fdf1dc"/><text x="90" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b3741f">17 блоков ИБ</text><rect x="170" y="80" width="120" height="30" rx="8" fill="#fdf1dc"/><text x="230" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b3741f">RC4 · HA</text><text x="160" y="132" text-anchor="middle" font-size="10" font-weight="800" fill="#0e2850">Кумтор Голд · 2022</text></svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w12.html" data-nav><b>MERLION</b><span>ИТ-холдинг</span></a></td>
+  <td data-label="Было">KPI не охватывали всю ИТ-функцию, SLA не измерялся</td>
+  <td data-label="Сделано">KPI для ~700 сотрудников, Time2Market, SLA «Ситилинк»</td>
+  <td data-label="Стало">Покрытие KPI ~700 чел., T2M −40%, SLA 90%</td>
+  <td data-label="Эффект"><span class="mt-e">~700 чел.</span><span class="mt-e">−40% T2M</span><span class="mt-e">90% SLA</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
 </tr><tr>
-  <td class="mt-viz"><div class="mt-viz-in"><img src="img/logos/gostech.svg" alt="ГосТех" width="40" height="40" loading="lazy"></div></td>
-  <td class="mt-co"><a href="case-w7.html" data-nav><b>ГосТех</b><span>МинЦифры</span></a></td>
-  <td class="mt-was">Два госсистемных контура без единой модели обмена</td>
-  <td class="mt-do">4 регламента, матрица статусов, SLA 5 мин</td>
-  <td class="mt-became">Взаимодействие ЕЦП ↔ ФГИС СЦ на уровне Минцифры</td>
-  <td class="mt-eff"><span class="mt-e">4 регламента</span><span class="mt-e">11 ролей</span><span class="mt-e">SLA 5 мин</span></td>
-  <td class="mt-act"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
-</tr></tbody></tbody>
-      </table>
-    </div>
+  <td class="viz-cell" data-label="Визуализация"><div class="viz-frame"><svg viewBox="0 0 320 150" role="img" aria-label="Схема регламента ГосТех" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <marker id="arrowA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#0e2850"/>
+              </marker>
+            </defs>
+            <rect x="14" y="60" width="58" height="34" rx="8" fill="#0e2850"/>
+            <text x="43" y="81" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">ЕЦП</text>
+            <path d="M76 77 L196 77" stroke="#0e2850" stroke-width="2" marker-end="url(#arrowA)"/>
+            <rect x="100" y="60" width="80" height="34" rx="8" fill="#1d6fe0"/>
+            <text x="140" y="81" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">Регламент</text>
+            <rect x="208" y="60" width="96" height="34" rx="8" fill="#0e2850"/>
+            <text x="256" y="81" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">ФГИС СЦ</text>
+            <g font-size="8" font-weight="700" fill="#6b7a91" text-anchor="middle">
+              <text x="43" y="40">11 ролей</text>
+              <text x="140" y="40">3 процедуры</text>
+              <text x="256" y="40">SLA 5 мин</text>
+            </g>
+            <g font-size="8" font-weight="700" fill="#6b7a91" text-anchor="middle">
+              <text x="43" y="125">27 терминов</text>
+              <text x="140" y="125">Матрица статусов</text>
+              <text x="256" y="125">ИБ-слой</text>
+            </g>
+            <rect x="20" y="105" width="280" height="6" rx="3" fill="#eef4fb"/>
+            <rect x="20" y="105" width="180" height="6" rx="3" fill="#1d6fe0"/>
+          </svg></div></td>
+  <td class="co-cell" data-label="Компания"><a href="case-w7.html" data-nav><b>ГосТех</b><span>МинЦифры</span></a></td>
+  <td data-label="Было">Два госсистемных контура без единой модели обмена</td>
+  <td data-label="Сделано">4 регламента, матрица статусов, SLA 5 мин</td>
+  <td data-label="Стало">Взаимодействие ЕЦП ↔ ФГИС СЦ на уровне Минцифры</td>
+  <td data-label="Эффект"><span class="mt-e">4 регламента</span><span class="mt-e">11 ролей</span><span class="mt-e">SLA 5 мин</span></td>
+  <td data-label="Действие"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a></td>
+</tr></tbody>
+  </table>
+</div>
     <div class="mt-actions">
       <a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a>
       <a class="btn gh" href="contact.html" data-nav data-track="cta-contact">Запросить черновик артефакта →</a>
