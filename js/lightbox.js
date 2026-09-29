@@ -25,12 +25,24 @@
     ty=my-(my-ty)*(ns/scale);
     scale=ns; apply();
   }
-  function openLb(src, title){
+  function openLb(src, title, mode){
     if(!img||!ov) return;
     img.src=src;
     scale=1; tx=0; ty=0;
-    if(img.complete && img.naturalWidth) { fit(); }
-    else { img.addEventListener('load', fit, {once:true}); }
+    function setup(){ 
+      var nw=img.naturalWidth, nh=img.naturalHeight;
+      if(mode==='natural' && nw){
+        // показать схему в натуральном масштабе (текст крупный), с панорамированием
+        fitScale=Math.max(0.4, Math.min(1, (ov.clientWidth-40)/nw));
+        // увеличим чуть больше, чтобы текст был читаем
+        scale=Math.max(fitScale, (ov.clientWidth-40)/nw * 1.15);
+        if(img.naturalWidth*scale > ov.clientWidth) scale=(ov.clientWidth-40)/nw; // не выходить за экран по шир
+        tx=(ov.clientWidth-img.naturalWidth*scale)/2;
+        ty=(ov.clientHeight-img.naturalHeight*scale)/2;
+        apply();
+      } else { fit(); }
+    }
+    if(img.complete && img.naturalWidth) setup(); else img.addEventListener('load', setup, {once:true});
     if(cap){ cap.textContent=title||''; cap.classList.add('on'); }
     ov.classList.add('on');
     if(close){ close.classList.add('on'); close.style.display='flex'; }
@@ -115,7 +127,7 @@
     var trig = t.closest? t.closest('.lb-trigger') : null;
     if(trig){ e.preventDefault();
       var src=trig.getAttribute('data-lb')|| (trig.querySelector('img')||{}).src;
-      openLb(src, trig.getAttribute('data-lb-t')||'');
+      openLb(src, trig.getAttribute('data-lb-t')||'', trig.getAttribute('data-lb-mode')||'');
       return;
     }
     if(t.tagName==='IMG'){
