@@ -831,7 +831,9 @@ console.log('DONE pages. produced files:', Object.keys(produced));
     if(/gostekh-reglament\.svg/.test(h)) return '<img src="img/gostekh-reglament.svg" alt="Схема" width="920" height="500" loading="lazy" decoding="async">';
     if(/incident-ib-orig\.png/.test(h)) return '<img src="img/incident-ib-orig.png" alt="Схема инцидента ИБ" width="2200" height="618" loading="lazy" decoding="async">';
     const m=h.match(/(<div class="art-pre">[\s\S]*?<\/div>)/); if(m) return m[1];
-    const s=h.match(/(<svg[\s\S]*?<\/svg>)/); if(s) return s[1];
+    // контентная схема: svg с шириной viewBox > 120 (пропускаем мелкие иконки шапки/меню)
+    const svgs=[...h.matchAll(/<svg[^>]*viewBox="0 0 (\d+)[^>]*>[\s\S]*?<\/svg>/g)].filter(x=>parseInt(x[1])>120);
+    if(svgs.length) return svgs[0][0];
     return null;
   }
   for(let i=1;i<=17;i++){
@@ -840,19 +842,13 @@ console.log('DONE pages. produced files:', Object.keys(produced));
     let body=fs.readFileSync(cp,'utf8');
     const arts=[...new Set([...body.matchAll(/artifact-a(\d+)\.html/g)].map(m=>m[1]))];
     if(!arts.length) continue;
-    const cards=arts.map(n=>{
+    const figs=arts.map(n=>{
       const title=artTitle(n); const vis=artVisual(n);
-      const v = vis || '<span class="art-tile-ic">📄</span>';
-      var nlink=null;
-      if(n==='8') nlink='artifact-a8.html';
-      else if(n==='9') nlink='kpi.html';
-      const cta = nlink
-        ? '<em><a href="'+nlink+'" data-nav>Открыть '+(n==='8'?'ИИ-атлас':'KPI-калькулятор')+' →</a></em>'
-        : '<em class="inline-only">встроен в кейс</em>';
-      return '<div class="case-art'+(nlink?'':' case-art-static')+'"><div class="case-art-viz">'+v+'</div><div class="case-art-meta"><b>Артефакт</b><span>'+title+'</span>'+cta+'</div></div>';
+      const v = vis || '<div class="case-art-ph"><span class="art-tile-ic">📄</span><span>'+title+'</span></div>';
+      return '<figure class="case-art-artifact">'+(title?'<figcaption><span>Артефакт</span><b>'+title+'</b></figcaption>':'')+'<div class="case-art-content">'+v+'</div></figure>';
     }).join('');
     const sec=`<section class="case-artifacts"><div class="sec-h"><span class="sec-n">АРТЕФАКТЫ КЕЙСА</span><h2>Доказательная база</h2></div>
-    <div class="case-art-grid">${cards}</div></section>`;
+    <div class="case-art-stack">${figs}</div></section>`;
     if(!/case-artifacts/.test(body)){ body=body.replace(/<\/main>/, ()=> '\n  '+sec+'\n</main>'); }
     fs.writeFileSync(cp, body, 'utf8');
   }
