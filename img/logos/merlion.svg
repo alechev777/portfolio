@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="merlion">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0fa6d0"/><stop offset="1" stop-color="#0a7490"/></linearGradient></defs>
-<rect width="24" height="24" rx="6" fill="url(#g)"/>
-<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM4 7 L12 3 L20 7 L12 11 Z"/><path d="M4 7 V17 L12 21 L20 17 V7"/><path d="M12 11 V21"/><path d="M6 9 L12 12 L18 9"/></g>
-</svg>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img'><rect width='24' height='24' rx='7' fill='#ffffff' stroke='#e4e9f0'/><g fill='none' stroke='#0fa6d0' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'>
+  <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" />
+  <path d="M12 22V12" />
+  <polyline points="3.29 7 12 12 20.71 7" />
+  <path d="m7.5 4.27 9 5.15" />
+</g></svg>

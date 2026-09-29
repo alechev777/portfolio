@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="bbr">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d5bd0"/><stop offset="1" stop-color="#4a3aa0"/></linearGradient></defs>
-<rect width="24" height="24" rx="6" fill="url(#g)"/>
-<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM3 9 L12 3 L21 9"/><path d="M4 10 H20"/><path d="M4 10 V20 H20 V10"/><path d="M7 12 V18"/><path d="M11.5 12 V18"/><path d="M16 12 V18"/></g>
-</svg>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img'><rect width='24' height='24' rx='7' fill='#ffffff' stroke='#e4e9f0'/><g fill='none' stroke='#6d5bd0' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'>
+  <path d="M10 18v-7" />
+  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
+  <path d="M14 18v-7" />
+  <path d="M18 18v-7" />
+  <path d="M3 22h18" />
+  <path d="M6 18v-7" />
+</g></svg>

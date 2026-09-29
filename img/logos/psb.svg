@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="psb">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b4a9e"/><stop offset="1" stop-color="#062c61"/></linearGradient></defs>
-<rect width="24" height="24" rx="6" fill="url(#g)"/>
-<g fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(1,1) scale(0.917)"><path d="MM3 10 H21 L18 19 H6 Z"/><path d="M10 10 V15"/><path d="M14 10 V15"/><path d="M12 19 V21"/></g>
-</svg>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' role='img'><rect width='24' height='24' rx='7' fill='#ffffff' stroke='#e4e9f0'/><g fill='none' stroke='#0b4a9e' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'>
+  <rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" />
+</g></svg>
