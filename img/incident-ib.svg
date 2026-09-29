@@ -97,7 +97,7 @@
  <text x="602" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#b3741f">5 процессов</text>
  <text x="602" y="633" text-anchor="middle" font-size="10" fill="#5f6e82">интегрировано в ITSM</text>
  <rect x="726" y="590" width="220" height="54" rx="10" fill="#f7eefc"/>
- <text x="836" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#6d4fa0">< 60 сек</text>
+ <text x="836" y="614" text-anchor="middle" font-size="18" font-weight="900" fill="#6d4fa0">&lt; 60 сек</text>
  <text x="836" y="633" text-anchor="middle" font-size="10" fill="#5f6e82">порог реакции СИВ</text>
 </g>
 </svg>
