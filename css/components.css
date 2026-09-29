@@ -434,6 +434,22 @@ footer .foot-inner div span{display:block;margin-top:3px;color:var(--muted);font
 footer .foot-inner span{color:var(--muted)}
 footer .foot-links a{color:var(--blue);font-weight:800}
 footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
+/* zoomable lightbox */
+#lbOverlay{position:fixed;inset:0;z-index:960;background:rgba(8,15,30,.94);display:none;align-items:center;justify-content:center;cursor:zoom-in}
+#lbOverlay.on{display:flex}
+#lbStage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:grab}
+#lbStage.lb-grabbing{cursor:grabbing}
+#lbOverlay #lbImg{max-width:none;max-height:none;display:block;will-change:transform;-webkit-user-drag:none;border-radius:6px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.6);transform-origin:0 0;transition:transform .05s linear}
+#lbClose,#lbZoomIn,#lbZoomOut,#lbReset{position:fixed;z-index:970;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;font-size:20px;font-weight:800;cursor:pointer;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+#lbClose{top:18px;right:22px}
+#lbZoomIn{bottom:26px;right:118px}
+#lbZoomOut{bottom:26px;right:64px}
+#lbReset{bottom:26px;right:10px}
+#lbClose.on,#lbZoomIn.on,#lbZoomOut.on,#lbReset.on{display:flex}
+#lbZoomIn:hover,#lbZoomOut:hover,#lbReset:hover,#lbClose:hover{background:rgba(255,255,255,.3)}
+#lbCap{position:fixed;bottom:18px;left:0;right:0;text-align:center;color:#cdd8e6;font-size:13px;z-index:970;display:none;padding:0 20px}
+#lbCap.on{display:block}
+@media(max-width:640px){#lbZoomIn{bottom:22px;right:104px}#lbZoomOut{bottom:22px;right:56px}#lbReset{bottom:22px;right:8px}}
 .port-note{margin-top:12px;font-size:12px;color:var(--muted);padding:10px 14px;border:1px dashed var(--line);border-radius:12px;background:#fbfcfe}
 .port-note a{color:var(--blue);font-weight:800}
 .art-pre{margin:0 0 18px;padding:0;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
