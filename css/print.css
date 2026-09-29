@@ -47,7 +47,7 @@
 @media print{.heat .h{background:#ddd!important}}
 @media print{.art-feat .mini .mbar .t i{background:#666!important}}
 @media print{.atlas-inline{height:600px}}
-@media print{.atlas-modal,.atlas-embed-bar,.zoomable-bar,.cf-chip,.port-filter-bar,.case-filter,.fpill{display:none!important}}
+@media print{.atlas-modal,.atlas-embed-bar,.zoomable-bar,.cf-chip,.case-filter,.fpill{display:none!important}}
 @media print{.atlas-inline-wrap .atlas-inline{height:min(80vh,650px)}}
 @media print{.page{display:none!important}}
 @media print{.page.on{display:block!important}}

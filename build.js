@@ -13,7 +13,7 @@ const FONT_PRELOAD = 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nV
 // id -> file
 const fileOf = {
   home:'index.html', cases:'cases.html',
-  portfolio:'portfolio.html', timeline:'timeline.html', roadmap:'timeline.html',
+  timeline:'timeline.html', roadmap:'timeline.html',
   stack:'stack.html', contact:'contact.html',
   kpi:'kpi.html'
 };
@@ -28,9 +28,6 @@ function titleOf(id, h1){
   const map={
     home:'Портфолио · Чевтаев Александр · Директор по цифровой трансформации',
     cases:'Кейсы и работы · Александр Чевтаев',
-    artifacts:'Артефакты · Александр Чевтаев',
-    archive:'Библиотека документов · Александр Чевтаев',
-    portfolio:'Портфель проектов · Александр Чевтаев',
     timeline:'Весь путь: 15 лет в ИТ · Александр Чевтаев',
     stack:'Навыки и стек · Александр Чевтаев',
     contact:'Контакты · Александр Чевтаев',
@@ -45,9 +42,6 @@ function descOf(id, h1, pageText){
   const map={
     home:'Чевтаев Александр — директор по цифровой трансформации. 15 лет в ИТ, 11 компаний, 8 отраслей. Эффект 250–400 млн ₽/год по одному проекту, окупаемость от 4 месяцев.',
     cases:'Кейсы и работы Александра Чевтаева: результаты в цифрах — эффект 250–400 млн ₽/год по проекту, окупаемость от 4 месяцев.',
-    artifacts:'Каталог артефактов Александра Чевтаева: KPI-модели, регламенты, ТЗ на ИИ, аналитика обращений. Живые продукты и рабочие документы.',
-    archive:'Библиотека документов и схем: регламенты, модели, памятки из проектов цифровой трансформации.',
-    portfolio:'Портфель проектов Александра Чевтаева: 17 кейсов и проектов с измеримым эффектом и источниками цифр.',
     timeline:'Весь путь Александра Чевтаева: 15 лет в ИТ — от 1С до стратегии ИИ, 11 компаний, 8 отраслей.',
     stack:'Навыки и стек директора по цифровой трансформации: стратегия и архитектура, экономика ИТ, технологии.',
     contact:'Контакты Александра Чевтаева: Telegram @Alechev, chev.alex@mail.ru, +7 915 023-43-24. Обсудим задачу с расчётом ROI.',
@@ -83,7 +77,7 @@ function descOf(id, h1, pageText){
   return t ? t.slice(0,160) : titleOf(id,'').replace(/ ·.*/,'');
 }
 function breadcrumbOf(id, h1, kind){
-  const main={home:'Главная',cases:'Кейсы',portfolio:'Портфель',timeline:'Путь',stack:'Навыки',contact:'Контакты',kpi:'KPI-калькулятор'};
+  const main={home:'Главная',cases:'Кейсы',timeline:'Путь',stack:'Навыки',contact:'Контакты',kpi:'KPI-калькулятор'};
   if(id==='home') return ['index.html','Главная', h1!=='Превращаю ИТ-затраты в управляемый актив компании'? 'Главная':''] ;
   const root = kind==='case' ? ['cases.html','Кейсы'] : kind==='artifact' ? ['cases.html','Кейсы'] : ['index.html','Главная'];
   return root;
@@ -115,7 +109,6 @@ function navHTML(activeId){
     {label:'Кейсы', href:'cases.html', id:'cases'},
     {label:'Путь', href:'timeline.html', id:'timeline'},
     {label:'Навыки', href:'stack.html', id:'stack'},
-    {label:'Портфель', href:'portfolio.html', id:'portfolio'},
     {label:'Калькулятор', href:'kpi.html', id:'kpi'}
   ];
   const li = menu.map(m=>{
@@ -783,12 +776,6 @@ function addAnalytics(html, id){
   return html;
 }
 function injectMetaNote(html,id){
-  if(id==='portfolio'){
-    // add note under table about 16 из 17
-    if(!/16 из 17/.test(html)){
-      html = html.replace(/<\/table>/, `</table>\n  <p class="port-note">В таблице 16 проектов из архива; 17-й — текущая роль COO в SRG (2026, в работе), детали — на <a href="case-w17.html" data-nav>странице кейса</a>.</p>`);
-    }
-  }
   return html;
 }
 
