@@ -818,7 +818,14 @@ for (const id of pageIds){
     continue;
   }
   const out = processPage(id);
-  if(out){ fs.writeFileSync(path.join(OUT,f), out); produced[f]=[id]; console.log('built', f); }
+  if(out){ 
+    const p=path.join(OUT,f);
+    const existing=fs.existsSync(p)? fs.readFileSync(p,'utf8') : '';
+    // cases.html — объединённая страница: не перезаписывать, если уже собрана с таблицей
+    const isMergedCases = (id==='cases' && existing.includes('.mt-table'));
+    if(!isMergedCases){ fs.writeFileSync(p, out); }
+    produced[f]=[id]; console.log('built', f, isMergedCases?'(merged kept)':'');
+  }
 }
 
 // Merge roadmap into timeline explicitly if separate

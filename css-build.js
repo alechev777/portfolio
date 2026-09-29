@@ -324,6 +324,33 @@ footer .foot-print{display:block;margin-top:10px;color:var(--muted)}
 .kpi-assume{margin-top:16px;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;background:#fbfcfe;color:var(--muted);font-size:12px;line-height:1.6}
 .kpi-assume b{color:var(--navy)}
 @media(max-width:640px){.kpi-out-extra{grid-template-columns:1fr 1fr}}
+/* объединённая таблица кейсов/артефактов */
+.mt-wrap{margin-top:14px;overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.mt-table{width:100%;border-collapse:collapse;min-width:900px;font-size:13px}
+.mt-table th{background:#f4f7fb;color:var(--navy);text-align:left;padding:12px 14px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line)}
+.mt-table td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.mt-table tr:hover td{background:#f8fafc}
+.mt-co a{color:var(--navy);text-decoration:none}
+.mt-co b{display:block;font-size:14px;font-family:var(--head)}
+.mt-co span{font-size:11px;color:var(--muted)}
+.mt-was{color:var(--muted)}
+.mt-do{color:var(--ink)}
+.mt-became{color:#1f7a52;font-weight:600}
+.mt-eff .mt-e{display:block;font-size:12px;font-weight:800;color:var(--blue)}
+.mt-act .btn{padding:9px 14px;font-size:12.5px;white-space:nowrap}
+.mt-viz-in img{width:40px;height:40px;border-radius:8px;display:block}
+.mt-actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+@media(max-width:760px){
+  .mt-wrap{overflow:visible;border:0;background:transparent}
+  .mt-table{display:block;min-width:0}
+  .mt-table thead{display:none}
+  .mt-table tbody{display:flex;flex-direction:column;gap:12px}
+  .mt-table tbody tr{display:flex;flex-direction:column;gap:8px;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+  .mt-table td{border:0;padding:10px 14px}
+  .mt-co b{font-size:15px}
+  .mt-eff .mt-e{display:inline;margin-right:10px}
+  .mt-act .btn{width:100%;justify-content:center}
+}
 @media print{.kpi-export{display:none}}
 .theme-toggle{width:40px;height:40px;margin-left:4px;border:0;border-radius:10px;background:#eef3f9;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
 .theme-toggle:hover{background:#dfe8f3}

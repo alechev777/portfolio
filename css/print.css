@@ -1,1 +1,54 @@
-@media print{.top,.burger,.no-js-c,.skip-link,#toTop,#progressBar,.callout,.cta,.nav,.btn.gh,.career-row,.foot-print{display:none !important;}header.top{display:none}body{background:#fff;color:#000}.wrap{max-width:100%}a{color:#000}.hero{background:#fff !important;color:#000 !important;border-radius:0}.hero h1,.hero-name,.hero .lead,.hero .k{color:#000 !important}.hero-photo,.fpill{display:none}.page.on,.page{display:block !important}img,svg{max-width:100%}.d-hero,.d-card,.box{border:1px solid #ccc;border-radius:8px;box-shadow:none !important}}@media print{.top,.burger,.cta,.open,.d-rel,.nav,.callout .btn,.atlas-embed-bar .btn{display:none!important}}@media print{.page{display:none!important}}@media print{.page.on{display:block!important}}@media print{body{background:#fff;color:#000;font-size:11pt}}@media print{.wrap{max-width:100%;padding:0}}@media print{.case,.d-card,.contact,.atlas,.tlm,.art2,.grp,.ex,.d-hero,.d-side .box,.art3,.art-feat,.kpi3{box-shadow:none;background:#fff;border:1px solid #999;page-break-inside:avoid}}@media print{.art-feat,.kpi3,.atlas,.d-hero{background:#fff!important;color:#000!important}}@media print{.art-feat b,.kpi3 .v,.dk b,.d-hero h1{color:#000!important}}@media print{.art-feat p,.art-feat .ct,.kpi3 .l,.kpi3 .d,.atlas p,.atlas .pill,.art-feat .nums div span{color:#333!important;opacity:1}}@media print{.art-feat .nums div b{color:#000!important}}@media print{.art-feat .tap{color:#333!important}}@media print{.art-feat .mini .mbar .t{background:#e0e0e0}}@media print{.art-feat .mini .mbar .t i{background:#666!important}}@media print{.art-feat .mini .mbar .v,.art-feat .mini .mbar .w{color:#000!important}}@media print{.hero-photo .ph{background:#fff!important;border:1px solid #999;box-shadow:none}}@media print{.hero-photo .ph .init{color:#000}}@media print{.hero-badge{border:1px solid #999;box-shadow:none;color:#000}}@media print{.d-hero .big-ic{background:#f0f0f0;border-color:#999}}@media print{.sec,.d-body{padding:12px 0}}@media print{.hero{padding:20px 0}}@media print{.kpi-big{grid-template-columns:repeat(3,1fr);page-break-inside:avoid}}@media print{.crumbs{display:none}}@media print{.reveal{opacity:1!important;transform:none!important}}@media print{a[href^="http"]::after{content:" (" attr(href) ")"}}@media print{.case .open{display:none}}@media print{footer{color:#000;padding:16px 0}}@media print{svg circle{stroke:#999!important}}@media print{.stbars .sbar .t i{background:#999!important}}@media print{.heat .h{background:#ddd!important}}@media print{.art-feat .mini .mbar .t i{background:#666!important}}@media print{.atlas-inline{height:600px}}@media print{.atlas-modal,.atlas-embed-bar,.zoomable-bar,.cf-chip,.port-filter-bar,.case-filter,.fpill{display:none!important}}@media print{.atlas-inline-wrap .atlas-inline{height:min(80vh,650px)}}@media print{.page{display:none!important}}@media print{.page.on{display:block!important}}@media print{.case2,.art2,.art3,.pf-item,.how-card,.tlm{break-inside:avoid}}
+/* print.css — hide app chrome, print the content */
+@media print{
+  .top,.burger,.no-js-c,.skip-link,#toTop,#progressBar,.callout,.cta,.nav,.btn.gh,.career-row,.foot-print{
+    display:none !important;
+  }
+  header.top{display:none}
+  body{background:#fff;color:#000}
+  .wrap{max-width:100%}
+  a{color:#000}
+  .hero{background:#fff !important;color:#000 !important;border-radius:0}
+  .hero h1,.hero-name,.hero .lead,.hero .k{color:#000 !important}
+  .hero-photo,.fpill{display:none}
+  .page.on,.page{display:block !important}
+  img,svg{max-width:100%}
+  .d-hero,.d-card,.box{border:1px solid #ccc;border-radius:8px;box-shadow:none !important}
+}
+
+/* original print overrides */
+@media print{.top,.burger,.cta,.open,.d-rel,.nav,.callout .btn,.atlas-embed-bar .btn{display:none!important}}
+@media print{.page{display:none!important}}
+@media print{.page.on{display:block!important}}
+@media print{body{background:#fff;color:#000;font-size:11pt}}
+@media print{.wrap{max-width:100%;padding:0}}
+@media print{.case,.d-card,.contact,.atlas,.tlm,.art2,.grp,.ex,.d-hero,.d-side .box,.art3,.art-feat,.kpi3{box-shadow:none;background:#fff;border:1px solid #999;page-break-inside:avoid}}
+@media print{.art-feat,.kpi3,.atlas,.d-hero{background:#fff!important;color:#000!important}}
+@media print{.art-feat b,.kpi3 .v,.dk b,.d-hero h1{color:#000!important}}
+@media print{.art-feat p,.art-feat .ct,.kpi3 .l,.kpi3 .d,.atlas p,.atlas .pill,.art-feat .nums div span{color:#333!important;opacity:1}}
+@media print{.art-feat .nums div b{color:#000!important}}
+@media print{.art-feat .tap{color:#333!important}}
+@media print{.art-feat .mini .mbar .t{background:#e0e0e0}}
+@media print{.art-feat .mini .mbar .t i{background:#666!important}}
+@media print{.art-feat .mini .mbar .v,.art-feat .mini .mbar .w{color:#000!important}}
+@media print{.hero-photo .ph{background:#fff!important;border:1px solid #999;box-shadow:none}}
+@media print{.hero-photo .ph .init{color:#000}}
+@media print{.hero-badge{border:1px solid #999;box-shadow:none;color:#000}}
+@media print{.d-hero .big-ic{background:#f0f0f0;border-color:#999}}
+@media print{.sec,.d-body{padding:12px 0}}
+@media print{.hero{padding:20px 0}}
+@media print{.kpi-big{grid-template-columns:repeat(3,1fr);page-break-inside:avoid}}
+@media print{.crumbs{display:none}}
+@media print{.reveal{opacity:1!important;transform:none!important}}
+@media print{a[href^="http"]::after{content:" (" attr(href) ")"}}
+@media print{.case .open{display:none}}
+@media print{footer{color:#000;padding:16px 0}}
+@media print{svg circle{stroke:#999!important}}
+@media print{.stbars .sbar .t i{background:#999!important}}
+@media print{.heat .h{background:#ddd!important}}
+@media print{.art-feat .mini .mbar .t i{background:#666!important}}
+@media print{.atlas-inline{height:600px}}
+@media print{.atlas-modal,.atlas-embed-bar,.zoomable-bar,.cf-chip,.port-filter-bar,.case-filter,.fpill{display:none!important}}
+@media print{.atlas-inline-wrap .atlas-inline{height:min(80vh,650px)}}
+@media print{.page{display:none!important}}
+@media print{.page.on{display:block!important}}
+@media print{.case2,.art2,.art3,.pf-item,.how-card,.tlm{break-inside:avoid}}
