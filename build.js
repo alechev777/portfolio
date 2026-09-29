@@ -306,31 +306,62 @@ function specialPage(html, id){
     html = html.replace(/<iframe id="atlasFrameInline" class="atlas-inline"[^>]*><\/iframe>/, `<iframe src="atlas.html" class="atlas-inline" title="ИИ-атлас бэк-офиса" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`);
     html = html.replace(/<button type="button" class="btn gh"[^>]*>Полный экран<\/button>/, `<a class="btn gh" href="atlas.html" target="_blank" rel="noopener noreferrer" data-track="atlas">Полный экран</a>`);
   }
-  if(id==='a9'){
-    let n = 0;
-    html = html.replace(/<img src="data:image\/jpeg;base64,[A-Za-z0-9+/=]+[^>]*>/g, (full)=>{
-      n++;
-      const f = n===1 ? 'img/artifacts/kazakhmys-slide-1.webp' : 'img/artifacts/kazakhmys-slide-2.webp';
-      const w = n===1 ? '1000':'1400', h = n===1 ? '562':'408';
-      const alt = n===1 ? 'Скриншот KPI-модели Казахмыс' : 'Фрагмент KPI-модели · Казахмыс';
-      return `<img src="${f}" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`;
-    });
-  }
-  if(id==='cases'){
-    // remove the career "ОПЫТ" timeline (радуга) — дублируется «Результаты по компаниям» ниже
-    const a = html.indexOf('<section class="sec career-sec');
-    const b = html.indexOf('<section class="sec" id="cases-anchor">');
-    if(a>=0 && b>a){ html = html.slice(0,a) + html.slice(b); }
-  }
-  if(id==='stack'){
-    const newSkills = `<div class="stack-cols reveal">
-      <div class="grp"><h4>Стратегия и архитектура</h4><div><span class="chip">TOGAF</span><span class="chip">ArchiMate</span><span class="chip">BPMN</span><span class="chip">ITIL 4</span><span class="chip">Целевые модели</span><span class="chip">SLA / OLA / UC</span><span class="chip">PMBOK</span><span class="chip">Agile / Scrum</span><span class="chip">OKR / KPI</span></div></div>
-      <div class="grp"><h4>Экономика ИТ</h4><div><span class="chip">ROI</span><span class="chip">TCO</span><span class="chip">Unit Economics</span><span class="chip">CAPEX / OPEX</span><span class="chip">Cost Saving</span><span class="chip">Аллокация затрат</span><span class="chip">ФСА</span></div></div>
-      <div class="grp"><h4>Технологии</h4><div><span class="chip">LLM</span><span class="chip">RAG</span><span class="chip">NLP</span><span class="chip">AI-виджеты</span><span class="chip">Jira / Structure</span><span class="chip">ServiceNow</span><span class="chip">ELMA365</span><span class="chip">Optimacros</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Confluence</span><span class="chip">ManageEngine</span><span class="chip">1С:ITIL</span><span class="chip">Zabbix</span><span class="chip">REST API / ESB</span><span class="chip">Visiology</span><span class="chip">Camunda</span></div></div>
-    </div>`;
-    const s = html.indexOf('<div class="stack-cols reveal">');
-    const sp = html.indexOf('<div class="stack-cols" style="margin-top:18px">', s);
-    if(s>=0 && sp>s){ html = html.slice(0,s) + newSkills + html.slice(sp); }
+if(id==='a9'){
+    // Заменяем растровый «слайд» (не соответствующий смыслу) на собственную KPI-инфографику
+    const svg = `<div class="slide-embed">
+<div class="kpi-diagram" aria-label="KPI-модель Казахмыс: каталог уровней, веса и пороговые оценки">
+<svg viewBox="0 0 720 300" role="img">
+  <defs>
+    <linearGradient id="kd1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d6fe0"/><stop offset="1" stop-color="#0e9bbf"/></linearGradient>
+  </defs>
+  <rect width="720" height="300" rx="16" fill="#f4f7fb"/>
+  <text x="24" y="34" font-size="16" font-weight="800" fill="#123052" font-family="Inter,system-ui,sans-serif">Каталог KPI · уровни 1–5 с весами</text>
+  <text x="24" y="54" font-size="11.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">Каждый показатель привязан к SLA и тарифу · модель аллокации по фактическому потреблению</text>
+  <!-- levels bars -->
+  <g font-family="Inter,system-ui,sans-serif">
+    <rect x="24" y="72" width="380" height="30" rx="8" fill="#e3edf8"/>
+    <rect x="24" y="72" width="300" height="30" rx="8" fill="url(#kd1)"/>
+    <text x="34" y="92" font-size="12.5" font-weight="700" fill="#123052">L1 · Бизнес-процессы</text>
+    <text x="318" y="92" font-size="12" font-weight="800" fill="#ffffff">вес 1,0</text>
+    <rect x="24" y="108" width="380" height="26" rx="8" fill="#e3edf8"/>
+    <rect x="24" y="108" width="340" height="26" rx="8" fill="url(#kd1)"/>
+    <text x="34" y="125" font-size="12" font-weight="700" fill="#123052">L2 · ИТ-услуги</text>
+    <text x="338" y="125" font-size="12" font-weight="700" fill="#ffffff">вес 0,85</text>
+    <rect x="24" y="140" width="380" height="26" rx="8" fill="#e3edf8"/>
+    <rect x="24" y="140" width="300" height="26" rx="8" fill="url(#kd1)"/>
+    <text x="34" y="157" font-size="12" font-weight="700" fill="#123052">L3 · Компоненты / системы</text>
+    <text x="298" y="157" font-size="12" font-weight="700" fill="#ffffff">вес 0,7</text>
+    <rect x="24" y="172" width="380" height="26" rx="8" fill="#e3edf8"/>
+    <rect x="24" y="172" width="250" height="26" rx="8" fill="url(#kd1)"/>
+    <text x="34" y="189" font-size="12" font-weight="700" fill="#123052">L4 · Ресурсы / персонал</text>
+    <text x="248" y="189" font-size="12" font-weight="700" fill="#ffffff">вес 0,55</text>
+    <rect x="24" y="204" width="380" height="26" rx="8" fill="#e3edf8"/>
+    <rect x="24" y="204" width="200" height="26" rx="8" fill="url(#kd1)"/>
+    <text x="34" y="221" font-size="12" font-weight="700" fill="#123052">L5 · Инфраструктура</text>
+    <text x="198" y="221" font-size="12" font-weight="700" fill="#ffffff">вес 0,4</text>
+  </g>
+  <!-- thresholds -->
+  <g font-family="Inter,system-ui,sans-serif">
+    <rect x="420" y="72" width="272" height="40" rx="10" fill="#ffffff" stroke="#dbe5f0"/>
+    <text x="434" y="90" font-size="12" font-weight="800" fill="#1d6fe0">Порог исполнения · 80%</text>
+    <text x="434" y="106" font-size="11" fill="#5f6e82">оценка показателя = 100%</text>
+    <rect x="420" y="118" width="272" height="40" rx="10" fill="#ffffff" stroke="#dbe5f0"/>
+    <text x="434" y="136" font-size="12" font-weight="800" fill="#0e7490">70–79% · 50%</text>
+    <text x="434" y="152" font-size="11" fill="#5f6e82">&lt;70% · 0%</text>
+  </g>
+  <!-- allocation -->
+  <g font-family="Inter,system-ui,sans-serif">
+    <rect x="420" y="166" width="272" height="60" rx="10" fill="#eef4fb"/>
+    <text x="434" y="186" font-size="12" font-weight="800" fill="#123052">Аллокация затрат</text>
+    <text x="434" y="204" font-size="11" fill="#5f6e82">на бизнес-процессы по фактическому</text>
+    <text x="434" y="218" font-size="11" fill="#5f6e82">потреблению услуги</text>
+  </g>
+  <text x="24" y="256" font-size="12.5" font-weight="800" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">Эффект: −15–25% потребления · окупаемость &lt;6 мес · сценарии 120/250/400 млн ₽/год</text>
+</svg>
+</div>
+<p class="slide-caption">Схема KPI-модели · Казахмыс · Accenture, 2023</p>
+</div>`;
+    html = html.replace(/<div class="slide-embed">[\s\S]*?<\/div>/, svg);
   }
   return html;
 }
@@ -345,7 +376,7 @@ function homeEdits(html){
   html = html.replace(/<b>400\+ млн ₽\/год<\/b>/, '<b>250–400 млн ₽/год</b>');
   // --- selling hero copy: AI-цифровизация + ИИ-контур ---
   html = html.replace(/<div class="hero-tagline">[^<]*<\/div>/, '<div class="hero-tagline">Цифровая трансформация бизнеса на базе ИИ</div>');
-  html = html.replace(/<h1>Превращаю ИТ-затраты в управляемый актив компании<\/h1>/, '<h1>Создаю идеальный ИТ-контур на базе ИИ — каждый рубль затрат работает на прибыль</h1>');
+  html = html.replace(/<h1>Превращаю ИТ-затраты в управляемый актив компании<\/h1>/, '<h1>Идеальный ИТ-контур на базе ИИ — каждый рубль приносит прибыль</h1>');
   html = html.replace(/<p class="lead">([\s\S]*?)<\/p>/, '<p class="lead">Проектирую и внедряю целевой ИТ-контур с ИИ-ядром: от экономики услуг и аллокации до автономной поддержки. Каждые 4–5 месяцев — измеримый эффект в P&amp;L бизнеса. <b>250–400 млн ₽/год</b> по проекту, <b>ROI 250–300%</b>, <b>−42% OPEX</b>. 15 лет, 11 компаний, 8 отраслей — стратегия, архитектура, внедрение под ключ.</p>');
   return html;
 }
@@ -482,6 +513,33 @@ function injectLogos(body, id){
     const logo = slug2 ? `<img class="co-ic-logo" src="img/logos/${slug2}.svg" alt="" width="18" height="18" loading="lazy" decoding="async">` : `<span class="ic">◈</span>`;
     return `<span class="co">${logo}<span>${name.trim()}</span></span>`;
   });
+  return body;
+}
+function injectImpact(body, id){
+  // на страницах кейсов — компактная «панель сценариев и эффекта» (SVG), если нет своей графики
+  if(id[0]!=='w') return body;
+  if(/impact-panel/.test(body)) return body;
+  // соберём KPI-значения из d-kpis
+  const vals=[];
+  for(const m of body.matchAll(/<div class="dk"><b>([\s\S]*?)<\/b><span>([\s\S]*?)<\/span><\/div>/g)){
+    vals.push({v:m[1].replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').replace(/&lt;/g,'<').replace(/&gt;/g,'>').trim(),
+               l:m[2].replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').trim()});
+  }
+  const top=vals.slice(0,4);
+  if(top.length<2) return body;
+  const cells=top.map((c,i)=>`
+    <g transform="translate(${14+(i%4)*118}, ${i<4?8:0})">
+      <rect x="0" y="0" width="108" height="56" rx="10" fill="${i===0?'#eef4fb':'#ffffff'}" stroke="#dbe5f0"/>
+      <text x="12" y="24" font-size="17" font-weight="800" fill="#123052" font-family="Inter,system-ui,sans-serif">${c.v||'—'}</text>
+      <text x="12" y="42" font-size="9.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">${c.l||''}</text>
+    </g>`).join('');
+  const panel=`<div class="impact-panel" aria-label="Ключевые показатели и эффект">
+<svg viewBox="0 0 500 72" role="img">${cells}</svg>
+</div>`;
+  // вставляем сразу после .d-kpis
+  const idx=body.indexOf('</div>', body.indexOf('<div class="d-kpis">'));
+  if(idx<0) return body;
+  body=body.slice(0,idx)+'\n'+panel+'\n'+body.slice(idx);
   return body;
 }
 function injectSvgPreview(html, id, h1){
