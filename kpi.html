@@ -141,11 +141,11 @@
       <div class="kpi-check"><span class="kpi-badge" title="Параметры основаны на оценке по опыту, уточняются данными проекта">оценка на основе опыта</span><span style="margin-left:8px;color:var(--muted);font-size:12.5px">Допущения по зарплате, эффекту автоматизации и стоимости часа простоя — оценочные. Экономия ФОТ и простоев добавляется к эффекту тарификации в общий ROI.</span></div>
       <div class="kpi-extra-fields">
         <div class="kpi-field"><div class="kf-top"><label>Численность, чел.</label><input class="raw" id="k-staff" type="number" value="8" min="0"></div><input type="range" id="k-staff-r" min="0" max="50" step="1" value="8"><div class="kf-hint">сколько человек на обслуживании услуги</div></div>
-        <div class="kpi-field"><div class="kf-top"><label>Зарплата (ФОТ), ₽/мес × чел.</label><input class="raw" id="k-salary" type="number" value="120000" min="0" step="10000"></div><input type="range" id="k-salary-r" min="30000" max="300000" step="5000" value="120000"><div class="kf-hint">оценка на основе опыта</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Зарплата (ФОТ), ₽/мес × чел.</label><input class="raw" id="k-salary" type="number" value="120000" min="0" step="10000"></div><input type="range" id="k-salary-r" min="30000" max="300000" step="5000" value="120000"><div class="kf-hint" title="Среднерыночная оценка на основе проектов 2020–2025 гг., уточняется по данным проекта">оценка на основе опыта</div></div>
         <div class="kpi-field"><div class="kf-top"><label>Заявок в месяц</label><input class="raw" id="k-inc" type="number" value="500" min="0"></div><input type="range" id="k-inc-r" min="0" max="5000" step="20" value="500"><div class="kf-hint">число заявок на услугу</div></div>
         <div class="kpi-field"><div class="kf-top"><label>Автоматизация, % экономии времени</label><span class="kf-value" id="k-incsave-v">20%</span></div><input type="range" id="k-incsave" min="0" max="60" step="1" value="20"><div class="kf-hint">оценка эффекта ИИ/автоматизации</div></div>
         <div class="kpi-field"><div class="kf-top"><label>Простой в квартал, часов</label><input class="raw" id="k-downtime" type="number" value="20" min="0"></div><input type="range" id="k-downtime-r" min="0" max="200" step="1" value="20"><div class="kf-hint">часов недоступности сервисов за квартал</div></div>
-        <div class="kpi-field"><div class="kf-top"><label>Стоимость часа простоя, ₽</label><input class="raw" id="k-dowhour" type="number" value="150000" min="0" step="10000"></div><input type="range" id="k-dowhour-r" min="0" max="1000000" step="10000" value="150000"><div class="kf-hint">оценка на основе опыта</div></div>
+        <div class="kpi-field"><div class="kf-top"><label>Стоимость часа простоя, ₽</label><input class="raw" id="k-dowhour" type="number" value="150000" min="0" step="10000"></div><input type="range" id="k-dowhour-r" min="0" max="1000000" step="10000" value="150000"><div class="kf-hint" title="Оценка по среднерыночным потерям бизнеса при недоступности ИТ-сервиса, уточняется по данным проекта">оценка на основе опыта</div></div>
       </div>
     </div>
   </div>
@@ -212,7 +212,14 @@ function moneyRp(v){return Math.round(v).toLocaleString('ru-RU')+' ₽';}
 function draw(d){
   $('k-cost').textContent=moneyRp(d.cost);
   $('k-year').textContent=moneyRp(d.total)+'/год';
-  $('k-roi').textContent=Math.round(d.roiCapped)+'%';
+  /* честный ROI: если выше 150% — показываем ">150%" + нативный тултип */
+  if(d.over150){
+    $('k-roi').textContent='>150%';
+    $('k-roi').setAttribute('title','ROI превышает 150% — значение выходит за верхнюю границу модели. Точный расчёт — по запросу.');
+  } else {
+    $('k-roi').textContent=Math.round(d.roiCapped)+'%';
+    $('k-roi').removeAttribute('title');
+  }
   $('k-pb').textContent=d.pb?d.pb.toFixed(1)+' мес.':'—';
   /* разбивка экономии */
   var bd=$('k-year-bd'), rui=$('k-roi-bd'), pbd=$('k-pb-bd');
@@ -221,7 +228,7 @@ function draw(d){
   } else {
     bd.innerHTML='<span class="kb">тарификация <b>'+moneyRp(d.tarif)+'</b></span>';
   }
-  rui.innerHTML='<span class="kb">'+(d.over150?'<b>capped 150%</b>, модель реалистична':'норм. диапазон')+'</span>';
+  rui.innerHTML='<span class="kb">'+(d.over150?'<b>>150%</b>, точный расчёт по запросу':'норм. диапазон')+'</span>';
   pbd.innerHTML=d.pb?'<span class="kb">срок к годовой экономии</span>':'<span class="kb">—</span>';
   drawSens();
   drawEcon(d);

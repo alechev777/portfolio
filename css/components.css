@@ -939,3 +939,30 @@ html[data-theme="dark"] .d-rel a{background:#182b44;border-color:var(--line,rgba
 html[data-theme="dark"] .d-hero.light{background:#142236}
 html[data-theme="dark"] .fpill{color:#e4edf8}
 html[data-theme="dark"] :focus-visible{outline:2px solid #6fb7ff;outline-offset:2px}
+
+/* ============ kpi.html: точечные улучшения (не пересекаются с другими страницами) ============ */
+/* Шаг 2: крупные ползунки на тач-устройствах (mobile), десктопные не тронуты */
+@media (max-width: 760px){
+  input[type="range"]{min-height:44px}
+  input[type="range"]::-webkit-slider-thumb{width:24px;height:24px}
+  input[type="range"]::-moz-range-thumb{width:24px;height:24px}
+}
+/* Шаг 3: читаемые подписи на графике чувствительности (mobile) */
+@media (max-width: 760px){
+  #sensSvg text{font-size:11px;font-weight:600}
+}
+/* Шаг 4: плавные переходы карточек результатов */
+.kpi-res-card .kr-v{transition:color 200ms ease,transform 200ms ease}
+.kpi-res-card:hover{transform:translateY(-2px);transition:transform 200ms ease}
+.kpi-res-card .kr-v{display:inline-block}
+@media (hover: none){
+  .kpi-res-card:hover{transform:none}
+}
+/* Шаг 5: явное выделение активного сценария (используется класс .active, который ставит JS) */
+.kpi-scen-btn.active{border:2px solid var(--blue);font-weight:700;position:relative}
+.kpi-scen-btn.active::after{content:"✓";position:absolute;top:4px;right:8px;color:var(--blue);font-size:12px}
+/* поддержка приглушённых кнопок: неактивные остаются как были */
+/* Шаг 7: разделитель между группой параметров и результатами на мобильных */
+@media (max-width: 760px){
+  .kpi-results{border-top:1px solid var(--line);padding-top:24px;margin-top:24px}
+}
