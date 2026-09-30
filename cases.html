@@ -167,6 +167,62 @@ html[data-theme="dark"] .proj b{color:#e8edf5}
 html[data-theme="dark"] .ba-num{color:#e8edf5}
 html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5}
 @media(max-width:640px){.anchor-metrics{gap:8px}.am{min-width:105px;padding:11px 12px}.am b{font-size:20px}.proj-grid{grid-template-columns:1fr 1fr}.acc-head .ah-metric{display:none}}
+
+/* =========================================================
+   TIER 2 · PRO Timeline 2026 (scoped #tier2, не влияет на Tier 1)
+   ========================================================= */
+#tier2{color-scheme:dark;--acc:oklch(0.68 0.17 250);--acc2:oklch(0.75 0.15 200);--ink2:oklch(.93 .01 250);--mut2:oklch(.72 .02 250);--line2:rgba(255,255,255,.09)}
+#tier2 .t2-holder{padding:44px clamp(16px,3vw,36px) 40px;border-radius:24px;background:oklch(.18 .02 250);border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}
+#tier2 .t2-holder::before{content:"";position:absolute;top:-120px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,.35),transparent 70%);pointer-events:none}
+#tier2 .t2-head{max-width:720px;margin-bottom:10px;position:relative;z-index:1}
+#tier2 .t2-tag{font-size:12px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;color:var(--acc);font-family:ui-monospace,monospace}
+#tier2 .t2-head h2{font-family:var(--head,system-ui);font-size:clamp(22px,4vw,34px);font-weight:900;letter-spacing:-.02em;color:var(--ink2,#e8edf5);margin:6px 0 8px;text-wrap:balance;line-height:1.12}
+#tier2 .t2-head p{color:var(--mut2);font-size:clamp(14px,3.5vw,16px);line-height:1.55;margin:0;text-wrap:pretty}
+#tier2 .t2-actions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px;position:relative;z-index:1}
+#tier2 .t2-btn{border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--ink2);font-size:12.5px;font-weight:700;padding:10px 16px;border-radius:999px;cursor:pointer;transition:.15s;min-height:44px;font-family:var(--sans,system-ui)}
+#tier2 .t2-btn:hover{border-color:var(--acc);color:var(--acc)}
+#tier2 .tl{position:relative;display:flex;flex-direction:column;gap:16px;margin-top:20px;padding-left:clamp(18px,4vw,44px)}
+#tier2 .tl::before{content:"";position:absolute;left:clamp(6px,1.2vw,14px);top:2px;bottom:2px;width:2px;background:linear-gradient(180deg,var(--acc),var(--acc2),rgba(255,255,255,.06));border-radius:2px}
+.era-card{position:relative;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:clamp(18px,3vw,26px);transition:transform .22s,box-shadow .22s,border-color .22s;container-type:inline-size}
+.era-card::before{content:"";position:absolute;left:calc(-1*(clamp(18px,4vw,44px)) - 7px);top:22px;width:16px;height:16px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(29,78,216,.2),0 0 18px rgba(29,78,216,.5)}
+.era-card:hover{transform:translateY(-6px);border-color:rgba(96,165,250,.35);box-shadow:0 22px 44px rgba(0,0,0,.35)}
+.era-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.era-years{font-size:13px;font-weight:900;color:var(--acc);font-family:ui-monospace,monospace;letter-spacing:.4px}
+.era-name{font-family:var(--head,system-ui);font-size:clamp(18px,3.5vw,24px);font-weight:900;color:var(--ink2);margin:2px 0 2px;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+.era-role{font-size:13.5px;color:var(--mut2);margin:0 0 12px;text-wrap:pretty}
+.era-anchor{display:flex;align-items:baseline;gap:8px;margin:6px 0 2px;flex-wrap:wrap}
+.era-anchor .ea-v{font-family:var(--head,system-ui);font-size:clamp(28px,6vw,44px);font-weight:900;color:var(--acc);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.era-anchor .ea-u{font-size:13px;color:var(--mut2);font-weight:700}
+.era-anchor .ea-spark{color:var(--acc2);margin-left:4px}
+.era-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.era-tag{font-size:11.5px;font-weight:700;color:#cbd5e1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:6px 11px;border-radius:8px;white-space:nowrap}
+.era-tag::after{content:"?",margin-left:4px;color:var(--acc2);font-size:10px;cursor:help;font-family:ui-monospace,monospace}
+.era-details{margin-top:14px;border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
+.era-details summary{cursor:pointer;font-size:12.5px;font-weight:800;color:var(--acc);list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;font-family:var(--sans,system-ui)}
+.era-details summary::-webkit-details-marker{display:none}
+.era-details summary::before{content:"＋";transition:transform .2s;font-size:13px}
+.era-details[open] summary::before{transform:rotate(45deg)}
+.era-details .ed-in{padding-top:10px;display:flex;flex-direction:column;gap:12px}
+.ed-ctx{font-size:13.5px;color:var(--mut2);line-height:1.55;text-wrap:pretty;max-width:640px}
+.ed-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.ed-list li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:#cbd5e1;line-height:1.4}
+.ed-list li::before{content:"✓";color:var(--acc2);font-weight:900;flex:none;margin-top:1px}
+.ed-ba{display:flex;align-items:center;gap:10px;margin-top:4px}
+.ed-ba .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut2);font-weight:800;flex:none}
+.ed-bar{flex:1;height:10px;border-radius:999px;background:rgba(255,255,255,.07);position:relative;overflow:hidden}
+.ed-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.ed-num{font-size:12px;font-weight:900;font-family:ui-monospace,monospace;color:var(--ink2);flex:none;font-variant-numeric:tabular-nums}
+.ed-tools{display:flex;flex-wrap:wrap;gap:6px}
+.ed-tool{font-size:11px;font-weight:700;color:#cbd5e1;background:rgba(29,78,216,.15);border:1px solid rgba(96,165,250,.2);padding:4px 10px;border-radius:7px;white-space:nowrap}
+.t2-outro{margin-top:18px;padding:20px 22px;border-radius:16px;background:rgba(29,78,216,.1);border:1px solid rgba(96,165,250,.25);font-size:15px;color:var(--ink2);line-height:1.6;text-align:center;font-family:var(--sans,system-ui)}
+.t2-outro b{color:var(--acc)}
+@media(max-width:560px){#tier2 .tl{padding-left:14px}#tier2 .tl::before{left:3px}.era-card::before{left:calc(-1*clamp(18px,4vw,44px) - 8px)}.era-anchor .ea-v{font-size:30px}}
+@media(hover:hover){#tier2 .era-tag:hover::after{color:var(--acc)}}
+@supports(animation-timeline:view()){.era-card{animation:tlIn linear both;animation-timeline:view();animation-range:entry 0% entry 55%}}
+@keyframes tlIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.era-card{animation:none!important;transform:none!important;opacity:1!important}}
+.no-stl .era-card{opacity:0;transform:translateY(24px);transition:opacity .45s,transform .45s}
+.no-stl .era-card.in{opacity:1;transform:none}
 </style>
 </head>
 <body data-page="cases" data-metrika="XXXXXXXX">
@@ -269,143 +325,153 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
     </a>
   </div>
 
-  <div class="eras-hero">
-  <div>
-    <div class="eras-tag">Career · 15 лет</div>
-    <h2>Профессиональные эпохи: от инфраструктуры к стратегии ИИ</h2>
-    <p>15 лет управления IT-трансформацией с измеримым результатом. Каждый этап — серия достижений в цифрах.</p>
-  </div>
-</div>
-
-<div class="eras-toc" role="navigation" aria-label="Переход к эпохам">
-  <a href="#era-ai">Трансформация и ИИ</a>
-  <a href="#era-cons">Консалтинг и стратегия</a>
-  <a href="#era-ops">1С и операции</a>
-</div>
-
-<!-- Эпоха 3: Трансформация и ИИ -->
-<section class="era-hero" id="era-ai" style="--era:#1d6fe0;margin-bottom:18px">
-  <div class="eh-head">
-    <span class="eh-tag">2024 → наст. время</span>
-    <span class="eh-years">новейшая</span>
-  </div>
-  <h3>Эпоха цифровой трансформации и ИИ</h3>
-  <div class="eh-role">Директор по цифровой трансформации · Руководитель цифровизации</div>
-  <p class="eh-desc">Цифровая стратегия, ИИ-инструменты и перезапуск бэк-офисов лично — как лидер.</p>
-  <div class="anchor-metrics">
-    <div class="am"><b>2 мес.</b><span>перезапуск</span><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="2,14 14,10 26,6 38,4 52,3 68,2" fill="none" stroke="#22c55e" stroke-width="2"/></svg></div>
-    <div class="am"><b>21</b><span>ИИ-ассистент</span></div>
-    <div class="am"><b>SLA 5 мин</b><span>обмен ЕЦП↔СЦ</span></div>
-    <div class="am"><b>76</b><span>use-кейсов</span></div>
-  </div>
-  <div class="era-acc">
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">01</span>R-Vision · перезапуск бэк-офиса</span><span class="ah-metric">2 мес. вместо 6–12</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Провёл аудит 9+ департаментов, построил единую карту процессов и ИИ-атлас. Перезапуск бэк-офиса за 2 месяца вместо типовых 6–12.</p>
-        <div class="ba"><span class="ba-l">Было → Стало</span><div class="ba-track"><i style="width:30%"></i></div><span class="ba-num">6–12 мес. → 2 мес.</span></div>
-      </div></div></div>
+  <section id="tier2">
+  <div class="t2-holder">
+    <div class="t2-head">
+      <div class="t2-tag">Career · 15 лет</div>
+      <h2>Профессиональные эпохи: от инфраструктуры к стратегии ИИ</h2>
+      <p>15 лет управления IT-трансформацией с измеримым результатом. Каждый этап — серия достижений в цифрах.</p>
     </div>
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">02</span>ЕЦП · ГосТех · МинЦифры</span><span class="ah-metric">SLA 5 мин · 4 регламента</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Спроектировал единый кодекс обмена между ЕЦП и ФГИС СЦ: 4 регламента, матрица статусов, SLA 5 минут. Взаимодействие на уровне Минцифры.</p>
-      </div></div></div>
+    <div class="t2-actions">
+      <button class="t2-btn" id="expAll">Развернуть все</button>
+      <button class="t2-btn" id="clpAll">Свернуть все</button>
     </div>
+    <div class="tl">
+
+      <!-- Консалтинг и стратегия -->
+      <article class="era-card" id="era-cons">
+        <div class="era-top"><span class="era-years">2022–2024</span></div>
+        <h3 class="era-name">Axenix / Accenture</h3>
+        <p class="era-role">Senior IT Strategy Consultant · 6 отраслей</p>
+        <div class="era-anchor"><span class="ea-v">ROI &lt; 6 мес.</span><span class="ea-u">окупаемость</span><span class="ea-spark">↗</span></div>
+        <div class="era-tags"><span class="era-tag">ITIL</span><span class="era-tag">CAPEX/OPEX</span><span class="era-tag">Тарификация</span><span class="era-tag">AI/NLP</span></div>
+        <details class="era-details" open>
+          <summary>Доказательства и проекты</summary>
+          <div class="ed-in">
+            <p class="ed-ctx">Консалтинг по IT-стратегии и экономике услуг для 6 отраслей. Каждый кейс — с измеримым эффектом в P&amp;L.</p>
+            <ul class="ed-list">
+              <li>ROI от 4 месяцев на проектах 6 отраслей</li>
+              <li>Экономия 250–400 млн ₽/год (Казахмыс)</li>
+              <li>AI-решения: 76,9% охвата (Аэроклуб), ×3 дешевле (Arlight)</li>
+              <li>ROI 300% (ББР-банк), −18 млн ₽ ФОТ (М-Групп)</li>
+            </ul>
+            <div class="ed-ba"><span class="l">Окупаемость</span><div class="ed-bar"><i style="width:15%"></i></div><span class="ed-num">&lt;6 мес.</span></div>
+            <div class="ed-tools"><span class="ed-tool">ITIL</span><span class="ed-tool">SLA/OLA</span><span class="ed-tool">BPMN</span><span class="ed-tool">Power BI</span><span class="ed-tool">Jira</span></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- MERLION -->
+      <article class="era-card" id="era-merlion">
+        <div class="era-top"><span class="era-years">2021–2022</span></div>
+        <h3 class="era-name">MERLION</h3>
+        <p class="era-role">Руководитель методологии и отчётности ИТ</p>
+        <div class="era-anchor"><span class="ea-v">700+</span><span class="ea-u">сотрудников ИТ под KPI</span></div>
+        <div class="era-tags"><span class="era-tag">KPI/OKR</span><span class="era-tag">SLA</span><span class="era-tag">Аллокация</span><span class="era-tag">T2M</span></div>
+        <details class="era-details" open>
+          <summary>Доказательства</summary>
+          <div class="ed-in">
+            <p class="ed-ctx">Построил KPI-модель и отчётность на весь IT-блок: аллокация затрат, Time2Market, SLA «Ситилинк».</p>
+            <ul class="ed-list">
+              <li>Покрытие KPI — ~700 человек</li>
+              <li>Time2Market −40%</li>
+              <li>SLA «Ситилинк» — 90%</li>
+              <li>Автоматизация премирования по KPI</li>
+            </ul>
+            <div class="ed-ba"><span class="l">SLA</span><div class="ed-bar"><i style="width:90%"></i></div><span class="ed-num">90%</span></div>
+            <div class="ed-tools"><span class="ed-tool">Jira/Structure</span><span class="ed-tool">Confluence</span><span class="ed-tool">BI</span><span class="ed-tool">OKR</span></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- АЛРОСА -->
+      <article class="era-card" id="era-alrosa">
+        <div class="era-top"><span class="era-years">2019–2021</span></div>
+        <h3 class="era-name">АЛРОСА</h3>
+        <p class="era-role">Главный эксперт аппарата управления</p>
+        <div class="era-anchor"><span class="ea-v">NPS 7,46 → 8,76</span><span class="ea-u">за год</span></div>
+        <div class="era-tags"><span class="era-tag">Централизация</span><span class="era-tag">NPS</span><span class="era-tag">SLA</span><span class="era-tag">100+</span></div>
+        <details class="era-details" open>
+          <summary>Доказательства</summary>
+          <div class="ed-in">
+            <p class="ed-ctx">Централизовал IT-функцию холдинга: 100+ специалистов в едином контуре, измеримые SLA.</p>
+            <ul class="ed-list">
+              <li>NPS услуг 7,46 → 8,76 за год</li>
+              <li>Централизация 100+ специалистов</li>
+              <li>Сокращение незакрытых обращений на 10%</li>
+              <li>Корректность эскалации +20%</li>
+            </ul>
+            <div class="ed-ba"><span class="l">NPS</span><div class="ed-bar"><i style="width:100%"></i></div><span class="ed-num">7,46 → 8,76</span></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- SUNLIGHT -->
+      <article class="era-card" id="era-sun">
+        <div class="era-top"><span class="era-years">2015–2017</span></div>
+        <h3 class="era-name">SUNLIGHT</h3>
+        <p class="era-role">Руководитель управления техподдержки</p>
+        <div class="era-anchor"><span class="ea-v">260</span><span class="ea-u">ТТ · 42 специалиста</span></div>
+        <div class="era-tags"><span class="era-tag">SLA/OLA/UC</span><span class="era-tag">Zabbix</span><span class="era-tag">260 ТТ</span></div>
+        <details class="era-details" open>
+          <summary>Доказательства</summary>
+          <div class="ed-in">
+            <p class="ed-ctx">Руководил техподдержкой 260 торговых точек: модель SLA/OLA/UC, Zabbix, команда 42 специалиста.</p>
+            <ul class="ed-list">
+              <li>260 ТТ под единым SLA</li>
+              <li>42 специалиста поддержки</li>
+              <li>Внедрены OLA/UC и мониторинг Zabbix</li>
+            </ul>
+            <div class="ed-tools"><span class="ed-tool">SLA/OLA/UC</span><span class="ed-tool">Zabbix</span><span class="ed-tool">1С:ITIL</span></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- ПСБ-ФИНАНС -->
+      <article class="era-card" id="era-psb">
+        <div class="era-top"><span class="era-years">2017–2019</span></div>
+        <h3 class="era-name">ПСБ-ФИНАНС</h3>
+        <p class="era-role">Директор департамента эксплуатации ИС</p>
+        <div class="era-anchor"><span class="ea-v">−42%</span><span class="ea-u">OPEX</span><span class="ea-spark">↘</span></div>
+        <div class="era-tags"><span class="era-tag">1С:ITIL</span><span class="era-tag">3 линии</span><span class="era-tag">29 чел.</span></div>
+        <details class="era-details" open>
+          <summary>Доказательства</summary>
+          <div class="ed-in">
+            <ul class="ed-list">
+              <li>3 линии поддержки с нуля</li>
+              <li>Обращения −47%</li>
+              <li>Команда 29 специалистов</li>
+            </ul>
+            <div class="ed-ba"><span class="l">Обращения</span><div class="ed-bar"><i style="width:53%"></i></div><span class="ed-num">−47%</span></div>
+            <div class="ed-tools"><span class="ed-tool">1С:ITIL</span><span class="ed-tool">SLA</span><span class="ed-tool">ITSM</span></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- Дельта / Инженер-Центр / ВС РФ -->
+      <article class="era-card" id="era-ops">
+        <div class="era-top"><span class="era-years">2011–2015</span></div>
+        <h3 class="era-name">Дельта · Инженер-Центр · ВС РФ</h3>
+        <p class="era-role">Руководитель разработки → программист 1С → командир отделения</p>
+        <div class="era-anchor"><span class="ea-v">25 + 32</span><span class="ea-u">чел. команда · базы 1С</span></div>
+        <div class="era-tags"><span class="era-tag">1С</span><span class="era-tag">ManageEngine</span><span class="era-tag">15 чел.</span></div>
+        <details class="era-details" open>
+          <summary>Доказательства</summary>
+          <div class="ed-in">
+            <ul class="ed-list">
+              <li>Отдел разработки — 25 человек</li>
+              <li>32 базы 1С 7.7 → 8.2 без потерь</li>
+              <li>ManageEngine, Служба качества</li>
+              <li>Командир отделения — 15 человек</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+    </div>
+    <div class="t2-outro">Каждый этап сформировал уникальный системный взгляд на бизнес — итог: экономия до <b>42% OPEX</b>, <b>ROI от 4 месяцев</b>, <b>250–400 млн ₽/год</b> на проекте.</div>
   </div>
 </section>
-
-<!-- Эпоха 2: Консалтинг -->
-<section class="era-hero" id="era-cons" style="--era:#0e9bbf;margin-bottom:18px">
-  <div class="eh-head">
-    <span class="eh-tag">2019 → 2024</span>
-    <span class="eh-years">стратегия</span>
-  </div>
-  <h3>Эпоха консалтинга и стратегии</h3>
-  <div class="eh-role">Senior IT Strategy Consultant · Axenix / Accenture</div>
-  <p class="eh-desc">Консалтинг по IT-стратегии для 6 отраслей с доказанной окупаемостью от 4 месяцев.</p>
-  <div class="anchor-metrics">
-    <div class="am"><b>ROI &lt; 6 мес.</b><span>окупаемость</span></div>
-    <div class="am"><b>6</b><span>отраслей</span></div>
-    <div class="am"><b>250–400</b><span>млн ₽/год</span><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="2,16 14,12 26,8 40,5 54,3 68,2" fill="none" stroke="#22c55e" stroke-width="2"/></svg></div>
-    <div class="am"><b>×3</b><span>дешевле поддержка</span></div>
-  </div>
-  <div class="era-acc">
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">01</span>Axenix / Accenture</span><span class="ah-metric">ROI от 4 мес.</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Консалтинг по IT-стратегии и экономике услуг для 6 отраслей. Каждый кейс — с измеримым эффектом в P&amp;L.</p>
-        <div class="proj-grid">
-          <div class="proj"><div class="pj-ic" style="background:#eef5ff;color:#1d6fe0">K</div><div><b>Казахмыс</b><span>250–400 млн ₽/год</span></div></div>
-          <div class="proj"><div class="pj-ic" style="background:#e8f5ec;color:#16a34a">A</div><div><b>Аэроклуб</b><span>76,9% ИИ</span></div></div>
-          <div class="proj"><div class="pj-ic" style="background:#eef0ff;color:#6d4fa0">A</div><div><b>Arlight</b><span>×3 дешевле</span></div></div>
-          <div class="proj"><div class="pj-ic" style="background:#eef5ff;color:#1d6fe0">Б</div><div><b>ББР-банк</b><span>ROI 300%</span></div></div>
-          <div class="proj"><div class="pj-ic" style="background:#fdf6e3;color:#b45309">М</div><div><b>М-Групп</b><span>−18 млн ₽ ФОТ</span></div></div>
-          <div class="proj"><div class="pj-ic" style="background:#f0f7fb;color:#0e7490">П</div><div><b>ПроСервис</b><span>16 инициатив</span></div></div>
-        </div>
-      </div></div></div>
-    </div>
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">02</span>MERLION</span><span class="ah-metric">SLA 90% · ~700 чел.</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Построил KPI-модель и отчётность на весь IT-блок ~700 человек: аллокация затрат, Time2Market, SLA «Ситилинк».</p>
-        <div class="ba"><span class="ba-l">KPI → SLA</span><div class="ba-track"><i style="width:90%"></i></div><span class="ba-num">SLA 90%</span></div>
-      </div></div></div>
-    </div>
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">03</span>АЛРОСА</span><span class="ah-metric">NPS 7,46 → 8,76</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Централизовал IT-функцию холдинга: 100+ специалистов в едином контуре. Качество поддержки выросло, NPS улучшился за год.</p>
-        <div class="ba"><span class="ba-l">NPS</span><div class="ba-track"><i style="width:100%"></i></div><span class="ba-num">7,46 → 8,76</span></div>
-        <div class="era-learn"><b>Урок эпохи:</b> системная централизация и измеримые SLA напрямую растят качество и оценку пользователей.</div>
-      </div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Эпоха 1: Операции → 1С -->
-<section class="era-hero" id="era-ops" style="--era:#5b6b7c">
-  <div class="eh-head">
-    <span class="eh-tag">2011 → 2019</span>
-    <span class="eh-years">фундамент</span>
-  </div>
-  <h3>Эпоха 1С и операционного управления</h3>
-  <div class="eh-role">От программиста 1С до директора департамента эксплуатации</div>
-  <p class="eh-desc">Фундамент: управление командами, SLA и стабильность бизнес-систем на масштабе.</p>
-  <div class="anchor-metrics">
-    <div class="am"><b>−47%</b><span>обращений</span><svg class="spark" width="70" height="18" viewBox="0 0 70 18"><polyline points="2,4 14,6 26,8 40,11 54,14 68,16" fill="none" stroke="#f5c451" stroke-width="2"/></svg></div>
-    <div class="am"><b>260</b><span>ТТ в сутки</span></div>
-    <div class="am"><b>42</b><span>специалиста</span></div>
-    <div class="am"><b>32</b><span>базы, 0 потерь</span></div>
-  </div>
-  <div class="era-acc">
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">01</span>ПСБ-ФИНАНС</span><span class="ah-metric">−47% обращений</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Выстроил эксплуатацию ИС как сервис на 1С:ITIL: процессы, SLA, команда 29 человек. Обращения упали на 47%.</p>
-        <div class="ba"><span class="ba-l">Было → Стало</span><div class="ba-track"><i style="width:53%"></i></div><span class="ba-num">−47%</span></div>
-      </div></div></div>
-    </div>
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">02</span>SUNLIGHT</span><span class="ah-metric">260 ТТ · 42 чел.</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Руководил техподдержкой 260 торговых точек: модель SLA/OLA/UC, Zabbix, команда 42 специалиста.</p>
-      </div></div></div>
-    </div>
-    <div class="acc-item open">
-      <button class="acc-head" aria-expanded="true"><span class="ah-l"><span class="ah-num">03</span>Дельта · Инженер-Центр · ВС РФ</span><span class="ah-metric">25 чел. · 32 базы · 15 чел.</span><span class="ai">▾</span></button>
-      <div class="acc-body"><div><div class="acc-in">
-        <p>Собрал отдел разработки (25 чел.), мигрировал 32 базы 1С с нулевыми потерями, управлял отделением до 15 человек.</p>
-        <div class="era-learn"><b>Урок эпохи:</b> дисциплина и фундамент эксплуатации стали опорой для управления на стратегическом уровне.</div>
-      </div></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="era-outro">
-  Каждый этап сформировал уникальный системный взгляд на бизнес — от «железа» и 1С до стратегии ИИ. Итог: экономия до <b>42% OPEX</b>, <b>ROI от 4 месяцев</b>, <b>250–400 млн ₽/год</b> на проекте.
-</div>
-
 </div>
 </div>
 </main>
@@ -429,16 +495,25 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
 <script src="js/portfolio.js"></script>
 
 <script>
-/* аккордеоны эпох */
 (function(){
 'use strict';
-document.querySelectorAll('.acc-head').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var item=btn.closest('.acc-item');
-    var open=item.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open?'true':'false');
-  });
-});
+/* расширить/свернуть все */
+var t2=document.getElementById('tier2');
+if(t2){
+  var exp=document.getElementById('expAll'), clp=document.getElementById('clpAll');
+  var dets=t2.querySelectorAll('.era-details');
+  exp.addEventListener('click',function(){ dets.forEach(function(d){d.setAttribute('open',''); d.querySelector('summary').setAttribute('aria-expanded','true');}); });
+  clp.addEventListener('click',function(){ dets.forEach(function(d){d.removeAttribute('open'); d.querySelector('summary').setAttribute('aria-expanded','false');}); });
+}
+/* reveal fallback (без scroll-timeline) */
+var supportsSTL = CSS.supports&&CSS.supports('animation-timeline: view()');
+if(!supportsSTL){
+  var cards=document.querySelectorAll('.era-card');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.1});
+  cards.forEach(function(c){ io.observe(c); });
+}
 })();
 </script>
 </body>
