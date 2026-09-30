@@ -77,6 +77,24 @@ html[data-theme="dark"] .case-card{background:var(--card);border-color:var(--lin
 html[data-theme="dark"] .f-chip{background:#142236;border-color:var(--line);color:#aab4c0}
 @media(max-width:880px){.live-grid,.cases-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.case-card{animation:none;opacity:1;transform:none}}
+/* ===== Tier 2: эпохи с виджетами ===== */
+.era{margin:26px 0;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:var(--card);border-top:4px solid var(--era,var(--blue))}
+.cc-list{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.cc-row{display:grid;grid-template-columns:1.4fr 170px 1fr 1fr;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface-1,#f6f9fc)}
+.cc-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cc-yr{font-size:12px;font-weight:900;font-family:var(--head);color:var(--blue)}
+.cc-name{font-size:16px;font-weight:900;font-family:var(--head);color:var(--navy)}
+.cc-role{font-size:12px;color:var(--muted)}
+.cc-viz{background:#0f1e34;border-radius:12px;padding:8px;display:flex;align-items:center;justify-content:center;min-height:70px;border:1px solid rgba(255,255,255,.08)}
+.cc-viz svg{width:100%;max-width:150px;height:auto;display:block}
+.cc-put{display:flex;flex-direction:column;gap:1px}
+.cc-put b{font-size:20px;font-weight:900;font-family:var(--head);color:var(--blue);font-variant-numeric:tabular-nums}
+.cc-put span{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.era-cta{margin-top:18px}
+html[data-theme="dark"] .cc-row{background:#182842;border-color:var(--line)}
+html[data-theme="dark"] .cc-name{color:#e8edf5}
+html[data-theme="dark"] .cc-viz{background:#0a1626}
+@media(max-width:760px){.cc-row{grid-template-columns:1fr;gap:10px}.cc-viz{min-height:80px}}
 </style>
 </head>
 <body data-page="cases" data-metrika="XXXXXXXX">
@@ -179,17 +197,94 @@ html[data-theme="dark"] .f-chip{background:#142236;border-color:var(--line);colo
     </a>
   </div>
 
-  <div class="tier-label" style="margin-top:8px">Tier 2 · Кейсы</div>
+  <div class="tier-label" style="margin-top:8px">Tier 2 · Путь и результат</div>
 
-  <div class="cases-toolbar">
-    <div class="cases-search">
-      <span class="ic" aria-hidden="true">🔍</span>
-      <input type="search" id="caseSearch" placeholder="Поиск по компании или кейсу…" aria-label="Поиск по кейсам">
+  <!-- Эпоха 1: Цифровая трансформация и ИИ -->
+  <section class="era" style="--era:#0b3f8f">
+    <div class="era-head"><span class="era-tag">2024 → наст. вр.</span><h2 class="era-title">Эпоха цифровой трансформации и ИИ</h2></div>
+    <p class="era-desc">Цифровая стратегия, ИИ-инструменты и перезапуск бэк-офисов лично как лидер.</p>
+    <div class="cc-list">
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2026</span><span class="cc-name">R-Vision</span><span class="cc-role">Руководитель отдела цифровизации</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="R-Vision: 2 месяца"><rect x="10" y="20" width="70" height="28" rx="8" fill="#22c55e"/><text x="45" y="39" text-anchor="middle" font-size="13" font-weight="900" fill="#04260f">2 мес.</text><text x="95" y="39" font-size="10" font-weight="800" fill="#cbd5e1">6–12</text><text x="12" y="62" font-size="9" fill="#aab4c0" font-weight="700">×3 быстрее</text></svg></div>
+        <div class="cc-put"><b>21</b><span>ИИ-ассистент</span></div>
+        <div class="cc-put"><b>76</b><span>use-кейсов</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2024–26</span><span class="cc-name">ЕЦП · ГосТех · МинЦифры</span><span class="cc-role">Архитектор цифровой трансформации</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="ЕЦП: SLA 5 минут"><rect x="8" y="20" width="38" height="28" rx="7" fill="#4a9eff"/><text x="27" y="39" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">ЕЦП</text><line x1="49" y1="34" x2="72" y2="34" stroke="#22c55e" stroke-width="2"/><rect x="75" y="20" width="38" height="28" rx="7" fill="#1d6fe0"/><text x="94" y="39" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">СЦ</text><text x="12" y="62" font-size="9" fill="#aab4c0" font-weight="700">SLA 5 мин</text></svg></div>
+        <div class="cc-put"><b>4</b><span>регламента</span></div>
+        <div class="cc-put"><b>11</b><span>ролей</span></div>
+      </div>
     </div>
-    <div class="cases-filters" id="caseFilters" role="group" aria-label="Фильтр по отрасли"></div>
-  </div>
+    <a class="btn p era-cta" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a>
+  </section>
 
-  <div class="cases-grid" id="casesGrid" aria-live="polite"></div>
+  <!-- Эпоха 2: Консалтинг и стратегия -->
+  <section class="era" style="--era:#0e7490">
+    <div class="era-head"><span class="era-tag">2019 → 2024</span><h2 class="era-title">Эпоха консалтинга и стратегии</h2></div>
+    <p class="era-desc">Централизация ИТ в АЛРОСА и консалтинг по стратегии в Accenture/Axenix.</p>
+    <div class="cc-list">
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2022–24</span><span class="cc-name">Axenix / Accenture</span><span class="cc-role">Senior IT Strategy Consultant</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="ROI от 4 месяцев"><polygon points="20,55 45,30 70,14 95,30 120,55" fill="none" stroke="#22c55e" stroke-width="3"/><polyline points="20,55 45,30 70,14 95,30 120,55" fill="none" stroke="rgba(34,197,94,.15)" stroke-width="9" stroke-linejoin="round"/><text x="70" y="67" text-anchor="middle" font-size="10" font-weight="800" fill="#22c55e">ROI от 4 мес.</text></svg></div>
+        <div class="cc-put"><b>6</b><span>отраслей</span></div>
+        <div class="cc-put"><b>250–400</b><span>млн ₽/год</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2021–22</span><span class="cc-name">MERLION</span><span class="cc-role">Методология и отчётность</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="MERLION: SLA 90%, T2M -40%"><rect x="10" y="45" width="120" height="12" rx="6" fill="#2a3a55"/><rect x="10" y="45" width="108" height="12" rx="6" fill="#22c55e"/><text x="14" y="60" font-size="9" fill="#aab4c0" font-weight="700">SLA 90%</text><text x="120" y="60" text-anchor="end" font-size="9" font-weight="800" fill="#22c55e">T2M −40%</text></svg></div>
+        <div class="cc-put"><b>~700</b><span>чел. KPI</span></div>
+        <div class="cc-put"><b>90%</b><span>SLA</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2019–21</span><span class="cc-name">АЛРОСА</span><span class="cc-role">Главный эксперт аппарата управления</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="АЛРОСА: NPS 7,46 к 8,76"><text x="12" y="26" font-size="16" font-weight="900" fill="#8ab0ef">7,46</text><line x1="12" y1="36" x2="128" y2="36" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/><text x="128" y="50" text-anchor="end" font-size="18" font-weight="900" fill="#22c55e">8,76</text></svg></div>
+        <div class="cc-put"><b>100+</b><span>специалистов</span></div>
+        <div class="cc-put"><b>NPS ↑</b><span>7,46→8,76</span></div>
+      </div>
+    </div>
+    <a class="btn p era-cta" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a>
+  </section>
+
+  <!-- Эпоха 3: 1С и операционное управление -->
+  <section class="era" style="--era:#5b6b7c">
+    <div class="era-head"><span class="era-tag">2011 → 2019</span><h2 class="era-title">Эпоха 1С и операционного управления</h2></div>
+    <p class="era-desc">Фундамент: от программиста 1С до директора департамента эксплуатации.</p>
+    <div class="cc-list">
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2017–19</span><span class="cc-name">ПСБ-ФИНАНС</span><span class="cc-role">Директор департамента эксплуатации ИС</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="ПСБ: минус 47% обращений"><polyline points="10,25 40,28 70,34 100,44 130,58" fill="none" stroke="#cbd5e1" stroke-width="2"/><polyline points="10,30 40,31 70,38 100,52 130,66" fill="none" stroke="#4a9eff" stroke-width="2.5"/><text x="118" y="22" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">−47%</text></svg></div>
+        <div class="cc-put"><b>−47%</b><span>обращений</span></div>
+        <div class="cc-put"><b>29</b><span>специалистов</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2015–17</span><span class="cc-name">SUNLIGHT</span><span class="cc-role">Руководитель техподдержки</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="SUNLIGHT: 260 ТТ"><g fill="#1d6fe0"><circle cx="30" cy="34" r="9"/><circle cx="60" cy="34" r="9"/><circle cx="90" cy="34" r="9"/></g><circle cx="120" cy="34" r="9" fill="#e3e9f0"/><text x="45" y="60" font-size="9" fill="#aab4c0" font-weight="700">260 ТТ/сутки</text></svg></div>
+        <div class="cc-put"><b>260</b><span>ТТ</span></div>
+        <div class="cc-put"><b>42</b><span>специалиста</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2013–15</span><span class="cc-name">Дельта</span><span class="cc-role">Руководитель отдела разработки</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="Дельта: 25 человек"><circle cx="70" cy="30" r="16" fill="none" stroke="#1d6fe0" stroke-width="3"/><text x="70" y="35" text-anchor="middle" font-size="13" font-weight="900" fill="#1d6fe0">25</text><text x="70" y="56" text-anchor="middle" font-size="9" fill="#aab4c0" font-weight="700">чел. команда</text></svg></div>
+        <div class="cc-put"><b>25</b><span>чел.</span></div>
+        <div class="cc-put"><b>ITSM</b><span>ManageEngine</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2012–13</span><span class="cc-name">Инженер-Центр</span><span class="cc-role">Программист 1С</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="Инженер-Центр: 32 базы"><rect x="10" y="14" width="120" height="12" rx="6" fill="#9aa7b8"/><rect x="10" y="14" width="120" height="12" rx="6" fill="#4a9eff"/><text x="14" y="24" font-size="9" font-weight="900" fill="#fff">32 базы → 8.2</text><text x="12" y="50" font-size="9" fill="#aab4c0" font-weight="700">0 потерь</text></svg></div>
+        <div class="cc-put"><b>32</b><span>базы</span></div>
+        <div class="cc-put"><b>0</b><span>потерь</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-meta"><span class="cc-yr">2011–12</span><span class="cc-name">Вооружённые силы РФ</span><span class="cc-role">Командир отделения</span></div>
+        <div class="cc-viz"><svg viewBox="0 0 140 70" role="img" aria-label="ВС РФ: 15 человек"><g fill="#8b99ad"><circle cx="30" cy="32" r="8"/><circle cx="55" cy="32" r="8"/><circle cx="80" cy="32" r="8"/><circle cx="105" cy="32" r="8"/></g><circle cx="122" cy="32" r="8" fill="#e3e9f0"/><text x="70" y="58" text-anchor="middle" font-size="9" fill="#aab4c0" font-weight="700">15 человек · готовность</text></svg></div>
+        <div class="cc-put"><b>15</b><span>чел.</span></div>
+        <div class="cc-put"><b>—</b><span>дисциплина</span></div>
+      </div>
+    </div>
+    <a class="btn p era-cta" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a>
+  </section>
 
   <div class="mt-actions" style="margin-top:26px">
     <a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a>
@@ -216,58 +311,6 @@ html[data-theme="dark"] .f-chip{background:#142236;border-color:var(--line);colo
 <script src="js/reveal.js"></script>
 <script src="js/lightbox.js"></script>
 <script src="js/portfolio.js"></script>
-<script>
-(function(){
-'use strict';
-var $=function(id){return document.getElementById(id);};
-/* ===== Данные кейсов (все сохранены): name, ind, year, file, title, line, metric+unit+cls ===== */
-var CASES=[
- {name:'R-Vision',ind:'ИТ-интегратор',year:'2026',file:'case-w8.html',title:'Перезапуск бэк-офиса за 2 месяца',line:'Аудит 9+ департаментов, ИИ-атлас',num:'2',unit:'мес.',cls:'good'},
- {name:'ЕЦП · ГосТех',ind:'Госсектор',year:'2024–26',file:'case-w7.html',title:'Единый обмен ЕЦП ↔ ФГИС СЦ',line:'Регламенты уровня Минцифры',num:'5',unit:'мин SLA',cls:'good'},
- {name:'MERLION',ind:'ИТ-холдинг',year:'2021–22',file:'case-w12.html',title:'KPI на весь ИТ-блок холдинга',line:'SLA 90%, ~700 человек',num:'−40%',unit:'Time2Market',cls:''},
- {name:'АЛРОСА',ind:'Добыча',year:'2019–21',file:'case-w9.html',title:'Централизация ИТ и рост NPS',line:'100+ специалистов',num:'7,46→8,76',unit:'NPS',cls:'good'},
- {name:'ПСБ-ФИНАНС',ind:'Финансы',year:'2017–19',file:'case-w10.html',title:'Эксплуатация как сервис',line:'1С:ITIL, команда 29 чел.',num:'−47%',unit:'обращений',cls:''},
- {name:'SUNLIGHT',ind:'Ритейл',year:'2015–17',file:'case-w11.html',title:'Поддержка 260 торговых точек',line:'SLA/OLA/UC, Zabbix',num:'260',unit:'ТТ в сутки',cls:''},
- {name:'Дельта',ind:'ИТ-услуги',year:'2013–15',file:'case-w13.html',title:'Отдел разработки и сопровождения',line:'Служба качества, ITSM',num:'25',unit:'чел. команда',cls:''},
- {name:'Инженер-Центр',ind:'ИТ-услуги',year:'2012–13',file:'case-w14.html',title:'Перенос 32 баз 1С без потерь',line:'Платформа 7.7 → 8.2',num:'32',unit:'базы',cls:''},
- {name:'Вооружённые силы РФ',ind:'Управление',year:'2011–12',file:'case-w15.html',title:'Командир отделения',line:'Дисциплина, готовность',num:'15',unit:'человек',cls:''},
- {name:'Сбер R&D',ind:'Инновации',year:'',file:'case-w16.html',title:'Модель управления НИОКР',line:'Портфель инноваций',num:'портфель',unit:'НИОКР',cls:''},
- {name:'СОО в SRG',ind:'B2B-сервис',year:'2026',file:'case-w17.html',title:'Service Office с нуля',line:'COO, операции',num:'COO',unit:'с нуля',cls:''}
-];
-var IND=['ИТ-интегратор','Госсектор','ИТ-холдинг','Добыча','Финансы','Ритейл','ИТ-услуги','Управление','Инновации','B2B-сервис'];
-var activeInd=null, query='';
 
-function buildFilters(){
-  var f=$('caseFilters');
-  f.innerHTML='<button class="f-chip'+(activeInd?"":" on")+'" data-i="">Все</button>'+IND.map(function(i){return '<button class="f-chip'+((activeInd===i)?" on":"")+'" data-i="'+i+'">'+i+'</button>';}).join('');
-}
-
-function render(){
-  var grid=$('casesGrid');
-  var items=CASES.filter(function(c){
-    if(activeInd && c.ind!==activeInd) return false;
-    if(query && (c.name+' '+c.title).toLowerCase().indexOf(query.toLowerCase())<0) return false;
-    return true;
-  });
-  grid.innerHTML=items.map(function(c){
-    return '<article class="case-card">'
-      +'<div class="case-meta"><span>'+c.name+'</span><span>·</span><span>'+c.ind+'</span>'+(c.year?'<span>·</span><span>'+c.year+'</span>':'')+'</div>'
-      +'<h3 class="case-title">'+c.title+'</h3>'
-      +'<p class="case-line">'+c.line+'</p>'
-      +'<div class="case-metric '+c.cls+'"><span class="cm-num">'+c.num+'</span><span class="cm-unit">'+c.unit+'</span></div>'
-      +'<div class="case-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>'
-      +'<a href="'+c.file+'" data-nav data-track="open_case" aria-label="Открыть кейс '+c.name+'" style="position:absolute;inset:0;opacity:0"></a>'
-      +'</article>';
-  }).join('');
-}
-
-function bindUI(){
-  buildFilters();
-  $('caseFilters').addEventListener('click',function(e){ var b=e.target.closest('.f-chip'); if(!b)return; activeInd=b.dataset.i||null; buildFilters(); render(); });
-  $('caseSearch').addEventListener('input',function(){ query=this.value; render(); });
-}
-bindUI(); render();
-})();
-</script>
 </body>
 </html>
