@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Кейсы и работы · Александр Чевтаев</title>
-<meta name="description" content="Кейсы Александра Чевтаева: P&L-ответственность и измеримый результат 6 кейсов в 11 компаниях и 8 отраслях. Эффект 250–400 млн ₽/год, ROI 300%, окупаемость от 4 месяцев.">
+<title>Кейсы: от боли бизнеса до измеримого результата · Александр Чевтаев</title>
+<meta name="description" content="Кейсы Александра Чевтаева: перезапуск бэк-офиса за 2 месяца, SLA 90%, NPS 7,46→8,76, −47% обращений. P&L-ответственность и измеримый результат в 6 компаниях и 8 отраслях.">
+<meta name="keywords" content="кейсы ИТ, цифровая трансформация, R-Vision, ГосТех, MERLION, АЛРОСА, NIROI, P&L">
 <meta name="theme-color" content="#0f1e34">
 <link rel="canonical" href="https://alechev777.github.io/portfolio/cases.html">
 <meta property="og:type" content="website">
@@ -21,8 +22,8 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/pages.css">
-<link rel="stylesheet" href="css/print.css" media="print">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%20100'%3E%3Crect%20width%3D'100'%20height%3D'100'%20rx%3D'24'%20fill%3D'%231d6fe0'%2F%3E%3Ctext%20x%3D'50'%20y%3D'66'%20font-size%3D'52'%20font-weight%3D'900'%20fill%3D'white'%20text-anchor%3D'middle'%20font-family%3D'sans-serif'%3E%D0%A7%D0%90%3C%2Ftext%3E%3C%2Fsvg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Кейсы Александра Чевтаева","itemListElement":[{"@type":"ListItem","position":1,"name":"R-Vision"},{"@type":"ListItem","position":2,"name":"ЕЦП · ГосТех"},{"@type":"ListItem","position":3,"name":"MERLION"},{"@type":"ListItem","position":4,"name":"АЛРОСА"},{"@type":"ListItem","position":5,"name":"ПСБ-ФИНАНС"},{"@type":"ListItem","position":6,"name":"SUNLIGHT"}]}</script>
 <script>
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();
@@ -31,6 +32,75 @@
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
    ym(XXXXXXXX, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
 </script>
+<style>
+/* ===== кейсы: локальные стили (поверх темы) ===== */
+.cases-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 22px}
+.cases-search{flex:1;min-width:200px;position:relative}
+.cases-search input{width:100%;padding:11px 14px 11px 38px;border:1px solid #b8c4d2;border-radius:11px;font:600 14px var(--sans);color:var(--ink);background:var(--card)}
+.cases-search .ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.cases-filters{display:flex;gap:8px;flex-wrap:wrap}
+.f-chip{border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;transition:.15s;font-family:var(--sans)}
+.f-chip:hover{border-color:var(--blue);color:var(--blue)}
+.f-chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case-card{position:relative;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;opacity:0;transform:translateY(20px);animation:ccIn .45s ease forwards}
+.case-card.in{opacity:1;transform:none}
+@keyframes ccIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.case-card:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(15,30,52,.14);border-color:#c9dcf5}
+/* верхняя зона: слайдер было->стало */
+.case-viz{position:relative;height:190px;background:linear-gradient(135deg,#0f1e34,#1a2d45);overflow:hidden}
+.case-viz .side{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:opacity .25s}
+.case-viz .side .sv-l{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.case-viz .side .sv-v{font-size:40px;font-weight:900;font-family:var(--head);line-height:1}
+.case-viz .side.before{right:50%;left:0;background:rgba(120,120,120,.25);color:#d7dde6}
+.case-viz .side.after{left:50%;right:0;background:transparent;color:#fff}
+.case-viz .divider{position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.5);z-index:3;transform:translateX(-1px)}
+.case-viz .handle{position:absolute;top:50%;width:40px;height:40px;border-radius:50%;background:#22c55e;color:#04260f;display:grid;place-items:center;font-weight:900;font-size:15px;transform:translate(-50%,-50%);cursor:grab;z-index:4;box-shadow:0 4px 14px rgba(0,0,0,.4);user-select:none}
+.case-viz .handle:active{cursor:grabbing}
+.case-viz .lbl-before,.case-viz .lbl-after{position:absolute;top:12px;z-index:2;font-size:10px;font-weight:800;letter-spacing:.5px}
+.case-viz .lbl-before{left:14px;color:#aab4c0}
+.case-viz .lbl-after{right:14px;color:#7ddc9c}
+/* версия без слайдера (эффект-метрики) */
+.case-viz .metric-big{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:34px;color:#fff}
+.case-viz .metric-big .mb{display:flex;flex-direction:column;align-items:center;gap:4px}
+.case-viz .metric-big .mb b{font-size:38px;font-weight:900;font-family:var(--head);line-height:1;color:#fff}
+.case-viz .metric-big .mb span{font-size:11px;color:#aab4c0;text-transform:uppercase;letter-spacing:.5px}
+.case-viz .metric-big .arrow{color:#22c55e;font-size:30px;font-weight:900}
+/* тело */
+.case-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.case-meta{font-size:13px;color:var(--muted);font-weight:700;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.case-meta .dot{opacity:.4}
+.case-title{font-size:21px;font-weight:900;font-family:var(--head);letter-spacing:-.01em;line-height:1.2;color:var(--navy)}
+.case-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:2px}
+.case-step{padding:10px 11px;border-radius:12px;background:var(--surface-1,#f2f6fb);border:1px solid var(--line)}
+.case-step .st-l{font-size:10px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px}
+.case-step.p .st-l{color:#d97706}
+.case-step.s .st-l{color:var(--blue)}
+.case-step.r .st-l{color:#16a34a}
+.case-step p{font-size:12.5px;line-height:1.45;color:#37475c}
+.case-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.metric-chip{font-size:14px;font-weight:900;color:#16a34a;background:#e7f6e9;border:1px solid #c8ecd0;padding:6px 11px;border-radius:10px;font-family:var(--head)}
+.metric-chip.dark{color:var(--blue);background:#e8f0fb;border-color:#c9dcf5}
+.metric-chip.neu{color:#b45309;background:#fdf6e3;border-color:#f0e0b8}
+.case-cta{margin-top:12px;display:flex;align-items:center;justify-content:space-between}
+.case-cta .btn{font-size:13px}
+.case-cta .go{color:var(--muted);font-size:13px;font-weight:700}
+.case-card a.link-cover{position:absolute;inset:0;z-index:5;opacity:0}
+/* тёмная тема */
+html[data-theme="dark"] .cases-search input{background:#1d2f4a;border-color:rgba(255,255,255,.3);color:var(--ink)}
+html[data-theme="dark"] .case-step{background:#182842;border-color:var(--line)}
+html[data-theme="dark"] .case-step p{color:#c6d2e4}
+html[data-theme="dark"] .case-title{color:#e8edf5}
+html[data-theme="dark"] .metric-chip{color:#7ddc9c;background:rgba(34,197,94,.14);border-color:rgba(34,197,94,.3)}
+html[data-theme="dark"] .metric-chip.dark{color:#7eb3ff;background:rgba(29,111,224,.16);border-color:rgba(29,111,224,.35)}
+html[data-theme="dark"] .metric-chip.neu{color:#f0c05a;background:rgba(240,192,90,.12);border-color:rgba(240,192,90,.3)}
+html[data-theme="dark"] .f-chip{background:#142236;border-color:var(--line);color:#aab4c0}
+/* адаптив */
+@media(max-width:880px){.cases-grid{grid-template-columns:1fr}.case-viz{height:170px}}
+@media(max-width:560px){.case-steps{grid-template-columns:1fr}.case-viz .side .sv-v{font-size:32px}.cases-filters{width:100%}}
+/* уменьшение motion */
+@media(prefers-reduced-motion:reduce){.case-card{animation:none;opacity:1;transform:none}}
+</style>
 </head>
 <body data-page="cases" data-metrika="XXXXXXXX">
 <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -57,269 +127,24 @@
   <div class="cases-head" id="cases-anchor">
     <span class="csh-tag">Кейсы и артефакты</span>
     <h1>Кейсы: от боли бизнеса до измеримого результата</h1>
-    <p>6 кейсов · 8 компаний · 8 отраслей · 15 лет. P&L-ответственность. Метрики, которые можно проверить.</p>
+    <p>11 проектов · 8 отраслей · 15 лет. P&L-ответственность. Метрики, которые можно проверить.</p>
   </div>
 
-  <!-- Tier 0 · Сводка портфеля -->
-  <div class="cases-t0" aria-label="Сводка портфеля">
-    <span class="t0-lbl">Портфель</span>
-    <span class="t0-box"><b>6</b>кейсов</span>
-    <span class="t0-box"><b>8</b>компаний</span>
-    <span class="t0-box"><b>8</b>отраслей</span>
-    <span class="t0-box"><b>15</b>лет</span>
-    <span class="t0-box"><b>+1,1 млрд ₽</b>совокупный эффект</span>
+  <div class="cases-toolbar">
+    <div class="cases-search">
+      <span class="ic" aria-hidden="true">🔍</span>
+      <input type="search" id="caseSearch" placeholder="Поиск по компании или кейсу…" aria-label="Поиск по кейсам">
+    </div>
+    <div class="cases-filters" id="caseFilters" role="group" aria-label="Фильтры отраслей"></div>
   </div>
+  <div class="cases-filters" id="typeFilters" role="group" aria-label="Фильтры типа" style="margin:-12px 0 20px"></div>
 
-  <div class="tier-label">Tier 1 · Живые продукты</div>
-  <div class="live-grid">
-    <a class="live-card live-atlas" href="artifact-a8.html"  data-nav>
-      <div class="live-head"><span class="live-badge">Live · HTML/JS</span><span class="live-arrow">↗</span></div>
-      <div class="live-body">
-        <h3>ИИ-атлас бэк-офиса</h3>
-        <p>Интерактивный граф всего бэк-офиса: 21 ИИ-ассистент, 76 use-кейсов, 16 домов процессов. Кликабельная навигация, фильтры, расчёт экономики.</p>
-        <div class="live-viz">
-          <svg viewBox="0 0 400 200" role="img" aria-label="Схема ИИ-атласа: уровни L0-L3">
-            <defs>
-              <radialGradient id="t2-atlasNG1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#5cf0a4"/><stop offset="100%" stop-color="#2fbf8f"/></radialGradient>
-              <radialGradient id="t2-atlasNG2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4fe0e6"/><stop offset="100%" stop-color="#19c3c9"/></radialGradient>
-              <radialGradient id="t2-atlasNG3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffd97a"/><stop offset="100%" stop-color="#f5c451"/></radialGradient>
-              <radialGradient id="t2-atlasNG4" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#a68ff8"/><stop offset="100%" stop-color="#8b6cf0"/></radialGradient>
-            </defs>
-            <g stroke="rgba(127,179,202,.28)" stroke-width="1.2" fill="none">
-              <line x1="70" y1="100" x2="160" y2="50"/><line x1="70" y1="100" x2="160" y2="100"/><line x1="70" y1="100" x2="160" y2="150"/>
-              <line x1="160" y1="50" x2="250" y2="75"/><line x1="160" y1="100" x2="250" y2="75"/><line x1="160" y1="100" x2="250" y2="125"/>
-              <line x1="160" y1="150" x2="250" y2="125"/><line x1="250" y1="75" x2="340" y2="100"/><line x1="250" y1="125" x2="340" y2="100"/>
-            </g>
-            <circle cx="70" cy="100" r="22" fill="url(#t2-atlasNG1)"/><text x="70" y="105" text-anchor="middle" font-size="11" font-weight="900" fill="#0e2850" font-family="Inter,sans-serif">L0</text>
-            <circle cx="160" cy="50" r="16" fill="url(#t2-atlasNG2)"/><text x="160" y="55" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
-            <circle cx="160" cy="100" r="16" fill="url(#t2-atlasNG2)"/><text x="160" y="105" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
-            <circle cx="160" cy="150" r="16" fill="url(#t2-atlasNG2)"/><text x="160" y="155" text-anchor="middle" font-size="9" font-weight="900" fill="#fff" font-family="Inter,sans-serif">L1</text>
-            <circle cx="250" cy="75" r="13" fill="url(#t2-atlasNG3)"/><circle cx="250" cy="125" r="13" fill="url(#t2-atlasNG3)"/><circle cx="340" cy="100" r="11" fill="url(#t2-atlasNG4)"/>
-            <text x="70" y="140" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7fb3ca" font-family="Inter,sans-serif">Ассистенты · 7</text>
-            <text x="250" y="165" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7fb3ca" font-family="Inter,sans-serif">Use-кейсы · 76</text>
-          </svg>
-        </div>
-        <div class="live-nums">
-          <div><b>21</b><span>ассистент</span></div>
-          <div><b>76</b><span>use-кейсов</span></div>
-          <div><b>≈41 млн ₽</b><span>портфель</span></div>
-        </div>
-      </div>
-    </a>
-    <a class="live-card live-kpi" href="kpi.html"  data-nav>
-      <div class="live-head"><span class="live-badge">Live · Калькулятор</span><span class="live-arrow">↗</span></div>
-      <div class="live-body">
-        <h3>KPI-калькулятор экономики ИТ</h3>
-        <p>Считает стоимость услуги, аллокацию затрат, ROI и окупаемость — той же логикой, что KPI-модель Казахмыс.</p>
-        <div class="live-viz">
-          <svg viewBox="0 0 400 200" role="img" aria-label="График ROI и окупаемости">
-            <defs>
-              <linearGradient id="kpiArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4ade80" stop-opacity=".45"/><stop offset="100%" stop-color="#4ade80" stop-opacity="0"/></linearGradient>
-              <linearGradient id="kpiArea2" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f5c451" stop-opacity=".35"/><stop offset="100%" stop-color="#f5c451" stop-opacity="0"/></linearGradient>
-            </defs>
-            <g stroke="rgba(255,255,255,.08)" stroke-width="1">
-              <line x1="40" y1="40" x2="380" y2="40"/><line x1="40" y1="80" x2="380" y2="80"/><line x1="40" y1="120" x2="380" y2="120"/><line x1="40" y1="160" x2="380" y2="160"/>
-            </g>
-            <line x1="40" y1="20" x2="40" y2="170" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
-            <line x1="40" y1="170" x2="380" y2="170" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
-            <path d="M40,160 L110,145 L180,120 L250,85 L320,55 L380,35 L380,170 L40,170 Z" fill="url(#kpiArea)"/>
-            <path d="M40,150 L110,148 L180,146 L250,142 L320,138 L380,132 L380,170 L40,170 Z" fill="url(#kpiArea2)"/>
-            <polyline points="40,160 110,145 180,120 250,85 320,55 380,35" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <polyline points="40,150 110,148 180,146 250,142 320,138 380,132" fill="none" stroke="#f5c451" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="180" cy="120" r="5" fill="#4ade80" stroke="#0a1a33" stroke-width="2"/>
-            <line x1="180" y1="120" x2="180" y2="170" stroke="#4ade80" stroke-dasharray="4 3" stroke-width="1.4" opacity=".7"/>
-            <text x="180" y="188" text-anchor="middle" font-size="10" font-weight="800" fill="#4ade80" font-family="Inter,sans-serif">ОКУП · 4-5 МЕС</text>
-            <text x="46" y="18" font-size="10" font-weight="800" fill="#4ade80" font-family="Inter,sans-serif">● ЭКОНОМИЯ</text>
-            <text x="150" y="18" font-size="10" font-weight="800" fill="#f5c451" font-family="Inter,sans-serif">● ЗАТРАТЫ</text>
-          </svg>
-        </div>
-        <div class="live-nums">
-          <div><b>3,0 млн ₽</b><span>затраты/мес</span></div>
-          <div><b>20%</b><span>ROI 1-й год</span></div>
-          <div><b>7,2 млн ₽</b><span>экономия/год</span></div>
-        </div>
-      </div>
-    </a>
-  </div>
+  <div class="cases-grid" id="casesGrid" aria-live="polite"></div>
 
-  <div class="tier-label" style="margin-top:26px">Tier 2 · Кейсы и артефакты</div>
-
-<article class="t2-card reveal" id="c-t0">
-    <a class="t2-link" href="case-w8.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#0e9bbf,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 9 L36 16 V30 L24 39 L12 30 V16 Z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 20 v8 M20 24 h8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">R-Vision</h2></div>
-      <p class="t2-ctx">ИТ-интегратор · перезапуск бэк-офиса · 2026 <span class="t2-badge pos">×3 быстрее</span></p>
-      <div class="t2-metrics"><span class="m2">2 мес.<small>результат</small></span>
-      <span class="m2">21<small>ИИ-ассистент</small></span>
-      <span class="m2">76<small>use-кейсов</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Бэк-офис без карты до аудита 9+ департаментов и ИИ-атласа. Итог: перезапуск за 2 мес.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t1">
-    <a class="t2-link" href="case-w7.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#6fb7ff,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="12" width="20" height="10" rx="2" fill="none" stroke="#fff" stroke-width="2.2"/><rect x="16" y="26" width="5" height="12" fill="#fff" opacity=".9"/><circle cx="12" cy="26" r="2.4" fill="#fff"/><polygon points="20,12 20,36" stroke="#fff" stroke-width="1.4" opacity=".4"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">ЕЦП · ГосТех · МинЦифры</h2></div>
-      <p class="t2-ctx">Госсектор · обмен ЕЦП ↔ ФГИС СЦ · 2024–26 <span class="t2-badge pos">SLA 5 мин</span></p>
-      <div class="t2-metrics"><span class="m2">4<small>регламента</small></span>
-      <span class="m2">11<small>ролей</small></span>
-      <span class="m2">SLA 5 мин<small>обмен</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Два контура без единой модели до матрицы статусов и регламентов. Итог: обмен ЕЦП ↔ ФГИС СЦ.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t2">
-    <a class="t2-link" href="case-w12.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#1d6fe0,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="14" width="8" height="8" rx="1.5" fill="#fff"/><rect x="30" y="14" width="8" height="8" rx="1.5" fill="#fff"/><rect x="10" y="28" width="8" height="8" rx="1.5" fill="#fff"/><rect x="30" y="28" width="8" height="8" rx="1.5" fill="#fff"/><g stroke="#fff" stroke-width="1.8" opacity=".6"><line x1="18" y1="18" x2="30" y2="18"/><line x1="14" y1="28" x2="14" y2="22"/><line x1="34" y1="28" x2="34" y2="22"/></g></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">MERLION</h2></div>
-      <p class="t2-ctx">ИТ-холдинг · KPI ~700 сотрудников · 2021–22 <span class="t2-badge neu">−40% T2M</span></p>
-      <div class="t2-metrics"><span class="m2">~700<small>чел. KPI</small></span>
-      <span class="m2">−40%<small>Time2Market</small></span>
-      <span class="m2">90%<small>SLA</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> KPI не полны до полной модели на весь ИТ-холдинг. Итог: SLA 90%, Time2Market −40%.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t3">
-    <a class="t2-link" href="case-w9.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#22c55e,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 10 L33 20 L27 36 L21 36 L15 20 Z" fill="#fff" opacity=".92"/><path d="M24 10 L21 20 L24 36" stroke="#1a2d45" stroke-width="1"/><path d="M15 20 L27 36 L22 36 Z" fill="#22c55e" opacity=".5"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">АЛРОСА</h2></div>
-      <p class="t2-ctx">Добыча · Главный эксперт аппарата управления · 2019–21 <span class="t2-badge pos">100+</span></p>
-      <div class="t2-metrics"><span class="m2">100+<small>специалистов</small></span>
-      <span class="m2">NPS 7,46→8,76<small>рост</small></span>
-      <span class="m2">центр.<small>ИТ</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> ИТ разрознена до централизации 100+ специалистов. Итог: NPS 7,46 → 8,76.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t4">
-    <a class="t2-link" href="case-w10.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#4a9eff,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="13" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M14 26 h10 v3 M24 20 l8 8" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">ПСБ-ФИНАНС</h2></div>
-      <p class="t2-ctx">Финансы · Директор департамента эксплуатации · 2017–19 <span class="t2-badge pos">−47%</span></p>
-      <div class="t2-metrics"><span class="m2">−47%<small>обращений</small></span>
-      <span class="m2">29<small>специалистов</small></span>
-      <span class="m2">1С:ITIL<small>внедрён</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Разрозненная эксплуатация до 1С:ITIL и команды 29 чел. Итог: −47% обращений.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t5">
-    <a class="t2-link" href="case-w11.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#0e7490,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="25" r="6" fill="#fff"/><g stroke="#fff" stroke-width="2.2" stroke-linecap="round"><line x1="24" y1="10" x2="24" y2="15"/><line x1="10" y1="25" x2="15" y2="25"/><line x1="24" y1="35" x2="24" y2="40"/><line x1="33" y1="25" x2="38" y2="25"/><line x1="15" y1="16" x2="18" y2="19"/><line x1="30" y1="31" x2="33" y2="34"/></g></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">SUNLIGHT</h2></div>
-      <p class="t2-ctx">Ритейл · Руководитель техподдержки · 2015–17 <span class="t2-badge pos">260 ТТ</span></p>
-      <div class="t2-metrics"><span class="m2">260<small>ТТ в сутки</small></span>
-      <span class="m2">42<small>специалиста</small></span>
-      <span class="m2">SLA/OLA<small>модель</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Хаотичная поддержка до SLA/OLA/UC и Zabbix. Итог: 260 ТТ на 42 специалистов.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t6">
-    <a class="t2-link" href="case-w13.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#6d4fa0,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#fff" stroke-width="2.2"/><g stroke="#fff" stroke-width="2.2" stroke-linecap="round"><line x1="24" y1="10" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="38"/><line x1="10" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="38" y2="24"/></g><path d="M10 24 h4 v2 h2 v2 h16 v-2 h2 v-3 h2" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">Дельта</h2></div>
-      <p class="t2-ctx">ИТ · Разработка и сопровождение ИС · 2013–15</p>
-      <div class="t2-metrics"><span class="m2">25<small>чел. в команде</small></span>
-      <span class="m2">ITSM<small>ManageEngine</small></span>
-      <span class="m2">качество<small>HR/АХО</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Разрозненные системы до отдела разработки и Службы качества.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t7">
-    <a class="t2-link" href="case-w14.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#5b97ec,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><polyline points="13,30 19,22 24,22 29,12 35,12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><line x1="13" y1="34" x2="35" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">Инженер-Центр</h2></div>
-      <p class="t2-ctx">ИТ · Программист 1С · 2012–13</p>
-      <div class="t2-metrics"><span class="m2">32<small>базы 7.7→8.2</small></span>
-      <span class="m2">1С<small>конфигурации</small></span>
-      <span class="m2">0<small>потерь</small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Устаревшие базы 7.7 до переноса 32 баз на 8.2 без потерь.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-t8">
-    <a class="t2-link" href="case-w15.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#8b99ad,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 10 L33 19 L29 19 L29 38 L19 38 L19 19 L15 19 Z" fill="#fff" opacity=".9"/><path d="M17 15 l14 0" stroke="#fff" stroke-width="2.2"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">Вооружённые силы РФ</h2></div>
-      <p class="t2-ctx">Управление · Командир отделения · 2011–12</p>
-      <div class="t2-metrics"><span class="m2">15<small>чел. команда</small></span>
-      <span class="m2">дисциплина<small>готовность</small></span>
-      <span class="m2">—<small></small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Управление отделением до 15 человек, дисциплина и готовность.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-
-  <div class="tier-label" style="margin-top:22px">Доп. проекты и роли</div>
-
-<article class="t2-card reveal" id="c-x0">
-    <a class="t2-link" href="case-w16.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#1d6fe0,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 10 C30 18 30 26 24 34 C18 26 18 18 24 10 Z" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="24" cy="22" r="4" fill="#fff"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">Сбер R&D</h2></div>
-      <p class="t2-ctx">Инновации · Модель управления НИОКР</p>
-      <div class="t2-metrics"><span class="m2">портфель<small>НИОКР</small></span>
-      <span class="m2">модель<small>управления</small></span>
-      <span class="m2">—<small></small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Построение модели управления инновациями и портфелем НИОКР.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-<article class="t2-card reveal" id="c-x1">
-    <a class="t2-link" href="case-w17.html" data-nav data-track="open_case" aria-label="Открыть кейс"></a>
-    <div class="t2-viz" style="background:linear-gradient(135deg,#e0a541,#1a2d45)">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><polyline points="10,30 18,22 24,25 30,16 38,18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><line x1="10" y1="34" x2="38" y2="34" stroke="#fff" stroke-width="2"/></svg>
-    </div>
-    <div class="t2-body">
-      <div class="t2-top"><h2 class="t2-name">СОО в SRG</h2></div>
-      <p class="t2-ctx">B2B · Service Office Operations с нуля · 2026 <span class="t2-badge neu">COO</span></p>
-      <div class="t2-metrics"><span class="m2">операции<small>с нуля</small></span>
-      <span class="m2">сервис<small>офис</small></span>
-      <span class="m2">—<small></small></span></div>
-      <p class="t2-flow"><b>Было → Стало:</b> Выстраивание Service Office Operations подразделения с нуля.</p>
-      <div class="t2-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a></div>
-    </div>
-  </article>
-
-<div class="mt-actions" style="margin-top:22px">
+  <div class="mt-actions" style="margin-top:28px">
     <a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу →</a>
     <a class="btn gh" href="contact.html" data-nav data-track="cta-contact">Запросить черновик артефакта →</a>
   </div>
-
-
-
 </div>
 </div>
 </main>
@@ -341,5 +166,157 @@
 <script src="js/reveal.js"></script>
 <script src="js/lightbox.js"></script>
 <script src="js/portfolio.js"></script>
+<script>
+(function(){
+'use strict';
+/* ===== Данные кейсов (сохранены все из исходной версии) =====
+  was/still: два состояния для слайдера «было→стало»
+  когда нет пары чисел — показываем metric-big (эффект-метрики) */
+var CASES=[
+ {name:'R-Vision',ind:'ИТ-интегратор',year:'2026',type:'трансформация',file:'case-w8.html',
+  title:'Перезапуск бэк-офиса за 2 месяца',pair:true,before:'≤3 мес.',after:'2 мес.',
+  problem:'Бэк-офис без карты процессов, россыпь' ,solution:'Аудит 9+ департаментов, ИИ-атлас',result:'Перезапуск за 2 мес.',
+  metrics:['×3 быстрее','21 ИИ-ассистент','76 use-кейсов']},
+ {name:'ЕЦП · ГосТех',ind:'Госсектор',year:'2024–26',type:'трансформация',file:'case-w7.html',
+  title:'Единый обмен ЕЦП ↔ ФГИС СЦ',pair:false,m1:'SLA 5 мин',m2:'11 ролей',
+  problem:'Два контура без единой модели обмена',solution:'4 регламента, матрица статусов',result:'Обмен на уровне Минцифры',
+  metrics:['4 регламента','11 ролей','SLA 5 мин']},
+ {name:'MERLION',ind:'ИТ-холдинг',year:'2021–22',type:'внедрение',file:'case-w12.html',
+  title:'KPI на весь ИТ-блок холдинга',pair:false,m1:'~700 чел.',m2:'SLA 90%',
+  problem:'KPI не покрывали ИТ-функцию',solution:'Модель KPI на ~700 человек',result:'SLA 90%, T2M −40%',
+  metrics:['~700 чел.','−40% T2M','90% SLA']},
+ {name:'АЛРОСА',ind:'Добыча',year:'2019–21',type:'трансформация',file:'case-w9.html',
+  title:'Централизация ИТ и рост NPS',pair:true,before:'NPS 7,46',after:'8,76',
+  problem:'ИТ разрознена, нет единого сервиса',solution:'Централизация 100+ специалистов',result:'NPS 7,46 → 8,76',
+  metrics:['100+ специалистов','NPS +1,3 пункта']},
+ {name:'ПСБ-ФИНАНС',ind:'Финансы',year:'2017–19',type:'внедрение',file:'case-w10.html',
+  title:'Эксплуатация как сервис',pair:true,before:'100% обращений',after:'−47%',
+  problem:'Разрозненная эксплуатация ИС',solution:'1С:ITIL, команда 29 чел.',result:'−47% обращений',
+  metrics:['−47% обращений','29 специалистов','1С:ITIL']},
+ {name:'SUNLIGHT',ind:'Ритейл',year:'2015–17',type:'внедрение',file:'case-w11.html',
+  title:'Поддержка 260 торговых точек',pair:false,m1:'260 ТТ',m2:'42 специалиста',
+  problem:'Хаотичная поддержка ритейла',solution:'SLA/OLA/UC, Zabbix',result:'260 ТТ на 42 специалиста',
+  metrics:['260 ТТ/сутки','42 специалиста','SLA/OLA']},
+ {name:'Дельта',ind:'ИТ-услуги',year:'2013–15',type:'внедрение',file:'case-w13.html',
+  title:'Отдел разработки и сопровождения',pair:false,m1:'25 чел.',m2:'ITSM',
+  problem:'Разрозненные системы',solution:'Отдел разработки + Служба качества',result:'Централизованная разработка',
+  metrics:['25 человек','ITSM','качество']},
+ {name:'Инженер-Центр',ind:'ИТ-услуги',year:'2012–13',type:'внедрение',file:'case-w14.html',
+  title:'Перенос 32 баз 1С без потерь',pair:false,m1:'7.7 → 8.2',m2:'0 потерь',
+  problem:'Устаревшие базы 1С 7.7',solution:'Перенос на платформу 8.2',result:'32 базы мигрированы',
+  metrics:['32 базы','7.7→8.2','0 потерь']},
+ {name:'Вооружённые силы РФ',ind:'Управление',year:'2011–12',type:'внедрение',file:'case-w15.html',
+  title:'Командир отделения',pair:false,m1:'15 чел.',m2:'готовность',
+  problem:'Управление личным составом',solution:'Дисциплина, готовность',result:'Крепкое отделение',
+  metrics:['15 человек','дисциплина','готовность']},
+ {name:'Сбер R&D',ind:'Инновации',year:'',type:'стратегия',file:'case-w16.html',
+  title:'Модель управления НИОКР',pair:false,m1:'портфель',m2:'модель',
+  problem:'Нет модели инноваций',solution:'Портфель НИОКР',result:'Управляемые инновации',
+  metrics:['портфель НИОКР','модель','—']},
+ {name:'СОО в SRG',ind:'B2B-сервис',year:'2026',type:'стратегия',file:'case-w17.html',
+  title:'Service Office с нуля',pair:false,m1:'операции',m2:'сервис',
+  problem:'Нет сервисного офиса',solution:'Выстраивание операций',result:'Работающий Office',
+  metrics:['COO','operations','с нуля']}
+];
+
+/* ===== Фильтры: отрасли и типы ===== */
+var IND=['ИТ-интегратор','Госсектор','ИТ-холдинг','Добыча','Финансы','Ритейл','ИТ-услуги','Управление','Инновации','B2B-сервис'];
+var TYPES=['стратегия','внедрение','трансформация'];
+var activeInd=null, activeType=null, query='';
+
+function buildFilters(){
+  var f=$('caseFilters'); f.innerHTML='<button class="f-chip'+(activeInd?"":" on")+'" data-i="">Все отрасли</button>'+IND.map(function(i){return '<button class="f-chip'+((activeInd===i)?" on":"")+'" data-i="'+i+'">'+i+'</button>';}).join('');
+  var t=$('typeFilters'); t.innerHTML='<button class="f-chip'+(activeType?"":" on")+'" data-t="">Тип: любой</button>'+TYPES.map(function(i){return '<button class="f-chip'+((activeType===i)?" on":"")+'" data-t="'+i+'">'+i+'</button>';}).join('');
+}
+
+/* ===== Рендер карточек (данные выше) ===== */
+function render(){
+  var grid=$('casesGrid'); if(!grid) return;
+  /* фильтр по запросу */
+  var items=CASES.filter(function(c){
+    if(activeInd && c.ind!==activeInd) return false;
+    if(activeType && c.type!==activeType) return false;
+    if(query && (c.name+' '+c.title+' '+c.ind).toLowerCase().indexOf(query.toLowerCase())<0) return false;
+    return true;
+  });
+  grid.innerHTML=items.map(function(c,i){
+    return cardHTML(c,i);
+  }).join('');
+  /* активировать слайдеры */
+  items.forEach(function(c){
+    if(c.pair){ initSlider('slider_'+slug(c.name)); }
+  });
+}
+function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-'); }
+
+function cardHTML(c,i){
+  var viz;
+  if(c.pair){
+    /* слайдер было→стало */
+    viz='<div class="case-viz" id="slider_'+slug(c.name)+'" role="slider" aria-label="Слайдер было-стало: '+c.name+'" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">'
+      +'<div class="side before"><span class="sv-l">Было</span><span class="sv-v">'+c.before+'</span></div>'
+      +'<div class="side after"><span class="sv-l">Стало</span><span class="sv-v">'+c.after+'</span></div>'
+      +'<div class="lbl-before">БЫЛО</div><div class="lbl-after">СТАЛО</div>'
+      +'<div class="divider" style="left:50%"></div><div class="handle" style="left:50%">↔</div></div>';
+  } else {
+    /* эффект-метрики */
+    viz='<div class="case-viz"><div class="metric-big">'
+      +'<div class="mb"><b>'+c.m1+'</b><span>было</span></div>'
+      +'<span class="arrow" aria-hidden="true">→</span>'
+      +'<div class="mb"><b>'+c.m2+'</b><span>стало</span></div></div>'
+      +'<div class="lbl-after" style="top:12px;right:14px">РОСТ/ЭФФЕКТ</div></div>';
+  }
+  return '<article class="case-card" id="card-'+slug(c.name)+'">'
+    +'<a class="link-cover" href="'+c.file+'" data-nav data-track="open_case" aria-label="Открыть кейс '+c.name+'"></a>'
+    +viz
+    +'<div class="case-body">'
+    +'<div class="case-meta"><span>'+c.name+'</span><span class="dot">·</span><span>'+c.ind+'</span>'+(c.year?'<span class="dot">·</span><span>'+c.year+'</span>':'')+'</div>'
+    +'<h3 class="case-title">'+c.title+'</h3>'
+    +'<div class="case-steps">'
+      +'<div class="case-step p"><div class="st-l">Проблема</div><p>'+c.problem+'</p></div>'
+      +'<div class="case-step s"><div class="st-l">Решение</div><p>'+c.solution+'</p></div>'
+      +'<div class="case-step r"><div class="st-l">Результат</div><p>'+c.result+'</p></div>'
+    +'</div>'
+    +'<div class="case-badges">'+c.metrics.map(function(m,i){ return '<span class="metric-chip'+(i===0?'':' dark')+'">'+m+'</span>'; }).join('')+'</div>'
+    +'<div class="case-cta"><a class="btn p" href="contact.html" data-nav data-track="cta-contact">Обсудить работу</a><span class="go">Подробнее ↗</span></div>'
+    +'</div></article>';
+}
+
+/* ===== Слайдер «было → стало» (чистый JS, перетаскивание) ===== */
+function initSlider(id){
+  var el=document.getElementById(id); if(!el) return;
+  var divide=el.querySelector('.divider'), handle=el.querySelector('.handle'), pct=50;
+  function setP(x){
+    var r=el.getBoundingClientRect(); pct=Math.max(6,Math.min(94,((x-r.left)/r.width)*100));
+    divide.style.left=pct+'%'; handle.style.left=pct+'%';
+    el.setAttribute('aria-valuenow',Math.round(pct));
+  }
+  function onMove(ev){ var cx=ev.touches?ev.touches[0].clientX:ev.clientX; setP(cx); }
+  function onStart(ev){ ev.preventDefault(); el.classList.add('dragging'); document.addEventListener(ev.touches?'touchmove':'mousemove',onMove); document.addEventListener(ev.touches?'touchend':'mouseup',onEnd); }
+  function onEnd(){ document.removeEventListener('mousemove',onMove); document.removeEventListener('mouseup',onEnd); document.removeEventListener('touchmove',onMove); document.removeEventListener('touchend',onEnd); el.classList.remove('dragging'); }
+  handle.addEventListener('mousedown',onStart); handle.addEventListener('touchstart',onStart,{passive:false});
+  /* клавиатура */
+  el.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){setP(((parseFloat(handle.style.left)||50)-10));}
+    else if(e.key==='ArrowRight'){setP(((parseFloat(handle.style.left)||50)+10));}
+  });
+}
+
+/* ===== биндинг фильтров/поиска ===== */
+var $=function(id){return document.getElementById(id);};
+function bindUI(){
+  buildFilters();
+  document.getElementById('caseFilters').addEventListener('click',function(e){
+    var b=e.target.closest('.f-chip'); if(!b) return; activeInd=b.dataset.i||null; buildFilters(); render();
+  });
+  document.getElementById('typeFilters').addEventListener('click',function(e){
+    var b=e.target.closest('.f-chip'); if(!b) return; activeType=b.dataset.t||null; buildFilters(); render();
+  });
+  $('caseSearch').addEventListener('input',function(){ query=this.value; render(); });
+}
+bindUI();
+render();
+})();
+</script>
 </body>
 </html>
