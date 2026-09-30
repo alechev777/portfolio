@@ -1097,3 +1097,6 @@ html[data-theme="dark"] .kpi-field .raw{border-color:rgba(255,255,255,.3)}
 .kpi-big .v{white-space:nowrap}
 @media (max-width:980px){.kpi-big{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.kpi-big{grid-template-columns:1fr}}
+
+/* отступ между текстом и CTA-кнопками в тизерах на главной */
+.kpi-teaser .btn,.atlas-teaser .btn{margin-top:12px}
