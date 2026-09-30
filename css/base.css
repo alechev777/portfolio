@@ -39,10 +39,12 @@
   --glass:rgba(255,255,255,.82);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
+html,body{max-width:100%;overflow-x:hidden}
 body{word-break:normal;overflow-wrap:break-word;-webkit-hyphens:manual;hyphens:none}
 body.menu-open{overflow:hidden}
 .wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+@media(max-width:560px){.wrap{padding:0 16px}}
 h1,h2,h3,.hero-name,.kpi-big .v,.dk b{font-family:var(--head)}
 h1{letter-spacing:-.03em;text-wrap:balance}
 h2{letter-spacing:-.02em}

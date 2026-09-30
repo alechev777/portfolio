@@ -408,3 +408,14 @@ html[data-theme="dark"] .matrix .cell{color:#c6d2e4}
 html[data-theme="dark"] .atlas-inline,html[data-theme="dark"] .atlas-frame{background:#142236}
 html[data-theme="dark"] .atlas-modal{background:rgba(6,12,22,.94)}
 html[data-theme="dark"] .case .co,html[data-theme="dark"] .case2 .co{color:var(--ink,#e8edf5)}
+
+/* ===== Адаптивность: очень узкие экраны (<=400px) ===== */
+@media(max-width:400px){
+  .hero{padding:20px 14px}
+  .hero-grid{gap:16px}
+  .hero h1{font-size:23px}
+  .hero .lead{font-size:14.5px}
+  .hero-name{font-size:22px}
+  .hero-photo .ph{height:min(320px,68vw)}
+  .hero-badge{font-size:10px}
+}
