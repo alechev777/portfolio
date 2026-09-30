@@ -1082,3 +1082,18 @@ html[data-theme="dark"] .kpi-field .raw{border-color:rgba(255,255,255,.3)}
 .kpi-res-card .kr-v{font-size:clamp(24px,2.8vw,32px)}
 .kpi-res-card{padding:18px 14px}
 
+
+/* ============ Ревизия: LIVE бейдж и kpi-big ============ */
+/* #1 LIVE бейдж (atlas-teaser): контрастный, не сливается с тёмным фоном */
+.atlas-teaser .badge,.kpi-teaser .badge{
+  background:#22c55e !important;
+  color:#06281a !important;
+  border-color:rgba(255,255,255,.25) !important;
+}
+/* #2 kpi-big: текст не обрезается, карточки адаптивны */
+.kpi-big{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.kpi-big .kpi3{display:flex;flex-direction:column;min-width:0}
+.kpi-big .l,.kpi-big .d{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;text-align:left}
+.kpi-big .v{white-space:nowrap}
+@media (max-width:980px){.kpi-big{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.kpi-big{grid-template-columns:1fr}}
