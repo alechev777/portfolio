@@ -1100,3 +1100,21 @@ html[data-theme="dark"] .kpi-field .raw{border-color:rgba(255,255,255,.3)}
 
 /* отступ между текстом и CTA-кнопками в тизерах на главной */
 .kpi-teaser .btn,.atlas-teaser .btn{margin-top:12px}
+
+/* ===== Адаптивность: защита от обрезки текста в цифрах ===== */
+.kpi-big .l,.kpi-big .d{overflow-wrap:break-word;word-break:break-word;white-space:normal}
+.kpi-mini{overflow:hidden}
+.kpi-mini b{white-space:nowrap}
+@media(max-width:600px){
+  .kpi-big .l{font-size:12px}
+  .kpi-big .v{font-size:26px}
+  .kpi-big .kpi3{padding:20px 18px}
+  .kpi-mini b{font-size:20px}
+  .kpi-mini{grid-template-columns:repeat(2,1fr);gap:8px;width:100%}
+}
+
+/* тизеры на узких экранах: снять жёсткую min-width, чтобы не было h-scroll */
+@media(max-width:560px){
+  .kpi-teaser>div,.atlas-teaser>div{min-width:0 !important}
+  .kpi-teaser,.atlas-teaser{gap:14px;flex-direction:column;align-items:flex-start}
+}
