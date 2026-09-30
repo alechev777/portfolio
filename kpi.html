@@ -89,6 +89,53 @@ html[data-theme="dark"] .kfi .inp{background:#1d2f4a;border-color:rgba(255,255,2
 html[data-theme="dark"] .kfi input[type=range]{background:#24334d}
 html[data-theme="dark"] .cmp-card{background:#182842;border-color:var(--line)}
 html[data-theme="dark"] .kfi-err{color:#fca5a5}
+/* ===== продакшн-доработки ===== */
+.tnum{font-variant-numeric:tabular-nums}
+.kpi-card .kc-v{font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi-top-strip{position:sticky;top:70px;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:-6px 0 18px;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm)}
+.kt-m{display:flex;flex-direction:column;gap:2px;padding:6px 10px;border-left:3px solid var(--blue);background:var(--surface-1,#f6f9fc);border-radius:10px}
+.kt-m .kt-v{font-size:clamp(16px,1.6vw,22px);font-weight:800;font-family:var(--head);color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
+.kt-m .kt-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.kpi-card{padding:16px 15px;border-radius:14px;gap:5px}
+.kpi-card .kc-top{display:flex;align-items:baseline;gap:6px;justify-content:space-between}
+.kpi-card .kc-val{display:flex;align-items:baseline;gap:3px;min-width:0}
+.kpi-card .kc-num{font-size:clamp(22px,2.8vw,34px);font-weight:800;font-family:var(--head);letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi-card .kc-unit{font-size:.62em;color:var(--muted);font-weight:700;white-space:nowrap}
+.kpi-card .kc-trend{font-size:15px;font-weight:900;color:#16a34a}
+.kpi-card .kc-delta{font-size:10.5px;color:var(--muted);font-weight:700;margin-top:2px}
+.kpi-card.good .kc-num{color:#16a34a}
+.kpi-card.warn .kc-num{color:#d97706}
+.kpi-card.bad .kc-num{color:#dc2626}
+.ktip-wrap{position:relative;display:inline-flex}
+.ktip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#0f1e34;color:#fff;font-size:12px;line-height:1.4;padding:6px 10px;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.3);width:max-content;max-width:240px;white-space:normal;opacity:0;pointer-events:none;transition:opacity .15s;z-index:60;text-align:left;font-weight:500}
+.ktip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0f1e34}
+.ktip-wrap:hover .ktip,.ktip-wrap:focus-within .ktip{opacity:1}
+html[data-theme="dark"] .ktip{background:#1d2f4a;border:1px solid rgba(255,255,255,.2)}
+html[data-theme="dark"] .ktip::after{border-top-color:#1d2f4a}
+.chart-tip{position:absolute;pointer-events:none;background:#0f1e34;color:#fff;font-size:12px;padding:6px 10px;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.3);opacity:0;transition:opacity .12s;z-index:50}
+.chart-tip b{color:#7eb3ff}
+html[data-theme="dark"] .chart-tip{background:#1d2f4a}
+.chartbox-pos{position:relative}
+.cmp-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.cmp-table th,.cmp-table td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left}
+.cmp-table th{color:var(--muted);font-weight:800;text-transform:uppercase;font-size:10px;letter-spacing:.4px}
+.cmp-table td.num{font-variant-numeric:tabular-nums;font-weight:700}
+.cmp-table .delta{color:var(--blue);font-weight:700}
+.cmp-table .rm{color:#dc2626;background:none;border:0;cursor:pointer;font-weight:900;font-size:14px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f1e34;color:#fff;padding:11px 20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transition:.25s;z-index:200;font-size:13px;font-weight:700}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+html[data-theme="dark"] .toast{background:#1d2f4a}
+details.exmpl{margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card)}
+details.exmpl summary{cursor:pointer;font-weight:800;color:var(--navy);font-family:var(--head);font-size:14px}
+details.exmpl p{font-size:13px;color:var(--muted);line-height:1.5;margin:8px 0}
+@media print {
+  .kpi-top-strip,.kpi-actions,.cmp-strip,.toast,.no-print{display:none!important}
+  body{background:#fff;color:#000}
+}
+@media(max-width:560px){.kpi-top-strip{grid-template-columns:repeat(2,1fr);top:0}.kt-m{padding:5px 8px}}
+
+.cmp-rm{margin-left:auto;border:1px solid var(--line);background:var(--surface-1,#f6f9fc);border-radius:8px;padding:4px 8px;cursor:pointer;font-size:13px}
+.cmp-rm:hover{border-color:#dc2626}
 </style>
 <script>
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -130,9 +177,16 @@ html[data-theme="dark"] .kfi-err{color:#fca5a5}
       <button type="button" class="btn gh" id="resetBtn">Сбросить всё</button>
       <button type="button" class="btn gh" id="saveScenBtn">Сохранить сценарий</button>
       <button type="button" class="btn gh" id="shareBtn">Поделиться ссылкой</button>
+      <button type="button" class="btn gh" id="printBtn">🖨 Скачать отчёт</button>
     </div>
   </div>
 
+  <div class="kpi-top-strip no-print" aria-label="Ключевые метрики">
+    <div class="kt-m"><span class="kt-v" id="st-roi">ROI</span><span class="kt-l">ROI за 1-й год</span></div>
+    <div class="kt-m"><span class="kt-v" id="st-pb">—</span><span class="kt-l">Окупаемость</span></div>
+    <div class="kt-m"><span class="kt-v" id="st-year">0 ₽</span><span class="kt-l">Экономия / год</span></div>
+    <div class="kt-m"><span class="kt-v" id="st-npv">0 ₽</span><span class="kt-l">NPV (3 года)</span></div>
+  </div>
   <div class="kpi-shell">
 
     <!-- ===== Левая колонка: ввод ===== -->
@@ -230,22 +284,24 @@ html[data-theme="dark"] .kfi-err{color:#fca5a5}
     <div class="kpi-col-out">
       <!-- KPI-плитки -->
       <div class="kpi-cards" aria-live="polite">
-        <div class="kpi-card"><span class="kc-tip" title="Годовая экономия / годовые затраты × 100%. Ограничено 150%.">?</span><div class="kc-v" id="k-roi">0%</div><div class="kc-l">ROI за 1-й год</div></div>
-        <div class="kpi-card"><span class="kc-tip" title="Затраты на услугу ÷ месячная экономия = срок возврата">?</span><div class="kc-v" id="k-pb">—</div><div class="kc-l">Окупаемость</div></div>
-        <div class="kpi-card good"><span class="kc-tip" title="Сумма экономии тарификации, ФОТ и простоев за год">?</span><div class="kc-v" id="k-year">0 ₽</div><div class="kc-l">Экономия / год</div></div>
-        <div class="kpi-card"><span class="kc-tip" title="Дисконтированная выгода за 3 года при ставке 10%">?</span><div class="kc-v" id="k-npv">0 ₽</div><div class="kc-l">NPV (3 года)</div></div>
+        <div class="kpi-card"><span class="ktip-wrap kc-tip" tabindex="0"><span class="kc-tip" aria-hidden="true">?</span><span class="ktip" id="tip-roi">Годовая экономия / годовые затраты × 100%. Ограничено 150%.</span></span><div class="kc-val"><span class="kc-num" id="k-roi">0</span><span class="kc-unit" id="k-roi-u">%</span></div><div class="kc-l">ROI за 1-й год</div><span class="kc-delta" id="k-roi-d">—</span></div>
+        <div class="kpi-card"><span class="ktip-wrap kc-tip" tabindex="0"><span class="kc-tip" aria-hidden="true">?</span><span class="ktip" id="tip-pb">Затраты на услугу ÷ месячная экономия = срок возврата</span></span><div class="kc-val"><span class="kc-num" id="k-pb">—</span><span class="kc-unit"></span></div><div class="kc-l">Окупаемость</div><span class="kc-delta" id="k-pb-d">—</span></div>
+        <div class="kpi-card good"><span class="ktip-wrap kc-tip" tabindex="0"><span class="kc-tip" aria-hidden="true">?</span><span class="ktip" id="tip-year">Сумма экономии тарификации, ФОТ и простоев за год</span></span><span class="kc-trend" id="k-year-t">↑</span><div class="kc-val"><span class="kc-num" id="k-year">0</span><span class="kc-unit" id="k-year-u">₽/год</span></div><div class="kc-l">Экономия / год</div></div>
+        <div class="kpi-card"><span class="ktip-wrap kc-tip" tabindex="0"><span class="kc-tip" aria-hidden="true">?</span><span class="ktip" id="tip-npv">Дисконтированная выгода за 3 года при ставке 10%</span></span><div class="kc-val"><span class="kc-num" id="k-npv">0</span><span class="kc-unit" id="k-npv-u">₽</span></div><div class="kc-l">NPV (3 года)</div></div>
       </div>
 
       <!-- График ROI по годам -->
-      <div class="kpi-chartbox">
+      <div class="kpi-chartbox chartbox-pos">
         <h4>ROI по годам</h4>
         <svg id="roiSvg" viewBox="0 0 620 200" role="img" aria-label="График ROI по годам"></svg>
+        <span class="chart-tip" id="roiTip"></span>
       </div>
 
       <!-- Чувствительность -->
-      <div class="kpi-chartbox">
+      <div class="kpi-chartbox chartbox-pos">
         <h4>Чувствительность ROI к загрузке</h4>
         <svg id="sensSvg" viewBox="0 0 620 210" role="img" aria-label="Bar chart чувствительности ROI"></svg>
+        <span class="chart-tip" id="sensTip"></span>
         <p class="kpi-sens-cap">ROI растёт с загрузкой нелинейно (эффект масштаба), базовые 70% выделены.</p>
       </div>
 
@@ -262,6 +318,12 @@ html[data-theme="dark"] .kfi-err{color:#fca5a5}
       </div>
     </div>
   </div>
+
+  <details class="exmpl no-print">
+    <summary>💡 Пример расчёта</summary>
+    <p><b>Исходные:</b> команда 1 000 000 ₽/мес, загрузка 70%, инфраструктура 250 000 ₽, лицензии 100 000 ₽, эффект тарифной модели 20%. Доп.: 8 специалистов, ФОТ 120 000 ₽, автоматизация 20%, простои 20 ч/квартал по 150 000 ₽/ч.</p>
+    <p><b>Как читать:</b> <b>ROI</b> — сколько процентов годовая экономия составляет от годовых затрат на услугу. <b>Окупаемость</b> — через сколько месяцев эффект покрывает стоимость услуги. <b>Экономия/год</b> — сумма эффекта тарификации, ФОТ и простоев. <b>NPV</b> — дисконтированная выгода за 3 года. ROI выше 150% показан как «&gt;150%»: модель не завышает реалистичную оценку.</p>
+  </details>
 </div>
 </div>
 </main>
@@ -279,6 +341,7 @@ html[data-theme="dark"] .kfi-err{color:#fca5a5}
 <div id="lbOverlay"><div id="lbStage"><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1200" height="800" alt="Увеличенное изображение"></div><button id="lbClose" aria-label="Закрыть увеличенное изображение">✕</button><button id="lbZoomIn" aria-label="Приблизить">＋</button><button id="lbZoomOut" aria-label="Отдалить">－</button><button id="lbReset" aria-label="Сбросить масштаб">⤢</button><div id="lbCap"></div></div>
 <button id="toTop" aria-label="Наверх" hidden>↑</button>
 <div id="progressBar" aria-hidden="true"></div>
+<div class="toast" id="toastEl" role="status" aria-live="polite"></div>
 <script src="js/router.js"></script>
 <script src="js/reveal.js"></script>
 <script src="js/lightbox.js"></script>
@@ -326,69 +389,110 @@ function compute(loadOverride, saveOverride){
     roi:roi,roiCapped:roiCapped,pb:pb,npv:npv,roiYears:roiYears,over150:roi>150};
 }
 
-/* ===== Форматирование ===== */
-function money(v){return Math.round(v).toLocaleString('ru-RU');}
-function moneyRp(v){return Math.round(v).toLocaleString('ru-RU')+' ₽';}
+/* ===== Форматирование чисел (Intl, компактно для больших) ===== */
+/* Кейсы: 0→"0", 1234→"1 234", 1234567→"1,2 млн", 1234567890→"1,2 млрд", -5000→"−5 000", 0.245→"0,25" */
+function formatNumber(v, opts){
+  opts=opts||{};
+  var abs=Math.abs(v);
+  var nf=new Intl.NumberFormat('ru-RU');
+  if(opts.compact && abs>=1000000 && abs<1000000000){ return nf.format(Math.round(v/10000)/100)+' млн'; }
+  if(opts.compact && abs>=1000000000){ return nf.format(Math.round(v/100000000)/100)+' млрд'; }
+  /* десятичные: до 2 знаков */
+  if(opts.decimals!=null){ return new Intl.NumberFormat('ru-RU',{minimumFractionDigits:0,maximumFractionDigits:opts.decimals}).format(v); }
+  return nf.format(Math.round(v));
+}
+function money(v){ return formatNumber(v,{compact:true}); }
+function moneyRp(v){ return formatNumber(v,{compact:true})+' ₽'; }
+/* компактные единицы по размеру */
+function moneyCompact(v){
+  var abs=Math.abs(v);
+  if(abs>=1000000000) return {n:formatNumber(v/1e9,{decimals:1}),u:'млрд ₽'};
+  if(abs>=1000000)    return {n:formatNumber(v/1e6,{decimals:1}),u:'млн ₽'};
+  if(abs>=1000)       return {n:formatNumber(v/1e3,{decimals:0}),u:'тыс. ₽'};
+  return {n:formatNumber(v),u:'₽'};
+}
 
-/* ===== Отрисовка KPI-плиток ===== */
+/* ===== Отрисовка KPI-плиток и sticky-метрик ===== */
 function drawKpis(d){
-  $('k-roi').textContent = d.over150 ? '>150%' : Math.round(d.roiCapped)+'%';
-  $('k-pb').textContent  = d.pb ? d.pb.toFixed(1)+' мес.' : '—';
-  $('k-year').textContent= moneyRp(d.total)+'/год';
-  $('k-npv').textContent = moneyRp(d.npv);
-  /* цветовая индикация */
+  /* ROI */
+  $('k-roi').textContent = d.over150 ? '>150' : formatNumber(d.roiCapped);
+  $('k-roi-u').textContent = '%';
+  $('st-roi').textContent = d.over150 ? '>150%' : formatNumber(d.roiCapped)+'%';
+  /* окупаемость */
+  $('k-pb').textContent = d.pb ? formatNumber(d.pb,{decimals:1}) : '—';
+  $('k-pb-d').textContent = d.pb ? d.pb.toFixed(1)+' мес.' : '';
+  $('st-pb').textContent = d.pb ? d.pb.toFixed(1)+' мес.' : '—';
+  /* экономия */
+  var yc=moneyCompact(d.total);
+  $('k-year').textContent = d.total>0? yc.n : '0';
+  $('k-year-u').textContent= yc.u;
+  $('k-year-t').textContent= '↑';
+  $('st-year').textContent = moneyRp(d.total).replace(' млн',' млн');
+  /* NPV */
+  var nc=moneyCompact(d.npv);
+  $('k-npv').textContent = d.npv>0? nc.n : '0';
+  $('k-npv-u').textContent= nc.u;
+  $('st-npv').textContent = moneyRp(d.npv).replace(' млн',' млн');
+  /* дельта к базовому сценарию (70/20) */
+  var base=compute(70,20);
+  var delta=base.roiCapped>0? (d.roiCapped-base.roiCapped) : 0;
+  $('k-roi-d').textContent = (delta>=0?'+':'')+formatNumber(delta)+' п.п. к базе';
+  /* цвет ROI */
   var rc=$('k-roi').closest('.kpi-card');
-  rc.classList.toggle('bad', d.roi<10);
+  rc.classList.toggle('good',d.roi>=40);
   rc.classList.toggle('warn', d.roi>=10 && d.roi<40);
-  rc.classList.toggle('good', d.roi>=40);
-  /* тултип реального ROI */
-  $('k-roi').setAttribute('title', d.over150 ? 'ROI превышает 150% — точный расчёт по запросу' : 'Годовая экономия / годовые затраты');
+  rc.classList.toggle('bad', d.roi<10);
 }
 
 /* ===== График ROI по годам ===== */
+/* храним последние точки для тултипов */
+var roiPoints=[];
 function drawRoi(d){
   var svg=$('roiSvg'); if(!svg) return;
   var W=620,H=200,pl=50,pr=20,pt=20,pb=34, iw=W-pl-pr, ih=H-pt-pb;
   var max=Math.max(d.roiCapped*1.2, 20, Math.max.apply(null,d.roiYears.map(function(x){return x.val;}))*1.1);
   var out='';
-  /* сетка */
   for(var g=0;g<=4;g++){ var yy=pt+ih-(ih*g/4); out+='<line x1="'+pl+'" y1="'+yy+'" x2="'+(W-pr)+'" y2="'+yy+'" stroke="rgba(150,170,195,.15)"/>'; var v=max*g/4; out+='<text x="'+(pl-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#8896a8">'+Math.round(v)+'%</text>'; }
   out+='<line x1="'+pl+'" y1="'+(pt+ih)+'" x2="'+(W-pr)+'" y2="'+(pt+ih)+'" stroke="#cbd5e1"/>';
   out+='<text x="'+(pl+iw-4)+'" y="'+(H-6)+'" text-anchor="end" font-size="11" fill="#8896a8">год</text>';
-  /* точки по годам (1..3) + линия */
-  var pts=[];
+  var pts=[]; roiPoints=[];
   d.roiYears.forEach(function(p,i){
     var x=pl+iw*(p.y-1)/2, y=pt+ih-(p.val/max)*ih;
     pts.push(x+','+y.toFixed(1));
+    roiPoints.push({x:x,y:y,v:p.val,year:p.y});
     out+='<circle cx="'+x+'" cy="'+y+'" r="5" fill="#1d6fe0"/>';
+    out+='<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(pt+ih)+'" stroke="'+((p.y===2)?'rgba(29,111,224,.3)':'transparent')+'" stroke-dasharray="3 3" class="roi-guide"/>';
     out+='<text x="'+x+'" y="'+(y-9)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#1d6fe0">'+Math.round(p.val)+'%</text>';
     out+='<text x="'+x+'" y="'+(H-8)+'" text-anchor="middle" font-size="11" fill="#8896a8">'+p.y+' г.</text>';
   });
   out+='<polygon points="'+pl+','+(pt+ih)+' '+pts.join(' ')+' '+(W-pr)+','+(pt+ih)+'" fill="rgba(29,111,224,.12)"/>';
   out+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#1d6fe0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
   svg.innerHTML=out;
+  /* вторая линия: сохранённый сценарий (если есть) */
+  drawSavedRoiOn(svg, d, pl, iw, pt, ih, max);
 }
 
 /* ===== Bar chart чувствительности ===== */
+var sensBars=[];
 function drawSens(){
   var svg=$('sensSvg'); if(!svg) return;
   var W=620,H=210,pl=50,pr=18,pt=14,pb=34, iw=W-pl-pr, ih=H-pt-pb;
   var cur=getNum('k-load',10,100);
   var maxR=0,bars=[];
-  for(var L=10;L<=100;L+=5){ var dd=compute(L,null); bars.push({l:L,v:dd.roiCapped}); if(dd.roiCapped>maxR)maxR=dd.roiCapped; }
+  for(var L=10;L<=100;L+=5){ var dd=compute(L,null); bars.push({l:L,v:dd.roiCapped,bar:dd.roiCapped}); if(dd.roiCapped>maxR)maxR=dd.roiCapped; }
   maxR=Math.max(maxR,20); maxR=Math.ceil(maxR/10)*10;
   var out='';
-  /* сетка */
   for(var g=0;g<=4;g++){ var yy=pt+ih-(ih*g/4); out+='<line x1="'+pl+'" y1="'+yy+'" x2="'+(W-pr)+'" y2="'+yy+'" stroke="rgba(150,170,195,.15)"/>'; out+='<text x="'+(pl-6)+'" y="'+(yy+3)+'" text-anchor="end" font-size="10" fill="#8896a8">'+Math.round(maxR*g/4)+'%</text>'; }
   out+='<line x1="'+pl+'" y1="'+(pt+ih)+'" x2="'+(W-pr)+'" y2="'+(pt+ih)+'" stroke="#cbd5e1"/>';
   var bw=(iw/bars.length)*0.7;
+  sensBars=[];
   bars.forEach(function(b){
     var x=pl+(b.l-10)/90*iw, h=(b.v/maxR)*ih, y=pt+ih-h;
     var fill=(b.l===cur)?'#1d6fe0':'rgba(29,111,224,.28)';
+    sensBars.push({x:x,w:bw,y:y,load:b.l,v:b.v});
     out+='<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+Math.max(h,1)+'" rx="2" fill="'+fill+'"/>';
     out+='<text x="'+(x+bw/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9" fill="#8896a8">'+b.l+'</text>';
   });
-  /* подпись текущего */
   var cx=pl+(cur-10)/90*iw+bw/2, cv=compute(null,null).roiCapped, cy=pt+ih-(cv/maxR)*ih;
   out+='<text x="'+cx+'" y="'+(cy-8)+'" text-anchor="middle" font-size="11" font-weight="900" fill="#1d6fe0">'+Math.round(cv)+'%</text>';
   svg.innerHTML=out;
@@ -444,6 +548,66 @@ function drawTl(d){
   svg.innerHTML=out;
 }
 
+/* ===== Тултипы графиков (mousemove / touch) ===== */
+function bindChartTips(){
+  var roi=$('roiSvg'), sens=$('sensSvg');
+  if(roi){
+    roi.addEventListener('mousemove',function(e){ chartTip(e, roi, $('roiTip'), function(mx){
+      var best=null, bd=1e9; roiPoints.forEach(function(p){ var d=Math.abs(p.x-mx); if(d<bd){bd=d;best=p;} });
+      return best? ('<b>Год '+best.year+':</b> ROI '+formatNumber(best.v)+'%') : '.';
+    });});
+    roi.addEventListener('mouseleave',function(){ hideTip('roiTip'); });
+    roi.addEventListener('touchstart',function(e){ var t=e.touches[0]; chartTip({clientX:t.clientX,clientY:t.clientY},roi,$('roiTip'),function(mx){ var b=null,bd=1e9; roiPoints.forEach(function(p){var d=Math.abs(p.x-mx);if(d<bd){bd=d;b=p;}}); return b?('<b>Год '+b.year+':</b> ROI '+formatNumber(b.v)+'%'):'.';}); },{passive:true});
+  }
+  if(sens){
+    sens.addEventListener('mousemove',function(e){ chartTip(e, sens, $('sensTip'), function(mx){
+      var b=null,bd=1e9; sensBars.forEach(function(p){ var d=Math.abs(p.x+p.w/2-mx); if(d<bd){bd=d;b=p;} });
+      return b? ('<b>Загрузка '+b.load+'%:</b> ROI '+formatNumber(b.v)+'%') : '.';
+    });});
+    sens.addEventListener('mouseleave',function(){ hideTip('sensTip'); });
+  }
+}
+function chartTip(ev, svg, tip, getHTML){
+  var r=svg.getBoundingClientRect(); if(r.width===0) return;
+  var vw=parseFloat(svg.getAttribute('viewBox').split(' ')[2]);
+  var mx=(ev.clientX-r.left)/r.width*vw;
+  var h=getHTML(mx);
+  if(h==='.'){ tip.style.opacity=0; return; }
+  tip.innerHTML=h;
+  tip.style.left=(ev.clientX-r.left+10)+'px';
+  tip.style.top=(ev.clientY-r.top-38)+'px';
+  tip.style.opacity=1;
+}
+function hideTip(id){ var t=document.getElementById(id); if(t) t.style.opacity=0; }
+
+/* ===== Toast ===== */
+var toastTimer=null;
+function toast(msg){
+  var el=$('toastEl'); if(!el) return;
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(function(){ el.classList.remove('show'); },2000);
+}
+
+/* ===== Вторая линия ROI: сохранённый сценарий ===== */
+function drawSavedRoiOn(svg, d, pl, iw, pt, ih, max){
+  var saved=null; try{ saved=JSON.parse(localStorage.getItem('kpi-scenario')||'null'); }catch(e){}
+  if(!saved) return;
+  /* мягко посчитать ROI сохранённого */
+  var curVals={};
+  var map={k_fot:'k-fot',k_load:'k-load',k_inf:'k-inf',k_lic:'k-lic',k_save:'k-save',k_staff:'k-staff',k_salary:'k-salary',k_inc:'k-inc',k_incsave:'k-incsave',k_downtime:'k-downtime',k_dowhour:'k-dowhour'};
+  Object.keys(map).forEach(function(sk){ curVals[map[sk]]=$(map[sk]).value; $(map[sk]).value=saved[sk]; });
+  var dd=compute(null,null);
+  Object.keys(map).forEach(function(sk){ $(map[sk]).value=curVals[map[sk]]; });
+  var pts=[];
+  dd.roiYears.forEach(function(p){
+    var x=pl+iw*(p.y-1)/2, y=pt+ih-(p.val/max)*ih;
+    pts.push(x+','+y.toFixed(1));
+    svg.innerHTML+= '<circle cx="'+x+'" cy="'+y+'" r="4" fill="#22c55e"/>';
+  });
+  svg.innerHTML+= '<polyline points="'+pts.join(' ')+'" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"/>';
+  svg.innerHTML+= '<text x="'+(pl+iw-4)+'" y="'+(pt+8)+'" text-anchor="end" font-size="10" fill="#22c55e">— сохранённый</text>';
+}
+
 /* ===== Основная отрисовка ===== */
 function draw(){
   var d=compute(null,null);
@@ -475,6 +639,8 @@ function bind(){
   pair('k-staff-r','k-staff'); pair('k-salary-r','k-salary'); pair('k-inc-r','k-inc');
   pair('k-incsave-r','k-incsave'); pair('k-downtime-r','k-downtime'); pair('k-dowhour-r','k-dowhour');
 
+  bindChartTips();
+
   /* сценарии */
   var btns=document.querySelectorAll('.kpi-scen-btn');
   btns.forEach(function(b){
@@ -488,19 +654,28 @@ function bind(){
     });
   });
 
-  /* сбросить всё */
+  /* сбросить всё: параметры + сценарий «Базовый» + toast + очистка invalid */
   $('resetBtn').addEventListener('click',function(){
     var defs={k_fot:1000000,k_load:70,k_inf:250000,k_lic:100000,k_save:20,k_staff:8,k_salary:120000,k_inc:500,k_incsave:20,k_downtime:20,k_dowhour:150000};
-    Object.keys(defs).forEach(function(k){ var id=k.replace(/_/g,'-'); if($(id))$(id).value=defs[k]; });
-    draw();
+    Object.keys(defs).forEach(function(k){ var id=k.replace(/_/g,'-'); if($(id)){ $(id).value=defs[k]; $(id).closest('.kfi')&&$(id).closest('.kfi').classList.remove('invalid'); } });
+    /* вернуть активный сценарий «Базовый» */
+    document.querySelectorAll('.kpi-scen-btn').forEach(function(x){ x.classList.remove('active'); });
+    var baseBtn=document.querySelector('.kpi-scen-btn[data-scen="base"]'); if(baseBtn) baseBtn.classList.add('active');
+    $('kpi-scen-desc').innerHTML=DESCS.base;
+    if($('k-load-r'))$('k-load-r').value=70; if($('k-save-r'))$('k-save-r').value=20;
+    draw(); toast('Параметры сброшены');
   });
+
+  /* печать отчёта */
+  $('printBtn').addEventListener('click',function(){ window.print(); });
 
   /* сохранить сценарий (localStorage) */
   var savedKey='kpi-scenario';
   $('saveScenBtn').addEventListener('click',function(){
     var snap={k_fot:$('k-fot').value,k_load:$('k-load').value,k_inf:$('k-inf').value,k_lic:$('k-lic').value,k_save:$('k-save').value,k_staff:$('k-staff').value,k_salary:$('k-salary').value,k_inc:$('k-inc').value,k_incsave:$('k-incsave').value,k_downtime:$('k-downtime').value,k_dowhour:$('k-dowhour').value};
     try{ localStorage.setItem(savedKey,JSON.stringify(snap)); }catch(e){}
-    renderCmp(savedKey, snap);
+    renderCmp(savedKey, snap); toast('Сценарий сохранён');
+    draw();
   });
 
   /* поделиться ссылкой с параметрами */
@@ -513,21 +688,36 @@ function bind(){
   });
 }
 
-/* ===== Сравнение: сохранённый vs текущий ===== */
+/* ===== Сравнение: сохранённый vs текущий (таблица различий) ===== */
 function renderCmp(key, savedSnap){
   var strip=$('cmpStrip'); if(!strip) return;
-  strip.innerHTML='<div class="cmp-card on"><b>Текущий</b><span>ROI '+Math.round(compute(null,null).roiCapped)+'% · окуп. '+(compute(null,null).pb?compute(null,null).pb.toFixed(1)+' мес.':'—')+'</span></div>';
   var saved=null;
   try{ saved=savedSnap? JSON.parse(JSON.stringify(savedSnap)) : JSON.parse(localStorage.getItem(key)||'null'); }catch(e){}
+  var cur=compute(null,null);
+  var html='';
+  html+='<div class="cmp-card on"><b>Текущий</b><span>ROI '+formatNumber(cur.roiCapped)+'% · окуп. '+(cur.pb?cur.pb.toFixed(1)+' мес.':'—')+'</span></div>';
   if(saved){
-    /* временно применяем сохранённые значения, считаем ROI */
     var map={k_fot:'k-fot',k_load:'k-load',k_inf:'k-inf',k_lic:'k-lic',k_save:'k-save',k_staff:'k-staff',k_salary:'k-salary',k_inc:'k-inc',k_incsave:'k-incsave',k_downtime:'k-downtime',k_dowhour:'k-dowhour'};
-    var cur={};
-    Object.keys(map).forEach(function(sk){ var id=map[sk]; cur[id]=$(id).value; $(id).value=saved[sk]; });
+    var curVals={};
+    Object.keys(map).forEach(function(sk){ curVals[map[sk]]=$(map[sk]).value; $(map[sk]).value=saved[sk]; });
     var dd=compute(null,null);
-    Object.keys(map).forEach(function(sk){ $(map[sk]).value=cur[map[sk]]; });
-    strip.innerHTML+='<div class="cmp-card"><b>Сохранённый</b><span>ROI '+Math.round(dd.roiCapped)+'% · окуп. '+(dd.pb?dd.pb.toFixed(1)+' мес.':'—')+'</span></div>';
+    Object.keys(map).forEach(function(sk){ $(map[sk]).value=curVals[map[sk]]; });
+    html+='<div class="cmp-card"><b>Сохранённый</b><span>ROI '+formatNumber(dd.roiCapped)+'% · окуп. '+(dd.pb?dd.pb.toFixed(1)+' мес.':'—')+'</span></div>';
+    html+='<button class="cmp-rm" id="rmSaved" aria-label="Удалить сохранённый сценарий">🗑</button>';
+    html+='<table class="cmp-table"><thead><tr><th>Параметр</th><th>Текущий</th><th>Сохранённый</th><th>Δ</th></tr></thead><tbody>';
+    var rows=[['Загрузка',getNum('k-load'),parseFloat(saved.k_load),'%'],['Эффект тариф.',getNum('k-save'),parseFloat(saved.k_save),'%'],
+      ['Команда',getNum('k-fot'),parseFloat(saved.k_fot),'₽'],['Экономия',cur.total,dd.total,'₽'],['ROI',cur.roiCapped,dd.roiCapped,'%']];
+    rows.forEach(function(r){
+      var delta=r[3]==='%'? (r[2]-r[1]) : (r[2]-r[1]);
+      html+='<tr><td>'+r[0]+'</td><td class="num">'+formatNumber(r[1])+(r[3]==='₽'?'':'')+r[3]+'</td><td class="num">'+formatNumber(r[2])+r[3]+'</td><td class="delta">'+(delta>=0?'+':'')+formatNumber(delta)+'</td></tr>';
+    });
+    html+='</tbody></table>';
+  } else {
+    html+='<div class="cmp-card"><span>Нажми «Сохранить сценарий», чтобы сравнить с текущим расчётом.</span></div>';
   }
+  strip.innerHTML=html;
+  var rm=$('rmSaved');
+  if(rm) rm.addEventListener('click',function(){ try{localStorage.removeItem('kpi-scenario');}catch(e){} toast('Сохранённый сценарий удалён'); renderCmp('kpi-scenario',null); draw(); });
 }
 
 /* ===== Инициализация: восстановление из URL ===== */
