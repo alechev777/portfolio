@@ -130,7 +130,14 @@ th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);verti
 .case-card .cc-art{font-size:10px;font-weight:800;color:var(--purple);background:var(--purple-soft);padding:3px 8px;border-radius:999px;cursor:pointer}
 .case-card .cc-go{margin-top:14px;font-size:12px;font-weight:800;color:var(--teal)}
 .case-card:hover .cc-go{color:var(--navy)}
-@media (max-width:900px){.cases-grid{grid-template-columns:1fr}}</style>
+@media (max-width:900px){.cases-grid{grid-template-columns:1fr}}
+/* Адаптив: сворачиваемые фильтры на мобильных */
+.filter-toggle{display:none;align-items:center;gap:6px;margin:6px clamp(18px,4vw,56px) 4px;padding:10px 16px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-size:13px;font-weight:800;cursor:pointer;line-height:1}
+@media (max-width:900px){
+  .filter-toggle{display:inline-flex}
+  .filter-row{display:none!important}
+  .filter-row.open{display:grid!important}
+}</style>
 </head>
 <body onload="initAtlas()">
 <div class="shell">
@@ -158,6 +165,7 @@ th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);verti
       <button class="tab" type="button" role="tab" aria-controls="atlas-panel" data-view="glossary">Глоссарий</button>
       <button class="tab-action" type="button" id="printButton">Печать / PDF</button>
     </div>
+    <button type="button" class="filter-toggle" id="filterToggle" aria-expanded="false">Фильтры ▾</button>
     <div class="filter-row">
       <div class="filter"><label for="fh">Дом</label><select id="fh"></select></div>
       <div class="filter"><label for="fc">Категория</label><select id="fc"></select></div>
@@ -912,6 +920,23 @@ byId('canvas').addEventListener('click',function(ev){
 });updateSummary();
 renderGraph();
 }
+/* Mobile: collapse/expand filters */
+(function(){
+  try{
+    var t=document.getElementById('filterToggle'), row=document.getElementById('filterRow');
+    if(!t||!row) return;
+    var mobile=function(){ return window.matchMedia('(max-width:900px)').matches; };
+    t.addEventListener('click',function(){
+      var open=row.classList.toggle('open');
+      t.setAttribute('aria-expanded', open?'true':'false');
+      t.textContent= open?'Фильтры ▴':'Фильтры ▾';
+    });
+    window.addEventListener('resize',function(){
+      if(!mobile()){ row.classList.remove('open'); t.setAttribute('aria-expanded','false'); t.textContent='Фильтры ▾'; row.style.display=''; }
+    });
+    if(mobile()) row.classList.remove('open');
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
