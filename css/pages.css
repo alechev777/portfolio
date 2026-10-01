@@ -456,11 +456,14 @@ html[data-theme="dark"] .case .co,html[data-theme="dark"] .case2 .co{color:var(-
 
 /* ===== Адаптив: KPI-миникалькулятор — цифры влезают на узких экранах ===== */
 @media(max-width:640px){
-  .kpi-mini{gap:8px}
-  .kpi-mini>div{padding:12px 10px;min-width:0}
+  .kpi-mini{gap:8px;grid-template-columns:1fr 1fr!important}
+  .kpi-mini>div{padding:12px 10px;min-width:0;overflow:hidden}
   .kpi-mini b{font-size:clamp(18px,6.5vw,22px);white-space:normal;overflow-wrap:break-word;word-break:break-word}
   .kpi-teaser{flex-direction:column;align-items:stretch;gap:14px}
   .kpi-teaser>div[style*="flex:1"]{flex:1 1 auto;min-width:0}
+}
+@media(max-width:420px){
+  .kpi-mini{grid-template-columns:1fr!important}
 }
 @media(max-width:380px){
   .kpi-mini>div{padding:11px 8px}
