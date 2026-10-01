@@ -1125,3 +1125,10 @@ html[data-theme="dark"] .kpi-mini b{color:#e8edf5}
 html[data-theme="dark"] .kpi-mini span{color:#a0aec0}
 /* плитки-иконки проектов Axenix (cases.html) */
 html[data-theme="dark"] .proj .pj-ic{filter:invert(1) hue-rotate(190deg);opacity:.85}
+
+/* ===== Тёмная тема: контраст активного меню и CTA-блоков ===== */
+html[data-theme="dark"] .nav a[aria-current="page"]{color:#0d1f33;background:#c9d9ec}
+html[data-theme="dark"] .problem-cta{background:#1a2f49;color:#e6edf6;border:1px solid rgba(255,255,255,.12)}
+html[data-theme="dark"] .problem-cta strong{color:#7fd4e0}
+html[data-theme="dark"] .atlas-teaser{background:linear-gradient(150deg,#0f2640,#123a63 55%,#0c2134);border-color:rgba(255,255,255,.12)}
+html[data-theme="dark"] .wo-item{background:#182b44;border-color:var(--line)}
