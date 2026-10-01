@@ -93,7 +93,7 @@ h3.b-title{font-family:var(--head);font-size:19px;font-weight:900;margin:0;lette
 .stack-note b{color:var(--navy)}
 /* тёмная тема (по умолчанию) */
 :root{color-scheme:dark}
-html:root{--bg:#0b0f1a;--card:#0f1526;--ink:#e2e8f0;--muted:#94a3b8;--dim:#64748b;--line:rgba(255,255,255,.1);--navy:#e2e8f0;--blue:#3b82f6}
+html:root,html:root:not([data-theme="light"]){--bg:#0b0f1a;--card:#0f1526;--ink:#e2e8f0;--muted:#94a3b8;--dim:#64748b;--line:rgba(255,255,255,.1);--navy:#e2e8f0;--blue:#3b82f6}
 /* scroll animations */
 @supports (animation-timeline: view()){
   .b-card{animation:risein linear both;animation-timeline:view();animation-range:entry 0% entry 55%;}
@@ -110,13 +110,13 @@ html:root{--bg:#0b0f1a;--card:#0f1526;--ink:#e2e8f0;--muted:#94a3b8;--dim:#64748
 @media(prefers-reduced-motion:reduce){.b-card{animation:none;transform:none!important;opacity:1}}
 /* светлая тема (если system light) */
 @media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]){--bg:#f2f5f8;--card:#ffffff;--ink:#15243a;--muted:#5f6e82;--dim:#5f6f87;--line:#dfe6ee;--navy:#123052;--blue:#1d6fe0}
-  .b-card{background:rgba(255,255,255,.6);border-color:var(--line)}
-  .b-tag{color:#33455f;background:#f0f4f9;border-color:var(--line)}
-  .b-ic{color:#1d6fe0;background:#e8f0fb;border-color:#c9dcf5}
-  .b-metric .v{color:#1d6fe0}
-  .acc-row b{color:#123052}
-  .bank b{color:#123052}
+  :root[data-theme="light"]{--bg:#f2f5f8;--card:#ffffff;--ink:#15243a;--muted:#5f6e82;--dim:#5f6f87;--line:#dfe6ee;--navy:#123052;--blue:#1d6fe0}
+  :root[data-theme="light"] .b-card{background:#fff;border-color:var(--line)}
+  :root[data-theme="light"] .b-tag{color:#33455f;background:#f0f4f9;border-color:var(--line)}
+  :root[data-theme="light"] .b-ic{color:#1d6fe0;background:#e8f0fb;border-color:#c9dcf5}
+  :root[data-theme="light"] .b-metric .v{color:#1d6fe0}
+  :root[data-theme="light"] .acc-row b{color:#123052}
+  :root[data-theme="light"] .bank b{color:#123052}
 }
 </style>
 </head>

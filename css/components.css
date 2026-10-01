@@ -1091,7 +1091,7 @@ html[data-theme="dark"] .kpi-field .raw{border-color:rgba(255,255,255,.3)}
   border-color:rgba(255,255,255,.25) !important;
 }
 /* #2 kpi-big: текст не обрезается, карточки адаптивны */
-.kpi-big{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.kpi-big{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
 .kpi-big .kpi3{display:flex;flex-direction:column;min-width:0}
 .kpi-big .l,.kpi-big .d{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;text-align:left}
 .kpi-big .v{white-space:nowrap}
