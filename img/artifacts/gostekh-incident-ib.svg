@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" role="img" aria-label="Регламент обработки инцидентов ИБ: жизненный цикл">
+  <rect width="920" height="460" fill="#F8FAFC"/>
+  <rect x="0" y="0" width="920" height="60" rx="0" fill="#123052"/>
+  <text x="40" y="38" font-size="19" font-weight="800" fill="#fff">Регламент обработки инцидентов ИБ</text>
+  <text x="880" y="38" text-anchor="end" font-size="12" font-weight="700" fill="#8fb3d9">ITSM · ИБ</text>
+  <!-- 6 шагов -->
+  <g font-size="12.5" fill="#123052" text-anchor="middle">
+    <!-- 1 Детектирование -->
+    <rect x="30" y="95" width="135" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <circle cx="97" cy="120" r="16" fill="#2563EB"/><text x="97" y="126" font-size="13" fill="#fff">1</text>
+    <text x="97" y="155" font-weight="800">Детекти-</text><text x="97" y="172" font-weight="800">рование</text>
+    <text x="97" y="195" font-size="11" fill="#6B7280">SIEM · САП · каналы</text>
+    <!-- 2 Анализ -->
+    <rect x="180" y="95" width="130" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <circle cx="245" cy="120" r="16" fill="#2563EB"/><text x="245" y="126" font-size="13" fill="#fff">2</text>
+    <text x="245" y="155" font-weight="800">Анализ /</text><text x="245" y="172" font-weight="800">триаж</text>
+    <text x="245" y="195" font-size="11" fill="#6B7280">классиф. · приоритет</text>
+    <!-- 3 Сдерживание -->
+    <rect x="325" y="95" width="160" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <circle cx="405" cy="120" r="16" fill="#2563EB"/><text x="405" y="126" font-size="13" fill="#fff">3</text>
+    <text x="405" y="150" font-weight="800">Сдерживание /</text><text x="405" y="167" font-weight="800">локализация</text>
+    <text x="405" y="192" font-size="11" fill="#6B7280">сеть · сегмент · сервис</text>
+    <!-- 4 Устранение -->
+    <rect x="500" y="95" width="130" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <circle cx="565" cy="120" r="16" fill="#2563EB"/><text x="565" y="126" font-size="13" fill="#fff">4</text>
+    <text x="565" y="155" font-weight="800">Устранение</text>
+    <text x="565" y="192" font-size="11" fill="#6B7280">ВПО · доступ · патчи</text>
+    <!-- 5 Восстановление -->
+    <rect x="645" y="95" width="135" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <circle cx="712" cy="120" r="16" fill="#2563EB"/><text x="712" y="126" font-size="13" fill="#fff">5</text>
+    <text x="712" y="155" font-weight="800">Восстано-</text><text x="712" y="172" font-weight="800">вление</text>
+    <text x="712" y="195" font-size="11" fill="#6B7280">контроль · возврат</text>
+    <!-- 6 Пост-инцидент -->
+    <rect x="795" y="95" width="105" height="120" rx="12" fill="#DCFCE7" stroke="#10B981" stroke-width="2"/>
+    <circle cx="847" cy="120" r="16" fill="#10B981"/><text x="847" y="126" font-size="13" fill="#fff">6</text>
+    <text x="847" y="152" font-size="11.5" font-weight="800" fill="#15803D">Пост-</text><text x="847" y="166" font-size="11.5" font-weight="800" fill="#15803D">инцидент</text>
+    <text x="847" y="192" font-size="10" fill="#166534">уроки · БЗ</text>
+  </g>
+  <!-- стрелки -->
+  <g stroke="#94A3B8" stroke-width="2.5" fill="none">
+    <path d="M165 155 H178" marker-end="url(#a)"/>
+    <path d="M310 155 H323" marker-end="url(#a)"/>
+    <path d="M485 155 H498" marker-end="url(#a)"/>
+    <path d="M630 155 H643" marker-end="url(#a)"/>
+    <path d="M780 155 H793" marker-end="url(#a)"/>
+  </g>
+  <defs><marker id="a" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="#94A3B8"/></marker></defs>
+  <!-- нижняя панель: приоритет -->
+  <rect x="30" y="245" width="870" height="80" rx="14" fill="#fff" stroke="#E2E8F0"/>
+  <text x="50" y="272" font-size="12.5" font-weight="800" fill="#123052">Приоритизация (Влияние × Срочность)</text>
+  <g font-size="11.5" fill="#6B7280">
+    <rect x="50" y="284" width="120" height="28" rx="8" fill="#FEE2E2"/><text x="110" y="302" text-anchor="middle" font-weight="700" fill="#B91C1C">Критический</text>
+    <rect x="180" y="284" width="110" height="28" rx="8" fill="#FEF3C7"/><text x="235" y="302" text-anchor="middle" font-weight="700" fill="#B45309">Высокий</text>
+    <rect x="300" y="284" width="110" height="28" rx="8" fill="#DBEAFE"/><text x="355" y="302" text-anchor="middle" font-weight="700" fill="#1D4ED8">Средний</text>
+    <rect x="420" y="284" width="100" height="28" rx="8" fill="#F3F4F6"/><text x="470" y="302" text-anchor="middle" font-weight="700" fill="#374151">Низкий</text>
+  </g>
+  <text x="560" y="300" font-size="12" fill="#6B7280">Классификация: конфиденциальность · целостность · доступность · источник · умысел</text>
+  <!-- нижняя строка -->
+  <rect x="30" y="345" width="870" height="90" rx="14" fill="#F1F5F9" stroke="#E2E8F0"/>
+  <text x="50" y="372" font-size="12.5" font-weight="800" fill="#123052">Роли и RACI</text>
+  <g font-size="11" fill="#475569">
+    <text x="50" y="392">Владелец · Менеджер процесса · Сервис-менеджер · РРГ</text>
+    <text x="50" y="410">Специалисты 1 / 1,5 / 2 / 3 линии · Координаторы изменений / проблем · Администратор ИБ</text>
+  </g>
+  <rect x="600" y="362" width="290" height="54" rx="10" fill="#0E9BBF"/>
+  <text x="745" y="384" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">6 контуров реагирования</text>
+  <text x="745" y="402" text-anchor="middle" font-size="11" fill="#E0F7FA">от детектирования до пост-инцидента</text>
+</svg>

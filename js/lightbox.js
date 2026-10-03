@@ -3,47 +3,70 @@
 var ov=null, img=null, cap=null, close=null, zoomIn=null, zoomOut=null, reset=null;
 var scale=1, tx=0, ty=0, baseW=1, baseH=1, fitScale=1, dragging=false, sx=0, sy=0, stx=0, sty=0;
 var pinch=null;
-function apply(){ img.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')'; }
-function clampScale(s){ return Math.max(fitScale, Math.min(20, s)); }
+/* Центрирование: картинка в центре через flex+margin:auto; transform только для зума.
+   В zoom-режиме: absolute left50/top50 + translate(-50%,-50%) -> центр в центре экрана. */
+function apply(){
+  /* transform-scale: стабильно центрируется и зумится, без «убегания» */
+  img.style.transform='translate(-50%,-50%) translate('+tx+'px,'+ty+'px) scale('+scale+')';
+}
+function clampScale(s){
+  /* зум в разумных пределах; при превышении нативного разреза допускаем лёгкую интерполяцию ради удобства */
+  return Math.max(fitScale, Math.min(8, s));
+}
+var isSvg=false;
 function fit(){
-var w=ov.clientWidth-48, h=ov.clientHeight-88;
-if(w<=0||h<=0||!img.naturalWidth){ scale=fitScale=1; tx=0; ty=0; apply(); return; }
-fitScale=Math.min(w/img.naturalWidth, h/img.naturalHeight, 1);
-scale=fitScale;
-tx=(ov.clientWidth-img.naturalWidth*scale)/2;
-ty=(ov.clientHeight-img.naturalHeight*scale)/2;
-apply();
+  img.style.position='absolute';
+  img.style.left='50%'; img.style.top='50%';
+  img.style.margin='0';
+  img.style.width='auto'; img.style.height='auto';
+  img.style.maxWidth=(ov.clientWidth-48)+'px';
+  img.style.maxHeight=(ov.clientHeight-88)+'px';
+  img.style.transformOrigin='center center';
+  img.style.transform='none';
+  void img.offsetWidth;
+  var rw=img.getBoundingClientRect();
+  baseW=(rw&&rw.width)||ov.clientWidth; baseH=(rw&&rw.height)||ov.clientHeight;
+  if(baseW<=0)baseW=1; if(baseH<=0)baseH=1;
+  fitScale=Math.min((ov.clientWidth-48)/baseW,(ov.clientHeight-88)/baseH,1);
+  scale=fitScale; tx=0; ty=0;
+  apply();
 }
 function zoomAt(f, cx, cy){
-var r=ov.getBoundingClientRect();
-var mx=cx-r.left, my=cy-r.top;
-var ns=clampScale(scale*f);
-tx=mx-(mx-tx)*(ns/scale);
-ty=my-(my-ty)*(ns/scale);
-scale=ns; apply();
+  var r=ov.getBoundingClientRect();
+  var mx=cx-r.left-ov.clientWidth/2, my=cy-r.top-ov.clientHeight/2;
+  if(scale<0.01) scale=fitScale||1;
+  var ns=clampScale(scale*f);
+  if(img.style.position!=='absolute'){
+    /* страховка, если вдруг static — включить absolute заранее (без apply до пересчёта) */
+    img.style.position='absolute';
+    img.style.left='50%'; img.style.top='50%';
+    img.style.margin='0';
+    img.style.maxWidth='none'; img.style.maxHeight='none';
+    img.style.transformOrigin='center center';
+  }
+  tx=mx-(mx-tx)*(ns/scale);
+  ty=my-(my-ty)*(ns/scale);
+  scale=ns; apply();
 }
 function openLb(src, title, mode){
 if(!img||!ov) return;
+isSvg = /\.svg(\?|#|$)/i.test(src);
+baseW=0; baseH=0;
 img.src=src;
 scale=1; tx=0; ty=0;
-function setup(){
-var nw=img.naturalWidth, nh=img.naturalHeight;
-if(mode==='natural' && nw){
-fitScale=Math.min((ov.clientWidth-48)/nw, (ov.clientHeight-88)/nh, 1);
-scale=1;
-tx=(ov.clientWidth-nw*scale)/2;
-ty=(ov.clientHeight-nh*scale)/2;
-apply();
-} else { fit(); }
-}
-if(img.complete && img.naturalWidth) setup(); else img.addEventListener('load', setup, {once:true});
+img.style.transform='none';
+function doFit(){ requestAnimationFrame(function(){ requestAnimationFrame(fit); }); }
+/* fit гарантированно, не только по load */
+if(img.complete) doFit();
+img.addEventListener('load', doFit, {once:true});
+setTimeout(doFit, 150);
 if(cap){ cap.textContent=title||''; cap.classList.add('on'); }
 ov.classList.add('on');
 if(close){ close.classList.add('on'); close.style.display='flex'; }
 if(zoomIn){ zoomIn.style.display='flex'; } if(zoomOut){ zoomOut.style.display='flex'; } if(reset){ reset.style.display='flex'; }
 document.body.style.overflow='hidden';
 }
-function resetView(){ scale=fitScale; tx=(ov.clientWidth-img.naturalWidth*scale)/2; ty=(ov.clientHeight-img.naturalHeight*scale)/2; apply(); }
+function resetView(){ fit(); }
 function closeLb(){
 if(ov) ov.classList.remove('on');
 if(close){ close.classList.remove('on'); close.style.display='none'; }
@@ -64,6 +87,12 @@ stage=document.createElement('div'); stage.id='lbStage'; stage.className='lb-sta
 ov.insertBefore(stage, img); stage.appendChild(img);
 }
 stage.addEventListener('wheel', function(e){
+e.preventDefault();
+var f=e.deltaY<0?1.2:1/1.2;
+zoomAt(f, e.clientX, e.clientY);
+}, {passive:false});
+/* колесо работает по всему лайтбоксу, а не только над картинкой */
+ov.addEventListener('wheel', function(e){
 e.preventDefault();
 var f=e.deltaY<0?1.2:1/1.2;
 zoomAt(f, e.clientX, e.clientY);

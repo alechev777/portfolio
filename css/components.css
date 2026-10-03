@@ -771,7 +771,7 @@ html[data-theme="dark"] .case-hero .ch-metrics .cm{background:#1d2f4a;border-col
 #lbOverlay.on{display:flex}
 #lbStage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:grab}
 #lbStage.lb-grabbing{cursor:grabbing}
-#lbOverlay #lbImg{max-width:none;max-height:none;display:block;will-change:transform;-webkit-user-drag:none;border-radius:6px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.6);transform-origin:0 0;transition:transform .05s linear}
+#lbOverlay #lbImg{max-width:none;max-height:none;display:block;will-change:transform;-webkit-user-drag:none;border-radius:6px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.6);transform-origin:center center;transition:none}
 #lbClose,#lbZoomIn,#lbZoomOut,#lbReset{position:fixed;z-index:970;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;font-size:20px;font-weight:800;cursor:pointer;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 #lbClose{top:18px;right:22px}
 #lbZoomIn{bottom:26px;right:118px}
@@ -1132,3 +1132,8 @@ html[data-theme="dark"] .problem-cta{background:#1a2f49;color:#e6edf6;border:1px
 html[data-theme="dark"] .problem-cta strong{color:#7fd4e0}
 html[data-theme="dark"] .atlas-teaser{background:linear-gradient(150deg,#0f2640,#123a63 55%,#0c2134);border-color:rgba(255,255,255,.12)}
 html[data-theme="dark"] .wo-item{background:#182b44;border-color:var(--line)}
+
+/* ===== Лайтбокс: гарантированное центрирование ===== */
+#lbOverlay.on{display:flex}
+#lbStage{display:flex;align-items:center;justify-content:center}
+#lbStage #lbImg{margin:auto}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" role="img" aria-label="Регламент учёта ИТ-активов: жизненный цикл">
+  <rect width="920" height="440" fill="#F8FAFC"/>
+  <rect x="0" y="0" width="920" height="60" fill="#123052"/>
+  <text x="40" y="38" font-size="19" font-weight="800" fill="#fff">Регламент учёта ИТ-активов</text>
+  <text x="880" y="38" text-anchor="end" font-size="12" font-weight="700" fill="#8fb3d9">ITAM · SACM/CMDB</text>
+  <!-- 5 этапов жизненного цикла -->
+  <g font-size="12.5" fill="#123052" text-anchor="middle">
+    <!-- 1 Приёмка -->
+    <rect x="30" y="95" width="160" height="130" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <rect x="30" y="95" width="160" height="30" rx="12" fill="#2563EB"/><rect x="30" y="112" width="160" height="13" fill="#2563EB"/>
+    <text x="110" y="115" font-size="13" font-weight="800" fill="#fff">1 · Приёмка</text>
+    <text x="110" y="150" font-size="11.5">проверка по</text><text x="110" y="167" font-size="11.5">спецификации</text>
+    <text x="110" y="193" font-size="11" fill="#6B7280">соответствие /</text><text x="110" y="208" font-size="11" fill="#6B7280">несоответствие</text>
+    <!-- 2 Учёт -->
+    <rect x="205" y="95" width="160" height="130" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <rect x="205" y="95" width="160" height="30" rx="12" fill="#2563EB"/><rect x="205" y="112" width="160" height="13" fill="#2563EB"/>
+    <text x="285" y="115" font-size="13" font-weight="800" fill="#fff">2 · Учёт</text>
+    <text x="285" y="150" font-size="11.5">регистрация +</text><text x="285" y="167" font-size="11.5">маркировка</text>
+    <text x="285" y="193" font-size="11" fill="#6B7280">идентификатор ·</text><text x="285" y="208" font-size="11" fill="#6B7280">партии расходников</text>
+    <!-- 3 Эксплуатация -->
+    <rect x="380" y="95" width="160" height="130" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <rect x="380" y="95" width="160" height="30" rx="12" fill="#2563EB"/><rect x="380" y="112" width="160" height="13" fill="#2563EB"/>
+    <text x="460" y="115" font-size="13" font-weight="800" fill="#fff">3 · Эксплуатация</text>
+    <text x="460" y="150" font-size="11.5">выдача · перемещение</text><text x="460" y="167" font-size="11.5">· ремонт</text>
+    <text x="460" y="193" font-size="11" fill="#6B7280">закрепление за МОЛ</text>
+    <!-- 4 Инвентаризация -->
+    <rect x="555" y="95" width="170" height="130" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
+    <rect x="555" y="95" width="170" height="30" rx="12" fill="#2563EB"/><rect x="555" y="112" width="170" height="13" fill="#2563EB"/>
+    <text x="640" y="115" font-size="13" font-weight="800" fill="#fff">4 · Инвентаризация</text>
+    <text x="640" y="150" font-size="11.5">сличительная</text><text x="640" y="167" font-size="11.5">ведомость</text>
+    <text x="640" y="193" font-size="11" fill="#6B7280">сверка · расхождения</text>
+    <!-- 5 Выбытие -->
+    <rect x="740" y="95" width="150" height="130" rx="12" fill="#DCFCE7" stroke="#10B981" stroke-width="2"/>
+    <rect x="740" y="95" width="150" height="30" rx="12" fill="#10B981"/><rect x="740" y="112" width="150" height="13" fill="#10B981"/>
+    <text x="815" y="115" font-size="13" font-weight="800" fill="#fff">5 · Выбытие</text>
+    <text x="815" y="150" font-size="11.5" fill="#15803D">план выбытия</text>
+    <text x="815" y="167" font-size="11.5" fill="#15803D">· списание</text>
+    <text x="815" y="193" font-size="11" fill="#166534">контроль закрытия</text>
+  </g>
+  <g stroke="#94A3B8" stroke-width="2.5" fill="none">
+    <path d="M190 160 H203" marker-end="url(#b)"/>
+    <path d="M365 160 H378" marker-end="url(#b)"/>
+    <path d="M540 160 H553" marker-end="url(#b)"/>
+    <path d="M725 160 H738" marker-end="url(#b)"/>
+  </g>
+  <defs><marker id="b" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="#94A3B8"/></marker></defs>
+  <!-- Роли -->
+  <rect x="30" y="255" width="870" height="70" rx="14" fill="#fff" stroke="#E2E8F0"/>
+  <text x="50" y="280" font-size="12.5" font-weight="800" fill="#123052">Роли (RACI)</text>
+  <text x="50" y="300" font-size="11.5" fill="#475569">Ответственный за приёмку · Специалист по учёту · Ответственный за выдачу · Менеджер по ИТ-активам · Комиссия по инвентаризации · Материально ответственное лицо (МОЛ)</text>
+  <text x="50" y="318" font-size="11.5" fill="#475569">· Ответственный инициатор · Ответственный за перемещение</text>
+  <!-- Принципы -->
+  <rect x="30" y="340" width="870" height="76" rx="14" fill="#F1F5F9" stroke="#E2E8F0"/>
+  <text x="50" y="365" font-size="12.5" font-weight="800" fill="#123052">Принципы</text>
+  <g font-size="11.5" fill="#475569">
+    <text x="50" y="387">• Универсальный идентификатор каждого актива  • Привязка к МОЛ и ответственному инициатору</text>
+    <text x="50" y="405">• Ремонт с возвратом из ремонта / включением в план выбытия  • Инвентаризация по сличительной ведомости</text>
+  </g>
+</svg>
