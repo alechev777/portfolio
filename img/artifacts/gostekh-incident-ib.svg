@@ -1,68 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" role="img" aria-label="Регламент обработки инцидентов ИБ: жизненный цикл">
-  <rect width="920" height="460" fill="#F8FAFC"/>
-  <rect x="0" y="0" width="920" height="60" rx="0" fill="#123052"/>
-  <text x="40" y="38" font-size="19" font-weight="800" fill="#fff">Регламент обработки инцидентов ИБ</text>
-  <text x="880" y="38" text-anchor="end" font-size="12" font-weight="700" fill="#8fb3d9">ITSM · ИБ</text>
-  <!-- 6 шагов -->
-  <g font-size="12.5" fill="#123052" text-anchor="middle">
-    <!-- 1 Детектирование -->
-    <rect x="30" y="95" width="135" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
-    <circle cx="97" cy="120" r="16" fill="#2563EB"/><text x="97" y="126" font-size="13" fill="#fff">1</text>
-    <text x="97" y="155" font-weight="800">Детекти-</text><text x="97" y="172" font-weight="800">рование</text>
-    <text x="97" y="195" font-size="11" fill="#6B7280">SIEM · САП · каналы</text>
-    <!-- 2 Анализ -->
-    <rect x="180" y="95" width="130" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
-    <circle cx="245" cy="120" r="16" fill="#2563EB"/><text x="245" y="126" font-size="13" fill="#fff">2</text>
-    <text x="245" y="155" font-weight="800">Анализ /</text><text x="245" y="172" font-weight="800">триаж</text>
-    <text x="245" y="195" font-size="11" fill="#6B7280">классиф. · приоритет</text>
-    <!-- 3 Сдерживание -->
-    <rect x="325" y="95" width="160" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
-    <circle cx="405" cy="120" r="16" fill="#2563EB"/><text x="405" y="126" font-size="13" fill="#fff">3</text>
-    <text x="405" y="150" font-weight="800">Сдерживание /</text><text x="405" y="167" font-weight="800">локализация</text>
-    <text x="405" y="192" font-size="11" fill="#6B7280">сеть · сегмент · сервис</text>
-    <!-- 4 Устранение -->
-    <rect x="500" y="95" width="130" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
-    <circle cx="565" cy="120" r="16" fill="#2563EB"/><text x="565" y="126" font-size="13" fill="#fff">4</text>
-    <text x="565" y="155" font-weight="800">Устранение</text>
-    <text x="565" y="192" font-size="11" fill="#6B7280">ВПО · доступ · патчи</text>
-    <!-- 5 Восстановление -->
-    <rect x="645" y="95" width="135" height="120" rx="12" fill="#fff" stroke="#2563EB" stroke-width="2"/>
-    <circle cx="712" cy="120" r="16" fill="#2563EB"/><text x="712" y="126" font-size="13" fill="#fff">5</text>
-    <text x="712" y="155" font-weight="800">Восстано-</text><text x="712" y="172" font-weight="800">вление</text>
-    <text x="712" y="195" font-size="11" fill="#6B7280">контроль · возврат</text>
-    <!-- 6 Пост-инцидент -->
-    <rect x="795" y="95" width="105" height="120" rx="12" fill="#DCFCE7" stroke="#10B981" stroke-width="2"/>
-    <circle cx="847" cy="120" r="16" fill="#10B981"/><text x="847" y="126" font-size="13" fill="#fff">6</text>
-    <text x="847" y="152" font-size="11.5" font-weight="800" fill="#15803D">Пост-</text><text x="847" y="166" font-size="11.5" font-weight="800" fill="#15803D">инцидент</text>
-    <text x="847" y="192" font-size="10" fill="#166534">уроки · БЗ</text>
-  </g>
-  <!-- стрелки -->
-  <g stroke="#94A3B8" stroke-width="2.5" fill="none">
-    <path d="M165 155 H178" marker-end="url(#a)"/>
-    <path d="M310 155 H323" marker-end="url(#a)"/>
-    <path d="M485 155 H498" marker-end="url(#a)"/>
-    <path d="M630 155 H643" marker-end="url(#a)"/>
-    <path d="M780 155 H793" marker-end="url(#a)"/>
-  </g>
-  <defs><marker id="a" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 z" fill="#94A3B8"/></marker></defs>
-  <!-- нижняя панель: приоритет -->
-  <rect x="30" y="245" width="870" height="80" rx="14" fill="#fff" stroke="#E2E8F0"/>
-  <text x="50" y="272" font-size="12.5" font-weight="800" fill="#123052">Приоритизация (Влияние × Срочность)</text>
-  <g font-size="11.5" fill="#6B7280">
-    <rect x="50" y="284" width="120" height="28" rx="8" fill="#FEE2E2"/><text x="110" y="302" text-anchor="middle" font-weight="700" fill="#B91C1C">Критический</text>
-    <rect x="180" y="284" width="110" height="28" rx="8" fill="#FEF3C7"/><text x="235" y="302" text-anchor="middle" font-weight="700" fill="#B45309">Высокий</text>
-    <rect x="300" y="284" width="110" height="28" rx="8" fill="#DBEAFE"/><text x="355" y="302" text-anchor="middle" font-weight="700" fill="#1D4ED8">Средний</text>
-    <rect x="420" y="284" width="100" height="28" rx="8" fill="#F3F4F6"/><text x="470" y="302" text-anchor="middle" font-weight="700" fill="#374151">Низкий</text>
-  </g>
-  <text x="560" y="300" font-size="12" fill="#6B7280">Классификация: конфиденциальность · целостность · доступность · источник · умысел</text>
-  <!-- нижняя строка -->
-  <rect x="30" y="345" width="870" height="90" rx="14" fill="#F1F5F9" stroke="#E2E8F0"/>
-  <text x="50" y="372" font-size="12.5" font-weight="800" fill="#123052">Роли и RACI</text>
-  <g font-size="11" fill="#475569">
-    <text x="50" y="392">Владелец · Менеджер процесса · Сервис-менеджер · РРГ</text>
-    <text x="50" y="410">Специалисты 1 / 1,5 / 2 / 3 линии · Координаторы изменений / проблем · Администратор ИБ</text>
-  </g>
-  <rect x="600" y="362" width="290" height="54" rx="10" fill="#0E9BBF"/>
-  <text x="745" y="384" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">6 контуров реагирования</text>
-  <text x="745" y="402" text-anchor="middle" font-size="11" fill="#E0F7FA">от детектирования до пост-инцидента</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="Регламент обработки инцидентов ИБ: жизненный цикл, 6 контуров">
+<defs>
+  <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1830"/><stop offset="0.55" stop-color="#0d2444"/><stop offset="1" stop-color="#0a2e4a"/></linearGradient>
+  <linearGradient id="hdG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#123052"/><stop offset="1" stop-color="#1d6fe0"/></linearGradient>
+  <linearGradient id="stp1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient>
+  <linearGradient id="stpG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#0a8f63"/></linearGradient>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#000" flood-opacity=".35"/></filter>
+  <marker id="arI" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#5fc1ff"/></marker>
+</defs>
+<rect width="1200" height="620" rx="24" fill="url(#bgG)"/>
+<circle cx="1080" cy="50" r="200" fill="oklch(0.7 0.14 250 / .13)"/>
+<circle cx="120" cy="560" r="200" fill="oklch(0.7 0.15 190 / .1)"/>
+
+<!-- Header -->
+<rect x="0" y="0" width="1200" height="78" rx="24" fill="url(#hdG)"/>
+<rect x="0" y="54" width="1200" height="24" fill="url(#hdG)"/>
+<text x="40" y="38" font-size="21" font-weight="800" fill="#fff" font-family="Inter,system-ui,sans-serif">Регламент обработки инцидентов ИБ</text>
+<text x="40" y="62" font-size="13" fill="#bfd8f0" font-family="Inter,system-ui,sans-serif">ITSM · информационная безопасность · жизненный цикл в 6 контурах</text>
+<rect x="960" y="20" width="130" height="40" rx="20" fill="#ffffff" opacity=".14"/>
+<text x="1025" y="45" text-anchor="middle" font-size="12" font-weight="800" fill="#bfe9ff" font-family="Inter,system-ui,sans-serif">АРТЕФАКТ</text>
+
+<!-- ===== 6 шагов ===== -->
+<g filter="url(#sh)" font-family="Inter,system-ui,sans-serif">
+  <!-- 1 -->
+  <rect x="30" y="104" width="180" height="150" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.4)" stroke-width="1.5"/>
+  <circle cx="78" cy="132" r="18" fill="url(#stp1)"/><text x="78" y="138" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">1</text>
+  <text x="108" y="138" font-size="16" font-weight="700" fill="#eef4ff">Детектирование</text>
+  <text x="48" y="176" font-size="13" fill="#cfe2f7">SIEM · САП · каналы</text>
+  <text x="48" y="200" font-size="12" fill="#7ca4cf">обнаружение события</text>
+  <text x="48" y="224" font-size="12" fill="#7ca4cf">· первичная оценка</text>
+  <!-- 2 -->
+  <rect x="230" y="104" width="180" height="150" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.4)" stroke-width="1.5"/>
+  <circle cx="278" cy="132" r="18" fill="url(#stp1)"/><text x="278" y="138" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">2</text>
+  <text x="308" y="138" font-size="16" font-weight="700" fill="#eef4ff">Анализ / триаж</text>
+  <text x="248" y="176" font-size="13" fill="#cfe2f7">классификация</text>
+  <text x="248" y="200" font-size="12" fill="#7ca4cf">· приоритет</text>
+  <text x="248" y="224" font-size="12" fill="#7ca4cf">· вовлечение</text>
+  <!-- 3 -->
+  <rect x="430" y="104" width="180" height="150" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.4)" stroke-width="1.5"/>
+  <circle cx="478" cy="132" r="18" fill="url(#stp1)"/><text x="478" y="138" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">3</text>
+  <text x="508" y="138" font-size="16" font-weight="700" fill="#eef4ff">Сдерживание</text>
+  <text x="448" y="176" font-size="13" fill="#cfe2f7">локализация:</text>
+  <text x="448" y="200" font-size="12" fill="#7ca4cf">сеть · сегмент</text>
+  <text x="448" y="224" font-size="12" fill="#7ca4cf">· сервис</text>
+  <!-- 4 -->
+  <rect x="630" y="104" width="180" height="150" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.4)" stroke-width="1.5"/>
+  <circle cx="678" cy="132" r="18" fill="url(#stp1)"/><text x="678" y="138" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">4</text>
+  <text x="708" y="138" font-size="16" font-weight="700" fill="#eef4ff">Устранение</text>
+  <text x="648" y="176" font-size="13" fill="#cfe2f7">ВПО · доступ</text>
+  <text x="648" y="200" font-size="12" fill="#7ca4cf">· патчи</text>
+  <text x="648" y="224" font-size="12" fill="#7ca4cf">· митигация</text>
+  <!-- 5 -->
+  <rect x="830" y="104" width="180" height="150" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.4)" stroke-width="1.5"/>
+  <circle cx="878" cy="132" r="18" fill="url(#stp1)"/><text x="878" y="138" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">5</text>
+  <text x="908" y="138" font-size="16" font-weight="700" fill="#eef4ff">Восстановление</text>
+  <text x="848" y="176" font-size="13" fill="#cfe2f7">контроль · возврат</text>
+  <text x="848" y="200" font-size="12" fill="#7ca4cf">бизнес-процессов</text>
+  <text x="848" y="224" font-size="12" fill="#7ca4cf">· проверка</text>
+  <!-- 6 -->
+  <rect x="1030" y="104" width="150" height="150" rx="18" fill="#0d3a2c" stroke="rgba(63,224,160,.45)" stroke-width="1.5"/>
+  <circle cx="1078" cy="132" r="18" fill="url(#stpG)"/><text x="1078" y="138" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">6</text>
+  <text x="1085" y="140" font-size="16" font-weight="700" fill="#d8fff0">Пост-инцидент</text>
+  <text x="1048" y="176" font-size="13" fill="#a7ecd0">уроки · БЗ</text>
+  <text x="1048" y="200" font-size="12" fill="#6fc4a3">· отчёт ·</text>
+  <text x="1048" y="224" font-size="12" fill="#6fc4a3">разбор</text>
+</g>
+<!-- стрелки между шагами -->
+<g stroke="#5fc1ff" stroke-width="2.5" fill="none">
+  <line x1="210" y1="179" x2="228" y2="179" marker-end="url(#arI)"/>
+  <line x1="410" y1="179" x2="428" y2="179" marker-end="url(#arI)"/>
+  <line x1="610" y1="179" x2="628" y2="179" marker-end="url(#arI)"/>
+  <line x1="810" y1="179" x2="828" y2="179" marker-end="url(#arI)"/>
+  <line x1="1010" y1="179" x2="1028" y2="179" marker-end="url(#arI)"/>
+</g>
+
+<!-- ===== Приоритизация ===== -->
+<g filter="url(#sh)" font-family="Inter,system-ui,sans-serif">
+  <rect x="30" y="280" width="560" height="96" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.3)"/>
+  <text x="52" y="312" font-size="14" font-weight="700" fill="#eef4ff">Приоритизация — влияние × срочность</text>
+  <rect x="52" y="326" width="118" height="34" rx="16" fill="#6b1f26"/><text x="111" y="348" text-anchor="middle" font-size="12" font-weight="700" fill="#ffcfd4">Критический</text>
+  <rect x="180" y="326" width="104" height="34" rx="16" fill="#7a4a12"/><text x="232" y="348" text-anchor="middle" font-size="12" font-weight="700" fill="#ffe4b8">Высокий</text>
+  <rect x="294" y="326" width="104" height="34" rx="16" fill="#1d3f88"/><text x="346" y="348" text-anchor="middle" font-size="12" font-weight="700" fill="#bcd4ff">Средний</text>
+  <rect x="408" y="326" width="96" height="34" rx="16" fill="#223048"/><text x="456" y="348" text-anchor="middle" font-size="12" font-weight="700" fill="#cbd6e6">Низкий</text>
+  <rect x="610" y="280" width="560" height="96" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.3)"/>
+  <text x="632" y="312" font-size="14" font-weight="700" fill="#eef4ff">Классификация события</text>
+  <text x="632" y="338" font-size="12.5" fill="#cfe2f7">конфиденциальность · целостность · доступность</text>
+  <text x="632" y="360" font-size="12.5" fill="#cfe2f7">источник · умысел · масштаб воздействия</text>
+</g>
+
+<!-- ===== RACI ===== -->
+<g filter="url(#sh)" font-family="Inter,system-ui,sans-serif">
+  <rect x="30" y="394" width="560" height="96" rx="18" fill="#0f2b4d" stroke="rgba(90,167,255,.3)"/>
+  <text x="52" y="424" font-size="14" font-weight="700" fill="#eef4ff">Роли и RACI</text>
+  <text x="52" y="452" font-size="12.5" fill="#cfe2f7">Владелец · Менеджер процесса</text>
+  <text x="52" y="474" font-size="12.5" fill="#cfe2f7">Сервис-менеджер · РРГ</text>
+  <rect x="610" y="394" width="560" height="96" rx="18" fill="#0f3b33" stroke="rgba(79,209,197,.4)"/>
+  <text x="632" y="424" font-size="14" font-weight="700" fill="#eafaf9">Специалисты линий</text>
+  <text x="632" y="452" font-size="12.5" fill="#cfe2f7">1 / 1,5 / 2 / 3 линия · администратор ИБ</text>
+  <text x="632" y="474" font-size="12.5" fill="#cfe2f7">координаторы изменений и проблем</text>
+</g>
+
+<!-- ===== 6 контуров ===== -->
+<g filter="url(#sh)">
+  <rect x="30" y="510" width="1140" height="88" rx="18" fill="#0d2444" stroke="rgba(79,209,197,.4)" stroke-width="1.5"/>
+  <circle cx="84" cy="554" r="14" fill="#4fd1c5"/><text x="84" y="559" text-anchor="middle" font-size="13" font-weight="800" fill="#06212e" font-family="Inter,system-ui,sans-serif">6</text>
+  <text x="116" y="548" font-size="17" font-weight="700" fill="#eafaf9" font-family="Inter,system-ui,sans-serif">контуров реагирования</text>
+  <text x="116" y="572" font-size="13" fill="#8fd3e0" font-family="Inter,system-ui,sans-serif">от детектирования до пост-инцидента · сквозной SLA по всему контуру</text>
+</g>
 </svg>

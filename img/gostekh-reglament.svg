@@ -1,92 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 920 500" role="img" aria-label="Схема регламента информационного взаимодействия ГосТех и МинЦифры">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-label="Регламент информационного взаимодействия: СРО ГосТех ЕЦП и ФГИС СЦ Минцифры">
 <defs>
-  <linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0c2950"/><stop offset="1" stop-color="#1d6fe0"/></linearGradient>
-  <linearGradient id="ecp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef4fb"/><stop offset="1" stop-color="#e2ecf8"/></linearGradient>
-  <linearGradient id="vos" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eefcf7"/><stop offset="1" stop-color="#e0f2ea"/></linearGradient>
-  <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1d6fe0"/></marker>
-  <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0e9bbf"/></marker>
+  <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0a1830"/><stop offset="0.55" stop-color="#0d2444"/><stop offset="1" stop-color="#0a2e4a"/>
+  </linearGradient>
+  <linearGradient id="hdG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#123052"/><stop offset="1" stop-color="#1d6fe0"/>
+  </linearGradient>
+  <linearGradient id="glasA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d6fe0" stop-opacity=".28"/><stop offset="1" stop-color="#1d6fe0" stop-opacity=".06"/></linearGradient>
+  <linearGradient id="glasB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0ea5a0" stop-opacity=".3"/><stop offset="1" stop-color="#0ea5a0" stop-opacity=".05"/></linearGradient>
+  <linearGradient id="chipA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient>
+  <linearGradient id="chipCyan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0ea5a0"/><stop offset="1" stop-color="#0d8a88"/></linearGradient>
+  <linearGradient id="chipTeal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e7490"/><stop offset="1" stop-color="#0b5a70"/></linearGradient>
+  <linearGradient id="chipGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f9d6b"/><stop offset="1" stop-color="#1a8058"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity=".35"/></filter>
+  <filter id="glowB" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/></filter>
+  <marker id="arA" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#5aa7ff"/></marker>
+  <marker id="arC" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#4fd1c5"/></marker>
 </defs>
-<rect width="920" height="500" rx="20" fill="#ffffff" stroke="#e2eaf3"/>
 
-<!-- header -->
-<rect x="0" y="0" width="920" height="66" rx="20" fill="url(#hd)"/>
-<rect x="0" y="48" width="920" height="18" fill="url(#hd)"/>
-<text x="28" y="30" font-size="16" font-weight="800" fill="#ffffff" font-family="Inter,system-ui,sans-serif">Регламент информационного взаимодействия</text>
-<text x="28" y="52" font-size="12.5" fill="#c8dcef" font-family="Inter,system-ui,sans-serif">СРО «ГосТех» (ЕЦП) ↔ ФГИС СЦ Минцифры (Восход) · уровень министерства · утверждён в 2025</text>
-<text x="892" y="32" text-anchor="end" font-size="11" font-weight="800" fill="#8fd3e0" font-family="Inter,system-ui,sans-serif">АРТЕФАКТ/РЕГЛАМЕНТ</text>
+<rect width="1200" height="640" rx="24" fill="url(#bgG)"/>
+<circle cx="1040" cy="60" r="200" fill="oklch(0.7 0.14 250 / .14)" />
+<circle cx="160" cy="560" r="220" fill="oklch(0.7 0.15 190 / .1)" />
 
-<!-- СРО ЕЦП card -->
-<rect x="26" y="84" width="386" height="150" rx="16" fill="url(#ecp)" stroke="#c5d8ee"/>
-<text x="44" y="110" font-size="14" font-weight="800" fill="#0c2950" font-family="Inter,system-ui,sans-serif">СРО · ЕЦП «ГосТех»</text>
-<g font-family="Inter,system-ui,sans-serif">
-  <circle cx="46" cy="134" r="4" fill="#1d6fe0"/><text x="60" y="138" font-size="12" fill="#24354d">Регистрация и классификация обращений</text>
-  <circle cx="46" cy="158" r="4" fill="#1d6fe0"/><text x="60" y="162" font-size="12" fill="#24354d">SLA-расчёт по приоритетам</text>
-  <circle cx="46" cy="182" r="4" fill="#1d6fe0"/><text x="60" y="186" font-size="12" fill="#24354d">REST-адаптер СРО (отправка данных)</text>
-  <circle cx="46" cy="206" r="4" fill="#1d6fe0"/><text x="60" y="210" font-size="12" fill="#24354d">Каналы: телефон, e-mail, LK</text>
+<!-- Header -->
+<rect x="0" y="0" width="1200" height="84" rx="24" fill="url(#hdG)"/>
+<rect x="0" y="60" width="1200" height="24" fill="url(#hdG)"/>
+<text x="40" y="40" font-size="21" font-weight="800" fill="#ffffff" font-family="Inter,system-ui,sans-serif">Регламент информационного взаимодействия</text>
+<text x="40" y="64" font-size="13" fill="#bfd8f0" font-family="Inter,system-ui,sans-serif">СРО «ГосТех» (ЕЦП) ↔ ФГИС «Ситуационный центр» Минцифры · уровень министерства · 2025</text>
+<rect x="880" y="22" width="120" height="40" rx="20" fill="#ffffff" opacity=".14"/>
+<text x="940" y="47" text-anchor="middle" font-size="12" font-weight="800" fill="#bfe9ff" font-family="Inter,system-ui,sans-serif">АРТЕФАКТ</text>
+
+<!-- ===== ECP card ===== -->
+<g filter="url(#shadow)">
+  <rect x="32" y="106" width="470" height="218" rx="22" fill="url(#glasA)" stroke="rgba(90,167,255,.4)" stroke-width="1.5"/>
+  <circle cx="56" cy="126" r="16" fill="url(#chipA)"/>
+  <text x="56" y="131" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" font-family="Inter,system-ui,sans-serif">ЕЦП</text>
+  <text x="86" y="132" font-size="17" font-weight="700" fill="#eef4ff" font-family="Inter,system-ui,sans-serif">СРО «ГосТех» — Единая платформа</text>
+  <g font-family="Inter,system-ui,sans-serif">
+    <circle cx="58" cy="168" r="5" fill="#5aa7ff"/><text x="74" y="173" font-size="13.5" fill="#cfe2f7">Регистрация и классификация обращений</text>
+    <circle cx="58" cy="200" r="5" fill="#5aa7ff"/><text x="74" y="205" font-size="13.5" fill="#cfe2f7">SLA-расчёт по приоритетам</text>
+    <circle cx="58" cy="232" r="5" fill="#5aa7ff"/><text x="74" y="237" font-size="13.5" fill="#cfe2f7">REST-адаптер СРО (отправка данных)</text>
+    <circle cx="58" cy="264" r="5" fill="#5aa7ff"/><text x="74" y="269" font-size="13.5" fill="#cfe2f7">Каналы: телефон, e-mail, ЛК</text>
+  </g>
 </g>
 
-<!-- ФГИС СЦ Восход card -->
-<rect x="508" y="84" width="386" height="150" rx="16" fill="url(#vos)" stroke="#bfe6d6"/>
-<text x="526" y="110" font-size="14" font-weight="800" fill="#0b4a38" font-family="Inter,system-ui,sans-serif">ФГИС СЦ · Восход</text>
-<g font-family="Inter,system-ui,sans-serif">
-  <circle cx="528" cy="134" r="4" fill="#0e8f6f"/><text x="542" y="138" font-size="12" fill="#244a3c">ЛК СЦ — портал подачи обращений</text>
-  <circle cx="528" cy="158" r="4" fill="#0e8f6f"/><text x="542" y="162" font-size="12" fill="#244a3c">Классификация и консультации</text>
-  <circle cx="528" cy="182" r="4" fill="#0e8f6f"/><text x="542" y="186" font-size="12" fill="#244a3c">REST-адаптер ФГИС СЦ</text>
-  <circle cx="528" cy="206" r="4" fill="#0e8f6f"/><text x="542" y="210" font-size="12" fill="#244a3c">Резерв: e-mail sd@sc.digital.gov.ru</text>
+<!-- ===== REST connector ===== -->
+<g filter="url(#shadow)">
+  <rect x="520" y="166" width="88" height="64" rx="16" fill="#112b4a" stroke="#5aa7ff" stroke-width="1.5"/>
+  <rect x="520" y="166" width="88" height="64" rx="16" fill="url(#glasA)" opacity=".8"/>
+  <text x="564" y="196" text-anchor="middle" font-size="13" font-weight="800" fill="#7cc0ff" font-family="Inter,system-ui,sans-serif">REST</text>
+  <text x="564" y="214" text-anchor="middle" font-size="11" fill="#8fb3d9" font-family="Inter,system-ui,sans-serif">адаптер</text>
+</g>
+<line x1="506" y1="196" x2="518" y2="196" stroke="#5aa7ff" stroke-width="2.5" marker-end="url(#arA)"/>
+<line x1="610" y1="196" x2="622" y2="196" stroke="#5aa7ff" stroke-width="2.5" marker-end="url(#arA)"/>
+
+<!-- ===== SZ Vostok card ===== -->
+<g filter="url(#shadow)">
+  <rect x="626" y="106" width="470" height="218" rx="22" fill="url(#glasB)" stroke="rgba(79,209,197,.4)" stroke-width="1.5"/>
+  <circle cx="650" cy="126" r="16" fill="url(#chipCyan)"/>
+  <text x="650" y="131" text-anchor="middle" font-size="12" font-weight="800" fill="#06212e" font-family="Inter,system-ui,sans-serif">ФГИС</text>
+  <text x="678" y="132" font-size="17" font-weight="700" fill="#eafaf9" font-family="Inter,system-ui,sans-serif">ФГИС «Ситуационный центр» — Восход</text>
+  <g font-family="Inter,system-ui,sans-serif">
+    <circle cx="652" cy="168" r="5" fill="#4fd1c5"/><text x="668" y="173" font-size="13.5" fill="#d1f2ee">ЛК СЦ — портал подачи обращений</text>
+    <circle cx="652" cy="200" r="5" fill="#4fd1c5"/><text x="668" y="205" font-size="13.5" fill="#d1f2ee">Классификация и консультации</text>
+    <circle cx="652" cy="232" r="5" fill="#4fd1c5"/><text x="668" y="237" font-size="13.5" fill="#d1f2ee">REST-адаптер ФГИС СЦ</text>
+    <circle cx="652" cy="264" r="5" fill="#4fd1c5"/><text x="668" y="269" font-size="13.5" fill="#d1f2ee">Резерв: e-mail sd@sc.digital.gov.ru</text>
+  </g>
 </g>
 
-<!-- connector REST -->
-<rect x="424" y="118" width="72" height="54" rx="10" fill="#ffffff" stroke="#1d6fe0"/>
-<text x="460" y="142" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1d6fe0" font-family="Inter,system-ui,sans-serif">REST</text>
-<text x="460" y="156" text-anchor="middle" font-size="9.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">адаптер</text>
-<line x1="412" y1="150" x2="426" y2="150" stroke="#1d6fe0" stroke-width="2.5" marker-end="url(#ar)"/>
-<line x1="508" y1="150" x2="522" y2="150" stroke="#1d6fe0" stroke-width="2.5" marker-end="url(#ar)"/>
-
-<!-- zond monitor -->
-<rect x="26" y="252" width="386" height="56" rx="12" fill="#ffffff" stroke="#d7e4f2"/>
-<circle cx="46" cy="280" r="6" fill="#0e9bbf"/>
-<text x="62" y="276" font-size="12" font-weight="800" fill="#0c2950" font-family="Inter,system-ui,sans-serif">Зонд-система мониторинга</text>
-<text x="62" y="294" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">порог ответа СИВ &lt; 60 сек · уведомление дежурного</text>
-<line x1="219" y1="252" x2="219" y2="236" stroke="#0e9bbf" stroke-width="2" marker-end="url(#ar2)"/>
-
-<!-- incident rules band -->
-<rect x="508" y="252" width="386" height="56" rx="12" fill="#eef4fb" stroke="#c5d8ee"/>
-<text x="526" y="278" font-size="12" font-weight="800" fill="#0c2950" font-family="Inter,system-ui,sans-serif">6 правил идентификации инцидентов обмена</text>
-<text x="526" y="296" font-size="10.5" fill="#5f6e82" font-family="Inter,system-ui,sans-serif">нет ответа 60с · вложения · дубли · метаданные · спецсимволы</text>
-
-<!-- lifecycle row -->
-<g font-family="Inter,system-ui,sans-serif">
-  <text x="28" y="348" font-size="13" font-weight="800" fill="#0c2950">Жизненный цикл обращения</text>
-  <rect x="28" y="358" width="150" height="34" rx="9" fill="#1d6fe0"/><text x="103" y="380" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Регистрация</text>
-  <line x1="180" y1="375" x2="204" y2="375" stroke="#1d6fe0" stroke-width="2" marker-end="url(#ar)"/>
-  <rect x="206" y="358" width="150" height="34" rx="9" fill="#0e9bbf"/><text x="281" y="380" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Классификация</text>
-  <line x1="358" y1="375" x2="382" y2="375" stroke="#0e9bbf" stroke-width="2" marker-end="url(#ar2)"/>
-  <rect x="384" y="358" width="150" height="34" rx="9" fill="#0e7490"/><text x="459" y="380" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Передача СИВ</text>
-  <line x1="536" y1="375" x2="560" y2="375" stroke="#0e7490" stroke-width="2" marker-end="url(#ar2)"/>
-  <rect x="562" y="358" width="150" height="34" rx="9" fill="#1f7a52"/><text x="637" y="380" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Решение</text>
-  <line x1="714" y1="375" x2="738" y2="375" stroke="#1f7a52" stroke-width="2" marker-end="url(#ar)"/>
-  <rect x="740" y="358" width="150" height="34" rx="9" fill="#b3741f"/><text x="815" y="380" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Закрытие</text>
+<!-- ===== Zond monitor ===== -->
+<g filter="url(#shadow)">
+  <rect x="32" y="344" width="470" height="70" rx="16" fill="#10294a" stroke="rgba(79,209,197,.4)" stroke-width="1.2"/>
+  <circle cx="56" cy="379" r="7" fill="#4fd1c5"/><circle cx="56" cy="379" r="11" fill="none" stroke="#4fd1c5" stroke-width="1" opacity=".4"/>
+  <text x="78" y="372" font-size="14" font-weight="700" fill="#eafaf9" font-family="Inter,system-ui,sans-serif">Зонд-система мониторинга</text>
+  <text x="78" y="394" font-size="12" fill="#8fd3e0" font-family="Inter,system-ui,sans-serif">порог ответа СИВ &lt; 60 сек · уведомление дежурного инженера</text>
 </g>
 
-<!-- key numbers -->
+<!-- ===== Incident rules ===== -->
+<g filter="url(#shadow)">
+  <rect x="626" y="344" width="470" height="70" rx="16" fill="#10294a" stroke="rgba(90,167,255,.4)" stroke-width="1.2"/>
+  <circle cx="650" cy="379" r="7" fill="#5aa7ff"/>
+  <text x="672" y="372" font-size="14" font-weight="700" fill="#eef4ff" font-family="Inter,system-ui,sans-serif">6 правил идентификации инцидентов обмена</text>
+  <text x="672" y="394" font-size="12" fill="#a8c6e8" font-family="Inter,system-ui,sans-serif">нет ответа 60с · вложения · дубли · метаданные · спецсимволы</text>
+</g>
+
+<!-- ===== Lifecycle ===== -->
+<text x="40" y="460" font-size="15" font-weight="800" fill="#dbe9f8" font-family="Inter,system-ui,sans-serif">Жизненный цикл обращения</text>
+<g filter="url(#shadow)" font-family="Inter,system-ui,sans-serif">
+  <rect x="40" y="474" width="166" height="48" rx="14" fill="url(#chipA)"/><text x="123" y="503" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Регистрация</text>
+  <rect x="230" y="474" width="166" height="48" rx="14" fill="url(#chipCyan)"/><text x="313" y="503" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Классификация</text>
+  <rect x="420" y="474" width="166" height="48" rx="14" fill="url(#chipTeal)"/><text x="503" y="503" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Передача СИВ</text>
+  <rect x="610" y="474" width="166" height="48" rx="14" fill="url(#chipGreen)"/><text x="693" y="503" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Решение</text>
+  <rect x="800" y="474" width="166" height="48" rx="14" fill="url(#chipA)"/><text x="883" y="503" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Закрытие</text>
+  <line x1="206" y1="498" x2="228" y2="498" stroke="#5aa7ff" stroke-width="2.5" marker-end="url(#arA)"/>
+  <line x1="396" y1="498" x2="418" y2="498" stroke="#4fd1c5" stroke-width="2.5" marker-end="url(#arC)"/>
+  <line x1="586" y1="498" x2="608" y2="498" stroke="#4fd1c5" stroke-width="2.5" marker-end="url(#arC)"/>
+  <line x1="776" y1="498" x2="798" y2="498" stroke="#3fe0a0" stroke-width="2.5" marker-end="url(#arA)"/>
+</g>
+
+<!-- ===== Key metrics ===== -->
 <g font-family="Inter,system-ui,sans-serif">
-  <rect x="26" y="414" width="120" height="62" rx="12" fill="#f4f7fb" stroke="#e2eaf3"/>
-  <text x="86" y="440" text-anchor="middle" font-size="22" font-weight="900" fill="#1d6fe0">11</text>
-  <text x="86" y="462" text-anchor="middle" font-size="10" fill="#5f6e82">ролей процесса</text>
-  <rect x="160" y="414" width="120" height="62" rx="12" fill="#f4f7fb" stroke="#e2eaf3"/>
-  <text x="220" y="440" text-anchor="middle" font-size="22" font-weight="900" fill="#0e9bbf">3</text>
-  <text x="220" y="462" text-anchor="middle" font-size="10" fill="#5f6e82">процедуры</text>
-  <rect x="294" y="414" width="120" height="62" rx="12" fill="#f4f7fb" stroke="#e2eaf3"/>
-  <text x="354" y="440" text-anchor="middle" font-size="22" font-weight="900" fill="#0e7490">6</text>
-  <text x="354" y="462" text-anchor="middle" font-size="10" fill="#5f6e82">правил инцидентов</text>
-  <rect x="428" y="414" width="120" height="62" rx="12" fill="#eef4fb" stroke="#c5d8ee"/>
-  <text x="488" y="440" text-anchor="middle" font-size="20" font-weight="900" fill="#1d6fe0">SLA 5 мин</text>
-  <text x="488" y="462" text-anchor="middle" font-size="10" fill="#5f6e82">обновление LK</text>
-  <rect x="562" y="414" width="130" height="62" rx="12" fill="#eefcf7" stroke="#bfe6d6"/>
-  <text x="627" y="440" text-anchor="middle" font-size="20" font-weight="900" fill="#0e8f6f">&lt; 60 сек</text>
-  <text x="627" y="462" text-anchor="middle" font-size="10" fill="#5f6e82">порог ответа СИВ</text>
-  <rect x="706" y="414" width="130" height="62" rx="12" fill="#fdf6ea" stroke="#ecd9b4"/>
-  <text x="771" y="440" text-anchor="middle" font-size="20" font-weight="900" fill="#b3741f">72 часа</text>
-  <text x="771" y="462" text-anchor="middle" font-size="10" fill="#5f6e82">анонс плановых работ</text>
+  <rect x="40" y="546" width="150" height="66" rx="16" fill="#0f2b4d" stroke="rgba(90,167,255,.35)"/><text x="115" y="578" text-anchor="middle" font-size="30" font-weight="900" fill="#7cc0ff">11</text><text x="115" y="600" text-anchor="middle" font-size="11" fill="#a8c6e8">ролей процесса</text>
+  <rect x="210" y="546" width="150" height="66" rx="16" fill="#0f2b4d" stroke="rgba(79,209,197,.35)"/><text x="285" y="578" text-anchor="middle" font-size="30" font-weight="900" fill="#4fd1c5">3</text><text x="285" y="600" text-anchor="middle" font-size="11" fill="#a8c6e8">процедуры</text>
+  <rect x="380" y="546" width="150" height="66" rx="16" fill="#0f2b4d" stroke="rgba(79,209,197,.35)"/><text x="455" y="578" text-anchor="middle" font-size="30" font-weight="900" fill="#4fd1c5">6</text><text x="455" y="600" text-anchor="middle" font-size="11" fill="#a8c6e8">правил инцидентов</text>
+  <rect x="550" y="546" width="180" height="66" rx="16" fill="#0f2b4d" stroke="rgba(90,167,255,.5)"/><text x="640" y="578" text-anchor="middle" font-size="26" font-weight="900" fill="#7cc0ff">SLA 5 мин</text><text x="640" y="600" text-anchor="middle" font-size="11" fill="#a8c6e8">обновление ЛК</text>
+  <rect x="750" y="546" width="180" height="66" rx="16" fill="#0f2b4d" stroke="rgba(79,209,197,.5)"/><text x="840" y="578" text-anchor="middle" font-size="26" font-weight="900" fill="#4fd1c5">&lt; 60 сек</text><text x="840" y="600" text-anchor="middle" font-size="11" fill="#a8c6e8">порог ответа СИВ</text>
+  <rect x="950" y="546" width="180" height="66" rx="16" fill="#0f2b4d" stroke="rgba(255,196,90,.4)"/><text x="1040" y="578" text-anchor="middle" font-size="26" font-weight="900" fill="#ffd98a">72 часа</text><text x="1040" y="600" text-anchor="middle" font-size="11" fill="#a8c6e8">анонс плановых работ</text>
 </g>
 </svg>

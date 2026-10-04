@@ -3,28 +3,46 @@
 var ov=null, img=null, cap=null, close=null, zoomIn=null, zoomOut=null, reset=null;
 var scale=1, tx=0, ty=0, baseW=1, baseH=1, fitScale=1, dragging=false, sx=0, sy=0, stx=0, sty=0;
 var pinch=null;
-/* Центрирование: картинка в центре через flex+margin:auto; transform только для зума.
-   В zoom-режиме: absolute left50/top50 + translate(-50%,-50%) -> центр в центре экрана. */
+var cur=null, svgHost=null;
+/* Центрирование: картинка в центре через flex+margin:auto; transform только для зума. */
 function apply(){
-  /* transform-scale: стабильно центрируется и зумится, без «убегания» */
-  img.style.transform='translate(-50%,-50%) translate('+tx+'px,'+ty+'px) scale('+scale+')';
+  var el=cur||img;
+  if(!el) return;
+  el.style.transform='translate(-50%,-50%) translate('+tx+'px,'+ty+'px) scale('+scale+')';
 }
 function clampScale(s){
-  /* зум в разумных пределах; при превышении нативного разреза допускаем лёгкую интерполяцию ради удобства */
   return Math.max(fitScale, Math.min(8, s));
 }
 var isSvg=false;
 function fit(){
-  img.style.position='absolute';
-  img.style.left='50%'; img.style.top='50%';
-  img.style.margin='0';
-  img.style.width='auto'; img.style.height='auto';
-  img.style.maxWidth=(ov.clientWidth-48)+'px';
-  img.style.maxHeight=(ov.clientHeight-88)+'px';
-  img.style.transformOrigin='center center';
-  img.style.transform='none';
-  void img.offsetWidth;
-  var rw=img.getBoundingClientRect();
+  var el=cur||img;
+  if(!el) return;
+  if(cur===svgHost){
+    /* SVG: нативный размер уже вписан CSS (max-width/height). Не уменьшаем JS-масштабом. */
+    el.style.position='absolute';
+    el.style.left='50%'; el.style.top='50%';
+    el.style.margin='0';
+    el.style.maxWidth=(ov.clientWidth-24)+'px';
+    el.style.maxHeight=(ov.clientHeight-80)+'px';
+    el.style.transformOrigin='center center';
+    el.style.transform='none';
+    void el.offsetWidth;
+    var rw2=el.getBoundingClientRect();
+    baseW=(rw2&&rw2.width)||1; baseH=(rw2&&rw2.height)||1;
+    fitScale=1; scale=1; tx=0; ty=0;
+    apply();
+    return;
+  }
+  el.style.position='absolute';
+  el.style.left='50%'; el.style.top='50%';
+  el.style.margin='0';
+  el.style.width='auto'; el.style.height='auto';
+  el.style.maxWidth=(ov.clientWidth-48)+'px';
+  el.style.maxHeight=(ov.clientHeight-88)+'px';
+  el.style.transformOrigin='center center';
+  el.style.transform='none';
+  void el.offsetWidth;
+  var rw=el.getBoundingClientRect();
   baseW=(rw&&rw.width)||ov.clientWidth; baseH=(rw&&rw.height)||ov.clientHeight;
   if(baseW<=0)baseW=1; if(baseH<=0)baseH=1;
   fitScale=Math.min((ov.clientWidth-48)/baseW,(ov.clientHeight-88)/baseH,1);
@@ -32,34 +50,61 @@ function fit(){
   apply();
 }
 function zoomAt(f, cx, cy){
+  var el=cur||img;
   var r=ov.getBoundingClientRect();
   var mx=cx-r.left-ov.clientWidth/2, my=cy-r.top-ov.clientHeight/2;
   if(scale<0.01) scale=fitScale||1;
   var ns=clampScale(scale*f);
-  if(img.style.position!=='absolute'){
-    /* страховка, если вдруг static — включить absolute заранее (без apply до пересчёта) */
-    img.style.position='absolute';
-    img.style.left='50%'; img.style.top='50%';
-    img.style.margin='0';
-    img.style.maxWidth='none'; img.style.maxHeight='none';
-    img.style.transformOrigin='center center';
+  if(el.style.position!=='absolute'){
+    el.style.position='absolute';
+    el.style.left='50%'; el.style.top='50%';
+    el.style.margin='0';
+    el.style.maxWidth='none'; el.style.maxHeight='none';
+    el.style.transformOrigin='center center';
   }
   tx=mx-(mx-tx)*(ns/scale);
   ty=my-(my-ty)*(ns/scale);
   scale=ns; apply();
 }
+/* --- SVG: рендер как инлайн-вектор (чёткость при любом зуме, центровка flex) --- */
+function loadSvgInline(src, mode){
+  if(typeof fetch==='undefined'){ img.src=src; return; }
+  fetch(src).then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(svgTxt){
+    var stage=img.parentElement;
+    if(svgHost){ svgHost.parentNode&&svgHost.parentNode.removeChild(svgHost); svgHost=null; }
+    var wrap=document.createElement('div');
+    wrap.id='lbSvgHost';
+    wrap.innerHTML=svgTxt;
+    var sv=wrap.querySelector('svg');
+    if(!sv) throw 0;
+    /* задать нативные размеры из viewBox, чтобы svg имел реальную геометрию */
+    var vb=(sv.getAttribute('viewBox')||'').split(/[\s,]+/);
+    if(vb.length===4){ sv.setAttribute('width',vb[2]); sv.setAttribute('height',vb[3]); }
+    if(mode!=='natural'){ sv.setAttribute('preserveAspectRatio','xMidYMid meet'); }
+    /* уникализируем id градиентов/фильтров внутри SVG */
+    sv.querySelectorAll('[id]').forEach(function(n){ n.id += '__lb'; });
+    stage.appendChild(wrap);
+    svgHost=wrap; cur=wrap;
+    img.style.display='none';
+    requestAnimationFrame(function(){ requestAnimationFrame(fit); });
+  }).catch(function(){ img.type=''; img.src=src; cur=img; });
+}
 function openLb(src, title, mode){
 if(!img||!ov) return;
 isSvg = /\.svg(\?|#|$)/i.test(src);
 baseW=0; baseH=0;
-img.src=src;
-scale=1; tx=0; ty=0;
-img.style.transform='none';
+cur=img; svgHost=null;
+/* убрать старый инлайн-SVG */
+var stage=img.parentElement;
+var old=document.getElementById('lbSvgHost'); if(old&&old.parentNode) old.parentNode.removeChild(old);
+img.style.display=''; img.style.width='auto'; img.style.height='auto'; img.src=src;
+img.removeAttribute('src'); img.src=src;
+scale=1; tx=0; ty=0; img.style.transform='none';
 function doFit(){ requestAnimationFrame(function(){ requestAnimationFrame(fit); }); }
-/* fit гарантированно, не только по load */
 if(img.complete) doFit();
 img.addEventListener('load', doFit, {once:true});
 setTimeout(doFit, 150);
+if(isSvg) loadSvgInline(src, mode);
 if(cap){ cap.textContent=title||''; cap.classList.add('on'); }
 ov.classList.add('on');
 if(close){ close.classList.add('on'); close.style.display='flex'; }
@@ -127,6 +172,9 @@ reset=document.getElementById('lbReset');
 if(zoomIn) zoomIn.addEventListener('click', function(ev){ ev.stopPropagation(); zoomAt(1.35, ov.clientWidth/2, ov.clientHeight/2); });
 if(zoomOut) zoomOut.addEventListener('click', function(ev){ ev.stopPropagation(); zoomAt(1/1.35, ov.clientWidth/2, ov.clientHeight/2); });
 if(reset) reset.addEventListener('click', function(ev){ ev.stopPropagation(); resetView(); });
+/* явное и надёжное закрытие с первого клика (стоп-пропагация) */
+if(close){ close.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); closeLb(); }); }
+if(ov){ ov.addEventListener('click', function(ev){ if(ev.target===ov){ closeLb(); } }); }
 window.addEventListener('resize', function(){ if(ov&&ov.classList.contains('on')) fit(); });
 }
 document.addEventListener('DOMContentLoaded', init);
