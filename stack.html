@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://alechev777.github.io/portfolio/img/og-cover.webp">
 <link rel="stylesheet" href="css/base.css">
 <script>
-/* Мгновенная установка темы до отрисовки (устраняет скачок цветов при первом заходе) */
+/* ... */
 (function(){
   try{
     var t=localStorage.getItem('mt-theme');
@@ -45,92 +45,119 @@
    ym(113332731, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
 </script>
 <style>
-/* ===== Bento Grid Stack — премиальный стек 2026 ===== */
-.stack-hero{text-align:center;max-width:720px;margin:4px auto 28px;padding:8px 0 14px}
-.stack-hero .st-sub{font-size:12px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue);font-family:var(--mono,monospace)}
-.stack-hero h1{font-family:var(--head);font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.03em;margin:8px 0 12px;text-wrap:balance;color:var(--navy)}
-.stack-hero p{color:var(--muted);font-size:15.5px;line-height:1.6;text-wrap:pretty}
-.stack-topline{display:flex;justify-content:center;gap:clamp(16px,4vw,40px);flex-wrap:wrap;margin:0 0 6px}
+.stack { --b-acc: oklch(0.66 0.19 148); /* ... */ --b-cost: oklch(0.62 0.19 35); /* ... */ --b-ai: oklch(0.72 0.15 200); /* ... */ --b-ink: oklch(0.94 0.01 250); --b-mut: oklch(0.74 0.02 250); --b-dim: oklch(0.62 0.02 250); --b-line: oklch(1 0 0 / 0.09); --b-card: oklch(0.16 0.025 265 / 0.75); --b-bg: oklch(0.13 0.02 260); --b-radius-lg: 22px; --b-radius-md: 14px; --b-gap: 18px;
+} .stack { color-scheme: dark; --head-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+} /* ... */
+html[data-theme="light"] .stack { --b-ink: oklch(0.25 0.03 260); --b-mut: oklch(0.45 0.03 260); --b-dim: oklch(0.5 0.02 260); --b-line: oklch(0 0 0 / 0.1); --b-card: oklch(1 0 0 / 0.85); --b-bg: oklch(0.97 0.01 260); } html[data-theme="light"] .stack .b-card{background:oklch(1 0 0 / 0.92) !important;box-shadow:0 10px 30px oklch(0 0 0 / 0.08) !important} html[data-theme="light"] .stack .b-card::before{opacity:.35} html[data-theme="light"] .stack .sk-vs{background:oklch(0.95 0.02 260);border-color:oklch(0 0 0 / 0.08)} html[data-theme="light"] .stack .feature{background:linear-gradient(150deg,oklch(0.96 0.01 250),oklch(0.92 0.03 245)) !important} html[data-theme="light"] .stack .b-metric .v{color:oklch(0.55 0.15 150)} html[data-theme="light"] .stack .b-metric .v.cost{color:oklch(0.55 0.18 35)} html[data-theme="light"] .stack .b-metric .v.ai{color:oklch(0.5 0.14 230)} html[data-theme="light"] .stack .b-title{color:oklch(0.25 0.03 260)} html[data-theme="light"] .stack .b-tag{background:oklch(0.96 0.01 260) !important;color:oklch(0.35 0.03 260) !important} html[data-theme="light"] .stack .b-tag.hot{color:oklch(0.48 0.14 230) !important;background:oklch(0.93 0.03 240) !important} html[data-theme="light"] .stack .feature-ev .ev,html[data-theme="light"] .stack .spark{background:oklch(0.96 0.01 260) !important;border-color:oklch(0 0 0 / 0.08) !important} html[data-theme="light"] .stack .acc-row b{color:oklch(0.25 0.03 260)} html[data-theme="light"] .stack .bank b{color:oklch(0.25 0.03 260)} html[data-theme="light"] .stack .stack-note{background:oklch(0.93 0.04 240);border-color:oklch(0.5 0.1 240 / 0.3);color:oklch(0.45 0.03 260)} /* Hero */
+.stack-hero{text-align:center;max-width:780px;margin:4px auto 26px;padding:8px 0 12px}
+.stack-hero .st-sub{font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--b-ai);font-family:var(--mono,monospace)}
+.sk-h1, .stack-hero h1{font-family:var(--head-font);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:650;letter-spacing:-0.02em;margin:8px 0 12px;text-wrap:balance;color:var(--b-ink)}
+.stack-hero p{color:var(--b-mut);font-size:15.5px;line-height:1.6;text-wrap:pretty;max-width:680px;margin:0 auto}
+.stack-topline{display:flex;justify-content:center;gap:clamp(14px,3vw,34px);flex-wrap:wrap;margin:14px 0 4px}
 .ktop{display:flex;flex-direction:column;align-items:center;gap:2px}
-.ktop b{font-family:var(--head);font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
-.ktop span{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.stack-toc{position:sticky;top:66px;z-index:30;display:flex;gap:8px;overflow-x:auto;padding:8px 2px;margin:2px 0 20px;border-bottom:1px solid var(--line)}
-.stack-toc a{flex:0 0 auto;font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:none;padding:8px 15px;border-radius:999px;border:1px solid transparent;transition:.15s}
-.stack-toc a:hover{color:var(--blue);border-color:var(--line)}
-.stack-toc a.on{background:var(--blue);color:#fff}
-/* Bento сетка */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:8px}
-.b-card{position:relative;grid-column:span 4;display:flex;flex-direction:column;border-radius:20px;padding:22px 22px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 26px rgba(15,30,52,.08);overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s;min-height:220px}
-.b-card::before{content:"";position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(29,111,224,.25)),transparent 70%);pointer-events:none;opacity:.7}
-.b-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(15,30,52,.18);border-color:rgba(96,165,250,.35)}
-.b-card.wide{grid-column:span 8}
-.b-card.med{grid-column:span 6}
-.b-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
-.b-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(29,111,224,.14);border:1px solid rgba(96,165,250,.2);flex:none;color:#60a5fa;font-size:20px}
-.b-ic.c{color:#22d3ee;background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.2)}
-h3.b-title{font-family:var(--head);font-size:19px;font-weight:900;margin:0;letter-spacing:-.01em;color:var(--navy)}
-.b-sub{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
-/* метрики в карточке */
-.b-metric{display:flex;align-items:baseline;gap:6px;margin:2px 0 4px}
-.b-metric .v{font-family:var(--head);font-size:clamp(24px,2.4vw,32px);font-weight:900;color:#3b82f6;font-variant-numeric:tabular-nums;line-height:1}
-.b-metric .u{font-size:12px;color:var(--muted);font-weight:700}
-.b-metric .trend{color:#22c55e;font-weight:900}
-.b-metric .trend.down{color:#f59e0b}
-.bank{font-size:12.5px;color:var(--muted);line-height:1.5;margin:6px 0}
-.bank b{color:var(--navy);font-weight:800}
-/* бейджи инструментов */
-.b-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px}
-.b-tag{font-size:11.5px;font-weight:700;color:#cbd5e1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:5px 10px;border-radius:8px;white-space:nowrap}
-.b-tag.hot{color:#22d3ee;border-color:rgba(34,211,238,.25);background:rgba(34,211,238,.08)}
-.tooltip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#0b1a2e;color:#e2e8f0;font-size:11.5px;padding:6px 10px;border-radius:8px;width:max-content;max-width:220px;opacity:0;pointer-events:none;transition:opacity .15s;z-index:9}
+.ktop b{font-family:var(--head-font);font-size:clamp(22px,3vw,32px);font-weight:800;font-variant-numeric:tabular-nums;line-height:1;color:var(--b-acc)}
+.ktop span{font-size:10.5px;color:var(--b-mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px} /* TOC */
+.stack-toc{position:sticky;top:66px;z-index:30;display:flex;gap:8px;overflow-x:auto;padding:8px 2px;margin:2px 0 20px;border-bottom:1px solid var(--b-line)}
+.stack-toc a{flex:0 0 auto;font-size:12.5px;font-weight:700;color:var(--b-mut);text-decoration:none;padding:8px 15px;border-radius:999px;border:1px solid transparent;transition:.15s}
+.stack-toc a:hover{color:var(--b-ai);border-color:var(--b-line)}
+.stack-toc a.on{background:var(--b-ai);color:#0b0f1a} /* ===== BENTO GRID ===== */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--b-gap);margin-top:6px} .b-card{ position:relative;display:flex;flex-direction:column;gap:10px; grid-column:span 4; border-radius:var(--b-radius-lg); padding:clamp(18px,2.4vw,26px); background:var(--b-card); border:1px solid var(--b-line); backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px); box-shadow:0 10px 30px oklch(0 0 0 / 0.25); overflow:hidden; min-height:210px; transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+}
+.b-card::before{content:"";position:absolute;top:-70px;right:-70px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--b-glow,oklch(0.7 0.14 250 / 0.18)),transparent 70%);pointer-events:none;opacity:.8}
+.b-card:focus-visible{outline:3px solid var(--b-ai);outline-offset:2px}
+.b-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px oklch(0 0 0 / 0.4);border-color:oklch(0.8 0.15 250 / 0.35)} /* ... */
+.b-card.span3{grid-column:span 3}
+.b-card.span4{grid-column:span 4}
+.b-card.span5{grid-column:span 5}
+.b-card.span6{grid-column:span 6}
+.b-card.span7{grid-column:span 7}
+/* ... */
+.b-card.feature{grid-column:span 7;grid-row:span 2;min-height:430px;background:linear-gradient(150deg,oklch(0.2 0.03 260),oklch(0.14 0.03 255))}
+.b-card.span6{grid-column:span 6} .b-card.span8{grid-column:span 8} .b-card.span12{grid-column:1/-1} /* ... */
+.b-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:2px}
+.b-ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:oklch(0.7 0.14 250 / 0.14);border:1px solid oklch(0.7 0.14 250 / 0.24);flex:none;color:var(--b-ai);font-size:19px}
+.b-ic.c{color:oklch(0.78 0.13 190);background:oklch(0.78 0.13 190 / 0.12);border-color:oklch(0.78 0.13 190 / 0.22)}
+.b-ic.g{color:var(--b-acc);background:oklch(0.72 0.16 150 / 0.12);border-color:oklch(0.72 0.16 150 / 0.22)}
+.b-ic.r{color:var(--b-cost);background:oklch(0.62 0.19 35 / 0.12);border-color:oklch(0.62 0.19 35 / 0.22)} h3.b-title{font-family:var(--head-font);font-size:clamp(17px,1.9vw,21px);font-weight:650;margin:0;letter-spacing:-0.01em;color:var(--b-ink);line-height:1.25}
+.b-sub{font-size:10.5px;color:var(--b-mut);font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-top:2px} /* ... */
+.b-metric{display:flex;align-items:baseline;gap:7px;margin:4px 0 2px;flex-wrap:wrap}
+.b-metric .v{font-family:var(--head-font);font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--b-acc);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-0.02em}
+.b-metric .v.cost{color:var(--b-cost)}
+.b-metric .v.ai{color:var(--b-ai)}
+.b-metric .u{font-size:12.5px;color:var(--b-mut);font-weight:700}
+.b-metric .trend{font-weight:900;font-size:18px}
+.b-metric .trend.up{color:var(--b-acc)}
+.b-metric .trend.down{color:var(--b-cost)} /* ... */
+.bank{font-size:13px;color:var(--b-mut);line-height:1.55;margin:2px 0}
+.bank b{color:var(--b-ink);font-weight:700} /* ... */
+.b-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+.b-tag{font-size:11.5px;font-weight:650;color:var(--b-ink);background:oklch(1 0 0 / 0.05);border:1px solid var(--b-line);padding:5px 11px;border-radius:8px;white-space:nowrap}
+.b-tag.hot{color:var(--b-ai);border-color:oklch(0.72 0.15 250 / 0.3);background:oklch(0.7 0.14 250 / 0.1)}
+.b-tag.g{color:var(--b-acc);border-color:oklch(0.72 0.16 150 / 0.3);background:oklch(0.72 0.16 150 / 0.08)}
+.b-tag.cost{color:var(--b-cost);border-color:oklch(0.62 0.19 35 / 0.3);background:oklch(0.62 0.19 35 / 0.08)}
+.tooltip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:oklch(0.14 0.03 265);color:oklch(0.92 0.01 250);font-size:11.5px;padding:6px 10px;border-radius:8px;width:max-content;max-width:220px;opacity:0;pointer-events:none;transition:opacity .15s;z-index:9}
 .b-tag:hover .tooltip{opacity:1}
-.b-tag{position:relative}
-/* аккордеон */
-.b-acc{margin-top:12px}
-.b-acc summary{cursor:pointer;font-size:12.5px;font-weight:800;color:var(--blue);font-family:var(--sans);list-style:none;display:inline-flex;align-items:center;gap:6px}
+.b-tag{position:relative} /* ... */
+.b-acc{margin-top:auto}
+.b-acc summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--b-ai);font-family:var(--sans,system-ui);list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:34px}
 .b-acc summary::-webkit-details-marker{display:none}
-.b-acc summary::after{content:"＋";transition:transform .2s;color:var(--blue)}
+.b-acc summary::after{content:"＋";transition:transform .2s;color:var(--b-ai)}
 .b-acc[open] summary::after{transform:rotate(45deg)}
 .b-acc .acc-in{padding-top:8px;display:flex;flex-direction:column;gap:6px}
-.acc-row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--muted);padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.acc-row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--b-mut);padding:7px 0;border-bottom:1px dashed var(--b-line)}
 .acc-row:last-child{border:0}
-.acc-row b{color:var(--navy);font-weight:800;font-variant-numeric:tabular-nums}
-/* образование */
-.edu-item{display:flex;gap:12px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.acc-row b{color:var(--b-ink);font-weight:750;font-variant-numeric:tabular-nums} /* ... */
+.b-card.feature .b-metric .v{font-size:clamp(46px,6vw,78px)}
+.b-card.feature .bank{font-size:15px;max-width:46ch}
+.b-card.feature .b-tag{font-size:12px}
+/* ... */
+.feature-ev{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:2px}
+.feature-ev .ev{display:flex;flex-direction:column;gap:1px;padding:12px 14px;border-radius:var(--b-radius-md);background:oklch(1 0 0 / 0.04);border:1px solid var(--b-line)}
+.feature-ev .ev b{font-family:var(--head-font);font-size:22px;font-weight:800;color:var(--b-ink);font-variant-numeric:tabular-nums}
+.feature-ev .ev.cost b{color:var(--b-cost)}
+.feature-ev .ev.grow b{color:var(--b-acc)}
+.feature-ev .ev span{font-size:11px;color:var(--b-mut);font-weight:600} /* ... */
+.spark-row{display:flex;gap:8px;margin-top:auto;padding-top:10px}
+.spark{flex:1;display:flex;flex-direction:column;gap:2px;padding:9px 11px;border-radius:10px;background:oklch(1 0 0 / 0.04);border:1px solid var(--b-line)}
+.spark b{font-size:19px;font-weight:800;color:var(--b-acc);font-family:var(--head-font);font-variant-numeric:tabular-nums}
+.spark.cost b{color:var(--b-cost)}
+.spark.ai b{color:var(--b-ai)}
+.spark span{font-size:9.5px;color:var(--b-mut);font-weight:700;text-transform:uppercase;letter-spacing:.4px} /* ... */
+.edu-item{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--b-line);align-items:flex-start}
 .edu-item:last-child{border:0}
-.edu-item .bk-bullet{width:22px;height:22px;border-radius:7px;background:rgba(59,130,246,.15);color:#3b82f6;display:grid;place-items:center;font-size:12px;flex:none;font-weight:900}
-.edu-item b{display:block;color:var(--navy);font-size:13px}
-.edu-item span{font-size:12px;color:var(--muted)}
-/* примечание стек-рекомендация */
-.stack-note{margin-top:22px;padding:16px 20px;border-radius:14px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);font-size:13.5px;color:var(--muted);text-align:center;line-height:1.5}
-.stack-note b{color:var(--navy)}
-/* тёмная тема (по умолчанию) */
-:root{color-scheme:dark}
-html:root,html:root:not([data-theme="light"]){--bg:#0b0f1a;--card:#0f1526;--ink:#e2e8f0;--muted:#94a3b8;--dim:#64748b;--line:rgba(255,255,255,.1);--navy:#e2e8f0;--blue:#3b82f6}
-/* scroll animations */
-@supports (animation-timeline: view()){
-  .b-card{animation:risein linear both;animation-timeline:view();animation-range:entry 0% entry 55%;}
+.edu-item .bk-bullet{width:26px;height:26px;border-radius:8px;background:oklch(0.7 0.14 250 / 0.15);color:var(--b-ai);display:grid;place-items:center;font-size:12px;flex:none;font-weight:800}
+.edu-item b{display:block;color:var(--b-ink);font-size:13.5px;font-weight:700}
+.edu-item span{font-size:12px;color:var(--b-mut)} /* ... */
+.sk-sec{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--b-gap)}
+.sk-vs{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:14px 20px;margin:14px 0 2px;border-radius:var(--b-radius-lg);background:oklch(1 0 0 / 0.03);border:1px solid var(--b-line);border-left:4px solid var(--b-acc)}
+.sk-vs .vs-ic{font-size:22px;flex:none}
+.sk-vs .vs-k{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--b-ai);font-family:var(--mono,monospace)}
+.sk-vs h2{font-family:var(--head-font);font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:650;letter-spacing:-0.02em;color:var(--b-ink);margin:2px 0 0;line-height:1.2;text-wrap:balance}
+.sk-vs h2 em{font-style:normal;color:var(--b-acc)} /* note */
+.stack-note{margin-top:26px;padding:18px 22px;border-radius:var(--b-radius-lg);background:oklch(0.7 0.14 250 / 0.1);border:1px solid oklch(0.7 0.14 250 / 0.24);font-size:14px;color:var(--b-mut);text-align:center;line-height:1.55}
+.stack-note b{color:var(--b-ink);font-weight:700} /* ===== Reveal ===== */
+.b-card{animation:skIn .5s ease both;animation-timeline:auto}
+.no-scroll .b-card{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.no-scroll .b-card.in{opacity:1;transform:none} /* ... */
+@media(max-width:1080px){ .b-card,.b-card.span3,.b-card.span4,.b-card.span5,.b-card.span6,.b-card.span7,.b-card.span8,.b-card.feature{grid-column:span 6} .b-card.feature{grid-row:auto;min-height:0} } @media(max-width:700px){ .bento,.sk-sec{grid-template-columns:1fr} .b-card,.b-card.span3,.b-card.span4,.b-card.span5,.b-card.span6,.b-card.span7,.b-card.span8,.b-card.span12,.b-card.feature{grid-column:span 1;min-height:0;padding:18px 16px} .feature-ev{grid-template-columns:1fr} .sk-vs{flex-direction:column;align-items:flex-start;gap:6px;padding:14px} .stack-hero h1{font-size:28px} }
+@media(max-width:560px){ .stack-toc a{padding:10px 14px;min-height:44px} .b-ic{width:38px;height:38px}
+} /* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce){ .b-card{animation:none !important;transform:none !important;opacity:1 !important;transition:opacity .3s ease} .b-card:hover{transform:none} .b-card::before{animation:none}
 }
-@keyframes risein{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-/* анимации с приходом для карточек без scroll-timeline поддержки */
-.no-scroll .b-card{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
-.no-scroll .b-card.in{opacity:1;transform:none}
-/* адаптив */
-@media(max-width:1024px){.b-card{grid-column:span 6}.b-card.wide{grid-column:span 6}.b-card.med{grid-column:span 6}}
-@media(max-width:640px){.bento{grid-template-columns:1fr}.b-card,.b-card.wide,.b-card.med{grid-column:span 1;min-height:0;padding:18px 16px}.stack-hero h1{font-size:28px}}
-@media(max-width:560px){.stack-toc a{padding:10px 14px;min-height:44px}.b-ic{width:40px;height:40px}}
-/* reduced motion */
-@media(prefers-reduced-motion:reduce){.b-card{animation:none;transform:none!important;opacity:1}}
-/* светлая тема (если system light) */
-@media (prefers-color-scheme: light){
-  :root[data-theme="light"]{--bg:#f2f5f8;--card:#ffffff;--ink:#15243a;--muted:#5f6e82;--dim:#5f6f87;--line:#dfe6ee;--navy:#123052;--blue:#1d6fe0}
-  :root[data-theme="light"] .b-card{background:#fff;border-color:var(--line)}
-  :root[data-theme="light"] .b-tag{color:#33455f;background:#f0f4f9;border-color:var(--line)}
-  :root[data-theme="light"] .b-ic{color:#1d6fe0;background:#e8f0fb;border-color:#c9dcf5}
-  :root[data-theme="light"] .b-metric .v{color:#1d6fe0}
-  :root[data-theme="light"] .acc-row b{color:#123052}
-  :root[data-theme="light"] .bank b{color:#123052}
-}
+/* ===== Визуальные визуализации-декор ===== */
+.b-card{position:relative}
+.feat-water,.sk-line{position:absolute;right:0;bottom:0;height:120px;width:62%;pointer-events:none;opacity:.85;z-index:0}
+.sk-line{height:70px;width:48%;opacity:.9}
+.b-card.feature>*,.b-card.span7>*{position:relative;z-index:1}
+html[data-theme="light"] .feat-water,html[data-theme="light"] .sk-line{opacity:.5}
+html[data-theme="light"] .feature{position:relative}
+@media(max-width:700px){.feat-water{width:70%}.sk-line{width:60%}}
+/* акценты: лёгкий велюр-свечение карточек */
+.b-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:linear-gradient(135deg,oklch(0.7 0.16 250/.35),oklch(0.72 0.16 150/.25),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .2s}
+.b-card:hover::after{opacity:1}
+html[data-theme="light"] .b-card::after{background:linear-gradient(135deg,oklch(0.5 0.14 250/.6),oklch(0.55 0.15 150/.5),transparent 60%)}
+/* более живой ск-валю-штрих: индикатор-глоу слева */
+.sk-vs{border-left:4px solid var(--b-acc);box-shadow:0 6px 20px oklch(0 0 0/.05)}
 </style>
 </head>
 <body data-page="stack" data-metrika="113332731">
@@ -176,14 +203,35 @@ html:root,html:root:not([data-theme="light"]){--bg:#0b0f1a;--card:#0f1526;--ink:
     <a href="#s-edu">Образование</a>
   </nav>
 
-  <div class="bento">
-    <!-- Управление -->
-    <article class="b-card" id="s-manage">
-      <div class="b-head"><h3 class="b-title">Управленческие компетенции</h3><div class="b-ic">◈</div></div>
-      <div class="b-metric"><span class="v">−42%</span><span class="u">OPEX</span><span class="trend">↘</span></div>
-      <p class="bank">От диагностики до P&amp;L-эффекта. <b>ПСБ-ФИНАНС</b> — команда 29 чел. с нуля, обращений <b>−47%</b>.</p>
+  <div class="bento stack" id="sk-bento">
+
+  <!-- ======================== УПРАВЛЕНИЕ ======================== -->
+  <section class="sk-sec" id="s-manage" aria-labelledby="h-manage">
+    <div class="sk-vs"><span class="vs-ic" aria-hidden="true">◈</span><div><span class="vs-k">Управление</span><h2 id="h-manage">Снижаю <em>OPEX на 42%</em> — через команды с нуля и KPI-модели</h2></div></div>
+
+    <!-- Доминирующая ячейка 2x2: −42% OPEX -->
+<article class="b-card feature" tabindex="0" aria-label="Ключевая метрика: снижение OPEX на 42 процента">
+      <svg class="feat-water" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="fwGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e5484d" stop-opacity=".45"/><stop offset="100%" stop-color="#e5484d" stop-opacity=".04"/></linearGradient></defs>
+        <rect x="20" y="20" width="38" height="100" rx="6" fill="#e5484d" opacity=".85"/>
+        <rect x="72" y="44" width="38" height="76" rx="6" fill="#f59e0b" opacity=".8"/>
+        <rect x="124" y="68" width="38" height="52" rx="6" fill="#fbbf24" opacity=".8"/>
+        <rect x="176" y="90" width="38" height="30" rx="6" fill="#22c55e" opacity=".9"/>
+        <line x1="16" y1="106" x2="288" y2="106" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <path d="M0 120 L75 60 C 90 42,110 40,128 30 C150 18,175 10,300 2 L300 120 Z" fill="url(#fwGrad)"/>
+        <text x="195" y="100" font-size="11" font-weight="800" fill="#fff">−42%</text>
+      </svg>
+      <div class="b-head"><h3 class="b-title">Экономия OPEX</h3><div class="b-ic r">∿</div></div>
+      <div class="b-metric"><span class="v cost">−42%</span><span class="u">OPEX ИТ-функции</span><span class="trend down">↘</span></div>
+      <p class="bank"><b>ПСБ-ФИНАНС</b>: 3 линии поддержки с нуля, команда <b>29 специалистов</b>, обращения <b>−47%</b>. Управление превращает ИТ-затраты в управляемый актив.</p>
+      <div class="feature-ev">
+        <div class="ev cost"><b>−47%</b><span>обращения за 2 года</span></div>
+        <div class="ev"><b>29</b><span>команда с нуля</span></div>
+        <div class="ev grow"><b>~700</b><span>чел. под KPI (MERLION)</span></div>
+        <div class="ev"><b>10 мин</b><span>реакция (М-Групп)</span></div>
+      </div>
       <div class="b-tags">
-        <span class="b-tag">P&L<span class="tooltip">Ответственность за прибыль/убыток направления</span></span><span class="b-tag">Аллокация затрат</span><span class="b-tag hot">KPI / OKR</span><span class="b-tag">Бюджет ИТ</span><span class="b-tag">Вендоры</span><span class="b-tag">Дорожная карта</span>
+        <span class="b-tag cost">P&amp;L</span><span class="b-tag">Аллокация затрат</span><span class="b-tag g">KPI / OKR</span><span class="b-tag">Бюджет ИТ</span>
       </div>
       <details class="b-acc"><summary>Детали</summary><div class="acc-in">
         <div class="acc-row"><span>Команда ПСБ-ФИНАНС</span><b>29 чел.</b></div>
@@ -192,29 +240,72 @@ html:root,html:root:not([data-theme="light"]){--bg:#0b0f1a;--card:#0f1526;--ink:
       </div></details>
     </article>
 
-    <!-- Экономика ИТ -->
-    <article class="b-card wide" id="s-econ">
-      <div class="b-head"><h3 class="b-title">Экономика ИТ</h3><div class="b-ic c">₿</div></div>
-      <div class="b-metric"><span class="v">250–400</span><span class="u">млн ₽/год</span><span class="trend">↗</span></div>
-      <p class="bank">Каждую инициативу считаю в деньгах. <b>Казахмыс</b> — сценарии <b>120/250/400 млн ₽/год</b>, ROI <b>250–300%</b>.</p>
+    <!-- средняя 1x2: командные компетенции -->
+    <article class="b-card span4" id="s-manage-2" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Команды с нуля и до масштаба</h3><div class="b-ic">◈</div></div>
+      <div class="b-metric"><span class="v">29</span><span class="u">специалистов с нуля</span></div>
+      <p class="bank">От среднего бизнеса до глобальной корпорации: <b>ПСБ</b>, <b>Arlight</b> (поддержка с нуля), <b>М-Групп</b> (ИТ-департамент).</p>
       <div class="b-tags">
-        <span class="b-tag hot">ROI</span><span class="b-tag">TCO</span><span class="b-tag">Unit Economics</span><span class="b-tag">CAPEX/OPEX</span><span class="b-tag">Cost Saving</span><span class="b-tag">ФСА</span><span class="b-tag">Тарификация</span>
+        <span class="b-tag g">Построение функций</span><span class="b-tag">Найм</span><span class="b-tag">Mentoring</span><span class="b-tag">RACI</span>
       </div>
-      <details class="b-acc"><summary>Детали</summary><div class="acc-in">
-        <div class="acc-row"><span>Эффект на проект</span><b>250–400 млн ₽/год</b></div>
-        <div class="acc-row"><span>ROI за 1-й год</span><b>250–300%</b></div>
-        <div class="acc-row"><span>Окупаемость</span><b>&lt; 6 мес.</b></div>
-      </div></details>
     </article>
 
-    <!-- Архитектура -->
-    <article class="b-card" id="s-arch">
-      <div class="b-head"><h3 class="b-title">Архитектура и процессы</h3><div class="b-ic">◫</div></div>
-      <div class="b-metric"><span class="v">SLA 5</span><span class="u">мин</span></div>
-      <p class="bank">Целевая архитектура под стратегию. <b>ГосТех</b> — <b>4 регламента</b> уровня Минцифры, <b>11 ролей</b>.</p>
-      <div class="b-tags">
-        <span class="b-tag hot">TOGAF</span><span class="b-tag">ArchiMate</span><span class="b-tag ev">BPMN</span><span class="b-tag hot">ITIL 4</span><span class="b-tag">SLA/OLA/UC</span><span class="b-tag">UCP</span><span class="b-tag">MBOK</span>
+    <!-- компактная: вендоры и бюджет -->
+    <article class="b-card span5" id="s-manage-3" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Бюджет, вендоры, риски</h3><div class="b-ic g">£</div></div>
+      <div class="b-metric"><span class="v">1,7+</span><span class="u">млн ₽ бюджет цифровизации</span></div>
+      <p class="bank"><b>ПроСервис</b> — портфель из 16 инициатив, 10+ вендоров, дорожная карта и «единое окно» по вендорам.</p>
+      <div class="spark-row">
+        <div class="spark"><b>16</b><span>инициатив</span></div>
+        <div class="spark ai"><b>10+</b><span>вендоров</span></div>
+        <div class="spark"><b>4</b><span>пилота</span></div>
       </div>
+    </article>
+  </section>
+
+  <!-- ======================== ЭКОНОМИКА ИТ ======================== -->
+  <section class="sk-sec" id="s-econ" aria-labelledby="h-econ">
+    <div class="sk-vs"><span class="vs-ic" aria-hidden="true">₿</span><div><span class="vs-k">Экономика ИТ</span><h2 id="h-econ">Окупаю IT-инициативы <em>за полгода</em> — через сценарное моделирование</h2></div></div>
+
+<article class="b-card span7" id="s-econ-1" tabindex="0">
+      <svg class="sk-line" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="elG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22c55e" stop-opacity=".4"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0 58 L60 48 L120 38 L180 26 L240 16 L300 4 L300 70 L0 70 Z" fill="url(#elG)"/>
+        <path d="M0 58 L60 48 L120 38 L180 26 L240 16 L300 4" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="300" cy="4" r="4" fill="#22c55e"/>
+        <text x="276" y="20" font-size="10" font-weight="800" fill="#22c55e">400</text>
+      </svg>
+      <div class="b-head"><h3 class="b-title">Сценарное моделирование и ROI</h3><div class="b-ic c">₿</div></div>
+      <div class="b-metric"><span class="v">250–400</span><span class="u">млн ₽/год</span><span class="trend up">↗</span></div>
+      <p class="bank"><b>Казахмыс</b> — сценарии <b>120/250/400 млн ₽/год</b>, ROI <b>250–300%</b>, окупаемость <b>&lt; 6 мес.</b> Считаю каждую инициативу в деньгах до старта.</p>
+      <div class="spark-row">
+        <div class="spark"><b>250–300%</b><span>ROI 1-й год</span></div>
+        <div class="spark ai"><b>&lt;6 мес.</b><span>окупаемость</span></div>
+        <div class="spark grow"><b>400</b><span>млн ₽ верхний сценарий</span></div>
+      </div>
+      <div class="b-tags">
+        <span class="b-tag g">ROI</span><span class="b-tag">TCO</span><span class="b-tag">Unit Economics</span><span class="b-tag">CAPEX/OPEX</span><span class="b-tag">ФСА</span><span class="b-tag">Тарификация</span>
+      </div>
+    </article>
+
+    <article class="b-card span5" id="s-econ-2" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Экономика услуг и тарифы</h3><div class="b-ic g">%</div></div>
+      <div class="b-metric"><span class="v">90%</span><span class="u">SLA «Ситилинк»</span></div>
+      <p class="bank">Единая тарификация и аллокация затрат на <b>~700 сотрудников</b> MERLION: каждый сервис с ценой и SLA.</p>
+      <div class="b-tags">
+        <span class="b-tag g">Калькуляция</span><span class="b-tag">Cost Saving</span><span class="b-tag">Transfer Pricing</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ======================== АРХИТЕКТУРА И ПРОЦЕССЫ ======================== -->
+  <section class="sk-sec" id="s-arch" aria-labelledby="h-arch">
+    <div class="sk-vs"><span class="vs-ic" aria-hidden="true">◫</span><div><span class="vs-k">Архитектура · Процессы</span><h2 id="h-arch">Строю целевую архитектуру под стратегию — через регламенты уровня Минцифры</h2></div></div>
+
+    <article class="b-card span5" id="s-arch-1" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Регламенты и SLA</h3><div class="b-ic">◫</div></div>
+      <div class="b-metric"><span class="v">SLA 5</span><span class="u">мин · зонд &lt;60 сек</span></div>
+      <p class="bank"><b>ГосТех / МинЦифры</b>: <b>4 регламента</b>, <b>11 ролей</b>, <b>6 контуров ИБ</b> — уровень государственной платформы.</p>
       <details class="b-acc"><summary>Детали</summary><div class="acc-in">
         <div class="acc-row"><span>Регламенты ГосТех</span><b>4</b></div>
         <div class="acc-row"><span>Ролей в обмене</span><b>11</b></div>
@@ -222,47 +313,89 @@ html:root,html:root:not([data-theme="light"]){--bg:#0b0f1a;--card:#0f1526;--ink:
       </div></details>
     </article>
 
-    <!-- ИИ и данные -->
-    <article class="b-card med" id="s-ai">
-      <div class="b-head"><h3 class="b-title">ИИ и данные</h3><div class="b-ic c">✦</div></div>
-      <div class="b-metric"><span class="v">76,9%</span><span class="u">вопросов решает ИИ</span><span class="trend">↗</span></div>
-      <p class="bank">Внедряю ИИ ради P&amp;L. <b>Аэроклуб</b> — <b>76,9%</b> обращений решает ИИ, <b>−40%</b> стоимости.</p>
+    <article class="b-card span7" id="s-arch-2" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Архитектура и процессы</h3><div class="b-ic c">◫</div></div>
+      <div class="b-metric"><span class="v">TOGAF + BPMN</span><span class="u">от стратегии к процессу</span></div>
+      <p class="bank">Целевая архитектура под стратегию: методологии <b>TOGAF/ArchiMate</b>, процессы <b>BPMN/ITIL 4</b>, модель SLA/OLA/UC.</p>
       <div class="b-tags">
-        <span class="b-tag hot">LLM</span><span class="b-tag hot">RAG</span><span class="b-tag hot">NLP</span><span class="b-tag">AI-виджеты</span><span class="b-tag">Power BI</span><span class="b-tag">SQL</span><span class="b-tag">Дашборды</span>
+        <span class="b-tag g">TOGAF</span><span class="b-tag">ArchiMate</span><span class="b-tag g">BPMN</span><span class="b-tag g">ITIL 4</span><span class="b-tag">SLA/OLA/UC</span><span class="b-tag">UCP</span>
       </div>
-      <details class="b-acc"><summary>Детали</summary><div class="acc-in">
-        <div class="acc-row"><span>ИИ-атлас</span><b>21 ассистент</b></div>
-        <div class="acc-row"><span>Стоимость заявки</span><b>−40%</b></div>
-        <div class="acc-row"><span>Охват ИИ</span><b>76,9%</b></div>
-      </div></details>
+    </article>
+  </section>
+
+  <!-- ======================== ИИ И ДАННЫЕ ======================== -->
+  <section class="sk-sec" id="s-ai" aria-labelledby="h-ai">
+    <div class="sk-vs"><span class="vs-ic" aria-hidden="true">✦</span><div><span class="vs-k">ИИ и данные</span><h2 id="h-ai">Внедряю ИИ ради P&amp;L — 76,9% обращений решает ассистент</h2></div></div>
+
+<article class="b-card span7" id="s-ai-1" tabindex="0">
+      <svg class="sk-line sk-ai" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="aiG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e9bbf" stop-opacity=".4"/><stop offset="100%" stop-color="#0e9bbf" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0 60 L40 56 L80 50 L120 38 L160 24 L200 16 L240 10 L300 4 L300 70 L0 70 Z" fill="url(#aiG)"/>
+        <path d="M0 60 L40 56 L80 50 L120 38 L160 24 L200 16 L240 10 L300 4" fill="none" stroke="#0e9bbf" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="200" cy="16" r="4" fill="#0e9bbf"/><text x="178" y="34" font-size="10" font-weight="800" fill="#0e9bbf">76,9%</text>
+      </svg>
+      <div class="b-head"><h3 class="b-title">P&amp;L-ИИ</h3><div class="b-ic c">✦</div></div>
+      <div class="b-metric"><span class="v ai">76,9%</span><span class="u">обращений решает ИИ</span><span class="trend up">↗</span></div>
+      <p class="bank"><b>Аэроклуб</b>: <b>76,9%</b> вопросов решает ассистент, стоимость заявки <b>65→29 ₽</b>, ручной труд <b>−30%</b>. ИИ-атлас: <b>21 ассистент,</b> 76 use-кейсов.</p>
+      <div class="spark-row">
+        <div class="spark ai"><b>21</b><span>ИИ-ассистент</span></div>
+        <div class="spark ai"><b>76</b><span>use-кейсов</span></div>
+        <div class="spark grow"><b>−40%</b><span>стоимость заявки</span></div>
+      </div>
+      <div class="b-tags">
+        <span class="b-tag hot">LLM</span><span class="b-tag hot">RAG</span><span class="b-tag hot">NLP</span><span class="b-tag g">AI-виджеты</span>
+      </div>
     </article>
 
-    <!-- Технологии -->
-    <article class="b-card med" id="s-tech">
-      <div class="b-head"><h3 class="b-title">Технологический стек</h3><div class="b-ic">⚙</div></div>
-      <div class="b-metric"><span class="v">~700</span><span class="u">ИТ-сотрудников</span></div>
-      <p class="bank">Инструменты под масштаб. <b>MERLION</b> — KPI ~700 чел., SLA «Ситилинк», Time2Market <b>−40%</b>.</p>
+    <article class="b-card span5" id="s-ai-2" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Данные и аналитика</h3><div class="b-ic g">📊</div></div>
+      <div class="b-metric"><span class="v">NPS 8,76</span><span class="u">сервиса (АЛРОСА)</span></div>
+      <p class="bank">Power BI, SQL, дашборды и data-моделирование — решения на основе данных, а не интуиции.</p>
       <div class="b-tags">
-        <span class="b-tag hot">Jira/Structure</span><span class="b-tag">Confluence</span><span class="b-tag">ServiceNow</span><span class="b-tag">1С:ITIL</span><span class="b-tag">ELMA365</span><span class="b-tag">Optimacros</span><span class="b-tag">Zabbix</span>
+        <span class="b-tag">Power BI</span><span class="b-tag">SQL</span><span class="b-tag g">Дашборды</span>
       </div>
-      <details class="b-acc"><summary>Детали</summary><div class="acc-in">
-        <div class="acc-row"><span>KPI ~700 чел.</span><b>MERLION</b></div>
-        <div class="acc-row"><span>Time2Market</span><b>−40%</b></div>
-        <div class="acc-row"><span>SLA «Ситилинк»</span><b>90%</b></div>
-      </div></details>
+    </article>
+  </section>
+
+  <!-- ======================== ТЕХНОЛОГИЧЕСКИЙ СТЕК ======================== -->
+  <section class="sk-sec" id="s-tech" aria-labelledby="h-tech">
+    <div class="sk-vs"><span class="vs-ic" aria-hidden="true">⚙</span><div><span class="vs-k">Технологический стек</span><h2 id="h-tech">Инструменты под масштаб — <em>~700 ИТ-сотрудников</em> под KPI</h2></div></div>
+
+    <article class="b-card span8" id="s-tech-1" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Платформы управления и ИТСМ</h3><div class="b-ic">⚙</div></div>
+      <div class="b-tags">
+        <span class="b-tag g">Jira/Structure</span><span class="b-tag">Confluence</span><span class="b-tag g">ServiceNow</span><span class="b-tag">1С:ITIL</span><span class="b-tag">ELMA365</span><span class="b-tag">Optimacros</span><span class="b-tag g">Zabbix</span>
+      </div>
+      <div class="spark-row">
+        <div class="spark"><b>~700</b><span>чел. под KPI</span></div>
+        <div class="spark cost"><b>−40%</b><span>Time2Market</span></div>
+        <div class="spark grow"><b>90%</b><span>SLA «Ситилинк»</span></div>
+      </div>
     </article>
 
-    <!-- Образование -->
-    <article class="b-card wide" id="s-edu">
-      <div class="b-head"><h3 class="b-title">Образование и сертификаты</h3><div class="b-ic">◼</div></div>
+    <article class="b-card span4" id="s-tech-2" tabindex="0">
+      <div class="b-head"><h3 class="b-title">Monitor &amp; Ops</h3><div class="b-ic g">📡</div></div>
+      <p class="bank">Мониторинг и эксплуатация: <b>Zabbix</b> под 260 ТТ, инцидент-менеджмент и SLA на уровне инфраструктуры.</p>
+      <div class="b-tags">
+        <span class="b-tag">Zabbix</span><span class="b-tag">1С:ITIL</span><span class="b-tag">ManageEngine</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ======================== ОБРАЗОВАНИЕ ======================== -->
+  <section class="sk-sec" id="s-edu" aria-labelledby="h-edu">
+    <div class="sk-vs"><span class="vs-ic" aria-hidden="true">◼</span><div><span class="vs-k">Образование и сертификаты</span><h2 id="h-edu">Фундамент стратега и руководителя</h2></div></div>
+    <article class="b-card span12" id="s-edu-1" tabindex="0">
       <div class="edu-item"><div class="bk-bullet">V</div><div><b>ВолгГТУ · Информатика и вычислительная техника</b><span>Инженер-программист · 2011</span></div></div>
       <div class="edu-item"><div class="bk-bullet">P</div><div><b>Проф. переподготовка</b><span>Управление цифровой трансформацией</span></div></div>
       <div class="b-tags" style="margin-top:8px">
-        <span class="b-tag hot">TOGAF 9 Foundation</span><span class="b-tag hot">ITIL 4 Foundation</span><span class="b-tag">PMBOK</span>
+        <span class="b-tag g">TOGAF 9 Foundation</span><span class="b-tag g">ITIL 4 Foundation</span><span class="b-tag">PMBOK</span>
       </div>
       <div class="bank" style="margin-top:8px">Уровень подтверждён: <b>TOGAF 9</b>, <b>ITIL 4</b> и <b>PMBOK</b> — фундамент стратега и руководителя.</div>
     </article>
-  </div>
+  </section>
+
+</div>
 
   <p class="stack-note">Цифры — из реальных кейсов портфолио. Подход единый: каждый инструмент в стеке конвертируется в измеримый экономический результат в вашем P&amp;L.</p>
 </div>
@@ -287,18 +420,18 @@ html:root,html:root:not([data-theme="light"]){--bg:#0b0f1a;--card:#0f1526;--ink:
 <script src="js/lightbox.js"></script>
 <script src="js/portfolio.js"></script>
 <script>
-/* Bento Stack: reveal по скроллу (fallback без Scroll-Timeline) + подсветка TOC */
+/* ... */
 (function(){
 'use strict';
 var cards=document.querySelectorAll('.b-card');
-/* progressive disclosure: аккордеоны */
+/* ... */
 document.querySelectorAll('.b-acc').forEach(function(d){
   d.addEventListener('toggle',function(){
     d.querySelector('summary').setAttribute('aria-expanded',d.open?'true':'false');
   });
   d.querySelector('summary').setAttribute('aria-expanded',d.open?'true':'false');
 });
-/* reveal fallback (для браузеров без animation-timeline) */
+/* ... */
 var supportsScrollTL = CSS.supports&&CSS.supports('animation-timeline: view()');
 if(!supportsScrollTL){
   var io=new IntersectionObserver(function(entries){
@@ -306,7 +439,7 @@ if(!supportsScrollTL){
   },{threshold:0.12});
   cards.forEach(function(c){ io.observe(c); });
 }
-/* sticky TOC — подсветка активной секции */
+/* ... */
 var toc=document.querySelector('.stack-toc');
 var links=document.querySelectorAll('.stack-toc a');
 function onScroll(){
