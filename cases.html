@@ -3,25 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Кейсы, которые окупаются быстрее полугода · Александр Чевтаев</title>
-<meta name="description" content="Кейсы Александра Чевтаева: перезапуск бэк-офиса за 2 месяца, SLA 90%, NPS 7,46→8,76, −47% обращений. P&L-ответственность и измеримый результат.">
-<meta name="keywords" content="кейсы ИТ, цифровая трансформация, R-Vision, ГосТех, MERLION, АЛРОСА, ROI, SLA">
+<title>Кейсы Александра Чевтаева — Директор по цифровой трансформации | ROI 250–300%</title>
+<meta name="description" content="11 кейсов в 8 отраслях: экономия 250–400 млн ₽/год, −42% OPEX, ROI от 4 месяцев. Регламенты ЕЦП/ГосТех, SLA 5 мин.">
+<meta name="keywords" content="кейсы ИТ, цифровая трансформация, R-Vision, ГосТех, MERLION, АЛРОСА, ROI, SLA, OPEX, KPI">
 <meta name="theme-color" content="#0f1e34">
 <link rel="canonical" href="https://alechev777.github.io/portfolio/cases.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Кейсы, которые окупаются быстрее полугода · Александр Чевтаев">
-<meta property="og:description" content="11 кейсов · 8 отраслей · 15 лет. P&L-ответственность. Метрики, которые можно проверить.">
+<meta property="og:title" content="Кейсы Александра Чевтаева — Директор по цифровой трансформации | ROI 250–300%">
+<meta property="og:description" content="11 кейсов в 8 отраслях: экономия 250–400 млн ₽/год, −42% OPEX, ROI от 4 месяцев. Регламенты ЕЦП/ГосТех, SLA 5 мин.">
 <meta property="og:image" content="https://alechev777.github.io/portfolio/img/og-cover.webp">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Чевтаев Александр · Портфолио">
 <meta property="og:url" content="https://alechev777.github.io/portfolio/cases.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Кейсы, которые окупаются быстрее полугода · Александр Чевтаев">
-<meta name="twitter:description" content="11 кейсов · 8 отраслей · 15 лет. P&L-ответственность. Метрики, которые можно проверить.">
+<meta name="twitter:title" content="Кейсы Александра Чевтаева — Директор по цифровой трансформации | ROI 250–300%">
+<meta name="twitter:description" content="11 кейсов в 8 отраслях: экономия 250–400 млн ₽/год, −42% OPEX, ROI от 4 месяцев. Регламенты ЕЦП/ГосТех, SLA 5 мин.">
 <meta name="twitter:image" content="https://alechev777.github.io/portfolio/img/og-cover.webp">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/pages.css">
+<script src="js/chart.umd.min.js" defer></script>
+<script src="js/feather-icons.min.js" defer></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%20100'%3E%3Crect%20width%3D'100'%20height%3D'100'%20rx%3D'24'%20fill%3D'%231d6fe0'%2F%3E%3Ctext%20x%3D'50'%20y%3D'66'%20font-size%3D'52'%20font-weight%3D'900'%20fill%3D'white'%20text-anchor%3D'middle'%20font-family%3D'sans-serif'%3E%D0%A7%D0%90%3C%2Ftext%3E%3C%2Fsvg%3E">
 <script>
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -33,6 +35,116 @@
 </script>
 <style>
 /* ===== Кейсы: лаконичный шаблон ===== */
+/* панель фильтров + счётчик */
+.ck-filterbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:18px 0 24px;padding:13px 15px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm)}
+.ck-filters{display:flex;gap:8px;flex-wrap:wrap}
+.ck-chip{border:1px solid var(--line);background:var(--surface-1,#f7f9fc);color:var(--muted);font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;transition:.15s;font-family:var(--sans)}
+.ck-chip:hover{border-color:var(--blue);color:var(--blue)}
+.ck-chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.ck-count{font-size:13px;font-weight:800;color:var(--navy);font-family:var(--sans);white-space:nowrap;font-variant-numeric:tabular-nums}
+html[data-theme="dark"] .ck-filterbar{background:var(--card);border-color:var(--line)}
+html[data-theme="dark"] .ck-chip{background:#142236;border-color:var(--line);color:#aab4c0}
+html[data-theme="dark"] .ck-chip.on{background:var(--blue);color:#fff}
+html[data-theme="dark"] .ck-count{color:#e8edf5}
+@media(max-width:640px){.ck-filterbar{flex-direction:column;align-items:stretch}.ck-count{text-align:right}}
+
+/* ===== Кейсы практики: единый доказательный формат ===== */
+.ck-section{margin:18px 0 8px}
+.ck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.ck-card{position:relative;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);padding:20px;transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden}
+.ck-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(15,30,52,.14);border-color:#c9dcf5}
+.ck-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ck-company{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:900;font-family:var(--head);color:var(--navy)}
+.ck-company img{width:20px;height:20px;object-fit:contain}
+.ck-period{font-size:11px;font-weight:800;color:var(--muted);font-family:var(--mono,monospace)}
+.ck-tag{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#fff;background:var(--blue);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.ck-title{font-size:18px;font-weight:900;font-family:var(--head);line-height:1.25;letter-spacing:-.01em;color:var(--navy);margin:0}
+.ck-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ck-blk{display:flex;flex-direction:column;gap:3px}
+.ck-lbl{font-size:10px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:var(--blue);font-family:var(--head)}
+.ck-blk p{font-size:12px;color:var(--muted);line-height:1.45;margin:0}
+.ck-res{align-items:flex-start}
+.ck-metric b{font-size:21px;font-weight:900;font-family:var(--head);color:var(--blue);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;display:block}
+.ck-metric b.good{color:#16a34a}
+.ck-metric span{font-size:10.5px;color:var(--muted);font-weight:700}
+.ck-viz{position:relative;height:90px;border-radius:12px;background:linear-gradient(135deg,#0b1a2e,#142a44);border:1px solid rgba(255,255,255,.07);padding:6px}
+.ck-viz canvas{width:100%!important;height:100%!important}
+.ck-more{margin-top:auto;font-size:13px;font-weight:800;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.ck-more:hover{color:var(--navy)}
+
+/* ===== ДОКАЗАТЕЛЬСТВА: интерактивная схема + карточки регламентов ===== */
+.ck-block-head{margin:6px 0 18px;max-width:760px}
+.ck-block-head h2{font-family:var(--head);font-size:clamp(20px,2.6vw,28px);margin:6px 0 6px;letter-spacing:-.02em;line-height:1.15;color:var(--navy)}
+.ck-block-head p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
+.ck-scheme{display:flex;align-items:center;gap:16px;margin:8px 0 20px;padding:22px;border-radius:18px;background:linear-gradient(135deg,var(--navy),#134375 55%,#0e3d55);color:#fff}
+.sch-node{flex:1;min-width:0;text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px 14px}
+.sch-node b{display:block;font-family:var(--head);font-size:16px;line-height:1.3;margin-bottom:6px}
+.sch-icon{display:block;font-size:30px;margin-bottom:8px}
+.sch-node .sch-tip{display:none;font-size:12px;color:#c3d7ea;line-height:1.5}
+.sch-node:hover .sch-tip{display:block}
+.sch-flow{flex:0 0 90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative}
+.sch-rail{width:100%;height:4px;border-radius:4px;background:linear-gradient(90deg,#22c55e,#4ade80);position:relative}
+.sch-rail i{position:absolute;left:0;top:-0px;width:3px;bottom:-0px;background:#fff;border-radius:3px;animation:schMove 2.4s linear infinite}
+@keyframes schMove{from{left:0}to{left:calc(100% - 3px)}}
+@keyframes schMoveH{from{top:0}to{top:calc(100% - 3px)}}
+.sch-label{font-size:10.5px;font-weight:800;color:#9fc0e0;text-transform:uppercase;letter-spacing:.4px;text-align:center;line-height:1.3}
+.rk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:4px 0 18px}
+.rk-card{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm);transition:transform .18s,border-color .18s;text-decoration:none;position:relative;flex-wrap:wrap}
+.rk-card:hover{transform:translateY(-2px);border-color:#c9dcf5}
+.rk-card:focus-visible{outline:3px solid var(--blue,#1d6fe0);outline-offset:2px}
+.rk-card .rk-ic{flex:none}
+.rk-card>div{flex:1;min-width:0}
+.rk-card .rk-go{font-size:11px;font-weight:800;color:var(--blue,#1d6fe0);display:inline-flex;align-items:center;gap:3px;flex-basis:100%;margin-top:2px}
+.rk-ic{font-size:22px;flex:none}
+.rk-card b{font-size:13px;font-weight:800;color:var(--navy);display:block;line-height:1.3}
+.rk-card p{font-size:11.5px;color:var(--muted);line-height:1.45;margin:4px 0 0}
+.rk-artifacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:6px}
+.rk-grid[hidden]{display:none}
+
+html[data-theme="dark"] .ck-block-head h2{color:#e8edf5}
+html[data-theme="dark"] .rk-card{background:var(--card);border-color:var(--line)}
+html[data-theme="dark"] .rk-card b{color:#e8edf5}
+
+@media(max-width:900px){.rk-grid{grid-template-columns:repeat(2,1fr)}.ck-scheme{flex-direction:column}.sch-flow{flex-direction:row;width:100%}.sch-flow .sch-rail i{animation:schMoveH 2.4s linear infinite}.sch-top{order:3}}
+@media(max-width:520px){.rk-grid{grid-template-columns:1fr}}
+
+/* ===== Личный блок «Как я думаю» ===== */
+.think-head{margin:6px 0 18px;max-width:620px}
+.think-head h2{font-family:var(--head);font-size:clamp(20px,2.6vw,28px);margin:6px 0 4px;letter-spacing:-.02em;color:var(--navy)}
+.think-head p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
+.think-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.think-card{display:flex;flex-direction:column;gap:6px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow-sm);transition:transform .18s,border-color .18s}
+.think-card:hover{transform:translateY(-3px);border-color:#c9dcf5}
+.tk-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#eef5ff,#e3f1fa);color:var(--blue);margin-bottom:4px}
+.tk-ic svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none}
+.think-card b{font-size:14.5px;font-weight:900;font-family:var(--head);color:var(--navy)}
+.think-card p{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+
+html[data-theme="dark"] .think-head h2{color:#e8edf5}
+html[data-theme="dark"] .think-card{background:var(--card);border-color:var(--line)}
+html[data-theme="dark"] .think-card b{color:#e8edf5}
+html[data-theme="dark"] .tk-ic{background:#18304f;color:#79b3ff}
+
+/* ===== CTA-блок ===== */
+.cta-zk{margin:6px 0 10px}
+.cta-zk-in{padding:clamp(26px,5vw,48px);border-radius:22px;color:#fff;background:linear-gradient(135deg,#081a31,#123052 54%,#0e4a63);box-shadow:0 24px 60px rgba(8,26,49,.3);text-align:center}
+.cta-zk-in h2{font-family:var(--head);font-size:clamp(24px,3.4vw,36px);font-weight:900;letter-spacing:-.02em;margin:0 0 10px;line-height:1.15}
+.cta-zk-in p{font-size:15px;color:#c3d7ea;max-width:620px;margin:0 auto 18px;line-height:1.55}
+.cta-zk-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.cta-zk-note{font-size:12.5px;color:#9fc0e0;margin:0;font-weight:700}
+
+@media(max-width:980px){.think-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.think-grid{grid-template-columns:1fr}}
+
+html[data-theme="dark"] .ck-card{background:var(--card);border-color:var(--line)}
+html[data-theme="dark"] .ck-title{color:#e8edf5}
+html[data-theme="dark"] .ck-company{color:#e8edf5}
+html[data-theme="dark"] .ck-viz{background:linear-gradient(135deg,#0a1626,#122238)}
+html[data-theme="dark"] .ck-blk p{color:#aab4c0}
+html[data-theme="dark"] .ck-more:hover{color:#e8edf5}
+
+@media(max-width:980px){.ck-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.ck-cols{grid-template-columns:1fr}.ck-res .ck-metric b{font-size:24px}.ck-viz{height:110px}.ck-top{flex-wrap:wrap}.ck-tag{margin-left:0}}
 .cases-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 22px}
 .cases-search{flex:1;min-width:200px;position:relative}
 .cases-search input{width:100%;padding:11px 14px 11px 38px;border:1px solid #b8c4d2;border-radius:11px;font:600 14px var(--sans);color:var(--ink);background:var(--card)}
@@ -216,6 +328,88 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
 .ed-tool{font-size:11px;font-weight:700;color:#cbd5e1;background:rgba(29,78,216,.15);border:1px solid rgba(96,165,250,.2);padding:4px 10px;border-radius:7px;white-space:nowrap}
 .t2-outro{margin-top:18px;padding:20px 22px;border-radius:16px;background:rgba(29,78,216,.1);border:1px solid rgba(96,165,250,.25);font-size:15px;color:var(--ink2);line-height:1.6;text-align:center;font-family:var(--sans,system-ui)}
 .t2-outro b{color:var(--acc)}
+
+/* ===== КАРЬЕРНЫЙ ТАЙМЛАЙН: горизонтальная навигация по эпохам ===== */
+.career-tl{position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 4px;overflow-x:visible;padding:16px 4px 6px;margin:14px 0 8px}
+.career-tl::before{content:"";position:absolute;left:10px;right:10px;top:29px;height:2px;background:linear-gradient(90deg,var(--acc,#1d6fe0),var(--acc2,#0e9bbf),rgba(255,255,255,.08));border-radius:2px}
+.ctl-dot{position:relative;flex:1 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:64px;max-width:130px;border:0;background:none;cursor:pointer;padding:0;color:var(--mut2,#aab4c0);font-family:var(--sans,system-ui)}
+.ctl-dot::before{content:"";position:relative;z-index:2;width:15px;height:15px;border-radius:50%;background:var(--acc,#1d6fe0);box-shadow:0 0 0 4px rgba(29,78,216,.18),0 0 14px rgba(29,78,216,.5);transition:transform .18s}
+.ctl-dot:hover::before{transform:scale(1.25)}
+.ctl-y{font-size:11px;font-weight:900;color:var(--ink2,#e8edf5);font-family:ui-monospace,monospace;white-space:nowrap}
+.ctl-n{font-size:10.5px;font-weight:700;line-height:1.2;text-align:center;white-space:normal}
+.career-outro{margin:10px 0 6px;padding:18px 20px;border-radius:16px;background:linear-gradient(135deg,rgba(29,111,224,.14),rgba(34,197,94,.12));border:1px solid var(--line);font-size:15px;color:var(--ink);line-height:1.6;text-align:center;font-weight:650;font-family:var(--sans,system-ui)}
+.career-outro b{color:var(--blue)}
+#tier2 .career-outro{color:var(--ink2,#e8edf5);background:oklch(1 0 0/.04);border:1px solid oklch(1 0 0/.1)}
+#tier2 .career-outro b{color:var(--acc)}
+@media(max-width:560px){.career-tl{padding-top:14px}.ctl-dot{min-width:74px}.career-tl::before{top:25px}}
+
+/* ===== CAREER: светлые премиальные карточки ===== */
+#tier2 .career-wrap{--acc:#1d6fe0;--acc2:#0e9bbf;--ok-up:#16a34a;--ok-acc:#1d6fe0;--ok-down:#e5484d;--ink:#13233c;--mut:#5b6b7d;--line:#dfe7f0}
+#tier2 .career-wrap{color-scheme:light}
+.career-cards{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.career-card{position:relative;display:grid;grid-template-columns:1fr auto;gap:14px 26px;padding:clamp(18px,3vw,26px);border-radius:18px;background:#fff;border:1px solid var(--line,#dfe7f0);box-shadow:0 6px 20px rgba(19,35,60,.06);transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden}
+.career-card:hover{transform:translateY(-3px);border-color:rgba(29,111,224,.35);box-shadow:0 18px 40px rgba(19,35,60,.12)}
+.career-card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:linear-gradient(135deg,rgba(29,111,224,.5),rgba(14,155,191,.35),rgba(22,163,74,.3));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .2s}
+.career-card:hover::after{opacity:1}
+.career-card .cc-top{grid-column:1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.career-card .cc-years{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;border-radius:999px;background:linear-gradient(135deg,#e8f1fe,#e6f7f5);border:1px solid rgba(29,111,224,.2);font-size:12px;font-weight:900;color:var(--acc,#1d6fe0);font-family:ui-monospace,monospace;letter-spacing:.3px}
+.career-card .cc-years::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc,#1d6fe0);box-shadow:0 0 8px rgba(29,111,224,.5)}
+.career-card .cc-name{font-family:var(--head,system-ui);font-size:clamp(17px,2.6vw,22px);font-weight:800;color:var(--ink,#13233c);letter-spacing:-.01em}
+.career-card .cc-role{grid-column:1/3;color:var(--mut,#5b6b7d);font-size:13px;margin:0 0 2px;font-weight:500}
+.career-card .cc-cols{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.career-card .cc-blk{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:12px;background:#f6f9fc;border:1px solid var(--line,#dfe7f0)}
+.career-card .cc-lbl{font-size:9.5px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;color:var(--acc,#1d6fe0);font-family:ui-monospace,monospace}
+.career-card .cc-blk p{font-size:12.5px;color:var(--mut,#5b6b7d);line-height:1.5;margin:0}
+.career-card .cc-res{background:linear-gradient(135deg,#eef5ff,#e7f7f3);border-color:rgba(29,111,224,.22);justify-content:center}
+.career-card .cc-num{font-family:var(--head,system-ui);font-size:clamp(22px,3.4vw,30px);font-weight:800;line-height:1;color:var(--acc,#1d6fe0);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.career-card .cc-unit{font-size:10.5px;color:var(--mut,#5b6b7d);font-weight:700;line-height:1.35}
+.career-card .cc-companies{grid-column:1/3;font-size:12.5px;color:var(--mut,#5b6b7d);font-weight:600;margin-top:-4px}
+.career-card .cc-companies b{color:var(--acc,#1d6fe0);font-weight:800}
+#tier2 .career-card#era-practice{border-color:rgba(22,163,74,.4)}
+/* графики в карточках (стиль ЕЦП) */
+.cv-inline{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:6px}
+.cv-fig{margin:0;padding:6px 8px 8px;border-radius:10px;background:#fff;border:1px solid var(--line,#dfe7f0);box-shadow:0 2px 8px rgba(19,35,60,.05)}
+.cv-fig figcaption{font-size:10px;font-weight:800;color:var(--mut,#7f8fa3);text-transform:uppercase;letter-spacing:.4px;padding:4px 2px 6px}
+.cv-fig .ck-viz{position:relative;height:70px;border-radius:8px;background:#fff;padding:0}
+.cv-fig .ck-viz canvas{width:100%!important;height:100%!important}
+/* тёмная тема */
+html[data-theme="dark"] .career-card{background:#16233a;border-color:rgba(255,255,255,.09);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+html[data-theme="dark"] .career-card .cc-name{color:#e8edf5}
+html[data-theme="dark"] .career-card .cc-role{color:#aab4c0}
+html[data-theme="dark"] .career-card .cc-blk{background:#1d2f4a;border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .career-card .cc-lbl{color:#8fb8f2}
+html[data-theme="dark"] .career-card .cc-blk p{color:#aab4c0}
+html[data-theme="dark"] .career-card .cc-res{background:#18304f;border-color:rgba(96,165,250,.25)}
+html[data-theme="dark"] .career-card .cc-unit{color:#8fa0b3}
+html[data-theme="dark"] .career-card .cc-years{background:#18304f;border-color:rgba(96,165,250,.25)}
+html[data-theme="dark"] .career-card .cc-companies{color:#aab4c0}
+html[data-theme="dark"] .cv-fig{background:#0f1b30;border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .cv-fig figcaption{color:#7fb3ca}
+@keyframes careerLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:900px){.career-card .cc-cols{grid-template-columns:1fr 1fr}.career-card .cc-role{grid-column:1}.cv-inline{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
+@media(max-width:560px){.career-card .cc-cols{grid-template-columns:1fr}.career-card .cc-top{flex-direction:column;align-items:flex-start;gap:6px}.cv-inline{grid-template-columns:1fr 1fr}.cv-fig .ck-viz{height:90px}}
+
+/* ===== CAREER: контейнер и блок регламентов ===== */
+#tier2 .career-wrap{background:transparent}
+#tier2 .t2-head h2{font-family:var(--head);font-size:clamp(22px,3.4vw,32px);font-weight:800;letter-spacing:-.02em;color:var(--navy,#13233c);margin:6px 0 8px;line-height:1.15}
+#tier2 .t2-head p{color:var(--muted,#5b6b7d);font-size:14px;line-height:1.6;margin:0;max-width:680px}
+#tier2 .t2-tag{font-size:12px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue,#1d6fe0);font-family:ui-monospace,monospace}
+/* таймлайн светлый */
+#tier2 .career-tl::before{background:linear-gradient(90deg,#1d6fe0,#0e9bbf,#dfe7f0)}
+#tier2 .ctl-dot{color:#5b6b7d}
+#tier2 .ctl-y{color:#13233c}
+#tier2 .ctl-dot::before{background:#1d6fe0;box-shadow:0 0 0 4px rgba(29,111,224,.14),0 0 12px rgba(29,111,224,.35)}
+/* блок регламентов */
+.career-proof{margin-top:26px;padding:clamp(18px,3vw,28px);border-radius:22px;background:linear-gradient(150deg,#f4f8ff,#eefaf7);border:1px solid #dfe7f0;box-shadow:0 10px 30px rgba(19,35,60,.05)}
+.cp-head{margin:0 0 16px}
+.cp-head .csh-tag{font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue,#1d6fe0);font-family:ui-monospace,monospace}
+.cp-head h3{font-family:var(--head);font-size:clamp(19px,2.6vw,26px);font-weight:800;letter-spacing:-.02em;color:var(--navy,#13233c);margin:6px 0 0}
+html[data-theme="dark"] #tier2 .t2-head h2{color:#e8edf5}
+html[data-theme="dark"] #tier2 .t2-head p{color:#aab4c0}
+html[data-theme="dark"] #tier2 .ctl-y{color:#e8edf5}
+html[data-theme="dark"] #tier2 .ctl-dot{color:#aab4c0}
+html[data-theme="dark"] .career-proof{background:#14253a;border-color:rgba(255,255,255,.1)}
+html[data-theme="dark"] .cp-head h3{color:#e8edf5}
 @media(max-width:560px){#tier2 .tl{padding-left:14px}#tier2 .tl::before{left:3px}.era-card::before{left:calc(-1*clamp(18px,4vw,44px) - 8px)}.era-anchor .ea-v{font-size:30px}}
 @media(hover:hover){#tier2 .era-tag:hover::after{color:var(--acc)}}
 @supports(animation-timeline:view()){.era-card{animation:tlIn linear both;animation-timeline:view();animation-range:entry 0% entry 55%}}
@@ -376,6 +570,180 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
   .era-card#era-merlion .era-anchor .ea-v,
   .era-card#era-psb .era-anchor .ea-v{font-size:clamp(44px,5.5vw,84px)}
 }
+
+/* ===== ФИНАЛЬНЫЕ ПЕРЕОПРЕДЕЛЕНИЯ: Career всегда светлый, убираем тёмные остатки ===== */
+#tier2 .career-wrap{background:linear-gradient(180deg,#f4f8ff 0%,#eef4fc 100%) !important;border:1px solid #dfe7f0 !important;border-radius:26px;padding:clamp(22px,4vw,40px);box-shadow:0 16px 44px rgba(19,35,60,.07)}
+#tier2 .t2-head h2{color:var(--navy,#13233c);-webkit-background-clip:initial;background-clip:initial;background:none}
+#tier2 .t2-head p{color:var(--muted,#5b6b7d)}
+/* Career-блок всегда светлый: текст тёмный на белом даже в ночной теме */
+html[data-theme="dark"] #tier2 .t2-head h2{color:#13233c;background:none;-webkit-background-clip:initial;background-clip:initial}
+html[data-theme="dark"] #tier2 .t2-head p{color:#5b6b7d}
+#tier2 .career-tl{background:#fff;border:1px solid #dfe7f0;border-radius:16px;padding:18px 16px 12px}
+#tier2 .career-cards{background:transparent}
+/* гарантируем светлые карточки даже под тёмной темой */
+.career-card{background:#fff !important;border-color:#dfe7f0 !important}
+.career-card .cc-name{color:#13233c !important}
+.career-card .cc-role{color:#5b6b7d !important}
+.career-card .cc-years{color:#1d6fe0 !important;background:linear-gradient(135deg,#e8f1fe,#e6f7f5) !important;border-color:rgba(29,111,224,.2) !important}
+.career-card .cc-blk{background:#f6f9fc !important;border-color:#dfe7f0 !important}
+.career-card .cc-blk p{color:#5b6b7d !important}
+.career-card .cc-res{background:linear-gradient(135deg,#eef5ff,#e7f7f3) !important}
+.career-card .cc-num{color:#1d6fe0 !important}
+.career-card .cc-unit{color:#5b6b7d !important}
+.career-card .cc-lbl{color:#1d6fe0 !important}
+.career-card .cc-companies{color:#5b6b7d !important}
+.career-card .cc-companies b{color:#1d6fe0 !important}
+.cv-fig{background:#fff !important;border-color:#dfe7f0 !important}
+.cv-fig figcaption{color:#7f8fa3 !important}
+.html-dark-theme-driver{display:none}
+#tier2 .career-outro{background:linear-gradient(135deg,#e8f1fe,#e7f7f3) !important;border-color:#cfe0f5 !important;color:#13233c !important}
+#tier2 .career-outro b{color:#1d6fe0 !important}
+#tier2 .career-proof{background:linear-gradient(150deg,#f4f8ff,#eefaf7) !important;border-color:#dfe7f0 !important}
+#tier2 .cp-head h3{color:#13233c}
+#tier2 .cp-head .csh-tag{color:#1d6fe0}
+/* таймлайн светлый принудительно */
+#tier2 .career-tl::before{background:linear-gradient(90deg,#1d6fe0,#0e9bbf,#dfe7f0) !important}
+#tier2 .ctl-dot::before{background:#1d6fe0 !important;box-shadow:0 0 0 4px rgba(29,111,224,.14),0 0 12px rgba(29,111,224,.35) !important}
+#tier2 .ctl-y{color:#13233c !important}
+#tier2 .ctl-n{color:#5b6b7d !important}
+/* маскируем старые тёмные пласты, если что-то всплывёт */
+.ck-scheme{background:linear-gradient(135deg,#0b1a2e,#142a44) !important;border-radius:18px;color:#fff}
+.sch-node b{color:#fff !important}
+.sch-node .sch-tip{color:#c3d7ea !important}
+.rk-card{background:#fff !important;border-color:#dfe7f0 !important}
+.rk-card b{color:#13233c !important}
+.rk-card p{color:#5b6b7d !important}
+.rk-artifacts .art-tile{background:#fff !important;border-color:#dfe7f0 !important}
+.rk-artifacts .art-tile b{color:#13233c !important}
+.rk-artifacts .art-tile .at-d{color:#5b6b7d !important}
+
+/* ===== Практика: таблица компаний с уникальной визуализацией в стиле ЕЦП ===== */
+.prk-table{grid-column:1/-1;display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.prk-row{display:grid;grid-template-columns:minmax(0,1fr) 200px 150px;gap:16px;align-items:center;padding:12px 14px;border:1px solid var(--line,#dfe7f0);border-radius:14px;background:#fbfcff;transition:background .15s,border-color .15s}
+.prk-row:hover{background:#f3f8ff;border-color:rgba(29,111,224,.25)}
+.prk-head{display:flex;flex-direction:column;gap:4px;min-width:0}
+.prk-logo{font-size:14px;font-weight:900;color:var(--ink,#13233c);font-family:var(--head,system-ui);line-height:1.2}
+.prk-what{font-size:11px;color:var(--mut,#7f8fa3);font-weight:600}
+.prk-pdr{font-size:11.5px;color:var(--mut,#5b6b7d);line-height:1.5;font-weight:500}
+.prk-pdr b{color:#1d6fe0;font-weight:800}
+/* визуализации */
+.prk-viz{display:flex;align-items:center;gap:8px;min-height:52px;position:relative}
+.pv-lbl{font-size:10px;color:var(--mut,#7f8fa3);font-weight:700;white-space:nowrap}
+.prk-viz-flow .pv-in,.prk-viz-flow .pv-out{font-size:11px;font-weight:900;color:#13233c;text-align:center;line-height:1.2;padding:6px 8px;border-radius:8px;background:#e8f1fe;border:1px solid rgba(29,111,224,.2);flex:none;white-space:nowrap}
+.prk-viz-flow .pv-out{background:#e7f7f3;border-color:rgba(22,163,74,.3)}
+.prk-viz-flow .pv-rail{flex:1;height:4px;border-radius:4px;background:linear-gradient(90deg,#22c55e,#4ade80);position:relative;min-width:24px}
+.prk-viz-flow .pv-rail i{position:absolute;top:-2px;left:0;width:8px;height:8px;border-radius:50%;background:#16a34a;animation:gstMove 1.8s linear infinite}
+.prk-viz-cost{justify-content:center}
+.prk-viz-cost .pv-bar{width:34px;height:30px;border-radius:6px;background:linear-gradient(180deg,#e5484d,#c0392b)}
+.prk-viz-cost .pv-sm{height:16px;background:linear-gradient(180deg,#22c55e,#16a34a)}
+.prk-viz-cost .pv-arrow{font-size:16px;color:#7f8fa3;font-weight:900}
+.pv-ring{display:flex;flex-direction:column;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:conic-gradient(#1d6fe0 0 75%,#e8f1fe 75% 100%);position:relative;flex:none}
+.pv-ring b{position:relative;z-index:1;font-size:12px;font-weight:900;color:#1d6fe0;font-family:var(--head,system-ui)}
+.pv-ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#fff}
+.prk-viz-ring{flex-direction:column;align-items:center;gap:4px}
+.prk-viz-ring.pv-green .pv-ring{background:conic-gradient(#22c55e 0 75%,#e8f1fe 75% 100%)}
+.prk-viz-ring.pv-green .pv-ring b{color:#16a34a}
+.pv-timer{display:flex;align-items:baseline;gap:1px;font-size:26px;font-weight:900;color:#1d6fe0;font-family:var(--head,system-ui)}
+.pv-timer span{font-size:11px;font-weight:800;color:#7f8fa3;text-transform:uppercase}
+.prk-viz-timer{flex-direction:column;align-items:center;gap:2px}
+.pv-donut{display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:conic-gradient(#0e9bbf 0 75%,#e8f1fe 75% 100%);position:relative;flex:none}
+.pv-donut b{position:relative;z-index:1;font-size:15px;font-weight:900;color:#0e9bbf;font-family:var(--head,system-ui)}
+.pv-donut::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#fff}
+.prk-viz-donut{flex-direction:column;align-items:center;gap:4px}
+.prk-kpi{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.prk-kpi b{font-size:17px;font-weight:900;color:#1d6fe0;font-family:var(--head,system-ui);white-space:nowrap;font-variant-numeric:tabular-nums}
+.prk-kpi span{font-size:10px;color:var(--mut,#7f8fa3);font-weight:700;text-align:right;line-height:1.25}
+html[data-theme="dark"] .prk-row{background:#0f1b30;border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .prk-row:hover{background:#13223a;border-color:rgba(96,165,250,.25)}
+html[data-theme="dark"] .prk-logo{color:#e8edf5}
+html[data-theme="dark"] .prk-what{color:#8fa0b3}
+html[data-theme="dark"] .prk-pdr{color:#aab4c0}
+html[data-theme="dark"] .prk-pdr b{color:#8fb8f2}
+html[data-theme="dark"] .prk-viz-flow .pv-in{background:#18304f;border-color:rgba(96,165,250,.3);color:#e8edf5}
+html[data-theme="dark"] .prk-viz-flow .pv-out{background:#183b34;border-color:rgba(34,197,94,.3);color:#e8edf5}
+html[data-theme="dark"] .prk-kpi span{color:#8fa0b3}
+html[data-theme="dark"] .pv-ring::before,html[data-theme="dark"] .pv-donut::before{background:#0f1b30}
+@media(max-width:960px){.prk-row{grid-template-columns:minmax(0,1fr) 170px 130px;gap:12px}}
+@media(max-width:860px){.prk-row{grid-template-columns:1fr}.prk-viz{min-height:48px}.prk-kpi{align-items:flex-start}.prk-kpi span{text-align:left}}
+
+/* ===== Визуализации эпох (стиль ЕЦП) ===== */
+.era-viz{grid-column:1/-1;margin-top:4px;padding:14px;border-radius:14px;background:linear-gradient(135deg,#f4f8ff,#eefaf7);border:1px solid #dfe7f0}
+.ev-label{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#7f8fa3;margin-bottom:8px}
+.ev-chart{display:flex;gap:10px;align-items:flex-end;justify-content:center;height:120px}
+.ev-col{display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-end;height:100%}
+.ev-col i{width:38px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#1d6fe0,#0e9bbf)}
+.ev-col span{font-size:10px;font-weight:800;color:#5b6b7d}
+.ev-col.ev-hero i{background:linear-gradient(180deg,#16a34a,#22c55e)}
+.ev-cap{font-size:11px;color:#5b6b7d;margin-top:8px;text-align:center;font-weight:600}
+.ev-caps{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.ev-caps span{font-size:11px;color:#5b6b7d;font-weight:700;background:#fff;border:1px solid #dfe7f0;border-radius:999px;padding:4px 10px}
+.ev-caps span b{color:#1d6fe0}
+.ev-gauge{height:44px;border-radius:999px;background:#e8f1fe;position:relative;overflow:hidden;border:1px solid rgba(29,111,224,.15)}
+.ev-g-fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,#1d6fe0,#22c55e)}
+.ev-g-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#13233c}
+/* ===== SUNLIGHT: визуализация сети 620 ТТ ===== */
+.era-viz-sun{display:grid;grid-template-columns:1fr 1.4fr auto;gap:18px;align-items:center}
+.ev-sun-left{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
+.ev-sun-num{font-family:var(--head,system-ui);font-size:clamp(38px,5vw,54px);font-weight:900;color:#1d6fe0;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ev-sun-cap{font-size:12px;color:#5b6b7d;font-weight:700;line-height:1.3}
+.ev-sun-meter{display:flex;flex-direction:column;gap:8px}
+.ev-sun-bars{display:flex;flex-direction:column;gap:5px}
+.ev-sun-bars span{display:grid;grid-template-columns:72px 1fr;gap:6px;align-items:center}
+.ev-sun-bars em{font-style:normal;font-size:9.5px;font-weight:800;color:#5b6b7d;text-transform:uppercase;white-space:nowrap}
+.ev-sun-bars i{height:8px;border-radius:999px;background:linear-gradient(90deg,#1d6fe0,#22c55e)}
+.ev-sun-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+.ev-sun-pv{font-family:var(--head,system-ui);font-size:34px;font-weight:900;color:#16a34a;line-height:1;font-variant-numeric:tabular-nums}
+.ev-sun-capl{font-size:11px;color:#5b6b7d;font-weight:700}
+.ev-sun-line{font-size:11px;color:#7f8fa3;font-weight:600;margin-top:4px}
+html[data-theme="dark"] .ev-sun-num{color:#8fb8f2}
+html[data-theme="dark"] .ev-sun-pv{color:#4ade80}
+html[data-theme="dark"] .ev-sun-cap{color:#aab4c0}
+html[data-theme="dark"] .ev-sun-capl{color:#aab4c0}
+html[data-theme="dark"] .ev-sun-line{color:#8fa0b3}
+html[data-theme="dark"] .ev-sun-bars em{color:#8fa0b3}
+@media(max-width:720px){.era-viz-sun{grid-template-columns:1fr;gap:12px}.ev-sun-right{align-items:flex-start;text-align:left}}
+.ev-line{position:relative;height:110px;margin:0 6px}
+.ev-line svg{position:absolute;inset:0;width:100%;height:100%}
+.ev-lgrid{stroke:rgba(19,35,60,.08);stroke-dasharray:3 3}
+.ev-l-dot{position:absolute;transform:translateX(-50%);text-align:center}
+.ev-l-dot b{display:block;font-size:13px;font-weight:900;color:#16a34a}
+.ev-l-dot span{font-size:9px;color:#7f8fa3;font-weight:700}
+.ev-water{display:flex;gap:8px;align-items:flex-end;justify-content:center;height:110px}
+.ev-w-bar{display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-end;height:100%;position:relative;width:46px}
+.ev-w-bar i{width:100%;border-radius:6px 6px 2px 2px}
+.ev-w-v{font-size:10px;font-weight:800;color:#5b6b7d}
+.ev-wl i{box-shadow:0 0 0 3px rgba(22,163,74,.15)}
+.ev-grid-n{display:flex;flex-direction:column;align-items:center}
+.ev-grid-n b{font-size:30px;font-weight:900;color:#1d6fe0;font-family:var(--head,system-ui);line-height:1}
+.ev-grid-n span{font-size:10px;color:#7f8fa3;font-weight:700;margin-top:2px}
+.ev-grid-n.ev-green b{color:#16a34a}
+.ev-grid{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap}
+.ev-grid-bars{display:flex;flex-direction:column;gap:5px;min-width:140px;flex:1;max-width:220px}
+.ev-grid-bars span{display:grid;grid-template-columns:48px 1fr;gap:6px;align-items:center}
+.ev-grid-bars em{font-style:normal;font-size:9px;font-weight:800;color:#5b6b7d;text-transform:uppercase}
+.ev-grid-bars i{height:8px;border-radius:999px;background:linear-gradient(90deg,#1d6fe0,#22c55e)}
+.ev-merge{display:flex;align-items:center;gap:12px;justify-content:center}
+.ev-m-in,.ev-m-out{font-size:11px;font-weight:700;color:#5b6b7d;text-align:center;line-height:1.3;padding:8px 12px;border-radius:10px;background:#e8f1fe;border:1px solid rgba(29,111,224,.2);white-space:nowrap}
+.ev-m-in b,.ev-m-out b{color:#1d6fe0;display:block}
+.ev-m-out{background:#e7f7f3;border-color:rgba(22,163,74,.3)}
+.ev-m-rail{flex:0 0 60px;height:4px;border-radius:4px;background:linear-gradient(90deg,#1d6fe0,#22c55e);position:relative}
+.ev-m-rail i{position:absolute;top:-2px;width:8px;height:8px;border-radius:50%;background:#16a34a;animation:gstMove 1.6s linear infinite}
+html[data-theme="dark"] .era-viz{background:#14253a;border-color:rgba(255,255,255,.1)}
+html[data-theme="dark"] .ev-col span{color:#aab4c0}
+html[data-theme="dark"] .ev-cap{color:#aab4c0}
+html[data-theme="dark"] .ev-caps span{color:#aab4c0;background:#0f1b30;border-color:rgba(255,255,255,.1)}
+html[data-theme="dark"] .ev-caps span b{color:#8fb8f2}
+html[data-theme="dark"] .ev-g-in{color:#e8edf5}
+html[data-theme="dark"] .ev-l-dot span{color:#8fa0b3}
+html[data-theme="dark"] .ev-w-v{color:#aab4c0}
+html[data-theme="dark"] .ev-grid-bars em{color:#8fa0b3}
+html[data-theme="dark"] .ev-m-in{background:#18304f;border-color:rgba(96,165,250,.3);color:#aab4c0}
+html[data-theme="dark"] .ev-m-out{background:#183b34;border-color:rgba(34,197,94,.3);color:#aab4c0}
+html[data-theme="dark"] .ev-m-in b,html[data-theme="dark"] .ev-m-out b{color:#8fb8f2}
+@media(max-width:560px){.ev-chart{height:100px}.ev-water{height:90px}.ev-merge{flex-direction:column}.ev-m-rail{transform:rotate(90deg);margin:2px 0}}
+/* ===== Подзаголовки: не обрезаем по max-width, используем доступную ширину ===== */
+.cases-head p{max-width:none}
+#tier2 .t2-head p,.career-wrap .t2-head p{max-width:none}
 </style>
 </head>
 <body data-page="cases" data-metrika="113332731">
@@ -403,10 +771,10 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
   <div class="cases-head" id="cases-anchor">
     <span class="csh-tag">Кейсы и артефакты</span>
     <h1>Кейсы, которые окупаются быстрее полугода</h1>
-    <p>11 кейсов · 8 отраслей · 15 лет. ROI от 4 месяцев, экономия 250–400 млн ₽/год, −42% OPEX — метрики, которые можно проверить.</p>
+    <p>11 кейсов · 8 отраслей · 15 лет. ROI от 4 месяцев, экономия 250–400 млн ₽/год, −42% OPEX. Все метрики проверяемы.</p>
   </div>
 
-  <!-- Tier 1 · Живые продукты: ИИ-атлас + Калькулятор (SVG-иллюстрации восстановлены из git) -->
+<!-- Tier 1 · Живые продукты: ИИ-атлас + Калькулятор (SVG-иллюстрации восстановлены из git) -->
   <div class="tier-label">Tier 1 · Живые продукты</div>
   <div class="live-grid">
     <a class="live-card live-atlas" href="artifact-a8.html"  data-nav>
@@ -478,231 +846,280 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
     </a>
   </div>
 
-  <section id="tier2">
-  <div class="t2-holder">
+  
+
+<section id="tier2">
+  <div class="career-wrap">
     <div class="t2-head">
       <div class="t2-tag">Career · 15 лет</div>
-      <h2>Профессиональные эпохи: от инфраструктуры к стратегии ИИ</h2>
-      <p>15 лет управления IT-трансформацией с измеримым результатом. Каждый этап — серия достижений в цифрах.</p>
+      <h2>Профессиональные эпохи: от ИИ-экономики к инфраструктуре</h2>
+      <p>Каждый этап дал измеримый результат в цифрах. Читается от последнего места к самому началу — 15 лет системного взгляда на бизнес.</p>
     </div>
-    <div class="t2-actions">
-      <button class="t2-btn" id="expAll">Развернуть все</button>
-      <button class="t2-btn" id="clpAll">Свернуть все</button>
-    </div>
-    <div class="tl" role="list" aria-label="Карьерные эпохи">
 
-      <!-- Независимая практика -->
-      <article class="era-card" id="era-practice" data-metric="acc" role="listitem" aria-label="Эпоха: practice">
-        <div class="era-top"><span class="era-years">2022 – н.в.</span></div>
-        <h3 class="era-name">Независимая практика</h3><p class="era-value">Превращаю компании в цифровые — через ИИ-продукты и экономику (6 отраслей)</p>
-        <p class="era-role">Независимый консультант / Директор по трансформации (IT &amp; Operations)</p>
-        <div class="era-anchor"><span class="ea-v">16+</span><span class="ea-u">цифровых инициатив · 6 отраслей</span><span class="ea-spark">↗</span></div>
-        <div class="era-tags"><span class="era-tag">ИТ</span><span class="era-tag">b2b-travel</span><span class="era-tag">Финансы</span><span class="era-tag">Производство</span><span class="era-tag">FMCG</span><span class="era-tag">HoReCa</span></div>
-        <details class="era-details" open>
-          <summary>Кейсы практики</summary>
-          <div class="ed-in">
-            <p class="ed-ctx">Сквозная трансформация: диагностика → ИИ-продукты → экономика. Каждый кейс — с измеримым эффектом в P&amp;L.</p>
-            <div class="era-cases">
-              <div class="case-mini"><span class="cmt">R-Vision · ИТ</span><b>Диагностика и перезапуск бэк-офиса за 2 месяца</b><span class="cmd">Аудит 9+ департаментов · ИИ-атлас (21 ассистент) · Jira/Structure</span><em>Бэк-офис перезапущен</em></div>
-              <div class="case-mini"><span class="cmt">Аэроклуб · b2b-travel</span><b>AI-виджет и цифровой Service Desk</b><span class="cmd">Стоимость заявки 65 → 29 ₽ · SLA 15 мин · ручной труд −30%</span><em>ROI 4 месяца</em></div>
-              <div class="case-mini"><span class="cmt">ББР-Банк · Финансы</span><b>Архитектура ITSM / ITAM / Wiki</b><span class="cmd">В рамках 716-П и 787-П · экономия &gt;10 млн ₽/год</span><em>ROI 300% за 1 год</em></div>
-              <div class="case-mini"><span class="cmt">Arlight · Производство</span><b>Отдел поддержки с нуля + AI-помощник на NLP</b><span class="cmd">Аутсорс ×3 дешевле · CSAT +20%</span></div>
-              <div class="case-mini"><span class="cmt">М-Групп · FMCG</span><b>ИТ-департамент с нуля</b><span class="cmd">Каталог услуг · RACI · OKR/KPI · экономия ФОТ 1,5 млн ₽/год</span><em>Время реакции 10 мин · окупаемость 4 мес.</em></div>
-              <div class="case-mini"><span class="cmt">ПроСервис · HoReCa</span><b>Портфель цифровизации</b><span class="cmd">16 инициатив · 4 пилота · 10+ вендоров</span><em>Бюджет 1,7+ млн ₽ · дорожная карта</em></div>
+    <div class="career-tl" role="list" aria-label="Карьерный таймлайн">
+      <button class="ctl-dot" data-tgt="era-practice" role="listitem"><span class="ctl-y">2022–н.в.</span><span class="ctl-n">Независимая практика</span></button>
+      <button class="ctl-dot" data-tgt="era-gostech" role="listitem"><span class="ctl-y">2025</span><span class="ctl-n">ЕЦП / ГосТех</span></button>
+      <button class="ctl-dot" data-tgt="era-cons" role="listitem"><span class="ctl-y">2022</span><span class="ctl-n">Axenix</span></button>
+      <button class="ctl-dot" data-tgt="era-merlion" role="listitem"><span class="ctl-y">2021–22</span><span class="ctl-n">MERLION</span></button>
+      <button class="ctl-dot" data-tgt="era-alrosa" role="listitem"><span class="ctl-y">2019–21</span><span class="ctl-n">АЛРОСА</span></button>
+      <button class="ctl-dot" data-tgt="era-psb" role="listitem"><span class="ctl-y">2017–19</span><span class="ctl-n">ПСБ-ФИНАНС</span></button>
+      <button class="ctl-dot" data-tgt="era-sun" role="listitem"><span class="ctl-y">2015–17</span><span class="ctl-n">SUNLIGHT</span></button>
+      <button class="ctl-dot" data-tgt="era-ops" role="listitem"><span class="ctl-y">2011–15</span><span class="ctl-n">Дельта / ВС РФ</span></button>
+    </div>
+
+    <div class="career-cards" role="list" aria-label="Эпохи карьеры">
+<article class="career-card" id="era-practice" role="listitem">
+        <div class="cc-top"><span class="cc-years">2022 – н.в.</span><span class="cc-name">Независимая практика</span></div>
+        <p class="cc-role">Независимый консультант / Директор по трансформации (IT &amp; Operations) · 6 отраслей</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>Компании хотят ИИ-результат, но не видят экономики изменений: эффект не считается до старта.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>Сквозная трансформация: диагностика → ИИ-продукты → экономика в P&amp;L. Каждый кейс — с измеримым результатом.</p></div>
+          <div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">ROI 4 мес.</span><span class="cc-unit">окупаемость · 16+ инициатив</span></div>
+        </div>
+        <div class="prk-table">
+          <div class="prk-row">
+            <div class="prk-head"><span class="prk-logo">R-Vision</span><span class="prk-what">Перезапуск бэк-офиса</span>
+              <div class="prk-pdr"><b>Проблема:</b> бэк-офис разрознен · <b>Решение:</b> аудит 9+ деп., ИИ-атлас 21 ассистент, Jira/Structure · <b>Итог:</b> рестарт за 2 мес.</div>
             </div>
+            <div class="prk-viz prk-viz-flow"><span class="pv-in">9+ деп.</span><span class="pv-rail"><i></i></span><span class="pv-out">ИИ-атлас<br>21 асс.</span></div>
+            <div class="prk-kpi"><b>2 мес</b><span>рестарт</span></div>
           </div>
-        </details>
-      </article>
-
-      <!-- Консалтинг и стратегия -->
-      <article class="era-card" id="era-gostech" data-metric="up" role="listitem" aria-label="Эпоха: gostech">
-        <div class="era-top"><span class="era-years">2025</span></div>
-        <h3 class="era-name">ЕЦП / ГосТех ↔ МинЦифры</h3><p class="era-value">Управляю госсервисами на уровне Минцифры — через регламенты, SLA и ITSM</p>
-        <p class="era-role">Функциональное руководство процессной трансформацией госплатформы</p>
-        <div class="era-anchor"><span class="ea-v">4</span><span class="ea-u">регламента внедрено</span><span class="ea-spark">↗</span></div>
-        <div class="era-tags"><span class="era-tag">BPMN</span><span class="era-tag">ITSM</span><span class="era-tag">SLA</span><span class="era-tag">ИБ</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства и регламенты</summary>
-          <div class="ed-in">
-            <p class="ed-ctx">Управление информационным взаимодействием СРО «ГосТех» (ЕЦП) и ФГИС «Ситуационный центр» Минцифры: единые правила обработки обращений, SLA, приоритеты и жизненный цикл между двумя госсистемами. 11 ролей, зонд-контроль &lt;60 сек, SLA 5 мин.</p>
-            <ul class="ed-list">
-              <li>Регламент информационного взаимодействия утверждён тремя сторонами</li>
-              <li>Регламент обработки инцидентов ИБ — 6 контуров реагирования</li>
-              <li>Регламент учёта ИТ-активов — полный жизненный цикл</li>
-              <li>Сценарий реагирования на аварийные инциденты</li>
-            </ul>
-            <div class="ed-ba"><span class="l">SLA</span><div class="ed-bar"><i style="width:100%"></i></div><span class="ed-num">5 мин</span></div>
+          <div class="prk-row">
+            <div class="prk-head"><span class="prk-logo">Аэроклуб</span><span class="prk-what">AI-виджет + Service Desk</span>
+              <div class="prk-pdr"><b>Проблема:</b> заявка 65 ₽, долгий SLA · <b>Решение:</b> AI-виджет, цифровой SD, ручной труд −30% · <b>Итог:</b> заявка 65→29 ₽.</div>
+            </div>
+            <div class="prk-viz prk-viz-cost"><span class="pv-bar pv-big"></span><span class="pv-arrow">→</span><span class="pv-bar pv-sm"></span><span class="pv-lbl">65→29 ₽</span></div>
+            <div class="prk-kpi"><b>65→29 ₽</b><span>ROI 4 мес · SLA 15 мин</span></div>
           </div>
-        </details>
-        <div class="era-artifacts">
-          <a class="art-tile lb-trigger fig-zoom" data-lb="img/gostekh-reglament.svg" data-lb-mode="natural" data-lb-t="Регламент информационного взаимодействия">
-            <span class="at-ic">⚖️</span><span class="at-tag">Регламент · DOCX</span>
-            <b>Информационное взаимодействие СРО ↔ ФГИС СЦ</b>
-            <span class="at-d">11 ролей · 3 процедуры · SLA 5 мин · зонд &lt;60 сек</span>
-            <span class="at-go">Открыть схему →</span>
-          </a>
-          <a class="art-tile lb-trigger fig-zoom" data-lb="img/artifacts/gostekh-incident-ib.svg" data-lb-mode="natural" data-lb-t="Регламент инцидентов ИБ">
-            <span class="at-ic">🔐</span><span class="at-tag">Регламент · DOCX</span>
-            <b>Обработка инцидентов ИБ</b>
-            <span class="at-d">6 контуров реагирования · приоритизация · RACI</span>
-            <span class="at-go">Открыть схему →</span>
-          </a>
-          <a class="art-tile lb-trigger fig-zoom" data-lb="img/artifacts/gostekh-it-assets.svg" data-lb-mode="natural" data-lb-t="Регламент учёта ИТ-активов">
-            <span class="at-ic">🗄️</span><span class="at-tag">Регламент · DOCX</span>
-            <b>Учёт ИТ-активов</b>
-            <span class="at-d">приёмка → учёт → эксплуатация → инвентаризация → выбытие</span>
-            <span class="at-go">Открыть схему →</span>
-          </a>
-          <a class="art-tile lb-trigger fig-zoom" data-lb="img/artifacts/gostekh-incident-scenario.svg" data-lb-mode="natural" data-lb-t="Сценарий аварийных инцидентов">
-            <span class="at-ic">🚨</span><span class="at-tag">Процесс · DOCX</span>
-            <b>Сценарий аварийных инцидентов</b>
-            <span class="at-d">маршрутная карта · единое окно · светофор · трудозатраты</span>
-            <span class="at-go">Открыть схему →</span>
-          </a>
-          <a class="art-tile lb-trigger fig-zoom" data-lb="img/incident-ib-orig.png" data-lb-mode="natural" data-lb-t="Схема обработки отклонений · Инцидент ИБ">
-            <span class="at-ic">🗺️</span><span class="at-tag">Схема · PDF</span>
-            <b>Обработка отклонений (инцидент ИБ)</b>
-            <span class="at-d">BPMN: инциденты · изменения · релизы · уязвимости</span>
-            <span class="at-go">Открыть схему →</span>
-          </a>
+          <div class="prk-row">
+            <div class="prk-head"><span class="prk-logo">ББР-Банк</span><span class="prk-what">Архитектура ITSM / ITAM / Wiki</span>
+              <div class="prk-pdr"><b>Проблема:</b> нет учёта в рамках 716-П/787-П · <b>Решение:</b> ITSM/ITAM/Wiki-архитектура · <b>Итог:</b> экономия &gt;10 млн ₽/год.</div>
+            </div>
+            <div class="prk-viz prk-viz-ring"><div class="pv-ring"><b>300%</b></div><span class="pv-lbl">ROI за 1 год</span></div>
+            <div class="prk-kpi"><b>300%</b><span>экономия 10+ млн/год</span></div>
+          </div>
+          <div class="prk-row">
+            <div class="prk-head"><span class="prk-logo">Arlight</span><span class="prk-what">Поддержка с нуля + NLP</span>
+              <div class="prk-pdr"><b>Проблема:</b> дорогой аутсорс · <b>Решение:</b> свой отдел + AI-помощник NLP · <b>Итог:</b> аутсорс ×3 дешевле.</div>
+            </div>
+            <div class="prk-viz prk-viz-ring pv-green"><div class="pv-ring"><b>×3</b></div><span class="pv-lbl">дешевле аутсорса</span></div>
+            <div class="prk-kpi"><b>×3</b><span>CSAT +20%</span></div>
+          </div>
+          <div class="prk-row">
+            <div class="prk-head"><span class="prk-logo">М-Групп</span><span class="prk-what">ИТ-департамент с нуля</span>
+              <div class="prk-pdr"><b>Проблема:</b> ИТ-функции нет · <b>Решение:</b> каталог услуг, RACI, OKR/KPI, эконом. ФОТ 1,5 млн ₽/год · <b>Итог:</b> реакция 10 мин.</div>
+            </div>
+            <div class="prk-viz prk-viz-timer"><span class="pv-timer">10<span>мин</span></span><span class="pv-lbl">реакция</span></div>
+            <div class="prk-kpi"><b>10 мин</b><span>окупаемость 4 мес</span></div>
+          </div>
+          <div class="prk-row">
+            <div class="prk-head"><span class="prk-logo">ПроСервис</span><span class="prk-what">Портфель цифровизации</span>
+              <div class="prk-pdr"><b>Проблема:</b> идеи без приоритетов · <b>Решение:</b> портфель 16 иниц., 4 пилота, 10+ вендоров · <b>Итог:</b> бюдж. 1,7+ млн ₽, дорожная карта.</div>
+            </div>
+            <div class="prk-viz prk-viz-donut"><div class="pv-donut"><b>16</b></div><span class="pv-lbl">инициатив</span></div>
+            <div class="prk-kpi"><b>16</b><span>иниц. · 4 пилота</span></div>
+          </div>
         </div>
       </article>
-<article class="era-card" id="era-cons" data-metric="up" role="listitem" aria-label="Эпоха: cons">
-        <div class="era-top"><span class="era-years">2022</span></div>
-        <h3 class="era-name">Axenix / Accenture</h3><p class="era-value">Окупаю IT-стратегию за полгода — через экономику услуг и AI в 6 отраслях</p>
-        <p class="era-role">Консалтинг по стратегии и экономике ИТ</p>
-        <div class="era-anchor"><span class="ea-v">250–400</span><span class="ea-u">млн ₽/год</span><span class="ea-spark">↗</span></div>
-        <div class="era-tags"><span class="era-tag">KPI-модель</span><span class="era-tag">ROI</span><span class="era-tag">Экономика ИТ</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства</summary>
-          <div class="ed-in">
-            <p class="ed-ctx">Стратегический консалтинг: экономика ИТ-услуг, тарификация и KPI-модель для Казахмыс.</p>
-            <ul class="ed-list">
-              <li>Экономия 250–400 млн ₽/год (Казахмыс)</li>
-              <li>ROI 250–300% в первый год</li>
-              <li>Окупаемость &lt; 6 мес.</li>
-            </ul>
-            <div class="ed-ba"><span class="l">Экономия</span><div class="ed-bar"><i style="width:85%"></i></div><span class="ed-num">250–400 млн ₽</span></div>
-            <div class="ed-tools"><span class="ed-tool">KPI-модель</span><span class="ed-tool">ROI</span><span class="ed-tool">Тарификация</span></div>
+
+      <article class="career-card" id="era-gostech" role="listitem">
+        <div class="cc-top"><span class="cc-years">2025</span><span class="cc-name">ЕЦП / ГосТех ↔ МинЦифры</span></div>
+        <p class="cc-role">Функциональное руководство процессной трансформацией госплатформы</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>Две госсистемы без единых правил обработки обращений, SLA и ИБ.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>4 регламента, 11 ролей, 6 контуров ИБ, SLA 5 мин, зонд &lt;60 сек.</p></div>
+          <div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">4</span><span class="cc-unit">регламента · SLA 5 мин</span></div>
+        </div>
+<div class="gst-full">
+          <div class="gst-head"><span class="gst-htag">Госсектор · МинЦифры</span><b>Регламенты и схема взаимодействия ЕЦП ↔ ФГИС</b></div>
+          <div class="rk-grid">
+            <a class="rk-card lb-trigger fig-zoom" data-lb="img/gostekh-reglament.svg" data-lb-mode="natural" data-lb-t="Регламент информационного взаимодействия" href="img/gostekh-reglament.svg" aria-label="Открыть схему: Регламент информационного взаимодействия"><span class="rk-ic">⚖️</span><div><b>Регламент информационного взаимодействия</b><p>11 ролей · 3 процедуры · SLA 5 мин · зонд &lt;60 сек.</p></div><span class="rk-go">Открыть схему →</span></a>
+            <a class="rk-card lb-trigger fig-zoom" data-lb="img/artifacts/gostekh-incident-ib.svg" data-lb-mode="natural" data-lb-t="Регламент инцидентов ИБ" href="img/artifacts/gostekh-incident-ib.svg" aria-label="Открыть схему: Регламент обработки инцидентов ИБ"><span class="rk-ic">🔐</span><div><b>Регламент обработки инцидентов ИБ</b><p>6 контуров реагирования · приоритизация · RACI.</p></div><span class="rk-go">Открыть схему →</span></a>
+            <a class="rk-card lb-trigger fig-zoom" data-lb="img/artifacts/gostekh-it-assets.svg" data-lb-mode="natural" data-lb-t="Регламент учёта ИТ-активов" href="img/artifacts/gostekh-it-assets.svg" aria-label="Открыть схему: Регламент учёта ИТ-активов"><span class="rk-ic">🗄️</span><div><b>Регламент учёта ИТ-активов</b><p>Приёмка → учёт → эксплуатация → инвентаризация → выбытие.</p></div><span class="rk-go">Открыть схему →</span></a>
+            <a class="rk-card lb-trigger fig-zoom" data-lb="img/artifacts/gostekh-incident-scenario.svg" data-lb-mode="natural" data-lb-t="Сценарий аварийных инцидентов" href="img/artifacts/gostekh-incident-scenario.svg" aria-label="Открыть схему: Сценарий реагирования на аварийные инциденты"><span class="rk-ic">🚨</span><div><b>Сценарий реагирования на аварийные инциденты</b><p>Маршрутная карта · единое окно · светофор · трудозатраты.</p></div><span class="rk-go">Открыть схему →</span></a>
           </div>
-        </details>
+          <div class="ck-scheme" aria-label="Схема взаимодействия ЕЦП и ФГИС СЦ">
+            <div class="sch-node sch-left"><span class="sch-icon">🛡️</span><b>СРО «ГосТех»<br>ЕЦП</b><span class="sch-tip">Единая цифровая платформа: 11 ролей процесса передачи обращений.</span></div>
+            <div class="sch-flow" aria-hidden="true">
+              <span class="sch-label sch-top">зонд-контроль &lt;60 сек</span>
+              <div class="sch-rail"><i></i></div>
+              <span class="sch-label sch-bot">SLA 5 мин · 6 контуров ИБ</span>
+            </div>
+            <div class="sch-node sch-right"><span class="sch-icon">📡</span><b>ФГИС «Ситуационный центр»<br>МинЦифры</b><span class="sch-tip">Приём и обработка: обращения, инциденты ИБ, жизненный цикл.</span></div>
+          </div>
+        </div>
       </article>
 
-      <!-- MERLION -->
-      <article class="era-card" id="era-merlion" data-metric="acc" role="listitem" aria-label="Эпоха: merlion">
-        <div class="era-top"><span class="era-years">2021–2022</span></div>
-        <h3 class="era-name">MERLION</h3><p class="era-value">Делаю IT-блок на ~700 человек измеримым — через KPI-модель и SLA</p>
-        <p class="era-role">Руководитель методологии и отчётности ИТ</p>
-        <div class="era-anchor"><span class="ea-v">700+</span><span class="ea-u">сотрудников ИТ под KPI</span></div>
-        <div class="era-tags"><span class="era-tag">KPI/OKR</span><span class="era-tag">SLA</span><span class="era-tag">Аллокация</span><span class="era-tag">T2M</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства</summary>
-          <div class="ed-in">
-            <p class="ed-ctx">Построил KPI-модель и отчётность на весь IT-блок: аллокация затрат, Time2Market, SLA «Ситилинк».</p>
-            <ul class="ed-list">
-              <li>Покрытие KPI — ~700 человек</li>
-              <li>Time2Market −40%</li>
-              <li>SLA «Ситилинк» — 90%</li>
-              <li>Автоматизация премирования по KPI</li>
-            </ul>
-            <div class="ed-ba"><span class="l">SLA</span><div class="ed-bar"><i style="width:90%"></i></div><span class="ed-num">90%</span></div>
-            <div class="ed-tools"><span class="ed-tool">Jira/Structure</span><span class="ed-tool">Confluence</span><span class="ed-tool">BI</span><span class="ed-tool">OKR</span></div>
+      <article class="career-card" id="era-cons" role="listitem">
+        <div class="cc-top"><span class="cc-years">2022</span><span class="cc-name">Axenix / Accenture</span></div>
+        <p class="cc-role">Консалтинг по стратегии и экономике ИТ</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>ИТ-затраты не окупаются, ROI и тарификация не считаются.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>Экономика ИТ-услуг, тарификация и KPI-модель для Казахмыс.</p></div>
+<div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">250–400</span><span class="cc-unit">млн ₽/год · ROI 250–300%</span></div>
+        </div>
+        <div class="era-viz era-viz-axis">
+          <div class="ev-label">Экономия, млн ₽/год</div>
+          <div class="ev-chart">
+            <div class="ev-col"><i style="height:100%"></i><span>200</span></div>
+            <div class="ev-col"><i style="height:130%"></i><span>300</span></div>
+            <div class="ev-col ev-hero"><i style="height:170%"></i><span>400</span></div>
+            <div class="ev-col"><i style="height:82%"></i><span>0,6× ROI</span></div>
           </div>
-        </details>
+          <div class="ev-cap">Казахмыс · KPI-модель · окупаемость &lt;6 мес.</div>
+        </div>
       </article>
 
-      <!-- АЛРОСА -->
-      <article class="era-card" id="era-alrosa" data-metric="up" role="listitem" aria-label="Эпоха: alrosa">
-        <div class="era-top"><span class="era-years">2019–2021</span></div>
-        <h3 class="era-name">АЛРОСА</h3><p class="era-value">Превращаю IT холдинга в сервис с NPS 8,76 — за 12 месяцев</p>
-        <p class="era-role">Главный эксперт аппарата управления</p>
-        <div class="era-anchor"><span class="ea-v">NPS 7,46 → 8,76</span><span class="ea-u">за год</span></div>
-        <div class="era-tags"><span class="era-tag">Централизация</span><span class="era-tag">NPS</span><span class="era-tag">SLA</span><span class="era-tag">100+</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства</summary>
-          <div class="ed-in">
-            <p class="ed-ctx">Централизовал IT-функцию холдинга: 100+ специалистов в едином контуре, измеримые SLA.</p>
-            <ul class="ed-list">
-              <li>NPS услуг 7,46 → 8,76 за год</li>
-              <li>Централизация 100+ специалистов</li>
-              <li>Сокращение незакрытых обращений на 10%</li>
-              <li>Корректность эскалации +20%</li>
-            </ul>
-            <div class="ed-ba"><span class="l">NPS</span><div class="ed-bar"><i style="width:100%"></i></div><span class="ed-num">7,46 → 8,76</span></div>
-          </div>
-        </details>
+      <article class="career-card" id="era-merlion" role="listitem">
+        <div class="cc-top"><span class="cc-years">2021–2022</span><span class="cc-name">MERLION</span></div>
+        <p class="cc-role">Руководитель методологии и отчётности ИТ</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>IT-блок ~700 человек без единой KPI-модели и SLA.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>KPI/OKR-модель, аллокация затрат, Time2Market, автоматизация премирования.</p></div>
+<div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">~700</span><span class="cc-unit">чел. под KPI · T2M −40% · SLA 90%</span></div>
+        </div>
+        <div class="era-viz era-viz-gauge">
+          <div class="ev-gauge"><div class="ev-g-fill" style="width:75%"></div><span class="ev-g-in">700+ чел.</span></div>
+          <div class="ev-caps"><span>Time2Market <b>−40%</b></span><span>SLA «Ситилинк» <b>90%</b></span></div>
+        </div>
       </article>
 
-      <!-- SUNLIGHT -->
-      <article class="era-card" id="era-psb" data-metric="down" role="listitem" aria-label="Эпоха: psb">
-        <div class="era-top"><span class="era-years">2017–2019</span></div>
-        <h3 class="era-name">ПСБ-ФИНАНС</h3><p class="era-value">Снижаю OPEX на 42% — через трёхуровневую поддержку и ITSM</p>
-        <p class="era-role">Директор департамента эксплуатации ИС</p>
-        <div class="era-anchor"><span class="ea-v">−42%</span><span class="ea-u">OPEX</span><span class="ea-spark">↘</span></div>
-        <div class="era-tags"><span class="era-tag">1С:ITIL</span><span class="era-tag">3 линии</span><span class="era-tag">29 чел.</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства</summary>
-          <div class="ed-in">
-            <ul class="ed-list">
-              <li>3 линии поддержки с нуля</li>
-              <li>Обращения −47%</li>
-              <li>Команда 29 специалистов</li>
-            </ul>
-            <div class="ed-ba"><span class="l">Обращения</span><div class="ed-bar"><i style="width:53%"></i></div><span class="ed-num">−47%</span></div>
-            <div class="ed-tools"><span class="ed-tool">1С:ITIL</span><span class="ed-tool">SLA</span><span class="ed-tool">ITSM</span></div>
+      <article class="career-card" id="era-alrosa" role="listitem">
+        <div class="cc-top"><span class="cc-years">2019–2021</span><span class="cc-name">АЛРОСА</span></div>
+        <p class="cc-role">Главный эксперт аппарата управления</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>IT холдинга фрагментирован, нет измеримых SLA, локации сопротивляются.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>Централизовал IT-функцию: 100+ специалистов, измеримые SLA.</p></div>
+<div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">NPS 7,46→8,76</span><span class="cc-unit">за год · обращений −10%</span></div>
+        </div>
+        <div class="era-viz era-viz-line">
+          <div class="ev-line">
+            <div class="ev-l-dot" style="left:8%;bottom:38%"><b>7,46</b><span>2019</span></div>
+            <svg viewBox="0 0 200 60" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="0" class="ev-lgrid"/><line x1="0" y1="30" x2="200" y2="30" class="ev-lgrid"/><line x1="0" y1="60" x2="200" y2="60" class="ev-lgrid"/><path d="M10,44 L70,40 L130,26 L190,10" fill="none" stroke="#16a34a" stroke-width="2.5"/><circle cx="190" cy="10" r="4" fill="#16a34a"/></svg>
+            <div class="ev-l-dot" style="left:82%;bottom:12%"><b>8,76</b><span>2020</span></div>
           </div>
-        </details>
-      </article>
-<article class="era-card" id="era-sun" data-metric="acc" role="listitem" aria-label="Эпоха: sun">
-        <div class="era-top"><span class="era-years">2015–2017</span></div>
-        <h3 class="era-name">SUNLIGHT</h3><p class="era-value">Держу 260 торговых точек под SLA — командой из 42 специалистов</p>
-        <p class="era-role">Руководитель управления техподдержки</p>
-        <div class="era-anchor"><span class="ea-v">260</span><span class="ea-u">ТТ · 42 специалиста</span></div>
-        <div class="era-tags"><span class="era-tag">SLA/OLA/UC</span><span class="era-tag">Zabbix</span><span class="era-tag">260 ТТ</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства</summary>
-          <div class="ed-in">
-            <p class="ed-ctx">Руководил техподдержкой 260 торговых точек: модель SLA/OLA/UC, Zabbix, команда 42 специалиста.</p>
-            <ul class="ed-list">
-              <li>260 ТТ под единым SLA</li>
-              <li>42 специалиста поддержки</li>
-              <li>Внедрены OLA/UC и мониторинг Zabbix</li>
-            </ul>
-            <div class="ed-tools"><span class="ed-tool">SLA/OLA/UC</span><span class="ed-tool">Zabbix</span><span class="ed-tool">1С:ITIL</span></div>
-          </div>
-        </details>
+          <div class="ev-caps"><span>обращения <b>−10%</b></span><span>эскалация <b>+20%</b></span></div>
+        </div>
       </article>
 
-      <!-- ПСБ-ФИНАНС -->
-      
-
-      <!-- Дельта / Инженер-Центр / ВС РФ -->
-      <article class="era-card" id="era-ops" data-metric="acc" role="listitem" aria-label="Эпоха: ops">
-        <div class="era-top"><span class="era-years">2011–2015</span></div>
-        <h3 class="era-name">Дельта · Инженер-Центр · ВС РФ</h3><p class="era-value">Строю инженерные команды с нуля — от 25 разработчиков до 32 баз 1С</p>
-        <p class="era-role">Руководитель разработки → программист 1С → командир отделения</p>
-        <div class="era-anchor"><span class="ea-v">25 + 32</span><span class="ea-u">чел. команда · базы 1С</span></div>
-        <div class="era-tags"><span class="era-tag">1С</span><span class="era-tag">ManageEngine</span><span class="era-tag">15 чел.</span></div>
-        <details class="era-details" open>
-          <summary>Доказательства</summary>
-          <div class="ed-in">
-            <ul class="ed-list">
-              <li>Отдел разработки — 25 человек</li>
-              <li>32 базы 1С 7.7 → 8.2 без потерь</li>
-              <li>ManageEngine, Служба качества</li>
-              <li>Командир отделения — 15 человек</li>
-            </ul>
+      <article class="career-card" id="era-psb" role="listitem">
+        <div class="cc-top"><span class="cc-years">2017–2019</span><span class="cc-name">ПСБ-ФИНАНС</span></div>
+        <p class="cc-role">Директор департамента эксплуатации ИС</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>Высокий OPEX ИТ-эксплуатации, обращения бесконтрольны.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>Построил 3 линии поддержки с нуля, внедрил 1С:ITIL и ITSM.</p></div>
+<div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">−42%</span><span class="cc-unit">OPEX · обращения −47%</span></div>
+        </div>
+        <div class="era-viz era-viz-water">
+          <div class="ev-water">
+            <div class="ev-w-bar"><span class="ev-w-v">100%</span><i style="height:100%;background:#e5484d"></i></div>
+            <div class="ev-w-bar"><span class="ev-w-v">71%</span><i style="height:71%;background:#f59e0b"></i></div>
+            <div class="ev-w-bar"><span class="ev-w-v">53%</span><i style="height:53%;background:#fbbf24"></i></div>
+            <div class="ev-w-bar ev-wl"><span class="ev-w-v">−42%</span><i style="height:58%;background:#16a34a"></i></div>
           </div>
-        </details>
+          <div class="ev-cap">ПСБ-ФИНАНС · 3 линии поддержки с нуля · команда 29 специалистов</div>
+        </div>
       </article>
 
-      <!-- ЕЦП / ГосТех -->
-      
+<article class="career-card" id="era-sun" role="listitem">
+        <div class="cc-top"><span class="cc-years">2015–2017</span><span class="cc-name">SUNLIGHT</span></div>
+        <p class="cc-role">Руководитель управления техподдержки</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Проблема</span><p>620 торговых точек без единого SLA и мониторинга.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>SLA/OLA/UC, мониторинг Zabbix, команда 42 специалиста, ночная линия L0–L2.</p></div>
+<div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">620</span><span class="cc-unit">ТТ под единым SLA · 42 специалиста</span></div>
+        </div>
+        <div class="era-viz era-viz-sun">
+          <div class="ev-sun-left">
+            <span class="ev-sun-num">620</span><span class="ev-sun-cap">торговых точек<br>под единым SLA</span>
+          </div>
+          <div class="ev-sun-meter">
+            <div class="ev-gauge"><div class="ev-g-fill" style="width:86%"></div><span class="ev-g-in">SLA 90%</span></div>
+            <div class="ev-sun-bars">
+              <span><i style="width:100%"></i><em>SLA/OLA</em></span>
+              <span><i style="width:78%"></i><em>UC</em></span>
+              <span><i style="width:64%"></i><em>Zabbix</em></span>
+            </div>
+          </div>
+          <div class="ev-sun-right">
+            <span class="ev-sun-pv">42</span><span class="ev-sun-capl">специалиста</span>
+            <span class="ev-sun-line">ночная линия L0–L2</span>
+          </div>
+        </div>
+      </article>
 
+      <article class="career-card" id="era-ops" role="listitem">
+        <div class="cc-top"><span class="cc-years">2011–2015</span><span class="cc-name">Дельта · Инженер-Центр · ВС РФ</span></div>
+        <p class="cc-role">Руководитель разработки → программист 1С → командир отделения</p>
+        <div class="cc-cols">
+          <div class="cc-blk"><span class="cc-lbl">Действие</span><p>Собрал отдел разработки, мигрировал 32 базы 1С 7.7→8.2, служба качества.</p></div>
+          <div class="cc-blk"><span class="cc-lbl">Команда</span><p>25 разработчиков + 32 базы 1С · ManageEngine · 15 чел. в отделении.</p></div>
+<div class="cc-blk cc-res"><span class="cc-lbl">Результат</span><span class="cc-num">25 + 32</span><span class="cc-unit">чел. команда · базы 1С</span></div>
+        </div>
+        <div class="era-viz era-viz-merge">
+          <div class="ev-merge">
+            <span class="ev-m-in">Отдел разработки<br><b>25 чел.</b></span>
+            <span class="ev-m-rail"><i></i></span>
+            <span class="ev-m-out">32 базы 1С<br><b>7.7 → 8.2</b></span>
+          </div>
+          <div class="ev-caps"><span>ManageEngine</span><span>Служба качества</span><span>отделение 15 чел.</span></div>
+        </div>
+      </article>
     </div>
-    <div class="t2-outro">Каждый этап сформировал уникальный системный взгляд на бизнес — итог: экономия до <b>42% OPEX</b>, <b>ROI от 4 месяцев</b>, <b>250–400 млн ₽/год</b> на проекте.</div>
+
+<div class="career-outro">Каждый этап сформировал уникальный системный взгляд на бизнес — итог: экономия до <b>42% OPEX</b>, <b>ROI от 4 месяцев</b>, <b>250–400 млн ₽/год</b> на проекте.</div>
   </div>
 </section>
+
+
+<section class="ck-section" id="ck-thinking" aria-label="Как я думаю">
+    <div class="think-head">
+      <span class="csh-tag">За кадром</span>
+      <h2>Как я думаю</h2>
+      <p>Руководитель, который считает эффект — это и про честность с самим собой. Несколько вещей, которые я вынес из практики.</p>
+    </div>
+    <div class="think-grid">
+      <div class="think-card">
+        <span class="tk-ic" data-feather="alert-triangle"></span>
+        <b>Что было сложно</b>
+        <p>Централизация IT-функции в АЛРОСА шла через сопротивление локаций: люди боялись потерять «свой» ИТ. Пришлось не только строить SLA, но и менять культуру и управление ожиданиями.</p>
+      </div>
+      <div class="think-card">
+        <span class="tk-ic" data-feather="refresh-cw"></span>
+        <b>Где ошибался</b>
+        <p>Раньше переоценивал скорость внедрения: считал, что регламент примут сразу. Научился закладывать цикл согласования и обратной связи — и сначала продавать идею, потом внедрять.</p>
+      </div>
+      <div class="think-card">
+        <span class="tk-ic" data-feather="trending-up"></span>
+        <b>Как принимаю решения</b>
+        <p>Сначала экономика: считаю эффект и ROI до старта. Если цифры не сходятся — не начинаю. Решение принимаю быстро, но только после проверки на цифрах.</p>
+      </div>
+      <div class="think-card">
+        <span class="tk-ic" data-feather="users"></span>
+        <b>Что ценю в команде</b>
+        <p>Вижу и ответственно называю деньги за спиной сотрудников, уважаю тех, кто признаёт ошибку первым, и строю команду, которая может работать без меня.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA-БЛОК ===== -->
+  
+
+<section class="ck-section cta-zk" id="ck-cta" aria-label="Обсудить проект">
+    <div class="cta-zk-in">
+      <h2>Хотите разобрать ваш кейс?</h2>
+      <p>Приведу измеримый результат: экономия 250–400 млн ₽/год, ROI от 4 месяцев, −42% OPEX. Разберу ваш случай на цифрах — без обязательств.</p>
+      <div class="cta-zk-actions">
+        <a class="btn p" href="mailto:chev.alex@mail.ru" data-nav>Обсудить проект <span class="ar">→</span></a>
+        <a class="btn gh" href="contact.html" data-nav>Контакты</a>
+      </div>
+      <p class="cta-zk-note">Отвечаю в течение 2 часов в рабочее время. Готов к релокации.</p>
+    </div>
+  </section>
+</div>
+</div>
+
+
 </div>
 </div>
 </main>
@@ -728,23 +1145,140 @@ html[data-theme="dark"] .era-outro{background:rgba(29,111,224,.12);color:#e8edf5
 <script>
 (function(){
 'use strict';
-/* расширить/свернуть все */
-var t2=document.getElementById('tier2');
-if(t2){
-  var exp=document.getElementById('expAll'), clp=document.getElementById('clpAll');
-  var dets=t2.querySelectorAll('.era-details');
-  exp.addEventListener('click',function(){ dets.forEach(function(d){d.setAttribute('open',''); d.querySelector('summary').setAttribute('aria-expanded','true');}); });
-  clp.addEventListener('click',function(){ dets.forEach(function(d){d.removeAttribute('open'); d.querySelector('summary').setAttribute('aria-expanded','false');}); });
+/* Логика карьерного блока: клики по таймлайн-точкам обрабатываются ниже (ctl-dot). */
+})();
+/* ===== КЕЙСЫ: фильтры по отраслям + счётчик ===== */
+(function(){
+'use strict';
+var chips=document.querySelectorAll('.ck-chip');
+var cards=document.querySelectorAll('.ck-card');
+var count=document.getElementById('ckCount');
+function apply(f){
+  var n=0;
+  cards.forEach(function(c){
+    var ok=(f==='all')||(c.getAttribute('data-ck')===f);
+    c.style.display=ok?'':'none';
+    if(ok)n++;
+  });
+  if(count)count.textContent='Показано: '+n+' '+(n%10===1&&n%100!==11?'кейс':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'кейса':'кейсов'));
 }
-/* reveal fallback (без scroll-timeline) */
-var supportsSTL = CSS.supports&&CSS.supports('animation-timeline: view()');
-if(!supportsSTL){
-  var cards=document.querySelectorAll('.era-card');
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:0.1});
-  cards.forEach(function(c){ io.observe(c); });
+if(chips.length){
+  chips.forEach(function(ch){
+    ch.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('on')});
+      ch.classList.add('on');
+      apply(ch.getAttribute('data-filter'));
+    });
+  });
+  apply('all');
 }
+})();
+
+/* ===== КАРЬЕРНЫЙ ТАЙМЛАЙН: клик по точке → к эпохе ===== */
+(function(){
+'use strict';
+var dots=document.querySelectorAll('.ctl-dot');
+dots.forEach(function(d){
+  d.addEventListener('click',function(){
+    var tgt=document.getElementById(d.getAttribute('data-tgt'));
+    if(tgt){ tgt.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+})();
+
+/* ===== FEATHER ICONS ===== */
+(function(){
+'use strict';
+function initFeather(){
+  if(typeof feather!=='undefined'){ feather.replace(); }
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initFeather);}
+else{initFeather();}
+})();
+
+/* ===== CHART.JS — мини-визуализации кейсов ===== */
+(function(){
+'use strict';
+function initCharts(){
+  if(typeof Chart==='undefined'){/* CDN не загрузился — покажем SVG-фолбэк */return;}
+  Chart.defaults.font.family='Inter, system-ui, sans-serif';
+  Chart.defaults.font.size=11;
+  Chart.defaults.color='#7fb3ca';
+
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  Chart.defaults.color=dark?'#9fc0e0':'#5b6b7d';
+
+  function mk(id,cfg){
+    var el=document.getElementById(id);
+    if(!el)return;
+    try{ new Chart(el,cfg); }catch(e){}
+  }
+
+  /* Аэроклуб: бар-чарт стоимости заявки 65→29 */
+  mk('ck-aeroclub',{
+    type:'bar',
+    data:{labels:['До','После'],
+      datasets:[{data:[65,29],backgroundColor:['rgba(231,90,114,.85)','rgba(34,197,94,.85)'],borderRadius:6,barPercentage:.6}]},
+    options:{responsive:true,indexAxis:'y',maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+c.parsed.x+' ₽';}}}},
+      scales:{x:{title:{display:true,text:'₽'}},y:{display:false}}}
+  });
+  /* ББР: круговая ROI 300% */
+  mk('ck-bbr',{
+    type:'doughnut',
+    data:{labels:['ROI 300%','Прочие'],
+      datasets:[{data:[300,100],backgroundColor:['#22c55e','#cbd5e1'],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
+      plugins:{legend:{position:'bottom',labels:{boxWidth:8}},tooltip:{callbacks:{label:function(c){return c.label+': '+c.parsed+'%';}}}}}
+  });
+  /* Arlight: сравнение стоимости аутсорс vs свой отдел */
+  mk('ck-arlight',{
+    type:'bar',
+    data:{labels:['Аутсорс','Свой отдел'],
+      datasets:[{data:[3,1],backgroundColor:['rgba(231,90,114,.85)','rgba(34,197,94,.85)'],borderRadius:6,barPercentage:.5}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' ×'+c.parsed.x+' затрат';}}}},
+      scales:{x:{title:{display:true,text:'относительные затраты'}},y:{display:false}}}
+  });
+  /* М-Групп: экономия ФОТ 1,5 млн/год */
+  mk('ck-mgrup',{
+    type:'bar',
+    data:{labels:['Было','Стало'],
+      datasets:[{data:[2.6,1.1],backgroundColor:['rgba(231,90,114,.85)','rgba(34,197,94,.85)'],borderRadius:6,barPercentage:.55}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' ФОТ '+c.parsed.y+' млн ₽/год';}}}},
+      scales:{y:{title:{display:true,text:'млн ₽/год'}},x:{display:false}}}
+  });
+  /* R-Vision: 9 департаментов, 21 ассистент */
+  mk('ckrv',{
+    type:'bar',
+    data:{labels:['Департаменты','Ассистенты'],
+      datasets:[{data:[9,21],backgroundColor:['rgba(29,111,224,.8)','rgba(34,197,94,.85)'],borderRadius:6,barPercentage:.6}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{y:{display:false},x:{display:false}}}
+  });
+  /* ПроСервис: 16 инициатив, 4 пилота */
+  mk('ck-proserv',{
+    type:'bar',
+    data:{labels:['Инициативы','Пилоты'],
+      datasets:[{data:[16,4],backgroundColor:['rgba(29,111,224,.8)','rgba(15,143,127,.85)'],borderRadius:6,barPercentage:.6}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{y:{display:false},x:{display:false}}}
+  });
+  /* ГосТех: 11 ролей, SLA 5 мин */
+  mk('ck-gostech',{
+    type:'bar',
+    data:{labels:['Роли','SLA мин'],
+      datasets:[{data:[11,5],backgroundColor:['rgba(29,111,224,.8)','rgba(245,196,81,.9)'],borderRadius:6,barPercentage:.6}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{y:{display:false},x:{display:false}}}
+  });
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initCharts);}
+else{initCharts();}
 })();
 </script>
 </body>
