@@ -8,6 +8,9 @@ if(!btn) return;
 var saved=null;
 try{ saved=localStorage.getItem('mt-theme'); }catch(e){}
 var html=document.documentElement;
+var mq=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+function theme(){ return (mq && mq.matches) ? 'dark' : 'light'; }
+if(!saved && mq){ html.setAttribute('data-theme', theme()); if(mq.addEventListener) mq.addEventListener('change', function(){ if(!localStorage.getItem('mt-theme')){ html.setAttribute('data-theme', theme()); } }); }
 if(saved){ html.setAttribute('data-theme', saved); updateIcon(); }
 btn.addEventListener('click', function(){
 var cur=html.getAttribute('data-theme')==='dark';
